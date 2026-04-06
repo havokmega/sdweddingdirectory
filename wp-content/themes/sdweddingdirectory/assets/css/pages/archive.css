@@ -1,0 +1,104 @@
+/* =============================================
+   Archive Pages — pages/archive.css
+   ============================================= */
+
+/* --- Archive Grid Layout --- */
+.archive-grid {
+  padding-bottom: 40px;
+}
+
+/* --- Vendor Category Filter Sidebar --- */
+.archive-filtered {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.filter-sidebar {
+  padding: 24px;
+  background: var(--sdwd-soft);
+  border-radius: 8px;
+  position: sticky;
+  top: 100px;
+}
+
+.filter-sidebar__title {
+  font-size: var(--sdwd-h3);
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--sdwd-border);
+  padding-bottom: 20px;
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-group__label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: var(--sdwd-subtext);
+}
+
+.filter-group__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--sdwd-body-text);
+  cursor: pointer;
+}
+
+.filter-group__option input[type="checkbox"],
+.filter-group__option input[type="radio"] {
+  accent-color: var(--sdwd-accent);
+}
+
+.filter-sidebar__submit {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.filter-sidebar__reset {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--sdwd-muted);
+}
+
+/* --- No Results --- */
+.archive-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--sdwd-muted);
+}
+
+.archive-empty__title {
+  margin-bottom: 12px;
+}
+
+/* --- Mobile Filter --- */
+@media (max-width: 768px) {
+  .archive-filtered {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-sidebar {
+    position: static;
+  }
+}

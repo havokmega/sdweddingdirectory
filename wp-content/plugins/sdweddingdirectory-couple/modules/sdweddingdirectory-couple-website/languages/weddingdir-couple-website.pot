@@ -1,0 +1,885 @@
+# Copyright (C) 2024 WeddingDir - Couple Website
+# This file is distributed under the same license as the WeddingDir - Couple Website package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WeddingDir - Couple Website 1.3.6\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/weddingdir-couple-website\n"
+"POT-Creation-Date: 2024-12-02 19:41:58+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin-file/custom-post/index.php:83
+msgctxt "Post Type General Name"
+msgid "Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:85
+msgctxt "Post Type Singular Name"
+msgid "Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:87 admin-file/custom-post/index.php:89
+#: admin-file/custom-post/index.php:131 admin-file/custom-post/index.php:155
+#: filters-hooks/website-config/index.php:112
+msgid "Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:91
+msgid "Website Archives"
+msgstr ""
+
+#: admin-file/custom-post/index.php:93
+msgid "Website Attributes"
+msgstr ""
+
+#: admin-file/custom-post/index.php:95
+msgid "Website Parent Item:"
+msgstr ""
+
+#: admin-file/custom-post/index.php:97
+msgid "All Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:99 admin-file/custom-post/index.php:101
+msgid "Add New Post"
+msgstr ""
+
+#: admin-file/custom-post/index.php:103
+msgid "New Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:105
+msgid "Edit Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:107
+msgid "Update Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:109 admin-file/custom-post/index.php:111
+#: filters-hooks/right-widget/index.php:99
+msgid "View Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:113
+msgid "Search Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:115
+msgid "Not found Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:117
+msgid "Not found in Trash Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:119
+msgid "Featured Image For Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:121
+msgid "Set featured image For Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:123
+msgid "Remove featured image For Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:125
+msgid "Use as featured image In Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:127
+msgid "Insert into Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:129
+msgid "Uploaded to this Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:133
+msgid "Website list navigation"
+msgstr ""
+
+#: admin-file/custom-post/index.php:135
+msgid "Filter Website"
+msgstr ""
+
+#: admin-file/custom-post/index.php:157
+msgid "Couple Can upload own wedding photoes, videoes and stories."
+msgstr ""
+
+#: admin-file/custom-post/index.php:239
+msgid "Category"
+msgstr ""
+
+#: admin-file/custom-post/index.php:255
+msgid "Location"
+msgstr ""
+
+#: admin-file/meta-box/index.php:64
+msgid "Select Website Template"
+msgstr ""
+
+#: admin-file/meta-box/index.php:82
+msgid "Website Template"
+msgstr ""
+
+#: admin-file/meta-box/index.php:91
+msgid "Select Template"
+msgstr ""
+
+#: admin-file/meta-box/index.php:103
+msgid "-- Choose Template --"
+msgstr ""
+
+#: admin-file/meta-box/index.php:112
+msgid "Website Template One"
+msgstr ""
+
+#: admin-file/meta-box/index.php:125
+msgid "Couple Information"
+msgstr ""
+
+#: admin-file/meta-box/index.php:136 couple-file/groom-bride-info/index.php:347
+msgid "Bride First Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:145 couple-file/groom-bride-info/index.php:391
+msgid "Bride Last Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:155
+msgid "Groom  First Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:165 couple-file/groom-bride-info/index.php:250
+msgid "Groom Last Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:175
+msgid "Wedding Date"
+msgstr ""
+
+#: admin-file/meta-box/index.php:184 admin-file/meta-box/index.php:862
+msgid "Bride Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:195 admin-file/meta-box/index.php:792
+msgid "Groom Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:208
+msgid "About Couple"
+msgstr ""
+
+#: admin-file/meta-box/index.php:219
+msgid "About Couple Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:223 couple-file/about-us/index.php:195
+#: couple-file/bridesmaids/index.php:197 couple-file/gallery/index.php:197
+#: couple-file/groomsman/index.php:197 couple-file/our-story/index.php:197
+msgid "The Couple"
+msgstr ""
+
+#: admin-file/meta-box/index.php:230
+msgid "About Couple Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:236 admin-file/meta-box/index.php:412
+#: admin-file/meta-box/index.php:498 admin-file/meta-box/index.php:621
+#: admin-file/meta-box/index.php:765 admin-file/meta-box/index.php:835
+#: admin-file/meta-box/index.php:905 admin-file/meta-box/index.php:992
+#: admin-file/meta-box/index.php:1060
+msgid "We are so excited to celebrate our special day with our family and friends. Thank you so much for visiting our wedding website!"
+msgstr ""
+
+#: admin-file/meta-box/index.php:243 couple-file/about-us/index.php:304
+msgid "About Groom"
+msgstr ""
+
+#: admin-file/meta-box/index.php:254 admin-file/meta-box/index.php:298
+msgid "Instagram Profile"
+msgstr ""
+
+#: admin-file/meta-box/index.php:265 admin-file/meta-box/index.php:309
+msgid "Facebook Profile"
+msgstr ""
+
+#: admin-file/meta-box/index.php:276 admin-file/meta-box/index.php:320
+msgid "Twitter Profile"
+msgstr ""
+
+#: admin-file/meta-box/index.php:287 couple-file/about-us/index.php:480
+msgid "About Bride"
+msgstr ""
+
+#: admin-file/meta-box/index.php:334 admin-file/meta-box/index.php:345
+#: couple-file/groom-bride-info/index.php:426
+msgid "Header Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:358 admin-file/meta-box/index.php:369
+msgid "Footer Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:384 couple-file/our-story/index.php:133
+msgid "Couple Story"
+msgstr ""
+
+#: admin-file/meta-box/index.php:395
+msgid "Couple Story Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:399
+msgid "OUR STORY"
+msgstr ""
+
+#: admin-file/meta-box/index.php:406
+msgid "Couple Story Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:431 database/index.php:153
+msgid "Story Title"
+msgstr ""
+
+#: admin-file/meta-box/index.php:439
+msgid "Story Overview"
+msgstr ""
+
+#: admin-file/meta-box/index.php:447 database/index.php:155
+msgid "Story Date"
+msgstr ""
+
+#: admin-file/meta-box/index.php:455
+msgid "Story Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:470 couple-file/when-and-where/index.php:55
+msgid "When & Where"
+msgstr ""
+
+#: admin-file/meta-box/index.php:481
+msgid "When & Where Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:485
+msgid "WHEN & WHERE"
+msgstr ""
+
+#: admin-file/meta-box/index.php:492
+msgid "When & Where Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:517
+msgid "Event Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:525 database/index.php:924
+msgid "Event Content"
+msgstr ""
+
+#: admin-file/meta-box/index.php:533 database/index.php:926
+msgid "Event Date"
+msgstr ""
+
+#: admin-file/meta-box/index.php:541 database/index.php:928
+msgid "Event Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:552
+msgid "Map Address"
+msgstr ""
+
+#: admin-file/meta-box/index.php:561
+msgid "Event latitude"
+msgstr ""
+
+#: admin-file/meta-box/index.php:570
+msgid "Event longitude"
+msgstr ""
+
+#: admin-file/meta-box/index.php:579
+msgid "Event Icon"
+msgstr ""
+
+#: admin-file/meta-box/index.php:593
+msgid "Gift & Registry"
+msgstr ""
+
+#: admin-file/meta-box/index.php:604
+msgid "Gift & Registry Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:608
+msgid "GIFT REGISTRY"
+msgstr ""
+
+#: admin-file/meta-box/index.php:615
+msgid "Gift & Registry Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:630 couple-file/rsvp/index.php:55
+#: singular-file/section-list/rsvp/index.php:56
+msgid "RSVP"
+msgstr ""
+
+#: admin-file/meta-box/index.php:641
+msgid "RSVP Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:652
+msgid "RSVP Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:665
+msgid "RSVP Background Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:678
+msgid "Counter"
+msgstr ""
+
+#: admin-file/meta-box/index.php:689
+msgid "Counter Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:693
+msgid "~ St. Augustine ~"
+msgstr ""
+
+#: admin-file/meta-box/index.php:700
+msgid "Counter Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:706
+msgid "Better to have loved and lost, than to have never loved at all."
+msgstr ""
+
+#: admin-file/meta-box/index.php:713
+msgid "Counter Section Date"
+msgstr ""
+
+#: admin-file/meta-box/index.php:724
+msgid "Counter Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:737 database/index.php:363
+#: singular-file/section-list/groomsmen/index.php:56
+msgid "Groomsmen"
+msgstr ""
+
+#: admin-file/meta-box/index.php:748 admin-file/meta-box/index.php:818
+msgid "Groomsmen Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:752
+msgid "THE GROOMSMEN"
+msgstr ""
+
+#: admin-file/meta-box/index.php:759
+msgid "Groomsmen Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:784 database/index.php:369
+msgid "Groom Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:807 couple-file/bridesmaids/index.php:55
+#: database/index.php:502 singular-file/section-list/bridesmaids/index.php:56
+msgid "Bridesmaids"
+msgstr ""
+
+#: admin-file/meta-box/index.php:822
+msgid "THE BRIDESMAIDS"
+msgstr ""
+
+#: admin-file/meta-box/index.php:829
+msgid "Brides Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:854
+msgid "Bride Title"
+msgstr ""
+
+#: admin-file/meta-box/index.php:877
+msgid "Testimonials"
+msgstr ""
+
+#: admin-file/meta-box/index.php:888
+msgid "Testimonials Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:892
+msgid "WHAT THEY SAY"
+msgstr ""
+
+#: admin-file/meta-box/index.php:899
+msgid "Testimonials Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:912
+msgid "Testimonials Background Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:935 database/index.php:776
+msgid "Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:943 database/index.php:778
+msgid "Content"
+msgstr ""
+
+#: admin-file/meta-box/index.php:964 database/index.php:643
+msgid "Couple Gallery"
+msgstr ""
+
+#: admin-file/meta-box/index.php:975
+msgid "Captured Moments Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:979
+msgid "CAPTURED MOMENTS"
+msgstr ""
+
+#: admin-file/meta-box/index.php:986
+msgid "Captured Moments Section Description"
+msgstr ""
+
+#: admin-file/meta-box/index.php:1011 database/index.php:649
+msgid "Gallery Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:1019
+msgid "Gallery Image"
+msgstr ""
+
+#: admin-file/meta-box/index.php:1032
+msgid "Your Blogs"
+msgstr ""
+
+#: admin-file/meta-box/index.php:1043
+msgid "Blog Section Heading"
+msgstr ""
+
+#: admin-file/meta-box/index.php:1047
+msgid "LATEST NEWS & UPDATES"
+msgstr ""
+
+#: admin-file/meta-box/index.php:1054
+msgid "Blog Section Description"
+msgstr ""
+
+#: admin-file/migration/version-1.1.7/index.php:52
+msgid "Migration with Update"
+msgstr ""
+
+#: admin-file/migration/version-1.1.7/index.php:54
+msgid "Couple Tools Wedding Website When and Where Meta"
+msgstr ""
+
+#: admin-file/migration/version-1.1.7/index.php:56
+msgid "Wedding Website - When and Where Meta Migration"
+msgstr ""
+
+#: admin-file/migration/version-1.1.7/index.php:203
+msgid "Migration Done!"
+msgstr ""
+
+#: admin-file/migration/version-1.1.7/index.php:215
+msgid "Error!"
+msgstr ""
+
+#: admin-file/setting-option/index.php:69
+msgid "Website Setting"
+msgstr ""
+
+#: admin-file/setting-option/index.php:80
+msgid "Couple Wedding Website Copyright"
+msgstr ""
+
+#: ajax/index.php:175
+msgid "Website Data Updated Successfully!"
+msgstr ""
+
+#: couple-file/about-us/index.php:55 couple-file/about-us/index.php:133
+msgid "About Us"
+msgstr ""
+
+#: couple-file/about-us/index.php:105 couple-file/bridesmaids/index.php:105
+#: couple-file/countdown/index.php:105 couple-file/gallery/index.php:105
+#: couple-file/groom-bride-info/index.php:105
+#: couple-file/groomsman/index.php:105 couple-file/our-story/index.php:105
+#: couple-file/rsvp/index.php:105 couple-file/testimonial/index.php:105
+#: couple-file/when-and-where/index.php:105
+msgid "Save Changes"
+msgstr ""
+
+#: couple-file/about-us/index.php:250 couple-file/bridesmaids/index.php:252
+#: couple-file/countdown/index.php:239 couple-file/gallery/index.php:252
+#: couple-file/groomsman/index.php:252 couple-file/our-story/index.php:252
+#: couple-file/rsvp/index.php:252 couple-file/testimonial/index.php:252
+#: couple-file/when-and-where/index.php:252
+msgid "Write Description"
+msgstr ""
+
+#: couple-file/about-us/index.php:319
+msgid "Groom Instagram"
+msgstr ""
+
+#: couple-file/about-us/index.php:321
+msgid "Groom Facebook"
+msgstr ""
+
+#: couple-file/about-us/index.php:323
+msgid "Groom Twitter"
+msgstr ""
+
+#: couple-file/about-us/index.php:495
+msgid "Bride Instagram"
+msgstr ""
+
+#: couple-file/about-us/index.php:497
+msgid "Bride Facebook"
+msgstr ""
+
+#: couple-file/about-us/index.php:499
+msgid "Bride Twitter"
+msgstr ""
+
+#: couple-file/bridesmaids/index.php:307
+msgid "Add New Bride"
+msgstr ""
+
+#: couple-file/countdown/index.php:55
+msgid "Countdown"
+msgstr ""
+
+#: couple-file/countdown/index.php:131
+msgid "Couple Counter"
+msgstr ""
+
+#: couple-file/countdown/index.php:195 couple-file/rsvp/index.php:197
+#: couple-file/when-and-where/index.php:197
+msgid "Write Heading"
+msgstr ""
+
+#: couple-file/countdown/index.php:285
+msgid "Counter Date"
+msgstr ""
+
+#: couple-file/gallery/index.php:55
+#: singular-file/section-list/gallery/index.php:56
+msgid "Gallery"
+msgstr ""
+
+#: couple-file/gallery/index.php:307
+msgid "Add New Gallery"
+msgstr ""
+
+#: couple-file/groom-bride-info/index.php:55
+#: singular-file/section-list/header/index.php:56
+msgid "Header"
+msgstr ""
+
+#: couple-file/groom-bride-info/index.php:168
+msgid "Groom Info"
+msgstr ""
+
+#: couple-file/groom-bride-info/index.php:205
+msgid "Groom First Name"
+msgstr ""
+
+#: couple-file/groom-bride-info/index.php:310
+msgid "Bride Info"
+msgstr ""
+
+#: couple-file/groomsman/index.php:55
+msgid "Groomsman"
+msgstr ""
+
+#: couple-file/groomsman/index.php:307
+msgid "Add New Groom"
+msgstr ""
+
+#: couple-file/index.php:215 filters-hooks/menu/index.php:88
+#: filters-hooks/right-widget/index.php:82
+msgid "Wedding Website"
+msgstr ""
+
+#: couple-file/index.php:227
+msgid "Preview"
+msgstr ""
+
+#: couple-file/index.php:242
+msgid "You have'n asssign website in %1$s. please contact admin."
+msgstr ""
+
+#: couple-file/our-story/index.php:55
+msgid "Our Story"
+msgstr ""
+
+#: couple-file/our-story/index.php:307
+msgid "Add New Story"
+msgstr ""
+
+#: couple-file/rsvp/index.php:133
+msgid "Couple RSVP"
+msgstr ""
+
+#: couple-file/testimonial/index.php:55
+msgid "Our Thank You's"
+msgstr ""
+
+#: couple-file/testimonial/index.php:197
+msgid "Add Title"
+msgstr ""
+
+#: couple-file/testimonial/index.php:366
+msgid "Another Thank You"
+msgstr ""
+
+#: couple-file/when-and-where/index.php:307
+msgid "Add Another Event Location"
+msgstr ""
+
+#: database/index.php:147
+msgid "Your Story"
+msgstr ""
+
+#: database/index.php:157
+msgid "About Your Story"
+msgstr ""
+
+#: database/index.php:159
+msgid "Upload Story Image"
+msgstr ""
+
+#: database/index.php:161
+msgid "Select Story Image"
+msgstr ""
+
+#: database/index.php:163
+msgid "Upload Your Story Image"
+msgstr ""
+
+#: database/index.php:371
+msgid "Upload Groom Image"
+msgstr ""
+
+#: database/index.php:373
+msgid "Select Groom Image"
+msgstr ""
+
+#: database/index.php:375
+msgid "Upload Your Groom Image"
+msgstr ""
+
+#: database/index.php:508
+msgid "Bride Name"
+msgstr ""
+
+#: database/index.php:510
+msgid "Upload Bride Image"
+msgstr ""
+
+#: database/index.php:512
+msgid "Select Bride Image"
+msgstr ""
+
+#: database/index.php:514
+msgid "Upload Your Bride Image"
+msgstr ""
+
+#: database/index.php:651
+msgid "Upload Gallery Image"
+msgstr ""
+
+#: database/index.php:653
+msgid "Select Gallery Image"
+msgstr ""
+
+#: database/index.php:655
+msgid "Upload Your Gallery Image"
+msgstr ""
+
+#: database/index.php:770
+msgid "Testimonial"
+msgstr ""
+
+#: database/index.php:916 singular-file/section-list/event-party/index.php:56
+msgid "Event"
+msgstr ""
+
+#: database/index.php:922
+msgid "Event Type"
+msgstr ""
+
+#: database/index.php:930
+msgid "Latitude"
+msgstr ""
+
+#: database/index.php:932
+msgid "Longitude"
+msgstr ""
+
+#: database/index.php:934
+msgid "Icon"
+msgstr ""
+
+#: database/index.php:1161
+msgid "Add Location Address"
+msgstr ""
+
+#: filters-hooks/images/index.php:72
+msgid "Website Layout 1 Slider Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:82
+msgid "Website Layout 1 Event Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:92
+msgid "Website Layout 1 Groom Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:102
+msgid "Website Layout 1 Bride Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:112
+msgid "Website Layout 1 Gallery Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:122
+msgid "Website Layout 1 Footer Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:132
+msgid "Website Layout 1 Testimonials Background Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:142
+msgid "Website Layout 1 Counter Background Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:152
+msgid "Website Layout 1 Couple Frame Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:162
+msgid "Website Layout 1 Couple RSVP Background Image"
+msgstr ""
+
+#: filters-hooks/images/index.php:213
+msgid "Website Temp 1"
+msgstr ""
+
+#: filters-hooks/right-widget/index.php:130
+msgid "link copied"
+msgstr ""
+
+#: filters-hooks/right-widget/index.php:205
+msgid "Edit My Website"
+msgstr ""
+
+#: filters-hooks/right-widget/index.php:217
+#: filters-hooks/share-button/index.php:90
+msgid "Share"
+msgstr ""
+
+#: filters-hooks/website-config/index.php:183 import-website/index.php:321
+msgid "Welcome %1$s"
+msgstr ""
+
+#: import-website/index.php:40
+msgid "Website Import"
+msgstr ""
+
+#: singular-file/section-list/about-couple/index.php:56
+msgid "Couple"
+msgstr ""
+
+#: singular-file/section-list/about-couple/index.php:120
+msgid "Groom"
+msgstr ""
+
+#: singular-file/section-list/about-couple/index.php:157
+msgid "Bride"
+msgstr ""
+
+#: singular-file/section-list/couple-story/index.php:56
+msgid "Story"
+msgstr ""
+
+#: singular-file/section-list/couple-story/index.php:211
+msgid "Days"
+msgstr ""
+
+#: singular-file/section-list/couple-story/index.php:213
+msgid "Hours"
+msgstr ""
+
+#: singular-file/section-list/couple-story/index.php:215
+msgid "Minutes"
+msgstr ""
+
+#: singular-file/section-list/couple-story/index.php:217
+msgid "Seconds"
+msgstr ""
+
+#: singular-file/section-list/couple-story/index.php:219
+msgid "Happily Married 🎉"
+msgstr ""
+
+#: singular-file/section-list/footer/index.php:56
+msgid "Footer"
+msgstr ""
+
+#: singular-file/section-list/footer/index.php:96
+msgid "Just Get Married"
+msgstr ""
+
+#: singular-file/section-list/gallery/index.php:102
+msgid "All Photos"
+msgstr ""
+
+#: singular-file/section-list/rsvp/index.php:125
+msgid "R.S.V.P."
+msgstr ""
+
+#: singular-file/section-list/slider/index.php:56
+msgid "Slider"
+msgstr ""
+
+#: singular-file/section-list/slider/index.php:110
+msgid "Are getting Married!"
+msgstr ""
+
+#: singular-file/section-list/thank-you/index.php:56
+msgid "Thank You's"
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "WeddingDir - Couple Website"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://weddingdir.net"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Couple Website plugin used for couple can easy to show own website for publicly"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Hitesh Mahavar"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://weddingdir.net/"
+msgstr ""

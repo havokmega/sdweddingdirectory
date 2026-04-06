@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Vendor manager icon">
+  <rect x="24" y="36" width="208" height="164" rx="18" fill="#ffffff" stroke="#BFDBFE" stroke-width="6"/>
+  <rect x="24" y="36" width="208" height="30" rx="18" fill="#E0F2FE"/>
+  <circle cx="44" cy="51" r="5" fill="#22C55E"/>
+  <circle cx="60" cy="51" r="5" fill="#F59E0B"/>
+  <circle cx="76" cy="51" r="5" fill="#EF4444"/>
+  <rect x="40" y="82" width="56" height="96" rx="12" fill="#EEF2FF"/>
+  <rect x="104" y="82" width="52" height="44" rx="10" fill="#DCFCE7"/>
+  <rect x="164" y="82" width="52" height="44" rx="10" fill="#FFE4E6"/>
+  <rect x="104" y="134" width="112" height="12" rx="6" fill="#DBEAFE"/>
+  <rect x="104" y="152" width="94" height="12" rx="6" fill="#FDE68A"/>
+  <circle cx="68" cy="108" r="12" fill="#6366F1"/>
+  <rect x="52" y="124" width="32" height="20" rx="10" fill="#6366F1"/>
+  <path d="M177 95h26" stroke="#F43F5E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M177 108h18" stroke="#F43F5E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M117 98l6 6 12-14" stroke="#16A34A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

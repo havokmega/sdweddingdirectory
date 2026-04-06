@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Cost graph icon">
+  <rect x="28" y="28" width="200" height="200" rx="16" fill="#ffffff" stroke="#CBD5E1" stroke-width="6"/>
+  <rect x="54" y="142" width="24" height="58" rx="6" fill="#60A5FA"/>
+  <rect x="90" y="120" width="24" height="80" rx="6" fill="#34D399"/>
+  <rect x="126" y="96" width="24" height="104" rx="6" fill="#FBBF24"/>
+  <rect x="162" y="72" width="24" height="128" rx="6" fill="#FB7185"/>
+  <path d="M54 124l48-20 34 12 50-40" stroke="#7C3AED" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M178 66h24v24" stroke="#7C3AED" stroke-width="7" stroke-linecap="round"/>
+</svg>

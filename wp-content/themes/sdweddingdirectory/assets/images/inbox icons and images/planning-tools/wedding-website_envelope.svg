@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Envelope icon">
+  <rect x="34" y="62" width="188" height="132" rx="16" fill="#ffffff" stroke="#FDBA74" stroke-width="6"/>
+  <path d="M44 78l84 64 84-64" stroke="#FB7185" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96 130c0-9 7-16 16-16 7 0 12 3 16 9 4-6 9-9 16-9 9 0 16 7 16 16 0 13-10 21-32 35-22-14-32-22-32-35z" fill="#F43F5E"/>
+  <path d="M40 190l58-54M216 190l-58-54" stroke="#FCD34D" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,56 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# WordPress core (we only track themes/plugins)
+wp-admin/
+wp-includes/
+wp-content/uploads/
+wp-content/upgrade/
+
+# Legacy/retired themes
+wp-content/themes/sdweddingdirectory-v2/
+wp-content/cache/
+wp-content/debug.log
+
+# WordPress config
+wp-config.php
+wp-config-docker.php
+
+# Docker
+docker-compose.yml
+Dockerfile
+.docker/
+
+# Node
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Database dumps
+*.sql
+
+# Environment
+.env
+
+# Exports
+export/
+
+# Development/infrastructure files
+Dockerfile.ssh
+codex-prompts/
+php.ini
+.htaccess
+Icon?
+
+# Cache configs
+wp-content/w3tc-config/
+wp-content/advanced-cache.php
+wp-content/speedycache-config/

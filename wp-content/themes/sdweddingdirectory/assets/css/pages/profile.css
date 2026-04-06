@@ -1,0 +1,838 @@
+/* =============================================
+   Profile Pages (Vendor / Venue / Real Wedding)
+   pages/profile.css
+   ============================================= */
+
+/* --- Photo Collage --- */
+.photo-collage__item {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-collage {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 4px;
+  margin-bottom: 0;
+}
+
+.photo-collage__item:first-child {
+  grid-row: 1 / -1;
+}
+
+.photo-collage__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Sticky Profile Nav --- */
+.profile-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 5;
+  background: var(--sdwd-bg);
+  border-bottom: 1px solid var(--sdwd-border);
+  padding: 0;
+}
+
+.profile-nav__list {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.profile-nav__link {
+  display: block;
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--sdwd-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.profile-nav__link:hover {
+  color: var(--sdwd-accent);
+  text-decoration: none;
+}
+
+.profile-nav__link--active {
+  color: var(--sdwd-accent);
+  border-bottom-color: var(--sdwd-accent);
+}
+
+.profile-nav__actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  align-items: center;
+  padding: 8px 0;
+}
+
+/* --- Profile Layout (2-col with sidebar) --- */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
+  padding: 32px 0;
+}
+
+.profile-main {
+  min-width: 0;
+}
+
+.profile-sidebar {
+  position: sticky;
+  top: 140px;
+}
+
+/* --- Profile Section Blocks --- */
+.profile-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--sdwd-border);
+}
+
+.profile-section:last-child {
+  border-bottom: none;
+}
+
+.profile-section__title {
+  margin-bottom: 20px;
+}
+
+/* --- Contact Card (sidebar) --- */
+.contact-card {
+  background: var(--sdwd-bg);
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.contact-card__price {
+  font-size: var(--sdwd-h3);
+  font-weight: 700;
+  color: var(--sdwd-subtext);
+  margin-bottom: 16px;
+}
+
+.contact-card__cta {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.contact-card__details {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.contact-card__details li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sdwd-body-text);
+}
+
+.contact-card__details li span:first-child {
+  color: var(--sdwd-accent);
+  min-width: 20px;
+  text-align: center;
+}
+
+.contact-card__details a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-card__details a:hover {
+  color: var(--sdwd-accent);
+}
+
+/* --- Venue Profile Head --- */
+.venue-profile-head {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  background: linear-gradient(180deg, rgba(202, 160, 119, 0.08) 0%, rgba(202, 160, 119, 0) 100%);
+}
+
+.venue-profile-head .breadcrumb {
+  margin-bottom: 20px;
+}
+
+.venue-profile-head__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.venue-profile-head__eyebrow {
+  margin-bottom: 8px;
+  color: var(--sdwd-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venue-profile-head__title {
+  margin-bottom: 12px;
+}
+
+.venue-profile-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--sdwd-muted);
+  margin-bottom: 14px;
+}
+
+.venue-profile-head__summary {
+  max-width: 760px;
+  margin: 0;
+  color: var(--sdwd-body-text);
+  line-height: 1.7;
+}
+
+.venue-profile-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.venue-profile-head__gallery-link {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 14px;
+  border-radius: var(--sdwd-radius);
+  background: var(--sdwd-overlay);
+  color: var(--sdwd-bg);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* --- Vendor Profile Head --- */
+.vendor-profile-head {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  background: linear-gradient(180deg, rgba(43, 207, 206, 0.08) 0%, rgba(43, 207, 206, 0) 100%);
+}
+
+.vendor-profile-head .breadcrumb {
+  margin-bottom: 20px;
+}
+
+.vendor-profile-head__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.vendor-profile-head__eyebrow {
+  margin-bottom: 8px;
+  color: var(--sdwd-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vendor-profile-head__title {
+  margin-bottom: 12px;
+}
+
+.vendor-profile-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--sdwd-muted);
+  margin-bottom: 14px;
+}
+
+.vendor-profile-head__summary {
+  max-width: 760px;
+  margin: 0;
+  color: var(--sdwd-body-text);
+  line-height: 1.7;
+}
+
+.vendor-profile-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vendor-profile-head__gallery-link {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 14px;
+  border-radius: var(--sdwd-radius);
+  background: var(--sdwd-overlay);
+  color: var(--sdwd-bg);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* --- Venue Profile Sections --- */
+.venue-profile-copy {
+  color: var(--sdwd-body-text);
+  line-height: 1.75;
+}
+
+.venue-profile-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.vendor-profile-copy {
+  color: var(--sdwd-body-text);
+  line-height: 1.75;
+}
+
+.vendor-profile-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.venue-profile-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.venue-profile-details__item {
+  padding: 18px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  background: var(--sdwd-soft);
+}
+
+.venue-profile-details__label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--sdwd-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.vendor-profile-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.vendor-profile-facts__item {
+  padding: 18px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  background: var(--sdwd-soft);
+}
+
+.vendor-profile-facts__item small {
+  display: block;
+  margin-top: 6px;
+  color: var(--sdwd-muted);
+}
+
+.vendor-profile-facts__label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--sdwd-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.venue-profile-tags {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.venue-profile-tags__title {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.venue-profile-tags__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.venue-profile-tags__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--sdwd-radius);
+  background: var(--sdwd-soft);
+  color: var(--sdwd-subtext);
+  font-size: 0.92rem;
+}
+
+.vendor-profile-tags {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.vendor-profile-tags__title {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.vendor-profile-tags__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vendor-profile-tags__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--sdwd-radius);
+  background: var(--sdwd-soft);
+  color: var(--sdwd-subtext);
+  font-size: 0.92rem;
+}
+
+.venue-profile-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+}
+
+.venue-profile-rating {
+  margin: 0 0 20px;
+  color: var(--sdwd-muted);
+}
+
+.vendor-profile-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+}
+
+.vendor-profile-rating {
+  margin: 0 0 20px;
+  color: var(--sdwd-muted);
+}
+
+.venue-profile-summary {
+  margin-bottom: 24px;
+  padding: 18px;
+  border-radius: var(--sdwd-radius-lg);
+  background: var(--sdwd-soft);
+}
+
+.venue-profile-summary strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.venue-profile-summary p {
+  margin: 0;
+  color: var(--sdwd-body-text);
+}
+
+.vendor-profile-summary {
+  margin-bottom: 24px;
+  padding: 18px;
+  border-radius: var(--sdwd-radius-lg);
+  background: var(--sdwd-soft);
+}
+
+.vendor-profile-summary strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.vendor-profile-summary p {
+  margin: 0;
+  color: var(--sdwd-body-text);
+}
+
+.vendor-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.vendor-pricing-card {
+  padding: 24px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  background: var(--sdwd-bg);
+}
+
+.vendor-pricing-card__title {
+  margin-bottom: 8px;
+}
+
+.vendor-pricing-card__price {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--sdwd-accent-dark);
+}
+
+.vendor-pricing-card__meta {
+  margin-bottom: 16px;
+  color: var(--sdwd-muted);
+}
+
+.vendor-pricing-card__items {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vendor-pricing-card__items li {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+  color: var(--sdwd-body-text);
+}
+
+.vendor-pricing-card__items li span:first-child {
+  min-width: 16px;
+  color: var(--sdwd-accent);
+}
+
+.venue-profile-map-label {
+  margin-bottom: 14px;
+  color: var(--sdwd-muted);
+}
+
+/* --- Gallery Grid --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.gallery-grid__item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- Review Cards --- */
+.review-card {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--sdwd-border);
+}
+
+.review-card:last-child {
+  border-bottom: none;
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-card__author {
+  font-weight: 700;
+  color: var(--sdwd-subtext);
+}
+
+.review-card__date {
+  font-size: 0.85rem;
+  color: var(--sdwd-muted);
+}
+
+.review-card__stars {
+  color: var(--sdwd-rating-star);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+
+.review-card__text {
+  color: var(--sdwd-body-text);
+  line-height: 1.6;
+}
+
+/* --- Availability Calendar --- */
+.availability-calendar {
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  padding: 20px;
+}
+
+/* --- Map Container --- */
+.profile-map {
+  border-radius: var(--sdwd-radius-lg);
+  overflow: hidden;
+  height: 400px;
+}
+
+.profile-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Endorsement / Professional Network --- */
+.endorsement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.endorsement-card {
+  padding: 16px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  text-align: center;
+}
+
+.endorsement-card__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+}
+
+.endorsement-card__name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.endorsement-card__role {
+  font-size: 0.85rem;
+  color: var(--sdwd-muted);
+}
+
+/* --- Real Wedding Detail --- */
+.rw-header {
+  text-align: center;
+  padding: 40px 0;
+  background: var(--sdwd-soft);
+}
+
+.rw-header__couple {
+  font-size: var(--sdwd-h1);
+  margin-bottom: 8px;
+}
+
+.rw-header__meta {
+  color: var(--sdwd-muted);
+  font-size: 1rem;
+}
+
+.rw-header__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.rw-story {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.rw-couple-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 40px 0;
+  border-top: 1px solid var(--sdwd-border);
+}
+
+.rw-vendor-team {
+  padding: 40px 0;
+  border-top: 1px solid var(--sdwd-border);
+}
+
+.rw-vendor-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.rw-vendor-team__item {
+  padding: 12px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.rw-vendor-team__company {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.rw-vendor-team__category {
+  color: var(--sdwd-muted);
+  font-size: 0.85rem;
+}
+
+/* --- CTA Banner --- */
+.profile-cta {
+  background: var(--sdwd-soft);
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: var(--sdwd-radius-lg);
+  margin: 32px 0;
+}
+
+.profile-cta__title {
+  margin-bottom: 12px;
+}
+
+/* --- Footer Links (venue/vendor) --- */
+.profile-footer-links {
+  padding: 40px 0;
+  border-top: 1px solid var(--sdwd-border);
+}
+
+.profile-footer-links__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.profile-footer-links__item {
+  color: var(--sdwd-accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 4px 0;
+}
+
+.profile-footer-links__item:hover {
+  color: var(--sdwd-cta);
+  text-decoration: underline;
+}
+
+.profile-footer-links__toggle {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .venue-profile-head__header {
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-profile-head__header {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-profile-head__actions {
+    width: 100%;
+  }
+
+  .vendor-profile-head__actions {
+    width: 100%;
+  }
+
+  .venue-profile-head__actions .btn {
+    width: 100%;
+  }
+
+  .vendor-profile-head__actions .btn {
+    width: 100%;
+  }
+
+  .venue-profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-profile-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-profile-section-head {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .vendor-profile-section-head {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .vendor-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-collage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .photo-collage__item:first-child {
+    grid-row: auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .endorsement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rw-couple-info {
+    grid-template-columns: 1fr;
+  }
+
+  .rw-vendor-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-footer-links__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

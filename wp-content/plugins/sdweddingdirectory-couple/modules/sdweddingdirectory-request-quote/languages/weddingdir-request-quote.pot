@@ -1,0 +1,476 @@
+# Copyright (C) 2024 WeddingDir - Request Quote
+# This file is distributed under the same license as the WeddingDir - Request Quote package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WeddingDir - Request Quote 1.4.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/weddingdir-request-quote\n"
+"POT-Creation-Date: 2024-12-16 00:50:26+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin-file/custom-post/index.php:87
+msgctxt "Post Type General Name"
+msgid "Request Quote"
+msgstr ""
+
+#: admin-file/custom-post/index.php:89
+msgctxt "Post Type Singular Name"
+msgid "Request Quote"
+msgstr ""
+
+#: admin-file/custom-post/index.php:91 admin-file/custom-post/index.php:93
+#: admin-file/custom-post/index.php:135 admin-file/custom-post/index.php:159
+#: admin-file/meta-box/index.php:83 filters-hooks/menu/index.php:69
+msgid "Request Quote"
+msgstr ""
+
+#: admin-file/custom-post/index.php:95
+msgid "Request Archives"
+msgstr ""
+
+#: admin-file/custom-post/index.php:97
+msgid "Request Attributes"
+msgstr ""
+
+#: admin-file/custom-post/index.php:99
+msgid "Request Parent Item:"
+msgstr ""
+
+#: admin-file/custom-post/index.php:101
+msgid "All Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:103 admin-file/custom-post/index.php:105
+msgid "Add New Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:107
+msgid "New Item Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:109
+msgid "Edit Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:111
+msgid "Update Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:113 admin-file/custom-post/index.php:115
+msgid "View Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:117
+msgid "Search Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:119
+msgid "Not found Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:121
+msgid "Not found in Trash Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:123
+msgid "Featured Image For Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:125
+msgid "Set featured image For Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:127
+msgid "Remove featured image For Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:129
+msgid "Use as featured image In Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:131
+msgid "Insert into Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:133
+msgid "Uploaded to this Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:137
+msgid "Request list navigation"
+msgstr ""
+
+#: admin-file/custom-post/index.php:139
+msgid "Filter Request"
+msgstr ""
+
+#: admin-file/custom-post/index.php:161
+msgid "Front end user request for venue data here."
+msgstr ""
+
+#: admin-file/custom-post/index.php:310 admin-file/meta-box/index.php:230
+#: admin-file/meta-box/index.php:425 database/index.php:246
+#: database/index.php:1043
+msgid "Call"
+msgstr ""
+
+#: admin-file/custom-post/index.php:314 admin-file/meta-box/index.php:239
+#: admin-file/meta-box/index.php:436 database/index.php:254
+#: database/index.php:784 database/index.php:1034 form-fields/index.php:840
+msgid "Email"
+msgstr ""
+
+#: admin-file/custom-post/index.php:318 admin-file/meta-box/index.php:248
+#: admin-file/meta-box/index.php:447 database/index.php:262
+#: database/index.php:1025
+msgid "Video Call"
+msgstr ""
+
+#: admin-file/meta-box/index.php:97
+msgid "Couple ID"
+msgstr ""
+
+#: admin-file/meta-box/index.php:106
+msgid "Vendor ID"
+msgstr ""
+
+#: admin-file/meta-box/index.php:115
+msgid "Venue ID"
+msgstr ""
+
+#: admin-file/meta-box/index.php:124
+msgid "Request For Number of Guest"
+msgstr ""
+
+#: admin-file/meta-box/index.php:133
+msgid "Couple Budget Amount"
+msgstr ""
+
+#: admin-file/meta-box/index.php:142
+msgid "Couple Full Name"
+msgstr ""
+
+#: admin-file/meta-box/index.php:151
+msgid "Couple Wedding Date"
+msgstr ""
+
+#: admin-file/meta-box/index.php:160
+msgid "Couple Enable Flexible Date ?"
+msgstr ""
+
+#: admin-file/meta-box/index.php:171
+msgid "Couple Select Month ?"
+msgstr ""
+
+#: admin-file/meta-box/index.php:180
+msgid "Couple Select Year Date ?"
+msgstr ""
+
+#: admin-file/meta-box/index.php:189
+msgid "Request Message."
+msgstr ""
+
+#: admin-file/meta-box/index.php:200
+msgid "Contact Number."
+msgstr ""
+
+#: admin-file/meta-box/index.php:209
+msgid "Couple wish to contact via"
+msgstr ""
+
+#: admin-file/meta-box/index.php:221
+msgid "Contact Me"
+msgstr ""
+
+#: admin-file/meta-box/index.php:270
+msgid "Venue Info"
+msgstr ""
+
+#: admin-file/meta-box/index.php:272
+msgid "Vendor Info"
+msgstr ""
+
+#: admin-file/meta-box/index.php:274
+msgid "Couple Wish to Contact"
+msgstr ""
+
+#: admin-file/meta-box/index.php:276
+msgid "Couple Message"
+msgstr ""
+
+#: admin-file/meta-box/index.php:471
+msgid "Approved"
+msgstr ""
+
+#: admin-file/meta-box/index.php:482
+msgid "Pending"
+msgstr ""
+
+#: admin-file/meta-box/index.php:492
+msgid "Declain"
+msgstr ""
+
+#: admin-file/setting-option/index.php:80
+msgid "Request Quote Approval Via"
+msgstr ""
+
+#: admin-file/setting-option/index.php:96
+msgid "Auto Approval"
+msgstr ""
+
+#: admin-file/setting-option/index.php:104
+msgid "Manual Approval"
+msgstr ""
+
+#: admin-file/setting-option/index.php:129
+msgid "New Venue Request"
+msgstr ""
+
+#: admin-file/setting-option/index.php:140
+#: admin-file/setting-option/index.php:203
+msgid "Email Subject"
+msgstr ""
+
+#: admin-file/setting-option/index.php:142
+msgid "Your New Request for {{venue_name}}"
+msgstr ""
+
+#: admin-file/setting-option/index.php:155
+msgid "Vendor Get Email Body Content"
+msgstr ""
+
+#: admin-file/setting-option/index.php:192
+msgid "Couple Request Venue"
+msgstr ""
+
+#: admin-file/setting-option/index.php:205
+msgid "Your Request for {{venue_name}} submited"
+msgstr ""
+
+#: admin-file/setting-option/index.php:218
+msgid "Couple Get Email Body Content"
+msgstr ""
+
+#: ajax/index.php:580
+msgid "Your Request Send Successfully!"
+msgstr ""
+
+#: ajax/index.php:601
+msgid "Hello %1$s, You already request for this venue."
+msgstr ""
+
+#: ajax/index.php:724
+msgid "Request Removed Successfully!"
+msgstr ""
+
+#: ajax/index.php:806 singular-file/index.php:139
+msgid "Message Supplier"
+msgstr ""
+
+#: database/index.php:502
+msgid "Married on %1$s"
+msgstr ""
+
+#: database/index.php:593
+msgid "Are you sure you want to remove this venue request ? It will never recover again. Are you confirm ?"
+msgstr ""
+
+#: database/index.php:599
+msgid "Delete Request"
+msgstr ""
+
+#: database/index.php:648
+msgid "Make Your Response"
+msgstr ""
+
+#: database/index.php:660
+msgid "Approve Venue"
+msgstr ""
+
+#: database/index.php:666
+msgid "Reject Venue"
+msgstr ""
+
+#: database/index.php:717
+msgid "Name"
+msgstr ""
+
+#: database/index.php:736
+msgid "Wedding Date"
+msgstr ""
+
+#: database/index.php:759
+msgid "Budget"
+msgstr ""
+
+#: database/index.php:803 form-fields/index.php:906
+msgid "Phone"
+msgstr ""
+
+#: database/index.php:822
+msgid "No of Guest"
+msgstr ""
+
+#: database/index.php:841
+msgid "Preferred contact method"
+msgstr ""
+
+#: database/index.php:866
+msgid "Message"
+msgstr ""
+
+#: filters-hooks/dashboard-widget/index.php:82
+msgid "Request quote"
+msgstr ""
+
+#: filters-hooks/dashboard-widget/index.php:94
+msgid "View All"
+msgstr ""
+
+#: filters-hooks/index.php:66
+msgid "Request Quote Modal Popup"
+msgstr ""
+
+#: filters-hooks/request-quote-form/index.php:77
+#: filters-hooks/request-quote-form/index.php:297 form-fields/index.php:1059
+msgid "Request Pricing"
+msgstr ""
+
+#: form-fields/index.php:139
+msgid "First and last name"
+msgstr ""
+
+#: form-fields/index.php:214
+msgid "Your Email"
+msgstr ""
+
+#: form-fields/index.php:280
+msgid "Your Budget Amount"
+msgstr ""
+
+#: form-fields/index.php:343
+msgid "Phone Number"
+msgstr ""
+
+#: form-fields/index.php:407
+msgid "Your message"
+msgstr ""
+
+#: form-fields/index.php:507
+msgid "Event date"
+msgstr ""
+
+#: form-fields/index.php:525
+msgid "Do you have an exact date?"
+msgstr ""
+
+#: form-fields/index.php:553
+msgid "Open to other dates"
+msgstr ""
+
+#: form-fields/index.php:559
+msgid "Haven't decided on a date yet?"
+msgstr ""
+
+#: form-fields/index.php:585
+msgid "Month"
+msgstr ""
+
+#: form-fields/index.php:587
+msgid "January"
+msgstr ""
+
+#: form-fields/index.php:589
+msgid "February"
+msgstr ""
+
+#: form-fields/index.php:591
+msgid "March"
+msgstr ""
+
+#: form-fields/index.php:593
+msgid "April"
+msgstr ""
+
+#: form-fields/index.php:595
+msgid "May"
+msgstr ""
+
+#: form-fields/index.php:597
+msgid "June"
+msgstr ""
+
+#: form-fields/index.php:599
+msgid "July"
+msgstr ""
+
+#: form-fields/index.php:601
+msgid "August"
+msgstr ""
+
+#: form-fields/index.php:603
+msgid "September"
+msgstr ""
+
+#: form-fields/index.php:605
+msgid "October"
+msgstr ""
+
+#: form-fields/index.php:607
+msgid "November"
+msgstr ""
+
+#: form-fields/index.php:609
+msgid "December"
+msgstr ""
+
+#: form-fields/index.php:638
+msgid "Year"
+msgstr ""
+
+#: form-fields/index.php:712
+msgid "Approx. guest count"
+msgstr ""
+
+#: form-fields/index.php:804
+msgid "Preferred Contact Method"
+msgstr ""
+
+#: form-fields/index.php:873
+msgid "Video Chat"
+msgstr ""
+
+#: form-fields/index.php:948
+msgid "Request pricing"
+msgstr ""
+
+#: vendor-file/index.php:155
+msgid "Request List"
+msgstr ""
+
+#: vendor-file/index.php:348
+msgid "Search list"
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "WeddingDir - Request Quote"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://weddingdir.net"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Request Quote plugin using couple can easy to send request quote for venue vendor"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Hitesh Mahavar"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://weddingdir.net/"
+msgstr ""

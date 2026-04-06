@@ -1,0 +1,630 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?i316hv');
+  src:  url('fonts/icomoon.eot?i316hv#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?i316hv') format('truetype'),
+    url('fonts/icomoon.woff?i316hv') format('woff'),
+    url('fonts/icomoon.svg?i316hv#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i[class*="sdweddingdirectory-"]{
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sdweddingdirectory-tiktok-1:before {
+  content: "\e9af";
+}
+.sdweddingdirectory-tiktok-2:before {
+  content: "\e9b0";
+}
+.sdweddingdirectory-tiktok-3:before {
+  content: "\e9b1";
+}
+.sdweddingdirectory-tiktok-4:before {
+  content: "\e9b2";
+}
+.sdweddingdirectory-tiktok-5:before {
+  content: "\e9b3";
+}
+.sdweddingdirectory-x-1:before {
+  content: "\e9b4";
+}
+.sdweddingdirectory-x-2:before {
+  content: "\e9b5";
+}
+.sdweddingdirectory-x-3 .path1:before {
+  content: "\e9b6";
+  color: rgb(0, 0, 0);
+}
+.sdweddingdirectory-x-3 .path2:before {
+  content: "\e9b7";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.sdweddingdirectory-x-4:before {
+  content: "\e9b8";
+}
+.sdweddingdirectory-x-5 .path1:before {
+  content: "\e9b9";
+  color: rgb(65, 70, 74);
+}
+.sdweddingdirectory-x-5 .path2:before {
+  content: "\e9ba";
+  margin-left: -1em;
+  color: rgb(240, 240, 241);
+}
+.sdweddingdirectory-cap-2:before {
+  content: "\e995";
+}
+.sdweddingdirectory-cap:before {
+  content: "\e996";
+}
+.sdweddingdirectory-check-1:before {
+  content: "\e997";
+}
+.sdweddingdirectory-check-3:before {
+  content: "\e999";
+}
+.sdweddingdirectory-check-4:before {
+  content: "\e99a";
+}
+.sdweddingdirectory-check-5:before {
+  content: "\e99b";
+}
+.sdweddingdirectory-circle-table-1:before {
+  content: "\e99c";
+}
+.sdweddingdirectory-four-side-table-1:before {
+  content: "\e99d";
+}
+.sdweddingdirectory-four-side-table-2:before {
+  content: "\e99e";
+}
+.sdweddingdirectory-lolipop-1:before {
+  content: "\e99f";
+}
+.sdweddingdirectory-lolipop-2:before {
+  content: "\e9a0";
+}
+.sdweddingdirectory-one-side-table-1:before {
+  content: "\e9a2";
+}
+.sdweddingdirectory-one-side-table-2:before {
+  content: "\e9a3";
+}
+.sdweddingdirectory-other-table-1:before {
+  content: "\e9a4";
+}
+.sdweddingdirectory-two-side-table-1:before {
+  content: "\e9a6";
+}
+.sdweddingdirectory-two-side-table-2:before {
+  content: "\e9a7";
+}
+.sdweddingdirectory-two-side-table-3:before {
+  content: "\e9a8";
+}
+.sdweddingdirectory-two-side-table-4:before {
+  content: "\e9a9";
+}
+.sdweddingdirectory-two-side-table-5:before {
+  content: "\e9aa";
+}
+.sdweddingdirectory-two-side-table-6:before {
+  content: "\e9ab";
+}
+.sdweddingdirectory-two-side-table-7:before {
+  content: "\e9ac";
+}
+.sdweddingdirectory-user-1:before {
+  content: "\e9ad";
+}
+.sdweddingdirectory-user-2:before {
+  content: "\e9ae";
+}
+.sdweddingdirectory-wine:before {
+  content: "\e98d";
+}
+.sdweddingdirectory-website:before {
+  content: "\e98c";
+}
+.sdweddingdirectory-videographer:before {
+  content: "\e98b";
+}
+.sdweddingdirectory-venue:before {
+  content: "\e98a";
+}
+.sdweddingdirectory-vendor-truck:before {
+  content: "\e989";
+}
+.sdweddingdirectory-vendor-manager:before {
+  content: "\e988";
+}
+.sdweddingdirectory-tent:before {
+  content: "\e987";
+}
+.sdweddingdirectory-shopping-bag-heart:before {
+  content: "\e986";
+}
+.sdweddingdirectory-seating-chart:before {
+  content: "\e985";
+}
+.sdweddingdirectory-saving-money:before {
+  content: "\e984";
+}
+.sdweddingdirectory-ring-double:before {
+  content: "\e983";
+}
+.sdweddingdirectory-reviews:before {
+  content: "\e982";
+}
+.sdweddingdirectory-request-quote:before {
+  content: "\e981";
+}
+.sdweddingdirectory-pricing-plans:before {
+  content: "\e980";
+}
+.sdweddingdirectory-pheras:before {
+  content: "\e97f";
+}
+.sdweddingdirectory-my-profile:before {
+  content: "\e97e";
+}
+.sdweddingdirectory-my-venue:before {
+  content: "\e97d";
+}
+.sdweddingdirectory-music:before {
+  content: "\e97c";
+}
+.sdweddingdirectory-money-stack:before {
+  content: "\e97b";
+}
+.sdweddingdirectory-mail:before {
+  content: "\e97a";
+}
+.sdweddingdirectory-love-gift:before {
+  content: "\e979";
+}
+.sdweddingdirectory-logout:before {
+  content: "\e978";
+}
+.sdweddingdirectory-location-heart:before {
+  content: "\e977";
+}
+.sdweddingdirectory-location:before {
+  content: "\e976";
+}
+.sdweddingdirectory-invoice:before {
+  content: "\e975";
+}
+.sdweddingdirectory-heart-ring:before {
+  content: "\e974";
+}
+.sdweddingdirectory-heart-hand:before {
+  content: "\e973";
+}
+.sdweddingdirectory-heart-envelope:before {
+  content: "\e972";
+}
+.sdweddingdirectory-heart-double-face:before {
+  content: "\e971";
+}
+.sdweddingdirectory-heart-double-alt:before {
+  content: "\e970";
+}
+.sdweddingdirectory-heart-double:before {
+  content: "\e96f";
+}
+.sdweddingdirectory-hanging-heart:before {
+  content: "\e96e";
+}
+.sdweddingdirectory-guitar:before {
+  content: "\e96d";
+}
+.sdweddingdirectory-guestlist:before {
+  content: "\e96c";
+}
+.sdweddingdirectory-guest-member:before {
+  content: "\e96b";
+}
+.sdweddingdirectory-gender:before {
+  content: "\e96a";
+}
+.sdweddingdirectory-flowers:before {
+  content: "\e969";
+}
+.sdweddingdirectory-florist:before {
+  content: "\e968";
+}
+.sdweddingdirectory-fashion:before {
+  content: "\e967";
+}
+.sdweddingdirectory-dove:before {
+  content: "\e966";
+}
+.sdweddingdirectory-dashboard:before {
+  content: "\e965";
+}
+.sdweddingdirectory-cup-cakes:before {
+  content: "\e964";
+}
+.sdweddingdirectory-church:before {
+  content: "\e963";
+}
+.sdweddingdirectory-checklist:before {
+  content: "\e962";
+}
+.sdweddingdirectory-chat:before {
+  content: "\e961";
+}
+.sdweddingdirectory-camera-alt:before {
+  content: "\e960";
+}
+.sdweddingdirectory-camera:before {
+  content: "\e95f";
+}
+.sdweddingdirectory-calendar-heart:before {
+  content: "\e95e";
+}
+.sdweddingdirectory-cake-stand:before {
+  content: "\e95d";
+}
+.sdweddingdirectory-cake-floor:before {
+  content: "\e95c";
+}
+.sdweddingdirectory-cake:before {
+  content: "\e95b";
+}
+.sdweddingdirectory-bus:before {
+  content: "\e95a";
+}
+.sdweddingdirectory-budget:before {
+  content: "\e959";
+}
+.sdweddingdirectory-bridal-wear:before {
+  content: "\e958";
+}
+.sdweddingdirectory-birde:before {
+  content: "\e957";
+}
+.sdweddingdirectory-bell:before {
+  content: "\e956";
+}
+.sdweddingdirectory-ballon-heart:before {
+  content: "\e955";
+}
+.sdweddingdirectory-support:before {
+  content: "\e954";
+}
+.sdweddingdirectory-winter:before {
+  content: "\e953";
+}
+.sdweddingdirectory-sdweddingdirectory .path1:before {
+  content: "\e94f";
+  color: rgb(7, 175, 175);
+}
+.sdweddingdirectory-sdweddingdirectory .path2:before {
+  content: "\e950";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.sdweddingdirectory-sdweddingdirectory .path3:before {
+  content: "\e951";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.sdweddingdirectory-sdweddingdirectory .path4:before {
+  content: "\e952";
+  margin-left: -1em;
+  color: rgb(243, 144, 6);
+}
+.sdweddingdirectory-vintage-4:before {
+  content: "\e94e";
+}
+.sdweddingdirectory-vintage-3:before {
+  content: "\e94d";
+}
+.sdweddingdirectory-vintage-2:before {
+  content: "\e94c";
+}
+.sdweddingdirectory-vintage-1:before {
+  content: "\e94b";
+}
+.sdweddingdirectory-sun:before {
+  content: "\e94a";
+}
+.sdweddingdirectory-sun-4:before {
+  content: "\e949";
+}
+.sdweddingdirectory-sun-3:before {
+  content: "\e948";
+}
+.sdweddingdirectory-sun-2:before {
+  content: "\e947";
+}
+.sdweddingdirectory-spring:before {
+  content: "\e946";
+}
+.sdweddingdirectory-snow:before {
+  content: "\e945";
+}
+.sdweddingdirectory-rustic-3:before {
+  content: "\e944";
+}
+.sdweddingdirectory-rustic-2:before {
+  content: "\e943";
+}
+.sdweddingdirectory-rustic-1:before {
+  content: "\e942";
+}
+.sdweddingdirectory-romantic-5:before {
+  content: "\e941";
+}
+.sdweddingdirectory-romantic-4:before {
+  content: "\e940";
+}
+.sdweddingdirectory-romantic-3:before {
+  content: "\e93f";
+}
+.sdweddingdirectory-romantic-2:before {
+  content: "\e93e";
+}
+.sdweddingdirectory-romantic-1:before {
+  content: "\e93d";
+}
+.sdweddingdirectory-modern-4:before {
+  content: "\e93c";
+}
+.sdweddingdirectory-modern-3:before {
+  content: "\e93b";
+}
+.sdweddingdirectory-modern-2:before {
+  content: "\e93a";
+}
+.sdweddingdirectory-modern-1:before {
+  content: "\e939";
+}
+.sdweddingdirectory-love-bell:before {
+  content: "\e938";
+}
+.sdweddingdirectory-just-maride .path1:before {
+  content: "\e924";
+  color: rgb(30, 96, 139);
+}
+.sdweddingdirectory-just-maride .path2:before {
+  content: "\e925";
+  margin-left: -1em;
+  color: rgb(247, 238, 226);
+}
+.sdweddingdirectory-just-maride .path3:before {
+  content: "\e926";
+  margin-left: -1em;
+  color: rgb(229, 216, 198);
+}
+.sdweddingdirectory-just-maride .path4:before {
+  content: "\e927";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path5:before {
+  content: "\e928";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path6:before {
+  content: "\e929";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path7:before {
+  content: "\e92a";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path8:before {
+  content: "\e92b";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path9:before {
+  content: "\e92c";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path10:before {
+  content: "\e92d";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path11:before {
+  content: "\e92e";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path12:before {
+  content: "\e92f";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path13:before {
+  content: "\e930";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path14:before {
+  content: "\e931";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride .path15:before {
+  content: "\e932";
+  margin-left: -1em;
+  color: rgb(255, 159, 175);
+}
+.sdweddingdirectory-just-maride .path16:before {
+  content: "\e933";
+  margin-left: -1em;
+  color: rgb(239, 146, 166);
+}
+.sdweddingdirectory-just-maride .path17:before {
+  content: "\e934";
+  margin-left: -1em;
+  color: rgb(255, 159, 175);
+}
+.sdweddingdirectory-just-maride .path18:before {
+  content: "\e935";
+  margin-left: -1em;
+  color: rgb(239, 146, 166);
+}
+.sdweddingdirectory-just-maride .path19:before {
+  content: "\e936";
+  margin-left: -1em;
+  color: rgb(255, 105, 145);
+}
+.sdweddingdirectory-just-maride .path20:before {
+  content: "\e937";
+  margin-left: -1em;
+  color: rgb(255, 80, 126);
+}
+.sdweddingdirectory-just-maride-black:before {
+  content: "\e923";
+}
+.sdweddingdirectory-industrial-4:before {
+  content: "\e922";
+}
+.sdweddingdirectory-industrial-3:before {
+  content: "\e921";
+}
+.sdweddingdirectory-industrial-2:before {
+  content: "\e920";
+}
+.sdweddingdirectory-industrial-1:before {
+  content: "\e91f";
+}
+.sdweddingdirectory-glam-5:before {
+  content: "\e91e";
+}
+.sdweddingdirectory-glam-4:before {
+  content: "\e91d";
+}
+.sdweddingdirectory-glam-3:before {
+  content: "\e91c";
+}
+.sdweddingdirectory-glam-2:before {
+  content: "\e91b";
+}
+.sdweddingdirectory-glam-1:before {
+  content: "\e91a";
+}
+.sdweddingdirectory-fall:before {
+  content: "\e919";
+}
+.sdweddingdirectory-fall-3:before {
+  content: "\e918";
+}
+.sdweddingdirectory-fall-2:before {
+  content: "\e917";
+}
+.sdweddingdirectory-elegant-4:before {
+  content: "\e916";
+}
+.sdweddingdirectory-elegant-3:before {
+  content: "\e915";
+}
+.sdweddingdirectory-elegant-2:before {
+  content: "\e914";
+}
+.sdweddingdirectory-elegant-1:before {
+  content: "\e913";
+}
+.sdweddingdirectory-casual-6:before {
+  content: "\e912";
+}
+.sdweddingdirectory-casual-5:before {
+  content: "\e911";
+}
+.sdweddingdirectory-casual-4:before {
+  content: "\e910";
+}
+.sdweddingdirectory-casual-3:before {
+  content: "\e90f";
+}
+.sdweddingdirectory-casual-2:before {
+  content: "\e90e";
+}
+.sdweddingdirectory-casual-1:before {
+  content: "\e90d";
+}
+.sdweddingdirectory-breach-2:before {
+  content: "\e90c";
+}
+.sdweddingdirectory-bow-tie-4:before {
+  content: "\e90b";
+}
+.sdweddingdirectory-bow-tie-3:before {
+  content: "\e90a";
+}
+.sdweddingdirectory-bow-tie-2:before {
+  content: "\e909";
+}
+.sdweddingdirectory-bow-tie-1:before {
+  content: "\e908";
+}
+.sdweddingdirectory-bohemian-5:before {
+  content: "\e907";
+}
+.sdweddingdirectory-bohemian-4:before {
+  content: "\e906";
+}
+.sdweddingdirectory-bohemian-3:before {
+  content: "\e905";
+}
+.sdweddingdirectory-bohemian-2:before {
+  content: "\e904";
+}
+.sdweddingdirectory-bohemian-1:before {
+  content: "\e903";
+}
+.sdweddingdirectory-beach-villa:before {
+  content: "\e902";
+}
+.sdweddingdirectory-beach-sun:before {
+  content: "\e901";
+}
+.sdweddingdirectory-beach-see:before {
+  content: "\e900";
+}
+.sdweddingdirectory-plane-4:before {
+  content: "\e991";
+}
+.sdweddingdirectory-plane-3:before {
+  content: "\e990";
+}
+.sdweddingdirectory-plane-2:before {
+  content: "\e98f";
+}
+.sdweddingdirectory-plane-1:before {
+  content: "\e98e";
+}
+.sdweddingdirectory-water-drop:before {
+  content: "\e994";
+}
+.sdweddingdirectory-water-drop-3:before {
+  content: "\e993";
+}
+.sdweddingdirectory-water-drop-2:before {
+  content: "\e992";
+}

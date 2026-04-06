@@ -1,0 +1,113 @@
+#sdweddingdirectory_vendor_registration_form input.form-control,
+#sdweddingdirectory_couple_registration_form input.form-control{
+    width: 25em;
+}
+.notice, .notice, .updated, .elementor-message{
+    display: none;
+}
+.sdweddingdirectory_content_style{padding: 20px;}
+.import_taxonomy{margin-top: 20px;}
+
+.sdweddingdirectory-notice {
+    background: #fdffc4;
+    display: inline-block;
+    width: 100%;
+    border-radius: 2px;
+    margin: 20px 0;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+.sdweddingdirectory-notice.sdweddingdirectory-msg-error {
+    background: #c75860;
+    color: #fff;
+}
+.sdweddingdirectory-spin {
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#sdweddingdirectory-settings i.dashicons {
+    line-height: 20px;
+    margin-top: -3px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.sdweddingdirectory-notice p {
+    padding: 10px 20px;
+    margin: 0;
+}
+.sdweddingdirectory-notice.kc-msg-success {
+    background: #6bb349;
+    color: #fff;
+}
+#sdweddingdirectory-settings .button-large {
+    font-weight: 700;
+    margin-right: 15px;
+    padding: 10px 20px;
+    line-height: 31px;
+}
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.text-left{
+    text-align: left;
+}
+.sdweddingdirectory-notice.sdweddingdirectory-msg-success {
+    background: green;
+    color: white;
+}
+
+.sdweddingdirectory-license-process {
+    padding: 5px 10px !important;
+}
+.sdweddingdirectory-license-process i {
+    margin-right: 3px;
+}
+
+table.sdweddingdirectory-admin-table{
+    width: 100%;
+}
+table.sdweddingdirectory-admin-table tr:first-child{
+    background: white;
+}
+table.sdweddingdirectory-admin-table tr td,
+table.sdweddingdirectory-admin-table tr th{
+    border: 1px solid #dadada;
+}
+.sdweddingdirectory-migration-icon{
+    padding: 10px;
+}
+
+
+
+
+
+
+.display_import_record{
+    width: 100%;
+    overflow-x: scroll;
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 2px dotted #000;
+}
+.display_import_record table th,
+.display_import_record table tr {
+    padding: 10px 30px;
+    background: white;
+    width: 100px;
+    border: 1px solid #dadada;
+}

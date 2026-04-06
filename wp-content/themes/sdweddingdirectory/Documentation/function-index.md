@@ -1,0 +1,293 @@
+# Function / Hook Index
+
+## ACF Replacement Helpers (Plugin)
+- `sdwd_get_term_field( $field, $term_id )`
+  - **File:** `wp-content/plugins/sdweddingdirectory/config-file/term-meta-helpers.php`
+  - Returns a single taxonomy term meta value. Drop-in replacement for ACF's `get_field( $field, 'taxonomy_' . $term_id )`.
+- `sdwd_get_term_repeater( $field, $term_id, $sub_fields = [ 'label', 'value' ] )`
+  - **File:** `config-file/term-meta-helpers.php`
+  - Reconstructs an ACF-style repeater array from flattened `wp_termmeta` rows (e.g., `field` = count, `field_0_label` = value). Used for pricing options, filter widgets, and term data repeaters.
+- `sdwd_update_term_field( $field, $value, $term_id )`
+  - **File:** `config-file/term-meta-helpers.php`
+  - Updates a single taxonomy term meta value. Drop-in replacement for ACF's `update_field()`.
+
+## Theme Bootstrap
+- `SDWeddingDirectory::constant()`
+  - **File:** `wp-content/themes/sdweddingdirectory/functions.php`
+  - Defines theme constants for versioning, paths, media/library directories, and widget prefixes.
+- `SDWeddingDirectory::sdweddingdirectory_theme_setup()`
+  - **File:** `functions.php`
+  - Registers menus, theme supports, image sizes, and the Elementor/page-builder compatibility bootstrap.
+- `SDWeddingDirectory::sdweddingdirectory_required_files()`
+  - **File:** `functions.php`
+  - Loads `config/site-config.php`, `inc/*`, and the theme helper/template subsystems.
+- `SDWeddingDirectory::sdweddingdirectory_widget_init()`
+  - **File:** `functions.php`
+  - Registers the primary sidebar, secondary sidebar, and footer widget areas.
+- `SDWeddingDirectory::sdweddingdirectory_page_id()`, `::sdweddingdirectory_meta_value()`, `::is_dashboard()`, `::page_have_sidebar()`, `::_load_script()`, `::_file_version()`
+  - **File:** `functions.php`
+  - Core utility layer used by templates and theme subsystems for page meta, dashboard detection, script gating, and cache-busted asset versioning.
+- `sdweddingdirectory_option( $key, $default )`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/template-helper.php`
+  - Reads native `sdwd_*` options.
+- `sdweddingdirectory_logo_uri()`
+  - **File:** `inc/template-helper.php`
+  - Returns the current theme logo URL, honoring `SDW_LOGO_PATH`.
+- `sdweddingdirectory_random_banner( $prefix, $count, $ext )`
+  - **File:** `functions.php`
+  - Returns a randomized banner asset URL from `assets/images/banners/`.
+
+## Theme-Level Routing and Navigation Customizations
+- `sdsdweddingdirectoryectory_register_taxonomy_args( $args, $taxonomy )`
+  - **File:** `functions.php`
+  - Rewrites `venue-type`, `venue-location`, and `vendor-category` slugs to the public URL structure used by the site.
+- `sdsdweddingdirectoryectory_maybe_flush_rewrite_rules()`
+  - **File:** `functions.php`
+  - Performs a versioned one-time rewrite flush after taxonomy slug changes.
+- `sdsdweddingdirectoryectory_menu_login_redirects( $atts, $item, $args )`
+  - **File:** `functions.php`
+  - Converts selected dashboard menu links into login-modal triggers for logged-out users.
+- `sdsdweddingdirectoryectory_login_menu_script()`
+  - **File:** `functions.php`
+  - Injects the frontend guard that prevents logged-out modal links from navigating away.
+- `sdsdweddingdirectoryectory_enqueue_hero_search_toggle_script()`
+  - **File:** `functions.php`
+  - Conditionally enqueues `assets/js/hero-search-toggle.js` on home and main directory entry pages.
+- `sdweddingdirectory_remove_general_setting_tab( $tabs )`
+  - **File:** `functions.php`
+  - Removes the old General Setting tab from the legacy plugin settings UI.
+- `sdsdweddingdirectoryectory_replace_home_menu_with_logo( $items, $args )`
+  - **File:** `functions.php`
+  - Replaces the primary-menu Home item label with the site logo image.
+- `sdsdweddingdirectoryectory_home_logo_menu_link_attrs( $atts, $item, $args )`
+  - **File:** `functions.php`
+  - Adds clean accessibility/title attributes for the Home-as-logo nav item.
+- `sdsdweddingdirectoryectory_home_logo_nav_body_class( $classes )`
+  - **File:** `functions.php`
+  - Adds a body class used by the header/nav logo styling.
+- `sdsdweddingdirectoryectory_hide_left_header_brand( $show, $args )`
+  - **File:** `functions.php`
+  - Suppresses the duplicate left-side header brand block.
+- `sdsdweddingdirectoryectory_disable_team_archive( $args, $post_type )`
+  - **File:** `functions.php`
+  - Disables the `team` CPT archive.
+- `sdsdweddingdirectoryectory_venues_term_link( $url, $term, $taxonomy )`
+  - **File:** `functions.php`
+  - Forces the `vendor-category` term `venues` to link to `/venues/`.
+- `sdsdweddingdirectoryectory_wedding_planning_disable_autop()`
+  - **File:** `functions.php`
+  - Removes `wpautop` on the planning hub and its child pages.
+
+## Cross-Layer Theme Hook Surface
+- `sdweddingdirectory/head`, `sdweddingdirectory_body`, `sdweddingdirectory/header`, `sdweddingdirectory/footer`
+  - **Files:** `header.php`, `footer.php`, `inc/theme-*.php`
+  - Main shell hooks for page chrome.
+- `sdweddingdirectory_main_container`, `sdweddingdirectory_main_container_end`
+  - **Files:** archive/page templates plus `inc/grid-managmnet/container.php`
+  - Shared content wrapper hooks.
+- `sdweddingdirectory/find-venue`
+  - **Files:** `page-venues.php`, `user-template/search-venue.php`
+  - Plugin handoff for the venue search controller.
+- `sdweddingdirectory/vendor/detail-page`, `sdweddingdirectory/venue/detail-page`
+  - **Files:** `single-vendor.php`, `single-venue.php`
+  - Plugin handoff hooks for singular profile rendering.
+- `sdweddingdirectory/dashboard`
+  - **File:** `user-template/couple-dashboard.php`
+  - Plugin handoff hook for the dashboard shell.
+- `sdweddingdirectory/pagination`
+  - **Files:** theme archives/pages plus `inc/template-helper.php`
+  - Theme pagination filter contract.
+- `sdweddingdirectory/blog/post`, `sdweddingdirectory_article`, `sdweddingdirectory_empty_article`
+  - **Files:** `template-parts/blog.php` and theme archive templates
+  - Theme blog-card and empty-state contracts.
+
+## Head, Body, Header, Footer, and Banner Rendering
+- `SDWeddingDirectory_Head::sdweddingdirectory_head_markup()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/theme-head.php`
+  - Outputs charset, viewport, font preloads, profile link, and pingback tags.
+- `SDWeddingDirectory_Body::sdweddingdirectory_body_schema_markup()`
+  - **File:** `inc/theme-body.php`
+  - Adds schema attributes to the `<body>` tag.
+- `SDWeddingDirectory_Body::sdweddingdirectory_body_classes( $classes )`
+  - **File:** `inc/theme-body.php`
+  - Adds theme/version/device/sidebar/dashboard body classes.
+- `SDWeddingDirectory_Header::load_header_version()`
+  - **File:** `inc/theme-header.php`
+  - Selects and renders the active header variant.
+- `SDWeddingDirectory_Header::sdweddingdirectory_header_version( $args )`
+  - **File:** `inc/theme-header.php`
+  - Core header markup renderer used by the active header style files.
+- `SDWeddingDirectory_Header::sdweddingdirectory_menu()`
+  - **File:** `inc/theme-header.php`
+  - Renders the primary menu and mega-menu walker output.
+- `SDWeddingDirectory_Header::have_user_buttons( $args )`
+  - **File:** `inc/theme-header.php`
+  - Outputs login/dashboard action buttons in the header.
+- `SDWeddingDirectory_Footer::sdweddingdirectory_footer_markup()`
+  - **File:** `inc/theme-footer.php`
+  - Renders the main footer and widget/static fallback logic.
+- `SDWeddingDirectory_Footer::sdweddingdirectory_tiny_footer()`
+  - **File:** `inc/theme-footer.php`
+  - Renders the lower copyright/footer strip.
+- `SDWeddingDirectory_Footer::sdweddingdirectory_static_footer_markup()`
+  - **File:** `inc/theme-footer.php`
+  - Static fallback footer used when widget areas are empty.
+- `SDWeddingDirectory_Page_Header_Banner::sdweddingdirectory_default_page_header()`
+  - **File:** `inc/page-header-banner.php`
+  - Handles the default page hero, vendor/venue search hero, and planning-page banner variants.
+- `SDWeddingDirectory_Page_Header_Banner::sdweddingdirectory_page_header_title()`
+  - **File:** `inc/page-header-banner.php`
+  - Resolves page-header titles across page, archive, and taxonomy contexts.
+- `SDWeddingDirectory_Page_Header_Banner::page_breadcrumbs()`
+  - **File:** `inc/page-header-banner.php`
+  - Renders breadcrumb markup for standard pages and directory contexts.
+- `SDWeddingDirectory_Page_Header_Banner::archive_title( $title )`
+  - **File:** `inc/page-header-banner.php`
+  - Removes default WP archive prefixes.
+
+## Assets, Editor Support, and Elementor Compatibility
+- `SDWeddingDirectory_Theme_Scripts::sdweddingdirectory_scripts_markup()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/theme-scripts.php`
+  - Master enqueue pipeline for CSS/JS assets.
+- `SDWeddingDirectory_Theme_Scripts::theme_style()`
+  - **File:** `inc/theme-scripts.php`
+  - Enqueues the main frontend stylesheet stack and inline theme styles.
+- `SDWeddingDirectory_Theme_Scripts::theme_script()`
+  - **File:** `inc/theme-scripts.php`
+  - Enqueues the base frontend JS bundle.
+- `SDWeddingDirectory_Theme_Scripts::profile_page_assets()`
+  - **File:** `inc/theme-scripts.php`
+  - Conditionally loads profile CSS/JS and localizes the availability calendar script.
+- `SDWeddingDirectory_Theme_Scripts::sdweddingdirectory_font()` and `::sdweddingdirectory_google_fonts()`
+  - **File:** `inc/theme-scripts.php`
+  - Loads locally hosted fonts via `assets/css/local-fonts.css`.
+- `SDWeddingDirectory_Gutenberg_Support::color_palette()`, `::font_size_list()`, `::gutenberg_inline_style()`, `::sdweddingdirectory_editory_styles()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/gutenberg-support.php`
+  - Defines editor palette, font sizes, inline block styles, and editor styles.
+- `SDWeddingDirectory_Elementor_Page_Builder_Configuration::elementor_disable_redirection()` and `::elementor_init()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/page-builder/index.php`
+  - Prevents Elementor’s activation redirect and clears the redirect transient. Elementor is no longer active; this file remains as a safety guard.
+
+## Template and Content Helpers
+- `SDWeddingDirectory_Template_Helper::sdweddingdirectory_pagination( $args )`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/template-helper.php`
+  - Shared pagination renderer used by archives and directory pages.
+- `SDWeddingDirectory_Blog::sdweddingdirectory_article_markup( $args )`
+  - **File:** `wp-content/themes/sdweddingdirectory/template-parts/blog.php`
+  - Primary theme blog-card renderer.
+- `SDWeddingDirectory_Blog_Helper::post_category( $post_id )`
+  - **File:** `wp-content/themes/sdweddingdirectory/template-parts/content-helper.php`
+  - Returns or renders the post category output.
+- `SDWeddingDirectory_Blog_Helper::sdweddingdirectory_blog_tags( $args )`
+  - **File:** `template-parts/content-helper.php`
+  - Renders tag output for blog entries.
+- `SDWeddingDirectory_Blog_Helper::sdweddingdirectory_single_post_link( $args )`
+  - **File:** `template-parts/content-helper.php`
+  - Renders the single-post/read-more link block.
+- `SDWeddingDirectory_Blog_Helper::post_load_condition( $post_id )`
+  - **File:** `template-parts/content-helper.php`
+  - Determines whether post media/format markup should render.
+## Admin Settings, Migration, and Admin Pages
+- `sdwd_migrate_optiontree_data()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/migrate-optiontree.php`
+  - One-time migration of legacy OptionTree data into `sdwd_*` options.
+- `sdwd_render_tabbed_settings_page( $page_title, $page_slug, $tabs )`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/admin-settings.php`
+  - Shared renderer for tabbed native settings pages.
+- `sdwd_sanitize_*()`
+  - **File:** `inc/admin-settings.php`
+  - Sanitizer family for toggles, colors, arrays, admin emails, checklist defaults, guest-list groups, budget categories, and related settings payloads.
+- `sdwd_register_field( $option_key, $label, $page, $section, $type, $args )`
+  - **File:** `inc/admin-settings.php`
+  - Core field registration helper for the Settings API pages.
+- `sdwd_register_style_settings_fields()`, `sdwd_register_couple_tools_fields()`, `sdwd_register_realwedding_settings_fields()`, `sdwd_register_venue_settings_fields()`, `sdwd_register_email_settings_fields()`
+  - **File:** `inc/admin-settings.php`
+  - Register the actual option groups and sections for each native settings page.
+- `sdwd_render_style_settings_page()`, `sdwd_render_couple_tools_page()`, `sdwd_render_realwedding_page()`, `sdwd_render_venue_settings_page()`, `sdwd_render_email_settings_page()`
+  - **File:** `inc/admin-settings.php`
+  - Render callbacks for the native theme settings pages.
+- `sdwd_register_settings_admin_menu()` and `sdwd_register_settings_pages_fields()`
+  - **File:** `inc/admin-settings.php`
+  - Hook the native settings pages into `admin_menu` and `admin_init`.
+- `SDWeddingDirectory_Admin_Pages::register_menus()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/admin-pages.php`
+  - Adds Add Couple, Add Vendor, Vendor Category, Venue Type, and Venue Location submenu items.
+- `SDWeddingDirectory_Admin_Pages::enqueue_scripts( $hook )`
+  - **File:** `inc/admin-pages.php`
+  - Loads the admin JS for the custom add-couple and add-vendor forms.
+- `SDWeddingDirectory_Admin_Pages::render_add_couple()`, `::render_add_vendor()`
+  - **File:** `inc/admin-pages.php`
+  - Render the custom admin forms from `admin/forms/`.
+- `SDWeddingDirectory_Admin_Pages::render_vendor_category()`, `::render_venue_type()`, `::render_venue_location()`
+  - **File:** `inc/admin-pages.php`
+  - Redirect submenu pages into the native taxonomy editors.
+
+## SEO and Structured Data
+- `SDWeddingDirectory_SEO::is_filter_request()` and `::is_dashboard_context()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/seo.php`
+  - Detect filter-heavy directory requests and noindex dashboard contexts.
+- `SDWeddingDirectory_SEO::robots_meta()`
+  - **File:** `inc/seo.php`
+  - Prints noindex rules for dashboard, search, filter, author, and tag contexts.
+- `SDWeddingDirectory_SEO::canonical_tag()`
+  - **File:** `inc/seo.php`
+  - Prints canonical URLs for singular, taxonomy, archive, and homepage contexts.
+- `SDWeddingDirectory_SEO::document_title_parts( $title_parts )`
+  - **File:** `inc/seo.php`
+  - Rewrites titles for venue/vendor singles and key directory/taxonomy pages.
+- `SDWeddingDirectory_SEO::meta_description()`
+  - **File:** `inc/seo.php`
+  - Generates excerpt/term-based meta descriptions with directory fallbacks.
+- `SDWeddingDirectory_SEO::enforce_trailing_slash()`
+  - **File:** `inc/seo.php`
+  - Redirects frontend URLs to the trailing-slash form.
+- `SDWeddingDirectory_SEO::filter_sitemap_post_types( $post_types )`
+  - **File:** `inc/seo.php`
+  - Removes private/internal CPTs from the sitemap.
+- `SDWeddingDirectory_SEO::robots_txt( $output, $public )`
+  - **File:** `inc/seo.php`
+  - Outputs the site’s custom `robots.txt` rules.
+- `SDWeddingDirectory_Structured_Data::output_schema()`
+  - **File:** `wp-content/themes/sdweddingdirectory/inc/structured-data.php`
+  - Emits JSON-LD blocks on frontend pages.
+- `SDWeddingDirectory_Structured_Data::organization_schema()`
+  - **File:** `inc/structured-data.php`
+  - Homepage organization schema.
+- `SDWeddingDirectory_Structured_Data::breadcrumb_schema()` and `::format_breadcrumb_schema( $crumbs )`
+  - **File:** `inc/structured-data.php`
+  - Builds breadcrumb JSON-LD across page, taxonomy, archive, and search contexts.
+- `SDWeddingDirectory_Structured_Data::local_business_schema( $post_id )`
+  - **File:** `inc/structured-data.php`
+  - Generates LocalBusiness schema for vendor and venue profiles.
+- `SDWeddingDirectory_Structured_Data::location_name( $post_id )`, `::business_phone( $post_id )`, `::aggregate_rating( $post_id )`, `::extract_numeric_value( $value )`
+  - **File:** `inc/structured-data.php`
+  - Support helpers for profile schema values.
+- `SDWeddingDirectory_Structured_Data::article_schema( $post_id )`
+  - **File:** `inc/structured-data.php`
+  - Generates Article schema for standard blog posts.
+
+## Profile Actions and AJAX
+- `sdwd_profile_user_items( $meta_key, $user_id )`
+  - **File:** `wp-content/themes/sdweddingdirectory/functions.php`
+  - Returns a normalized list of saved/hired profile IDs from user meta.
+- `sdwd_profile_user_has_item( $meta_key, $post_id, $user_id )`
+  - **File:** `functions.php`
+  - Checks whether a user already has a profile in a saved/hired list.
+- `sdwd_profile_toggle_item( $meta_key, $post_id, $user_id )`
+  - **File:** `functions.php`
+  - Toggles a profile ID in user meta and returns the new active state.
+- `sdwd_profile_valid_post_id( $post_id, $post_type )`
+  - **File:** `functions.php`
+  - Validates that the target is a real vendor or venue post.
+- `sdwd_profile_target_email( $post_id )`
+  - **File:** `functions.php`
+  - Resolves the profile destination email from meta, author, or admin fallback.
+- `sdwd_profile_toggle_saved_ajax()`
+  - **File:** `functions.php`
+  - `wp_ajax_sdwd_profile_toggle_saved` handler.
+- `sdwd_profile_toggle_hired_ajax()`
+  - **File:** `functions.php`
+  - `wp_ajax_sdwd_profile_toggle_hired` handler.
+- `sdwd_profile_send_message_ajax()`
+  - **File:** `functions.php`
+  - `wp_ajax_sdwd_profile_send_message` handler that validates inputs, emails the profile owner, and stores a capped message log in post meta.

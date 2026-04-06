@@ -1,0 +1,116 @@
+/* =============================================
+   Venues Landing Page — pages/venues-landing.css
+   Plugin renders most markup via do_action.
+   These styles support the plugin's output.
+   ============================================= */
+
+/* --- Venue Pop-Out Sections --- */
+.venue-popout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 48px;
+}
+
+.venue-popout--reversed {
+  direction: rtl;
+}
+
+.venue-popout--reversed > * {
+  direction: ltr;
+}
+
+.venue-popout__image {
+  overflow: hidden;
+}
+
+.venue-popout__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+.venue-popout__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 40px;
+  background: var(--sdwd-bg);
+}
+
+.venue-popout__title {
+  margin-bottom: 12px;
+}
+
+.venue-popout__desc {
+  color: var(--sdwd-body-text);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* --- Venue Carousel --- */
+.venues-carousel {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-bottom: 32px;
+}
+
+.venues-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.venues-carousel__track {
+  display: flex;
+  gap: 16px;
+}
+
+.venues-carousel__slide {
+  flex: 0 0 auto;
+  width: 160px;
+  text-decoration: none;
+  color: var(--sdwd-subtext);
+  text-align: center;
+}
+
+.venues-carousel__slide img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+}
+
+.venues-carousel__slide:hover {
+  color: var(--sdwd-accent);
+  text-decoration: none;
+}
+
+/* --- Button Row --- */
+.venues-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 28px 0;
+}
+
+@media (max-width: 768px) {
+  .venue-popout {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-popout--reversed {
+    direction: ltr;
+  }
+
+  .venue-popout__image img {
+    min-height: 250px;
+  }
+
+  .venue-popout__content {
+    padding: 28px 20px;
+  }
+}

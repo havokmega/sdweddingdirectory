@@ -1,0 +1,227 @@
+:root {
+  /* Brand palette */
+  --sdwd-accent: #2bcfce;
+  --sdwd-accent-dark: #007f80;
+  --sdwd-cta: #ec4d25;
+  --sdwd-black: #000000;
+  --sdwd-dark: #1d2733;
+  --sdwd-subtext: #2d2d2d;
+  --sdwd-body-text: #444444;
+  --sdwd-muted: #5f6d7b;
+  --sdwd-soft: #f3f5f7;
+  --sdwd-soft-accent: #e6f7f7;
+  --sdwd-accent-bg: #d5f5f5;
+  --sdwd-accent-bg-soft: #f2fbfb;
+  --sdwd-border: #dce4ea;
+  --sdwd-focus: #007BFF;
+
+  /* Surfaces */
+  --sdwd-bg: #ffffff;
+
+  /* Primary button states */
+  --sdwd-btn-primary-hover: #24b5b4;
+  --sdwd-btn-primary-active: #1d9b9a;
+  --sdwd-btn-primary-disabled: #bfeded;
+
+  /* CTA button states */
+  --sdwd-btn-cta-hover: #d74420;
+  --sdwd-btn-cta-active: #b83a1b;
+  --sdwd-btn-cta-disabled: #f2b3a5;
+
+  /* Header button colors */
+  --sdwd-header-couple: #f48f00;
+  --sdwd-header-couple-hover: #d47c00;
+  --sdwd-header-vendor: #00aeaf;
+  --sdwd-header-vendor-hover: #009091;
+
+  /* Dark button states */
+  --sdwd-btn-dark-hover: #0f161e;
+  --sdwd-btn-dark-active: #0a1016;
+
+  /* Secondary button hover */
+  --sdwd-btn-secondary-hover: #e6eaee;
+
+  /* Footer dark theme */
+  --sdwd-footer-bg: #1f1d24;
+  --sdwd-footer-bg-alt: #252428;
+  --sdwd-footer-input-bg: #17151b;
+  --sdwd-footer-text: #f5f7fa;
+  --sdwd-footer-text-secondary: #d7d5de;
+  --sdwd-footer-text-muted: #b9b7c5;
+  --sdwd-footer-border: #4c4957;
+
+  /* Mega menu grays */
+  --sdwd-mega-heading: #202020;
+  --sdwd-mega-link: #3a3a3a;
+  --sdwd-mega-desc: #5c5c5c;
+  --sdwd-mega-icon: #7a7a7a;
+  --sdwd-mega-border: #e9edef;
+  --sdwd-mega-card-border: #e2e2e2;
+
+  /* Hero search */
+  --sdwd-search-border: #d9d9d9;
+  --sdwd-search-icon: #9a9a9a;
+  --sdwd-search-text: #6b6b6b;
+  --sdwd-search-radio-border: #8f98a3;
+
+  /* Overlay */
+  --sdwd-overlay: rgba(12, 17, 23, 0.76);
+
+  /* Radius */
+  --sdwd-radius: 4px;
+  --sdwd-radius-lg: 8px;
+
+  /* Utility */
+  --sdwd-rating-star: #f0a030;
+
+  --sdwd-heading-font: 'Inter', 'Work Sans', system-ui, sans-serif;
+  --sdwd-body-font: 'Work Sans', system-ui, -apple-system, sans-serif;
+
+  --sdwd-h1: 32px;
+  --sdwd-h2: 24px;
+  --sdwd-h3: 20px;
+  --sdwd-h4: 18px;
+  --sdwd-h5: 16px;
+  --sdwd-h6: 14px;
+  --sdwd-body: 16px;
+
+  --sdwd-section-gap-sm: 16px;
+  --sdwd-section-gap-md: 24px;
+  --sdwd-section-gap-lg: 48px;
+  --sdwd-section-gap: var(--sdwd-section-gap-md);
+  --sdwd-row-gap: 32px;
+  --sdwd-title-gap: 24px;
+
+  --container-max: 1320px;
+  --gutter: 20px;
+  --container-padding: 45px;
+  --sdwd-carousel-arrow-size: 40px;
+
+  --sdwd-hero-height: 400px;
+  --sdwd-hero-art-tablet: 240px;
+  --sdwd-hero-art-mobile: 200px;
+  --sdwd-hero-art-small: 170px;
+  --sdwd-hero-search-height: 54px;
+  --sdwd-hero-search-radius: 10px;
+  --sdwd-hero-mobile-diagonal: 4vw;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/WorkSans-VariableFont_wght.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--sdwd-body-font);
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--sdwd-body-text);
+  background: var(--sdwd-bg);
+  font-size: var(--sdwd-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  margin: 0 0 0.5em;
+  color: var(--sdwd-subtext);
+  font-family: var(--sdwd-heading-font);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em;
+  color: var(--sdwd-subtext);
+  font-family: var(--sdwd-heading-font);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--sdwd-h1);
+}
+h2 {
+  font-size: var(--sdwd-h2);
+}
+h3 {
+  font-size: var(--sdwd-h3);
+  font-weight: 700;
+}
+h4 {
+  font-size: var(--sdwd-h4);
+  font-weight: 700;
+}
+h5 {
+  font-size: var(--sdwd-h5);
+  font-weight: 700;
+}
+h6 {
+  font-size: var(--sdwd-h6);
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--sdwd-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--sdwd-cta);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

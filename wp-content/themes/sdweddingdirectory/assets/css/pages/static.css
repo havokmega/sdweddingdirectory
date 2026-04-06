@@ -1,0 +1,175 @@
+/* =============================================
+   Static Pages — About, Contact, FAQs, Policy,
+   404, Search, Team, Changelog
+   pages/static.css
+   ============================================= */
+
+/* --- Generic Page Content --- */
+.page-content {
+  padding: 40px 0;
+}
+
+.page-content__body {
+  max-width: 800px;
+  line-height: 1.8;
+  color: var(--sdwd-body-text);
+}
+
+/* --- Team Member Grid --- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  padding: 40px 0;
+}
+
+.team-card {
+  text-align: center;
+  text-decoration: none;
+  color: var(--sdwd-subtext);
+}
+
+.team-card:hover {
+  color: var(--sdwd-subtext);
+  text-decoration: none;
+}
+
+.team-card__image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.team-card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.team-card__role {
+  font-size: 0.88rem;
+  color: var(--sdwd-muted);
+}
+
+/* --- Single Team Detail --- */
+.team-detail {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: start;
+  padding: 40px 0;
+}
+
+.team-detail__sidebar-title {
+  font-size: var(--sdwd-h3);
+  margin-bottom: 16px;
+}
+
+.team-detail__sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- Contact Page --- */
+.contact-email {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.contact-email__link {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* --- FAQ Tabs --- */
+.faq-tabs__nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--sdwd-border);
+  margin-bottom: 28px;
+}
+
+.faq-tabs__tab {
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--sdwd-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-tabs__tab:hover {
+  color: var(--sdwd-accent);
+}
+
+.faq-tabs__tab--active {
+  color: var(--sdwd-accent);
+  border-bottom-color: var(--sdwd-accent);
+}
+
+/* --- 404 Page --- */
+.error-page {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.error-page__graphic {
+  max-width: 280px;
+  margin: 0 auto 32px;
+}
+
+.error-page__title {
+  margin-bottom: 12px;
+}
+
+.error-page__desc {
+  color: var(--sdwd-muted);
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.error-page__buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- Search Results --- */
+.search-results__title {
+  margin-bottom: 28px;
+}
+
+/* --- Changelog --- */
+.changelog-detail {
+  max-width: 800px;
+  padding: 40px 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-tabs__nav {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Message bubble icon">
+  <path d="M38 62c0-16 13-29 29-29h122c16 0 29 13 29 29v78c0 16-13 29-29 29h-54l-48 35 12-35H67c-16 0-29-13-29-29z" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="6"/>
+  <rect x="66" y="72" width="96" height="12" rx="6" fill="#93C5FD"/>
+  <rect x="66" y="98" width="122" height="12" rx="6" fill="#BFDBFE"/>
+  <rect x="66" y="124" width="84" height="12" rx="6" fill="#A7F3D0"/>
+  <circle cx="194" cy="62" r="18" fill="#F43F5E"/>
+  <path d="M194 52v20M184 62h20" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg>

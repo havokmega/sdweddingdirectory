@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="List view icon">
+  <rect x="36" y="36" width="184" height="184" rx="18" fill="#ffffff" stroke="#BFDBFE" stroke-width="6"/>
+  <circle cx="70" cy="86" r="9" fill="#22C55E"/>
+  <circle cx="70" cy="128" r="9" fill="#0EA5E9"/>
+  <circle cx="70" cy="170" r="9" fill="#F59E0B"/>
+  <rect x="90" y="80" width="102" height="12" rx="6" fill="#A7F3D0"/>
+  <rect x="90" y="122" width="118" height="12" rx="6" fill="#BFDBFE"/>
+  <rect x="90" y="164" width="92" height="12" rx="6" fill="#FDE68A"/>
+</svg>

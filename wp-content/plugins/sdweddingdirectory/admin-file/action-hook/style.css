@@ -1,0 +1,14 @@
+#wpadminbar .quicklinks .menupop ul#wp-admin-bar-sdweddingdirectory-parent-menu-default li.sdweddingdirectory-post-found-icon,
+#wpadminbar .quicklinks .menupop ul#wp-admin-bar-sdweddingdirectory-parent-menu-default li.sdweddingdirectory-post-not-found-icon{
+	float: left;
+}
+.sdweddingdirectory-post-found-icon a:before{
+	content: "\f464";
+	text-align: left;
+}
+
+.sdweddingdirectory-post-not-found-icon a:before,
+#wpadminbar .quicklinks .menupop ul#wp-admin-bar-sdweddingdirectory-parent-menu-default li.sdweddingdirectory-post-not-found-icon .ab-empty-item:before {
+	content: "\f463";
+	text-align: left;
+}

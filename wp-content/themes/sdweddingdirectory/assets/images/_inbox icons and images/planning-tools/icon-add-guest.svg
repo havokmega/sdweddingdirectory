@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Add guest icon">
+  <circle cx="102" cy="90" r="30" fill="#BFDBFE"/>
+  <rect x="58" y="126" width="88" height="56" rx="28" fill="#DBEAFE"/>
+  <circle cx="174" cy="146" r="36" fill="#22C55E"/>
+  <rect x="170" y="126" width="8" height="40" rx="4" fill="#fff"/>
+  <rect x="154" y="142" width="40" height="8" rx="4" fill="#fff"/>
+  <circle cx="102" cy="90" r="14" fill="#2563EB"/>
+  <rect x="86" y="106" width="32" height="22" rx="11" fill="#2563EB"/>
+</svg>

@@ -1,0 +1,59 @@
+/*---- 4.3 Paginations ---*/
+.pagination .page-item {
+  margin-right: 1rem;
+}
+.pagination .page-item .page-link {
+  color: #302d34;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: #f6f6f7;
+  border-color: #efefef;
+  box-shadow: none;
+  outline: none;
+}
+.pagination .page-item.disabled {
+  opacity: 0.5;
+}
+.pagination .page-item .page-link:hover {
+  color: var( --weddingdir-color-orange, #f48f00 );
+  border-color: var( --weddingdir-color-orange, #f48f00 );
+}
+.pagination .page-item.active .page-link {
+  background: var( --weddingdir-color-cyan, #00aeaf );
+  color: #fff;
+  border-color: var( --weddingdir-color-cyan, #00aeaf );
+}
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.page-item:last-child .page-link {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/**
+ *  Data Show / Hide CSS
+ *  --------------------
+ */
+ul#weddingdir_venue_pagination {
+    display: inline-block;
+}
+.weddingdir-pagination-post{
+  display: none;
+}
+.weddingdir-pagination-post.page-active{
+  display: block;
+}
+.weddingdir-venue-page-section.active a{
+    z-index: 3;
+    color: #fff !important;
+    cursor: default;
+    background-color: #fd785f !important;
+    border-color: #fd785f !important;
+}
