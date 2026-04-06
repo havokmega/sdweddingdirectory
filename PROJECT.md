@@ -1,16 +1,16 @@
-# PROJECT.md — SD Wedding Directory
+# PROJECT.md — San Diego Wedding Directory
 
-Last updated: 2026-04-01
+Last updated: 2026-04-06
 
 Single source of truth for tasks. Nothing else tracks tasks — not README.md, not architecture.md, not CLAUDE.md. If it's not in this file, it's not on the list.
 
-For legacy (v1) historical work, see `legacy-sdweddingdirectory/theme/project-status.md` outside the WordPress install.
+For v1 historical work, see `legacy-sdweddingdirectory/project-status.md` outside the WordPress install.
 
 ---
 
 ## 1. Front-End UI
 
-Complete the visual design for every public-facing page before moving to backend work. Pages marked "done on legacy" exist in the old theme as functional reference but need full rebuilds.
+Complete the visual design for every public-facing page before moving to backend work. Pages marked "done on v1" exist in the old theme as functional reference but need full v2 rebuilds.
 
 ### Global Elements
 
@@ -18,7 +18,7 @@ Complete the visual design for every public-facing page before moving to backend
 |------|--------|-------|
 | Navigation bar | 95% | Need user-o icon for "Join as Couple" — icomoon SVG export failed, no icon showing |
 | Footer | Not started | |
-| Error 404 page | Not started | Was correct on legacy theme — use v1 screenshots as reference |
+| Error 404 page | Not started | |
 
 ### Pages
 
@@ -28,45 +28,44 @@ Complete the visual design for every public-facing page before moving to backend
 | Wedding Planning (`/wedding-planning`) | Done | Sign-up form, feature blocks, FAQ, breadcrumbs all styled |
 | Planning Child Pages (`/wedding-planning/*`) | 90% | Intro width fixed; need final QA pass |
 | Venues Landing (`/venues`) | 80% | Hero responsive, grey outline fix, city links, lorem removal still needed |
-| Venue Search/Results | Done on legacy | Needs rebuild; had different search area on legacy |
+| Venue Search/Results | Done on v1 | Needs v2 rebuild |
 | Venue Location Archive | Not started | |
 | Venue Type Archive | Not started | |
-| Venue Business Profile | 90% on legacy | Needs rebuild |
-| Venue/Vendor Modal | Done on legacy | Needs rebuild — popout/modal for vendor and venue cards |
-| Couple Modal | Done on legacy | Needs rebuild |
-| Vendors Landing (`/vendors`) | ~1% | Done on legacy; completely broken currently — needs full rebuild |
-| Vendor Category Page | Done on legacy | Needs rebuild; had per-category filters on legacy |
-| Vendor Profile Page | 90% on legacy | Needs rebuild |
-| Inspiration (`/wedding-inspiration`) | Done on legacy | Needs rebuild |
-| Inspiration Archives | Done on legacy | Needs rebuild |
-| Inspiration Single Posts | Done on legacy | Needs rebuild |
-| Inspiration Category Archive | Done on legacy | Needs rebuild |
-| Blog Archives | Done on legacy | Needs rebuild |
-| Blog Category Archives | Done on legacy | Needs rebuild |
-| Blog Posts (import) | Done on legacy | Content exists in DB |
+| Venue Business Profile | 90% on v1 | Needs v2 rebuild |
+| Vendors Landing (`/vendors`) | ~1% on v2 | Done on v1; needs full v2 rebuild |
+| Vendor Category Page | Done on v1 | Needs v2 rebuild |
+| Vendor Profile Page | 90% on v1 | Needs v2 rebuild |
+| Inspiration (`/wedding-inspiration`) | Done on v1 | Needs v2 rebuild |
+| Inspiration Archives | Done on v1 | Needs v2 rebuild |
+| Inspiration Single Posts | Done on v1 | Needs v2 rebuild |
+| Inspiration Category Archive | Done on v1 | Needs v2 rebuild |
+| Blog Posts (import) | Done on v1 | Content exists in DB |
 | Real Weddings | Not started | |
 | Wedding Website | Not started | Includes 6 theme options (see Section 5) |
 | Cost Parent Page | Not started | |
 | Cost Child Pages | Not started | Needs original SD-specific pricing content |
 | Registry Page | Not started | |
-| FAQs / Privacy / CA Privacy / Terms of Use | Done on legacy | Was a 4-tab subsection layout — needs rebuild with same tabbed UI |
-| About | Done on legacy | Needs rebuild |
-| Contact | Done on legacy | Needs rebuild |
+| FAQs Page | Not started | |
+| About | Done on v1 | Needs v2 rebuild |
+| Contact | Done on v1 | Needs v2 rebuild |
+| CA Privacy | Done on v1 | Needs v2 rebuild |
+| Privacy Policy | Done on v1 | Needs v2 rebuild |
+| Terms of Use | Done on v1 | Needs v2 rebuild |
 
 ### Dashboards
 
 | Dashboard | Status | Notes |
 |-----------|--------|-------|
-| Vendor Dashboard | 80% on legacy | Plugin-driven UI; needs theme wrapper + CSS + QA |
-| Venue Dashboard | 80% on legacy | Plugin-driven UI; needs theme wrapper + CSS + QA |
-| Couple Dashboard | 80% on legacy | Plugin-driven UI; needs theme wrapper + CSS + QA |
+| Vendor Dashboard | 80% on v1 | Plugin-driven UI; needs v2 theme wrapper + CSS + QA |
+| Venue Dashboard | 80% on v1 | Plugin-driven UI; needs v2 theme wrapper + CSS + QA |
+| Couple Dashboard | 80% on v1 | Plugin-driven UI; needs v2 theme wrapper + CSS + QA |
 
 ### Modals
 
 | Modal | Status | Notes |
 |-------|--------|-------|
-| Vendor/Venue Registration | Done on legacy | Needs rebuild |
-| Couple Registration | Done on legacy | Needs rebuild |
+| Vendor/Venue Registration | Done on v1 | Needs v2 rebuild |
+| Couple Registration | Done on v1 | Needs v2 rebuild |
 
 ---
 
@@ -95,7 +94,7 @@ Pages are built but need responsive tuning.
 
 ### Phase 2 — Venues Pages
 
-- [ ] Venues landing (`page-venues.php`): rebuild as orchestrator
+- [ ] Venues landing (`page-venues.php`): rebuild as v2 orchestrator
 - [ ] Venue archive (`archive-venue.php`): grid + filtering + pagination
 - [ ] Venue taxonomy pages (`taxonomy-venue-type.php`, `taxonomy-venue-location.php`)
 - [ ] Single venue (`single-venue.php`): profile page wrapper + CSS
@@ -104,7 +103,7 @@ Pages are built but need responsive tuning.
 ### Phase 3 — Vendors Pages
 
 - [ ] Vendors landing (`page-vendors.php`): category carousel + styled sections
-- [ ] Vendor taxonomy (`taxonomy-vendor-category.php`): advanced filter sidebar with per-category filters
+- [ ] Vendor taxonomy (`taxonomy-vendor-category.php`): advanced filter sidebar
 - [ ] Single vendor (`single-vendor.php`): profile page wrapper + CSS
 - [ ] Conditional CSS: `pages/vendors.css`
 
@@ -126,7 +125,8 @@ Pages are built but need responsive tuning.
 - [ ] About (`page-about.php`)
 - [ ] Our Team (`page-our-team.php`)
 - [ ] Contact (`page-contact.php`)
-- [ ] FAQs / Privacy / CA Privacy / Terms of Use: 4-tab subsection layout (replicate legacy tabbed UI)
+- [ ] FAQs (`page-faqs.php`): tabbed accordion
+- [ ] Policy pages (`page-policy.php`): privacy, terms, CA privacy
 - [ ] 404 (`404.php`)
 - [ ] Search results (`search.php`)
 - [ ] Cost parent page (`/cost/`)
@@ -149,19 +149,19 @@ Pages are built but need responsive tuning.
 
 ### Phase 9 — Final QA & Launch Prep
 
-- [x] ~~Delete old theme directory, rename to `sdweddingdirectory`~~ Done 2026-04-01
 - [ ] Cross-browser testing (Chrome, Safari, Firefox, mobile)
 - [ ] Lighthouse audit: performance, accessibility, SEO
 - [ ] Verify conditional CSS/JS enqueuing
 - [ ] Verify `loading="lazy"` and theme path helpers on all images
 - [ ] Verify no hardcoded URLs, inline styles, or raw hex colors
+- [ ] Delete old theme directory, rename v2 to `sdweddingdirectory`
 - [ ] Update all Documentation files to reflect final state
 
 ---
 
 ## 3. Plugin Refactoring
 
-The legacy plugins (`sdweddingdirectory` core + `sdweddingdirectory-couple`) were built for the legacy theme. ~35% of their code is HTML rendering that belongs in the theme, not the plugin. They don't need a ground-up rewrite, but they need surgery.
+The v1 plugins (`sdweddingdirectory` core + `sdweddingdirectory-couple`) were built for the v1 theme. ~35% of their code is HTML rendering that belongs in the theme, not the plugin. They don't need a ground-up rewrite, but they need surgery.
 
 ### What to keep (data/logic layer — works fine)
 
@@ -183,7 +183,7 @@ The legacy plugins (`sdweddingdirectory` core + `sdweddingdirectory-couple`) wer
 - Plugin-owned CSS files (20+ files)
 - Bundled JS libraries: fullcalendar v4, bootstrap-datepicker, summernote, select2, toastr, Magnific Popup, Isotope, ApexCharts
 
-### What to rebuild in theme
+### What to rebuild in v2 theme
 
 - Dashboard UI as theme templates using `get_template_part()`
 - Vendor/venue/real wedding profile page rendering
@@ -192,18 +192,18 @@ The legacy plugins (`sdweddingdirectory` core + `sdweddingdirectory-couple`) wer
 
 ### Vendor/venue architecture fix
 
-Legacy problem: vendor and venue are completely separate codebases despite being structurally similar. Vendor was the original, then "listing" code was modified to become venues, creating inconsistent admin behavior and forked code.
+v1 problem: vendor and venue are completely separate codebases despite being structurally similar. Vendor was the original, then "listing" code was modified to become venues, creating inconsistent admin behavior and forked code.
 
-Goal: unified base architecture — one shared system, differentiated by taxonomy, not by forked code.
+v2 goal: unified base architecture — one shared system, differentiated by taxonomy, not by forked code.
 
 ### Tasks
 
-- [ ] Audit legacy plugins to catalog what backend functionality to carry forward
+- [ ] Audit v1 plugins to catalog what backend functionality to carry forward
 - [ ] Design unified vendor/venue post type architecture
-- [ ] Determine scope for custom plugins (dashboards, Google Maps, quote requests, reviews)
+- [ ] Determine scope for v2 custom plugins (dashboards, Google Maps, quote requests, reviews)
 - [ ] Strip HTML rendering from plugins, move to theme templates
 - [ ] Remove Bootstrap/FA/jQuery/legacy library dependencies
-- [ ] Build clean plugins using legacy as functional reference
+- [ ] Build clean v2 plugins using v1 as functional reference
 
 ---
 
@@ -244,30 +244,3 @@ Currently 1 template ("Website Template One") in the `weddingdir-couple-website`
 - [ ] Optimize images and trim render-blocking assets
 - [ ] Search Console, Bing, analytics, mail-deliverability checks
 - [ ] Pre-launch and post-launch checklists
-
----
-
-## 8. Media Upload Routing
-
-WordPress defaults to `uploads/YYYY/MM/` for all media. We want uploads routed by content type instead.
-
-Directory structure created:
-- `wp-content/uploads/vendors/` — vendor profile images, gallery photos
-- `wp-content/uploads/venues/` — venue profile images, gallery photos
-- `wp-content/uploads/couples/` — couple profile photos, wedding photos
-- `wp-content/uploads/blog/` — blog post images
-
-### Tasks
-
-- [ ] Hook into `wp_handle_upload_prefilter` or `upload_dir` filter to route uploads by post type
-- [ ] Create vendor/venue subdirectories by business name (e.g., `vendors/elegant-affairs/photo.jpg`)
-- [ ] Handle edge cases: what happens on post type change, orphaned files, admin-uploaded media
-- [ ] Test upload routing for each user role (vendor, venue, couple, admin)
-
----
-
-## 9. Founder Questions to Resolve
-
-- [ ] How real weddings work (content flow, who submits, what gets displayed)
-- [ ] Purpose of these wp-admin sections: Request Quote, Website, Review vs Testimonial, Team
-- [ ] Whether couple/vendor/venue accounts also show as Users in wp-admin

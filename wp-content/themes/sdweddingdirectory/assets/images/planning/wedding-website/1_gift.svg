@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Present icon">
-  <rect x="36" y="98" width="184" height="122" rx="14" fill="#ffffff" stroke="#FCA5A5" stroke-width="6"/>
-  <rect x="36" y="76" width="184" height="30" rx="10" fill="#FECACA"/>
-  <rect x="120" y="76" width="16" height="144" fill="#F43F5E"/>
-  <rect x="36" y="136" width="184" height="10" fill="#F43F5E"/>
-  <path d="M120 76c-16 0-28-9-28-20 0-9 7-16 16-16 14 0 24 18 24 36z" fill="#FB7185"/>
-  <path d="M136 76c16 0 28-9 28-20 0-9-7-16-16-16-14 0-24 18-24 36z" fill="#FB7185"/>
-</svg>

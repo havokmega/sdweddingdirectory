@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Sort icon">
-  <rect x="44" y="68" width="106" height="12" rx="6" fill="#93C5FD"/>
-  <rect x="44" y="106" width="136" height="12" rx="6" fill="#A7F3D0"/>
-  <rect x="44" y="144" width="88" height="12" rx="6" fill="#FDE68A"/>
-  <path d="M196 56v144" stroke="#64748B" stroke-width="8" stroke-linecap="round"/>
-  <path d="M196 44l-18 18h36z" fill="#22C55E"/>
-  <path d="M196 212l-18-18h36z" fill="#F97316"/>
-</svg>
