@@ -1,69 +1,191 @@
 /* =============================================
-   Dashboard Compatibility — pages/dashboard.css
-   Overrides to ensure v2 theme foundation
-   doesn't break plugin dashboard markup.
+   Dashboard — pages/dashboard.css
    ============================================= */
 
-/* --- Dashboard Wrapper --- */
 .dashboard-wrapper {
   min-height: 60vh;
+  padding: 40px 0;
 }
 
-/* --- Prevent v2 reset from breaking dashboard forms --- */
-.dashboard-wrapper input[type="text"],
-.dashboard-wrapper input[type="email"],
-.dashboard-wrapper input[type="password"],
-.dashboard-wrapper input[type="tel"],
-.dashboard-wrapper input[type="url"],
-.dashboard-wrapper input[type="number"],
-.dashboard-wrapper input[type="date"],
-.dashboard-wrapper textarea,
-.dashboard-wrapper select {
-  font: inherit;
-  font-size: 15px;
+.dash__title {
+  margin-bottom: 24px;
 }
 
-/* --- Ensure dashboard buttons inherit base styling --- */
-.dashboard-wrapper .btn,
-.dashboard-wrapper button[type="submit"] {
-  font: inherit;
-  cursor: pointer;
+.dash-status {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: var(--sdwd-radius);
+  font-size: 0.95rem;
+  display: none;
 }
 
-/* --- Dashboard sidebar nav compatibility --- */
-.dashboard-wrapper .sdweddingdirectory-dashboard-sidebar {
+.dash-status--ok {
+  display: block;
+  background: rgba(46, 204, 113, 0.12);
+  color: #1a7a42;
+}
+
+.dash-status--err {
+  display: block;
+  background: rgba(231, 76, 60, 0.12);
+  color: #a3302a;
+}
+
+/* --- Form Layout --- */
+.dash-form {
+  max-width: 780px;
+}
+
+.dash-section {
+  border: none;
+  padding: 0 0 28px;
+  margin: 0 0 28px;
+  border-bottom: 1px solid var(--sdwd-border);
+}
+
+.dash-section:last-of-type {
+  border-bottom: none;
+}
+
+.dash-section__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sdwd-subtext);
+  margin-bottom: 16px;
+}
+
+.dash-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.dash-field {
+  margin-bottom: 14px;
+}
+
+.dash-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sdwd-subtext);
+}
+
+.dash-field input[type="text"],
+.dash-field input[type="email"],
+.dash-field input[type="tel"],
+.dash-field input[type="url"],
+.dash-field input[type="number"],
+.dash-field input[type="password"],
+.dash-field input[type="date"],
+.dash-field textarea,
+.dash-field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius);
+  font-size: 0.95rem;
+  color: var(--sdwd-subtext);
+  background: var(--sdwd-bg);
+}
+
+.dash-field input:focus,
+.dash-field textarea:focus {
+  outline: none;
+  border-color: var(--sdwd-accent);
+}
+
+.dash-field__hint {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--sdwd-muted);
+}
+
+/* --- Hours --- */
+.dash-hours-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.dash-hours-row__day {
+  min-width: 100px;
+  font-weight: 600;
+  color: var(--sdwd-subtext);
+  font-size: 0.92rem;
+}
+
+.dash-hours-row input[type="time"] {
+  padding: 8px 10px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius);
+}
+
+.dash-hours-row__closed {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--sdwd-muted);
+}
+
+/* --- Social Rows --- */
+.dash-social__row {
+  align-items: end;
+}
+
+.dash-social__row .dash-field {
+  margin-bottom: 0;
+}
+
+.dash-social__remove {
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.dash-social__add {
+  margin-top: 4px;
+}
+
+/* --- Pricing Tiers --- */
+.dash-tier {
+  padding: 18px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius-lg);
+  margin-bottom: 16px;
   background: var(--sdwd-soft);
 }
 
-.dashboard-wrapper .sdweddingdirectory-dashboard-sidebar a {
-  text-decoration: none;
+.dash-tier h4 {
+  margin: 0 0 12px;
+  color: var(--sdwd-subtext);
 }
 
-/* --- Dashboard tabs and panels --- */
-.dashboard-wrapper .nav-tabs {
-  border-bottom: 1px solid var(--sdwd-border);
-}
-
-/* --- Dashboard image uploads --- */
-.dashboard-wrapper img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* --- Calendar compatibility --- */
-.dashboard-wrapper .fc-view-container {
-  overflow: visible;
-}
-
-/* --- Couple tools compatibility --- */
-.dashboard-wrapper table {
-  border-collapse: collapse;
+.dash-tier__feature {
   width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
-.dashboard-wrapper table th,
-.dashboard-wrapper table td {
-  padding: 8px 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--sdwd-border);
+/* --- Submit --- */
+.dash-submit {
+  margin-top: 12px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .dash-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-hours-row__day {
+    min-width: 80px;
+  }
 }

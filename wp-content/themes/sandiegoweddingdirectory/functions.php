@@ -142,6 +142,21 @@ add_action( 'wp_enqueue_scripts', function () {
 
     if ( sdwdv2_is_dashboard_page() ) {
         wp_enqueue_style( 'sdwdv2-dashboard', $theme_uri . '/assets/css/pages/dashboard.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/dashboard.css' ) );
+        wp_enqueue_script( 'sdwd-dashboard', $theme_uri . '/assets/js/dashboard.js', [], $asset_version( '/assets/js/dashboard.js' ), true );
+        wp_localize_script( 'sdwd-dashboard', 'sdwd_dash', [
+            'url'   => admin_url( 'admin-ajax.php' ),
+            'nonce' => wp_create_nonce( 'sdwd_dashboard_nonce' ),
+        ] );
+    }
+
+    // Modals (logged-out users only).
+    if ( ! is_user_logged_in() ) {
+        wp_enqueue_style( 'sdwdv2-modals', $theme_uri . '/assets/css/pages/modals.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/modals.css' ) );
+        wp_enqueue_script( 'sdwd-modals', $theme_uri . '/assets/js/modals.js', [], $asset_version( '/assets/js/modals.js' ), true );
+        wp_localize_script( 'sdwd-modals', 'sdwd_ajax', [
+            'url'   => admin_url( 'admin-ajax.php' ),
+            'nonce' => wp_create_nonce( 'sdwd_auth_nonce' ),
+        ] );
     }
 
     // JS
@@ -191,6 +206,7 @@ function sdwdv2_is_dashboard_page() {
     $template = get_page_template_slug();
     return in_array( $template, [
         'user-template/vendor-dashboard.php',
+        'user-template/venue-dashboard.php',
         'user-template/couple-dashboard.php',
     ], true );
 }
@@ -209,6 +225,12 @@ add_action( 'widgets_init', function () {
         'after_title'   => '</h3>',
     ] );
 } );
+
+/**
+ * Allow admins to create vendors from wp-admin.
+ * Plugin defaults this to true which sets create_posts => do_not_allow.
+ */
+add_filter( 'sdweddingdirectory/post-cap/vendor', '__return_false' );
 
 /**
  * Icon library filter for plugins using sdweddingdirectory_icon_library

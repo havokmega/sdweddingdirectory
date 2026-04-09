@@ -48,17 +48,35 @@
             </nav>
 
             <div class="header__actions">
-                <a class="btn btn--cta sd-header-btn-full" href="<?php echo esc_url( home_url( '/vendors/' ) ); ?>">
-                    <span class="header__btn-icon icon-join-as-couple-user-o" aria-hidden="true"></span>
-                    <?php esc_html_e( 'Join as a Couple', 'sdweddingdirectory-v2' ); ?>
-                </a>
-                <a class="btn btn--primary sd-header-btn-full" href="<?php echo esc_url( home_url( '/vendor-dashboard/' ) ); ?>">
-                    <span class="header__btn-icon icon-plus" aria-hidden="true"></span>
-                    <?php esc_html_e( 'Join as a Vendor', 'sdweddingdirectory-v2' ); ?>
-                </a>
-                <a class="sd-header-btn-icon" href="<?php echo esc_url( home_url( '/vendors/' ) ); ?>" aria-label="<?php esc_attr_e( 'Join as a Couple', 'sdweddingdirectory-v2' ); ?>">
-                    <span class="icon-join-as-couple-user-o" aria-hidden="true"></span>
-                </a>
+                <?php if ( is_user_logged_in() ) : ?>
+                    <?php
+                    $user      = wp_get_current_user();
+                    $dashboard = home_url();
+                    if ( in_array( 'vendor', $user->roles, true ) ) {
+                        $dashboard = home_url( '/vendor-dashboard/' );
+                    } elseif ( in_array( 'venue', $user->roles, true ) ) {
+                        $dashboard = home_url( '/venue-dashboard/' );
+                    } elseif ( in_array( 'couple', $user->roles, true ) ) {
+                        $dashboard = home_url( '/couple-dashboard/' );
+                    }
+                    ?>
+                    <a class="btn btn--primary sd-header-btn-full" href="<?php echo esc_url( $dashboard ); ?>">
+                        <span class="header__btn-icon icon-user" aria-hidden="true"></span>
+                        <?php esc_html_e( 'My Dashboard', 'sdweddingdirectory-v2' ); ?>
+                    </a>
+                <?php else : ?>
+                    <a class="btn btn--cta sd-header-btn-full" href="javascript:" data-sdwd-modal-open="couple-register">
+                        <span class="header__btn-icon icon-user-o" aria-hidden="true"></span>
+                        <?php esc_html_e( 'Join as a Couple', 'sdweddingdirectory-v2' ); ?>
+                    </a>
+                    <a class="btn btn--primary sd-header-btn-full" href="javascript:" data-sdwd-modal-open="vendor-register">
+                        <span class="header__btn-icon icon-plus" aria-hidden="true"></span>
+                        <?php esc_html_e( 'Join as a Vendor', 'sdweddingdirectory-v2' ); ?>
+                    </a>
+                    <a class="sd-header-btn-icon" href="javascript:" data-sdwd-modal-open="couple-login" aria-label="<?php esc_attr_e( 'Log in', 'sdweddingdirectory-v2' ); ?>">
+                        <span class="icon-user-o" aria-hidden="true"></span>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

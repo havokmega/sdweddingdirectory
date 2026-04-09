@@ -45,21 +45,38 @@ if ( is_wp_error( $city_terms ) ) {
 
 // Carousel city slides — images from assets/images/locations/
 $carousel_cities = [
-	[ 'slug' => 'san-diego',       'name' => 'San Diego' ],
-	[ 'slug' => 'la-jolla',        'name' => 'La Jolla' ],
-	[ 'slug' => 'carlsbad',        'name' => 'Carlsbad' ],
-	[ 'slug' => 'coronado',        'name' => 'Coronado' ],
-	[ 'slug' => 'escondido',       'name' => 'Escondido' ],
-	[ 'slug' => 'fallbrook',       'name' => 'Fallbrook' ],
-	[ 'slug' => 'del-mar',         'name' => 'Del Mar' ],
-	[ 'slug' => 'oceanside',       'name' => 'Oceanside' ],
-	[ 'slug' => 'el-cajon',        'name' => 'El Cajon' ],
-	[ 'slug' => 'chula-vista',     'name' => 'Chula Vista' ],
-	[ 'slug' => 'encinitas',       'name' => 'Encinitas' ],
-	[ 'slug' => 'rancho-santa-fe', 'name' => 'Rancho Santa Fe' ],
-	[ 'slug' => 'san-marcos',      'name' => 'San Marcos' ],
-	[ 'slug' => 'solana-beach',    'name' => 'Solana Beach' ],
-	[ 'slug' => 'poway',           'name' => 'Poway' ],
+	[ 'slug' => 'san-diego',         'name' => 'San Diego' ],
+	[ 'slug' => 'escondido',         'name' => 'Escondido' ],
+	[ 'slug' => 'la-jolla',          'name' => 'La Jolla' ],
+	[ 'slug' => 'carlsbad',          'name' => 'Carlsbad' ],
+	[ 'slug' => 'fallbrook',         'name' => 'Fallbrook' ],
+	[ 'slug' => 'oceanside',         'name' => 'Oceanside' ],
+	[ 'slug' => 'vista',             'name' => 'Vista' ],
+	[ 'slug' => 'san-marcos',        'name' => 'San Marcos' ],
+	[ 'slug' => 'coronado',          'name' => 'Coronado' ],
+	[ 'slug' => 'el-cajon',          'name' => 'El Cajon' ],
+	[ 'slug' => 'ramona',            'name' => 'Ramona' ],
+	[ 'slug' => 'rancho-santa-fe',   'name' => 'Rancho Santa Fe' ],
+	[ 'slug' => 'jamul',             'name' => 'Jamul' ],
+	[ 'slug' => 'bonsall',           'name' => 'Bonsall' ],
+	[ 'slug' => 'del-mar',           'name' => 'Del Mar' ],
+	[ 'slug' => 'encinitas',         'name' => 'Encinitas' ],
+	[ 'slug' => 'julian',            'name' => 'Julian' ],
+	[ 'slug' => 'valley-center',     'name' => 'Valley Center' ],
+	[ 'slug' => 'chula-vista',       'name' => 'Chula Vista' ],
+	[ 'slug' => 'pala',              'name' => 'Pala' ],
+	[ 'slug' => 'poway',             'name' => 'Poway' ],
+	[ 'slug' => 'alpine',            'name' => 'Alpine' ],
+	[ 'slug' => 'bonita',            'name' => 'Bonita' ],
+	[ 'slug' => 'imperial-beach',    'name' => 'Imperial Beach' ],
+	[ 'slug' => 'solana-beach',      'name' => 'Solana Beach' ],
+	[ 'slug' => 'descanso',          'name' => 'Descanso' ],
+	[ 'slug' => 'national-city',     'name' => 'National City' ],
+	[ 'slug' => 'spring-valley',     'name' => 'Spring Valley' ],
+	[ 'slug' => 'cardiff-by-the-sea','name' => 'Cardiff by the Sea' ],
+	[ 'slug' => 'palomar-mountain',  'name' => 'Palomar Mountain' ],
+	[ 'slug' => 'santa-ysabel',      'name' => 'Santa Ysabel' ],
+	[ 'slug' => 'santee',            'name' => 'Santee' ],
 ];
 
 // Alternating city popout + card row data (5 cities, each with 4 venues)
@@ -222,62 +239,38 @@ $seo_columns = [
 				'desc'    => __( 'Explore wedding venues across San Diego County by city.', 'sdweddingdirectory' ),
 			] );
 
-			// Build slide data with image URIs
-			$location_slides = [];
-			foreach ( $carousel_cities as $city ) {
-				$location_slides[] = [
-					'slug'  => $city['slug'],
-					'name'  => $city['name'],
-					'image' => get_theme_file_uri( 'assets/images/locations/' . $city['slug'] . '.jpg' ),
-				];
-			}
-			$location_groups = array_chunk( $location_slides, 6 );
 			?>
 
 			<div class="home-locations__carousel" data-carousel="cities">
+				<button class="carousel-arrow carousel-arrow--prev home-locations__arrow" type="button" data-carousel-prev>
+					<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Previous locations', 'sdweddingdirectory' ); ?></span>
+				</button>
+
 				<div class="home-locations__viewport">
 					<div class="home-locations__track">
-						<?php foreach ( $location_groups as $group_index => $city_group ) : ?>
-							<?php
-							$panel_number = $group_index + 1;
-							$panel_prev   = 0 === $group_index ? count( $location_groups ) : $group_index;
-							$panel_next   = count( $location_groups ) === $panel_number ? 1 : $panel_number + 1;
-							?>
-							<div class="home-locations__panel" id="<?php echo esc_attr( 'venues-locations-page-' . $panel_number ); ?>">
-								<div class="home-locations__panel-grid">
-									<?php foreach ( $city_group as $city ) : ?>
-										<?php
-										$city_term = get_term_by( 'slug', $city['slug'], 'venue-location' );
-										$city_count = $city_term ? $city_term->count : 0;
-										?>
-										<a class="home-locations__slide" href="<?php echo esc_url( home_url( '/venues/?location=' . $city['slug'] ) ); ?>">
-											<span class="home-locations__image">
-												<img loading="lazy" decoding="async" src="<?php echo esc_url( $city['image'] ); ?>" alt="<?php echo esc_attr( $city['name'] ); ?>">
-											</span>
-											<span class="home-locations__name"><?php echo esc_html( $city['name'] ); ?></span>
-											<?php if ( $city_count > 0 ) : ?>
-												<span class="home-locations__count"><?php echo esc_html( sprintf( _n( '%s venue', '%s venues', $city_count, 'sdweddingdirectory' ), number_format_i18n( $city_count ) ) ); ?></span>
-											<?php endif; ?>
-										</a>
-									<?php endforeach; ?>
-								</div>
-
-								<?php if ( count( $location_groups ) > 1 ) : ?>
-									<div class="home-locations__controls">
-										<a class="carousel-arrow carousel-arrow--prev home-locations__arrow home-locations__arrow--prev" href="<?php echo esc_url( '#venues-locations-page-' . $panel_prev ); ?>">
-											<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-											<span class="screen-reader-text"><?php esc_html_e( 'Previous locations', 'sdweddingdirectory' ); ?></span>
-										</a>
-										<a class="carousel-arrow carousel-arrow--next home-locations__arrow home-locations__arrow--next" href="<?php echo esc_url( '#venues-locations-page-' . $panel_next ); ?>">
-											<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-											<span class="screen-reader-text"><?php esc_html_e( 'Next locations', 'sdweddingdirectory' ); ?></span>
-										</a>
-									</div>
+						<?php foreach ( $carousel_cities as $city ) :
+							$city_image = get_theme_file_uri( 'assets/images/locations/' . $city['slug'] . '.jpg' );
+							$city_term  = get_term_by( 'slug', $city['slug'], 'venue-location' );
+							$city_count = $city_term ? $city_term->count : 0;
+						?>
+							<a class="home-locations__slide" href="<?php echo esc_url( home_url( '/venues/' . $city['slug'] . '/' ) ); ?>">
+								<span class="home-locations__image">
+									<img loading="lazy" decoding="async" src="<?php echo esc_url( $city_image ); ?>" alt="<?php echo esc_attr( $city['name'] ); ?>">
+								</span>
+								<span class="home-locations__name"><?php echo esc_html( $city['name'] ); ?></span>
+								<?php if ( $city_count > 0 ) : ?>
+									<span class="home-locations__count"><?php echo esc_html( sprintf( _n( '%s venue', '%s venues', $city_count, 'sdweddingdirectory' ), number_format_i18n( $city_count ) ) ); ?></span>
 								<?php endif; ?>
-							</div>
+							</a>
 						<?php endforeach; ?>
 					</div>
 				</div>
+
+				<button class="carousel-arrow carousel-arrow--next home-locations__arrow" type="button" data-carousel-next>
+					<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Next locations', 'sdweddingdirectory' ); ?></span>
+				</button>
 			</div>
 		</div>
 	</section>
@@ -348,7 +341,7 @@ $seo_columns = [
 					</div>
 
 					<div class="venues-city-cards__cta">
-						<a class="btn btn--outline" href="<?php echo esc_url( home_url( '/venues/?location=' . $city_slug ) ); ?>">
+						<a class="btn btn--outline" href="<?php echo esc_url( home_url( '/venues/' . $city_slug . '/' ) ); ?>">
 							<?php
 							echo esc_html(
 								sprintf(
@@ -412,7 +405,7 @@ $seo_columns = [
 				<h2 class="venues-city-browse__title"><?php esc_html_e( 'Browse San Diego Wedding Venues', 'sdweddingdirectory' ); ?></h2>
 				<div class="venues-city-browse__grid">
 					<?php foreach ( $city_terms as $city ) : ?>
-						<a class="venues-city-browse__link" href="<?php echo esc_url( home_url( '/venues/?location=' . $city->slug ) ); ?>">
+						<a class="venues-city-browse__link" href="<?php echo esc_url( home_url( '/venues/' . $city->slug . '/' ) ); ?>">
 							<?php echo esc_html( $city->name . ' Wedding Venues' ); ?>
 						</a>
 					<?php endforeach; ?>

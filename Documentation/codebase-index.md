@@ -4,7 +4,7 @@ Every file in the theme, its purpose, and status.
 
 **Status key:** `complete` = built and verified | `active` = exists, needs work | `planned` = does not exist yet | `stub` = file exists but is a minimal placeholder
 
-Last updated: 2026-04-02
+Last updated: 2026-04-07
 
 ---
 
@@ -88,8 +88,8 @@ Note: `taxonomy-vendor-category.php` does not exist yet (planned, needs advanced
 
 | File | Post Type | Status |
 |------|-----------|--------|
-| `single-vendor.php` | `vendor` | planned (file does not exist) |
-| `single-venue.php` | `venue` | stub |
+| `single-vendor.php` | `vendor` | active — full profile template using `sdwd-core` meta fields |
+| `single-venue.php` | `venue` | active — parallel to vendor, adds location/map/capacity |
 | `single-real-wedding.php` | `real-wedding` | stub |
 | `single-couple.php` | `couple` | stub |
 | `single-website.php` | `website` | stub |
@@ -114,10 +114,10 @@ Note: `taxonomy-vendor-category.php` does not exist yet (planned, needs advanced
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `user-template/couple-dashboard.php` | Thin wrapper for couple dashboard. | stub |
+| `user-template/vendor-dashboard.php` | Frontend vendor profile editor. AJAX save via `sdwd_save_dashboard`. | active |
+| `user-template/venue-dashboard.php` | Frontend venue profile editor. Same as vendor + location/capacity. | active |
+| `user-template/couple-dashboard.php` | Frontend couple profile editor. Contact, wedding date, social. | active |
 | `user-template/front-page.php` | Homepage (if WP routes through user-template). | stub |
-
-Note: `user-template/vendor-dashboard.php` does not exist yet (planned).
 
 ---
 
@@ -210,10 +210,11 @@ Note: `planning-vendor-organizer.php` does not exist as a separate file — vend
 | `assets/css/pages/venues.css` | Venues page styles. | stub |
 | `assets/css/pages/venues-landing.css` | Venues landing pop-out sections, carousel. | stub |
 | `assets/css/pages/archive.css` | Archive grid and filter styles. | stub |
-| `assets/css/pages/profile.css` | Vendor/venue/real-wedding profile styles. | stub |
+| `assets/css/pages/profile.css` | Vendor/venue/real-wedding profile styles (photo collage, sticky nav, 2-col layout, contact card, pricing, reviews, map). | active |
 | `assets/css/pages/blog.css` | Blog single + archive styles. | stub |
 | `assets/css/pages/static.css` | About, contact, FAQs, policy, 404, search. | stub |
-| `assets/css/pages/dashboard.css` | Dashboard compatibility overrides. | stub |
+| `assets/css/pages/dashboard.css` | Frontend dashboard form styles. | active |
+| `assets/css/pages/modals.css` | Login/registration/forgot-password modal styles. | active |
 
 ---
 
@@ -222,6 +223,8 @@ Note: `planning-vendor-organizer.php` does not exist as a separate file — vend
 | File | Purpose | Status |
 |------|---------|--------|
 | `assets/js/app.js` | All frontend JS: mobile nav toggle, header hide-on-scroll, mega menu hover debounce, carousels. | active |
+| `assets/js/modals.js` | Login/registration/forgot-password modals: open/close/switch, AJAX form submission, vendor/venue toggle. | active |
+| `assets/js/dashboard.js` | Frontend dashboard AJAX save, social row add/remove. | active |
 
 ---
 
@@ -233,3 +236,52 @@ Note: `planning-vendor-organizer.php` does not exist as a separate file — vend
 | `assets/fonts/` | WOFF2 font files (Work Sans variable, Inter variable). | complete |
 | `assets/library/sdwd-icons/` | Custom icon font (icomoon) — replaces Font Awesome. | complete |
 | `screenshots/` | Annotated screenshots for visual reference. | active |
+
+---
+
+## Template Parts — Modals
+
+| File | Purpose | Status |
+|------|---------|--------|
+| `template-parts/modals/couple-login.php` | Couple login modal (split layout, photo + form). | active |
+| `template-parts/modals/couple-registration.php` | Couple registration modal. | active |
+| `template-parts/modals/vendor-login.php` | Vendor/venue login modal. | active |
+| `template-parts/modals/vendor-registration.php` | Vendor/venue registration modal with role toggle. | active |
+| `template-parts/modals/forgot-password.php` | Forgot password modal. | active |
+
+---
+
+## Plugin — sdwd-core
+
+Core backend plugin. Located at `plugins/sdwd-core/`.
+
+| File | Purpose | Status |
+|------|---------|--------|
+| `sdwd-core.php` | Plugin entry point, activation hooks, file loading, admin asset enqueue. | active |
+| `includes/roles.php` | Registers 3 user roles: couple, vendor, venue. | active |
+| `includes/post-types.php` | Registers CPTs: couple (private), vendor, venue (public). | active |
+| `includes/taxonomies.php` | Registers taxonomies: vendor-category, venue-type, venue-location. | active |
+| `includes/auth.php` | AJAX handlers for login, registration, forgot password. Blocks wp-admin for frontend roles. Hides admin bar. | active |
+| `includes/user-post-link.php` | Auto-creates CPT post on user registration, links via `post_author` + `sdwd_post_id`. | active |
+| `includes/dashboard.php` | AJAX handler for frontend dashboard profile saves. | active |
+| `includes/claim.php` | Claim system: submit/approve/reject claims on unclaimed profiles. | active |
+| `includes/admin/couple-meta.php` | Admin meta boxes for couple posts (contact, wedding date, social). | active |
+| `includes/admin/vendor-meta.php` | Admin meta boxes for vendor posts (business info, social, hours, pricing). | active |
+| `includes/admin/venue-meta.php` | Admin meta boxes for venue posts (vendor fields + location, capacity). | active |
+| `assets/admin.css` | Admin meta box styles. | active |
+| `assets/admin.js` | Admin repeatable field JS (social rows, pricing tiers). | active |
+
+---
+
+## Plugin — sdwd-couple
+
+Couple feature plugin. Located at `plugins/sdwd-couple/`.
+
+| File | Purpose | Status |
+|------|---------|--------|
+| `sdwd-couple.php` | Plugin entry point. Loads couple modules when `sdwd-core` is active. | active |
+| `modules/reviews.php` | Couple-facing review features. | active |
+| `modules/request-quote.php` | Couple quote-request features. | active |
+| `modules/wishlist.php` | Couple wishlist features. | active |
+| `modules/checklist.php` | Couple checklist features. | active |
+| `modules/budget.php` | Couple budget features. | active |

@@ -331,13 +331,23 @@
 
 .venues-discovery .home-locations__slide {
   justify-items: center;
+  text-align: center;
+}
+
+.venues-discovery .home-locations__name {
+  font-size: var(--sdwd-small);
+  font-weight: 600;
 }
 
 /* Venue count below city name */
 .venues-discovery .home-locations__count {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--sdwd-muted);
-  margin-top: 2px;
+}
+
+/* Center arrows on the circle images, not the full slide height */
+.venues-discovery .home-locations__arrow {
+  top: calc(50% - 20px);
 }
 
 .venues-city-popout {

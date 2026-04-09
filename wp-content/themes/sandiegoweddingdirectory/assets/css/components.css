@@ -1139,22 +1139,22 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: none;
+  border: 1px solid var(--sdwd-border);
   border-radius: 50%;
   background: var(--sdwd-bg);
   color: var(--sdwd-heading);
   text-decoration: none;
   cursor: pointer;
   pointer-events: auto;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
-  transition: transform 0.2s ease;
+  transition: scale 0.15s ease;
 }
 
 .carousel-arrow:hover,
-.carousel-arrow:focus {
-  transform: scale(1.1);
+.carousel-arrow:focus,
+.carousel-arrow:active {
   color: var(--sdwd-heading);
   text-decoration: none;
+  scale: 1.15;
 }
 
 .carousel-arrow__icon {

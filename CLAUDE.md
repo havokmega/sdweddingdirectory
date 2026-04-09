@@ -47,7 +47,7 @@ You are the senior architect and project manager for this project. You work dire
 
 ## Project Context
 
-This is a custom WordPress wedding directory platform for San Diego. Two custom plugins handle backend logic (`sdweddingdirectory` core + `sdweddingdirectory-couple`). The theme owns all front-end rendering. Pure CSS and PHP — no page builders, no Bootstrap, no external CSS/JS frameworks.
+This is a custom WordPress wedding directory platform for San Diego. Two custom plugins handle backend logic (`SDWD Core` + `SDWD Couple`). The theme owns all front-end rendering. Pure CSS and PHP — no page builders, no Bootstrap, no external CSS/JS frameworks.
 
 Primary priorities: fast page loads, clean SEO URLs, simple maintainable architecture, minimal plugin reliance, reusable modular components.
 

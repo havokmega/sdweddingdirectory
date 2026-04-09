@@ -451,4 +451,79 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('scroll', updateArrows, { passive: true });
     updateArrows();
   });
+
+  /* --- Infinite looping carousel (single-step) --- */
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.home-locations__track');
+    if (!track) return;
+
+    const origSlides = Array.from(track.querySelectorAll('.home-locations__slide'));
+    if (origSlides.length < 2) return;
+
+    var total = origSlides.length;
+    var moving = false;
+
+    // Clone all slides and append before + after originals for seamless loop.
+    origSlides.forEach(s => track.appendChild(s.cloneNode(true)));
+    origSlides.forEach(s => track.insertBefore(s.cloneNode(true), track.firstChild));
+
+    // Now track has: [clones] [originals] [clones]
+    // Start offset at the first original (index = total).
+    var pos = total;
+
+    function getStep() {
+      var gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return track.children[0].offsetWidth + gap;
+    }
+
+    function setPos(animated) {
+      if (!animated) {
+        track.style.transition = 'none';
+      }
+      track.style.transform = 'translateX(-' + (pos * getStep()) + 'px)';
+      if (!animated) {
+        track.offsetHeight; // force reflow
+        track.style.transition = '';
+      }
+    }
+
+    function move(dir) {
+      if (moving) return;
+      moving = true;
+      pos += dir;
+      setPos(true);
+    }
+
+    // After transition ends, silently jump if we've entered clone territory.
+    track.addEventListener('transitionend', () => {
+      if (pos >= total * 2) {
+        pos -= total;
+        setPos(false);
+      } else if (pos < total) {
+        pos += total;
+        setPos(false);
+      }
+      moving = false;
+    });
+
+    // Set initial position (no animation).
+    setPos(false);
+
+    carousel.querySelectorAll('[data-carousel-prev]').forEach(btn => {
+      btn.addEventListener('click', () => move(-1));
+    });
+    carousel.querySelectorAll('[data-carousel-next]').forEach(btn => {
+      btn.addEventListener('click', () => move(1));
+    });
+
+    // Intercept anchor-link arrows (home page pattern)
+    carousel.querySelectorAll('.home-locations__arrow[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        move(link.classList.contains('carousel-arrow--prev') ? -1 : 1);
+      });
+    });
+
+    window.addEventListener('resize', () => setPos(false));
+  });
 });

@@ -1,0 +1,53 @@
+/* SDWD Core — Admin Meta Box Styles */
+
+.sdwd-meta-table th {
+  width: 140px;
+  padding: 8px 10px 8px 0;
+  vertical-align: top;
+}
+
+.sdwd-meta-table td {
+  padding: 8px 0;
+}
+
+/* Repeater rows */
+.sdwd-repeater__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sdwd-repeater__row input {
+  flex: 1;
+}
+
+.sdwd-repeater__remove {
+  flex-shrink: 0;
+  color: #b32d2e;
+}
+
+.sdwd-repeater__add {
+  margin-top: 4px;
+}
+
+/* Pricing tiers */
+.sdwd-pricing-tier {
+  margin-bottom: 8px;
+}
+
+.sdwd-pricing-tier h4 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 4px;
+}
+
+.sdwd-pricing-tier__remove {
+  color: #b32d2e;
+  text-decoration: none;
+}
+
+.sdwd-pricing-tier__add {
+  margin-top: 8px;
+}

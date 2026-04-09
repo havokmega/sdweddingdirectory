@@ -49,7 +49,7 @@ Every URL pattern, the template WordPress selects, who renders the markup, and w
 | `/venues/?search=...` (search results) | `page-venues.php` | **Plugin** | `venue-card`, `pagination` |
 | `/venues/{city}/` | `taxonomy-venue-location.php` | **Theme** | `page-header`, `venue-card`, `pagination` |
 | `/venues/{type-slug}/` | `taxonomy-venue-type.php` | **Theme** | `page-header`, `venue-card`, `pagination` |
-| `/venue/{venue-name}/` | `single-venue.php` | **Plugin** via `do_action('sdweddingdirectory/venue/detail-page')` | `breadcrumbs`, `faq-accordion`, `why-use-sdwd` |
+| `/venue/{venue-name}/` | `single-venue.php` | **Theme** — reads `sdwd-core` meta directly | `breadcrumbs`, photo collage, sticky nav, pricing cards, map, contact sidebar |
 
 **Note:** Venues follows the same singular/plural split as vendors: `/venues/` (plural) for the landing page and taxonomy archives, `/venue/` (singular) for single profiles. Location (`/venues/{city}/`) is the primary taxonomy URL. Venue type (`/venues/{type-slug}/`) is secondary. If both can't share the `/venues/` prefix without conflict, location takes priority. The current live site uses `/venue-types/{slug}/` and `/locations/{city}/` — plugin rewrite rules will need updating.
 
@@ -95,7 +95,7 @@ Every URL pattern, the template WordPress selects, who renders the markup, and w
 |-----|----------|-----------|------------|
 | `/vendors/` (landing page) | `page-vendors.php` | **Theme** | `vendor-card`, `inline-link-grid` |
 | `/vendors/{category}/` | `taxonomy-vendor-category.php` | **Theme** | `page-header`, `vendor-card`, `pagination` + filter sidebar |
-| `/vendor/{vendor-name}/` | `single-vendor.php` | **Plugin** via `do_action('sdweddingdirectory/vendor/detail-page')` | `breadcrumbs`, `faq-accordion`, `why-use-sdwd` |
+| `/vendor/{vendor-name}/` | `single-vendor.php` | **Theme** — reads `sdwd-core` meta directly | `breadcrumbs`, photo collage, sticky nav, pricing cards, contact sidebar |
 
 ### Vendors landing sections
 
@@ -250,31 +250,37 @@ Blog posts live under `/wedding-inspiration/`. This prefix is for blog content O
 
 | URL | Template | Rendering | Components |
 |-----|----------|-----------|------------|
-| `/vendor-dashboard/` | `user-template/vendor-dashboard.php` | **Plugin** via `do_action('sdweddingdirectory/dashboard')` | — |
-| `/couple-dashboard/` | `user-template/couple-dashboard.php` | **Plugin** via `do_action('sdweddingdirectory/dashboard')` | — |
-| `/couple-dashboard/?dashboard=<tool>` | same | **Plugin** | — |
+| `/vendor-dashboard/` | `user-template/vendor-dashboard.php` | **Theme** — form reads `sdwd-core` meta, saves via AJAX (`sdwd_save_dashboard`) | — |
+| `/venue-dashboard/` | `user-template/venue-dashboard.php` | **Theme** — same as vendor + location/capacity fields | — |
+| `/couple-dashboard/` | `user-template/couple-dashboard.php` | **Theme** — contact, wedding date, social, password | — |
 
-Theme provides: `get_header()` + `get_footer()` + `dashboard.css` overrides.
+Theme renders forms directly using `sdwd_` post meta. JS (`dashboard.js`) posts to `sdwd_save_dashboard` AJAX handler in `sdwd-core` plugin.
 
-Plugin renders: dashboard header, role-specific sidebar nav, content panels per tab.
+Vendor/venue/couple roles are blocked from wp-admin and redirected to their respective dashboard. Admin bar is hidden for these roles.
 
-### Vendor/Venue dashboard tabs (plugin-rendered)
+### Vendor dashboard sections
 
-- My Profile
-- My Venue / My Vendor listing
-- Reviews
-- Pricing Plans
-- Invoice
-- Logout
+- Personal Info (first/last name)
+- Business Info (company, email, phone, website)
+- Description (post content)
+- Social Media (repeatable)
+- Business Hours (7-day)
+- Pricing Tiers (1-3)
+- Change Password
 
-### Couple dashboard tabs (plugin-rendered)
+### Venue dashboard sections
 
-- Budget Calculator (`?dashboard=budget-calculator`)
-- Guest List (`?dashboard=guest-management`)
-- Seating Chart (`?dashboard=seating-chart`)
-- Checklist (`?dashboard=checklist`)
-- Wedding Website Builder (`?dashboard=wedding-website`)
-- Vendor Manager (`?dashboard=vendor-manager`)
+Same as vendor, plus:
+- Location (street, city, zip)
+- Capacity (max guests)
+
+### Couple dashboard sections
+
+- Personal Info
+- Contact Info (email, phone)
+- Wedding Details (date)
+- Social Media (repeatable)
+- Change Password
 
 ---
 

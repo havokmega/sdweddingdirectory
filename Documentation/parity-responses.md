@@ -1,0 +1,21 @@
+First off, this is the only theme. Maybe the correct function.php file didn't get imported after the big fuck up that took place at 2:47 AM last night. Just about every file ws replaced by another themes files when you imported bootstrap into the theme. I have no idea why importing a bootstrap plug in required overwriting every other file in my theme, but currently, we just have one theme in this wp-docker project. 
+
+Okay next, in part 2 of vendor-venue-parity-audit, it says that vendors uses a 7 tabbed page in profile page. So that's what I mentioned earlier, Thats a carry over from the original theme that had optiontree settings and all sorts of other shit. I got rid of all the tabs, they were not needed, so we can change that to whatever UX pattern makes sense for things like this. Oh wait, thats not what you are saying. I see you have vendor dashboard tabs versus venue editing sections. I dont know what dashboard tabs look like until I can access vendors. But I don't think we need venue video or related vendor sections in there. Not sure if those are leftover from it being "listings" or what.
+
+3. User roles. Venues should have their own user role. Venues and vendors are both business types for couples to browse and hire. But they should not have an overlap. You can be a venue and a photographer. Nor can you be a DJ and also a venue. Couples are couples. Vendors are vendors, Venues are Venues. Hard line.
+
+4. I have no idea what an AJAX handler is. I know that vendor categories have specific filters per category while all venues share the same filter options. What's a repeater field? Can't we strip this shit down to the basics to get it functional and then add only what we need instead of trying to take away what we think we don't. Doing a total refactor on a plug in, I was thinking it would be more ground up, like here is the basic shit so this works. Now what do we add, but this shit is getting confusing and you have to remember, I am not a web developer, I am not a programmer, I am not a coder. You need to talk to me like I'm 5 years old. I don't know php from javascript, now your throwing in AJAX handlers, I'm like what the fuck are you talking about? Seriously. More to the point, I'm not even interested in knowing this stuff. That's why I pay to be able to use you as a service, so I can focus on other things like marketing my business. So no need for a free coding lesson, just help me make this shit work in the simplest way possible using the cleanest, best most modern industry standards possible without introducing 3rd party shit. Does that make sense?
+
+5. Admini meta boxes - okay, so again, you see what I'm saying right? I have no fucking clue what this means, what it does, what it s supposed to do, but you are the senior project managing architect who knows the intent of the site, understands my vision and has the ability to make it happen. So whatever makes sense here I guess?
+
+6. Taxonomy - I don't know the difference between flat and hierarchical. Stage/region/city cascade UI? Dont know what you mean by that, but venues needs a location. City only. Street address, city, zip code, so we can have a google map on their profile. But state and region are implied in the name of the website.
+
+7. Claim system - okay, so I scraped wedding wire and made a spreadsheet of every vendor and venue in San Diego. Then imported the name only. So it's likely that many vendors and venue will come to the site and see they already have an unclaimed profile. Both venues and vendors need to be able to claim their profiles. Theses should be identical processes for each CPT
+
+8. Vendors has /vendors a landing page and /vendors/djs a category page. Can we have /venues how it currently is, then /venues/carlsbad (or city) so we can put different paragraphs about each city in its search page. Then also have /venues/church/ or whatever type then we can put a blurb about San Diego church weddings on that page. Is that what you are talking about here?
+
+9. Vendors should not have any images associated with maps, no location, nothing to do with maps. Thats for venues only. 
+
+10. In the summary, the "nice to have (future)" are things I think are need to have now. We are only doing this once, let's do it right. 
+
+Everything else looks good.

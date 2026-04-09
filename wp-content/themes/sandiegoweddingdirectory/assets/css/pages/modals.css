@@ -1,0 +1,305 @@
+/* ── Modal overlay ──────────────────────────────────────── */
+
+.sdwd-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--sdwd-overlay);
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.sdwd-modal-overlay.is-open {
+  display: flex;
+}
+
+/* ── Modal box ─────────────────────────────────────────── */
+
+.sdwd-modal {
+  background: var(--sdwd-bg);
+  border-radius: var(--sdwd-radius-lg);
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: sdwd-modal-in 0.25s ease-out;
+}
+
+.sdwd-modal--split {
+  max-width: 860px;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+}
+
+@keyframes sdwd-modal-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Image panel ───────────────────────────────────────── */
+
+.sdwd-modal__image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 420px;
+}
+
+/* ── Content panel ─────────────────────────────────────── */
+
+.sdwd-modal__content {
+  overflow-y: auto;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Close button (orange circle) ──────────────────────── */
+
+.sdwd-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sdwd-cta);
+  color: var(--sdwd-bg);
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.sdwd-modal__close:hover {
+  background: var(--sdwd-btn-cta-hover);
+}
+
+/* ── Body ──────────────────────────────────────────────── */
+
+.sdwd-modal__body {
+  padding: 28px 28px 20px;
+  flex: 1;
+  text-align: center;
+}
+
+.sdwd-modal__title {
+  font-family: var(--sdwd-heading-font);
+  font-size: var(--sdwd-h4);
+  font-weight: 600;
+  color: var(--sdwd-dark);
+  margin: 0 0 6px;
+}
+
+.sdwd-modal__subtitle {
+  font-size: 14px;
+  color: var(--sdwd-muted);
+  margin: 0 0 20px;
+}
+
+.sdwd-modal__or-text {
+  font-size: 14px;
+  color: var(--sdwd-muted);
+  margin: 0 0 16px;
+}
+
+/* ── Alert ─────────────────────────────────────────────── */
+
+.sdwd-modal__alert {
+  display: none;
+  padding: 10px 14px;
+  border-radius: var(--sdwd-radius);
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.sdwd-modal__alert.is-visible {
+  display: block;
+}
+
+.sdwd-modal__alert--success {
+  background: var(--sdwd-accent-bg-soft);
+  color: var(--sdwd-accent-dark);
+  border: 1px solid var(--sdwd-accent-bg);
+}
+
+.sdwd-modal__alert--error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ── Fields (placeholder-only, no labels) ──────────────── */
+
+.sdwd-modal__field {
+  margin-bottom: 12px;
+}
+
+.sdwd-modal__input {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--sdwd-body-font);
+  font-size: 14px;
+  color: var(--sdwd-dark);
+  background: var(--sdwd-bg);
+  border: 1px solid var(--sdwd-border);
+  border-radius: var(--sdwd-radius);
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.sdwd-modal__input::placeholder {
+  color: var(--sdwd-muted);
+}
+
+.sdwd-modal__input:focus {
+  outline: none;
+  border-color: var(--sdwd-accent);
+  box-shadow: 0 0 0 3px var(--sdwd-accent-bg);
+}
+
+select.sdwd-modal__input {
+  appearance: none;
+  color: var(--sdwd-muted);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%235f6d7b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+select.sdwd-modal__input:valid {
+  color: var(--sdwd-dark);
+}
+
+/* ── Two-column row ────────────────────────────────────── */
+
+.sdwd-modal__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Inline radio (I am: planning / guest) ─────────────── */
+
+.sdwd-modal__inline-radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--sdwd-dark);
+  text-align: left;
+}
+
+.sdwd-modal__radio-inline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sdwd-modal__radio-inline input[type="radio"] {
+  accent-color: var(--sdwd-accent);
+  margin: 0;
+}
+
+/* ── Forgot password link ──────────────────────────────── */
+
+.sdwd-modal__forgot {
+  text-align: left;
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+/* ── Submit button (orange, rounded) ───────────────────── */
+
+.sdwd-modal__actions {
+  margin-top: 16px;
+}
+
+.sdwd-modal__submit {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-family: var(--sdwd-body-font);
+  font-size: var(--sdwd-body);
+  font-weight: 600;
+  color: var(--sdwd-bg);
+  background: var(--sdwd-cta);
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sdwd-modal__submit:hover {
+  background: var(--sdwd-btn-cta-hover);
+}
+
+.sdwd-modal__submit:active {
+  background: var(--sdwd-btn-cta-active);
+}
+
+.sdwd-modal__submit:disabled {
+  background: var(--sdwd-btn-cta-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Switch text (already have account?) ───────────────── */
+
+.sdwd-modal__switch-text {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: var(--sdwd-muted);
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+
+.sdwd-modal__footer {
+  padding: 16px 28px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--sdwd-dark);
+  border-top: 1px solid var(--sdwd-border);
+}
+
+.sdwd-modal__link {
+  color: var(--sdwd-accent-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sdwd-modal__link:hover {
+  color: var(--sdwd-dark);
+  text-decoration: underline;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .sdwd-modal--split {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .sdwd-modal__image {
+    display: none;
+  }
+
+  .sdwd-modal__row {
+    grid-template-columns: 1fr;
+  }
+}

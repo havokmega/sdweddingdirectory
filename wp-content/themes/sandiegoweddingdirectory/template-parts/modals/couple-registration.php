@@ -4,78 +4,72 @@
  */
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="modal-overlay" id="modal-couple-register">
-    <div class="sdwd-modal sdwd-modal--wide">
-        <button class="sdwd-modal__close" data-modal-close aria-label="<?php esc_attr_e( 'Close', 'sdweddingdirectory' ); ?>">&times;</button>
-        <div class="sdwd-modal__body">
-            <h3 class="sdwd-modal__title"><?php esc_html_e( 'Create your Couple account', 'sdweddingdirectory' ); ?></h3>
-            <p class="sdwd-modal__subtitle"><?php esc_html_e( 'Start planning your San Diego wedding today.', 'sdweddingdirectory' ); ?></p>
+<div class="sdwd-modal-overlay" id="sdwd-modal-couple-register">
+    <div class="sdwd-modal sdwd-modal--split">
+        <button class="sdwd-modal__close" data-sdwd-modal-close aria-label="<?php esc_attr_e( 'Close', 'sdwd-core' ); ?>">&times;</button>
 
-            <div class="sdwd-modal__alert"></div>
+        <div class="sdwd-modal__image" style="background-image: url('<?php echo esc_url( get_theme_file_uri( 'assets/images/placeholders/modal-popup/couple-login-register.jpg' ) ); ?>');"></div>
 
-            <form method="post" data-ajax-action="sdweddingdirectory_couple_register_form_action">
-                <div class="sdwd-modal__row">
+        <div class="sdwd-modal__content">
+            <div class="sdwd-modal__body">
+                <h3 class="sdwd-modal__title"><?php esc_html_e( 'Register Couple Account', 'sdwd-core' ); ?></h3>
+
+                <div class="sdwd-modal__alert" role="alert"></div>
+
+                <form method="post" data-sdwd-form="register">
+                    <input type="hidden" name="account_type" value="couple">
+
+                    <div class="sdwd-modal__row">
+                        <div class="sdwd-modal__field">
+                            <input class="sdwd-modal__input" type="text" name="first_name" required placeholder="<?php esc_attr_e( 'First Name', 'sdwd-core' ); ?>">
+                        </div>
+                        <div class="sdwd-modal__field">
+                            <input class="sdwd-modal__input" type="text" name="last_name" required placeholder="<?php esc_attr_e( 'Last Name', 'sdwd-core' ); ?>">
+                        </div>
+                    </div>
+
                     <div class="sdwd-modal__field">
-                        <label class="sdwd-modal__label" for="couple-reg-first-name"><?php esc_html_e( 'First name', 'sdweddingdirectory' ); ?></label>
-                        <input class="sdwd-modal__input" type="text" id="couple-reg-first-name" name="sdweddingdirectory_couple_register_first_name" required>
+                        <input class="sdwd-modal__input" type="email" name="email" required autocomplete="email" placeholder="<?php esc_attr_e( 'Email', 'sdwd-core' ); ?>">
                     </div>
+
+                    <div class="sdwd-modal__row">
+                        <div class="sdwd-modal__field">
+                            <input class="sdwd-modal__input" type="password" name="password" required autocomplete="new-password" minlength="8" placeholder="<?php esc_attr_e( 'Password', 'sdwd-core' ); ?>">
+                        </div>
+                        <div class="sdwd-modal__field">
+                            <input class="sdwd-modal__input" type="date" name="wedding_date" placeholder="<?php esc_attr_e( 'Wedding Date', 'sdwd-core' ); ?>">
+                        </div>
+                    </div>
+
                     <div class="sdwd-modal__field">
-                        <label class="sdwd-modal__label" for="couple-reg-last-name"><?php esc_html_e( 'Last name', 'sdweddingdirectory' ); ?></label>
-                        <input class="sdwd-modal__input" type="text" id="couple-reg-last-name" name="sdweddingdirectory_couple_register_last_name" required>
+                        <div class="sdwd-modal__inline-radio">
+                            <strong><?php esc_html_e( 'I am', 'sdwd-core' ); ?></strong>
+                            <label class="sdwd-modal__radio-inline">
+                                <input type="radio" name="couple_type" value="planning_wedding" checked>
+                                <?php esc_html_e( 'Planning my wedding', 'sdwd-core' ); ?>
+                            </label>
+                            <label class="sdwd-modal__radio-inline">
+                                <input type="radio" name="couple_type" value="wedding_guest">
+                                <?php esc_html_e( 'A wedding guest', 'sdwd-core' ); ?>
+                            </label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="sdwd-modal__row">
-                    <div class="sdwd-modal__field">
-                        <label class="sdwd-modal__label" for="couple-reg-username"><?php esc_html_e( 'Username', 'sdweddingdirectory' ); ?></label>
-                        <input class="sdwd-modal__input" type="text" id="couple-reg-username" name="sdweddingdirectory_couple_register_username" required autocomplete="username">
+                    <div class="sdwd-modal__actions">
+                        <button type="submit" class="sdwd-modal__submit"><?php esc_html_e( 'Sign Up', 'sdwd-core' ); ?></button>
                     </div>
-                    <div class="sdwd-modal__field">
-                        <label class="sdwd-modal__label" for="couple-reg-email"><?php esc_html_e( 'Email address', 'sdweddingdirectory' ); ?></label>
-                        <input class="sdwd-modal__input" type="email" id="couple-reg-email" name="sdweddingdirectory_couple_register_email" required autocomplete="email">
-                    </div>
-                </div>
 
-                <div class="sdwd-modal__row">
-                    <div class="sdwd-modal__field">
-                        <label class="sdwd-modal__label" for="couple-reg-password"><?php esc_html_e( 'Password', 'sdweddingdirectory' ); ?></label>
-                        <input class="sdwd-modal__input" type="password" id="couple-reg-password" name="sdweddingdirectory_couple_register_password" required autocomplete="new-password">
-                    </div>
-                    <div class="sdwd-modal__field">
-                        <label class="sdwd-modal__label" for="couple-reg-wedding-date"><?php esc_html_e( 'Wedding date', 'sdweddingdirectory' ); ?></label>
-                        <input class="sdwd-modal__input" type="date" id="couple-reg-wedding-date" name="sdweddingdirectory_couple_register_wedding_date" required>
-                    </div>
-                </div>
+                    <p class="sdwd-modal__switch-text">
+                        <?php esc_html_e( 'Already have an account?', 'sdwd-core' ); ?>
+                        <a class="sdwd-modal__link" href="javascript:" data-sdwd-modal-switch="couple-login"><?php esc_html_e( 'Log in', 'sdwd-core' ); ?></a>
+                    </p>
+                </form>
+            </div>
 
-                <div class="sdwd-modal__field">
-                    <span class="sdwd-modal__label"><?php esc_html_e( 'I am...', 'sdweddingdirectory' ); ?></span>
-                    <div class="sdwd-modal__radio-group">
-                        <label class="sdwd-modal__radio-label">
-                            <input type="radio" name="sdweddingdirectory_register_couple_person" value="planning_wedding" checked>
-                            <?php esc_html_e( 'Planning my wedding', 'sdweddingdirectory' ); ?>
-                        </label>
-                        <label class="sdwd-modal__radio-label">
-                            <input type="radio" name="sdweddingdirectory_register_couple_person" value="wedding_guest">
-                            <?php esc_html_e( 'A wedding guest', 'sdweddingdirectory' ); ?>
-                        </label>
-                    </div>
-                </div>
-
-                <?php wp_nonce_field( 'sdweddingdirectory_couple_registration_security', 'security', true, true ); ?>
-                <input type="hidden" name="redirect_link" value="<?php echo esc_url( home_url( '/couple-dashboard/' ) ); ?>">
-
-                <div class="sdwd-modal__actions">
-                    <button type="submit" class="btn btn--cta sdwd-modal__submit"><?php esc_html_e( 'Create Account', 'sdweddingdirectory' ); ?></button>
-                </div>
-            </form>
-        </div>
-
-        <div class="sdwd-modal__footer">
-            <?php esc_html_e( 'Already have an account?', 'sdweddingdirectory' ); ?>
-            <a class="sdwd-modal__link" href="javascript:" data-modal-switch="couple-login"><?php esc_html_e( 'Log in', 'sdweddingdirectory' ); ?></a>
-            <br>
-            <?php esc_html_e( 'Are you a vendor?', 'sdweddingdirectory' ); ?>
-            <a class="sdwd-modal__link" href="javascript:" data-modal-switch="vendor-login"><?php esc_html_e( 'Vendor login', 'sdweddingdirectory' ); ?></a>
+            <div class="sdwd-modal__footer">
+                <strong><?php esc_html_e( 'Are you a vendor?', 'sdwd-core' ); ?></strong><br>
+                <a class="sdwd-modal__link" href="javascript:" data-sdwd-modal-switch="vendor-login"><?php esc_html_e( 'Vendor login', 'sdwd-core' ); ?></a>
+            </div>
         </div>
     </div>
 </div>

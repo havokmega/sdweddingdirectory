@@ -132,6 +132,14 @@
     </a>
 </footer>
 
+<?php if ( ! is_user_logged_in() ) : ?>
+    <?php get_template_part( 'template-parts/modals/couple-login' ); ?>
+    <?php get_template_part( 'template-parts/modals/couple-registration' ); ?>
+    <?php get_template_part( 'template-parts/modals/vendor-login' ); ?>
+    <?php get_template_part( 'template-parts/modals/vendor-registration' ); ?>
+    <?php get_template_part( 'template-parts/modals/forgot-password' ); ?>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
 </div><!-- #page -->
 </body>

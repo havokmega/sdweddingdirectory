@@ -4,43 +4,42 @@
  */
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="modal-overlay" id="modal-vendor-login">
-    <div class="sdwd-modal">
-        <button class="sdwd-modal__close" data-modal-close aria-label="<?php esc_attr_e( 'Close', 'sdweddingdirectory' ); ?>">&times;</button>
-        <div class="sdwd-modal__body">
-            <h3 class="sdwd-modal__title"><?php esc_html_e( 'Vendor / Venue Login', 'sdweddingdirectory' ); ?></h3>
-            <p class="sdwd-modal__subtitle"><?php esc_html_e( 'Manage your business listing, reviews, and leads.', 'sdweddingdirectory' ); ?></p>
+<div class="sdwd-modal-overlay" id="sdwd-modal-vendor-login">
+    <div class="sdwd-modal sdwd-modal--split">
+        <button class="sdwd-modal__close" data-sdwd-modal-close aria-label="<?php esc_attr_e( 'Close', 'sdwd-core' ); ?>">&times;</button>
 
-            <div class="sdwd-modal__alert"></div>
+        <div class="sdwd-modal__image" style="background-image: url('<?php echo esc_url( get_theme_file_uri( 'assets/images/placeholders/modal-popup/vendor-login-register.jpg' ) ); ?>');"></div>
 
-            <form method="post" data-ajax-action="sdweddingdirectory_vendor_login_action">
-                <div class="sdwd-modal__field">
-                    <label class="sdwd-modal__label" for="vendor-login-username"><?php esc_html_e( 'Username or email', 'sdweddingdirectory' ); ?></label>
-                    <input class="sdwd-modal__input" type="text" id="vendor-login-username" name="sdweddingdirectory_vendor_login_username" required autocomplete="username">
-                </div>
+        <div class="sdwd-modal__content">
+            <div class="sdwd-modal__body">
+                <h3 class="sdwd-modal__title"><?php esc_html_e( 'Log in Vendor | Venue account', 'sdwd-core' ); ?></h3>
+                <p class="sdwd-modal__subtitle"><?php esc_html_e( 'Not a member yet?', 'sdwd-core' ); ?> <a class="sdwd-modal__link" href="javascript:" data-sdwd-modal-switch="vendor-register"><?php esc_html_e( 'Join now', 'sdwd-core' ); ?></a></p>
 
-                <div class="sdwd-modal__field">
-                    <label class="sdwd-modal__label" for="vendor-login-password"><?php esc_html_e( 'Password', 'sdweddingdirectory' ); ?></label>
-                    <input class="sdwd-modal__input" type="password" id="vendor-login-password" name="sdweddingdirectory_vendor_login_password" required autocomplete="current-password">
-                </div>
+                <div class="sdwd-modal__alert" role="alert"></div>
 
-                <?php wp_nonce_field( 'sdweddingdirectory_vendor_login_security', 'security', true, true ); ?>
-                <input type="hidden" name="redirect_link" value="<?php echo esc_url( home_url( '/vendor-dashboard/' ) ); ?>">
+                <form method="post" data-sdwd-form="login">
+                    <div class="sdwd-modal__field">
+                        <input class="sdwd-modal__input" type="text" name="login" required autocomplete="username" placeholder="<?php esc_attr_e( 'Username or email address', 'sdwd-core' ); ?>">
+                    </div>
 
-                <div class="sdwd-modal__actions">
-                    <button type="submit" class="btn btn--primary sdwd-modal__submit"><?php esc_html_e( 'Log In', 'sdweddingdirectory' ); ?></button>
-                </div>
-            </form>
-        </div>
+                    <div class="sdwd-modal__field">
+                        <input class="sdwd-modal__input" type="password" name="password" required autocomplete="current-password" placeholder="<?php esc_attr_e( 'Password', 'sdwd-core' ); ?>">
+                    </div>
 
-        <div class="sdwd-modal__footer">
-            <a class="sdwd-modal__link" href="javascript:" data-modal-switch="forgot-password"><?php esc_html_e( 'Forgot your password?', 'sdweddingdirectory' ); ?></a>
-            <div class="sdwd-modal__divider"><?php esc_html_e( 'or', 'sdweddingdirectory' ); ?></div>
-            <?php esc_html_e( 'Not a member yet?', 'sdweddingdirectory' ); ?>
-            <a class="sdwd-modal__link" href="javascript:" data-modal-switch="vendor-register"><?php esc_html_e( 'Join now', 'sdweddingdirectory' ); ?></a>
-            <br>
-            <?php esc_html_e( 'Are you a couple?', 'sdweddingdirectory' ); ?>
-            <a class="sdwd-modal__link" href="javascript:" data-modal-switch="couple-login"><?php esc_html_e( 'Couple login', 'sdweddingdirectory' ); ?></a>
+                    <p class="sdwd-modal__forgot">
+                        <a class="sdwd-modal__link" href="javascript:" data-sdwd-modal-switch="forgot-password"><?php esc_html_e( 'Forgot your password?', 'sdwd-core' ); ?></a>
+                    </p>
+
+                    <div class="sdwd-modal__actions">
+                        <button type="submit" class="sdwd-modal__submit"><?php esc_html_e( 'Log In', 'sdwd-core' ); ?></button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="sdwd-modal__footer">
+                <strong><?php esc_html_e( 'Are you a couple?', 'sdwd-core' ); ?></strong><br>
+                <a class="sdwd-modal__link" href="javascript:" data-sdwd-modal-switch="couple-login"><?php esc_html_e( 'Couple login', 'sdwd-core' ); ?></a>
+            </div>
         </div>
     </div>
 </div>
