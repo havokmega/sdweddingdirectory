@@ -184,7 +184,7 @@ get_template_part(
                 </select>
             </label>
 
-            <button class="btn btn--cta vendors-search-form__submit" type="submit">
+            <button class="btn btn--primary vendors-search-form__submit" type="submit">
                 <?php esc_html_e( 'Search Vendors', 'sdweddingdirectory-v2' ); ?>
             </button>
         </form>

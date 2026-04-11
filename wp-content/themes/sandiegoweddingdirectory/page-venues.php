@@ -223,7 +223,7 @@ $seo_columns = [
 					</select>
 				</div>
 
-				<button class="btn btn--cta search-hero__submit" type="submit">
+				<button class="btn btn--primary search-hero__submit" type="submit">
 					<?php esc_html_e( 'Search', 'sdweddingdirectory' ); ?>
 				</button>
 			</form>
@@ -236,7 +236,6 @@ $seo_columns = [
 			<?php
 			get_template_part( 'template-parts/components/section-title', null, [
 				'heading' => __( 'Venues by Area', 'sdweddingdirectory' ),
-				'desc'    => __( 'Explore wedding venues across San Diego County by city.', 'sdweddingdirectory' ),
 			] );
 
 			?>

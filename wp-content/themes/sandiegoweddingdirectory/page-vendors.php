@@ -137,7 +137,7 @@ $seo_columns = [
 					</select>
 				</div>
 
-				<button class="btn btn--cta search-hero__submit" type="submit">
+				<button class="btn btn--primary search-hero__submit" type="submit">
 					<?php esc_html_e( 'Search', 'sdweddingdirectory' ); ?>
 				</button>
 			</form>
@@ -151,7 +151,6 @@ $seo_columns = [
 				<?php
 				get_template_part( 'template-parts/components/section-title', null, [
 					'heading' => __( 'Browse Wedding Vendors by Category', 'sdweddingdirectory' ),
-					'desc'    => __( 'Start with the vendor categories couples shop first, then narrow the directory with filters that match your style and budget.', 'sdweddingdirectory' ),
 				] );
 				?>
 
@@ -193,15 +192,28 @@ $seo_columns = [
 		</section>
 	<?php endif; ?>
 
+	<?php
+	$popout_headings = [
+		'photography' => __( 'San Diego Photographers', 'sdweddingdirectory' ),
+		'djs'         => __( 'San Diego DJs', 'sdweddingdirectory' ),
+		'catering'    => __( 'San Diego Caterers', 'sdweddingdirectory' ),
+		'flowers'     => __( 'San Diego Florists', 'sdweddingdirectory' ),
+		'videography' => __( 'San Diego Videographers', 'sdweddingdirectory' ),
+	];
+	?>
+
 	<!-- SECTION 3: Vendor Popout -->
+	<?php $photography_term = get_term_by( 'slug', 'photography', 'vendor-category' ); ?>
 	<section class="section vendors-popout-section">
 		<div class="container">
 			<?php
-			get_template_part( 'template-parts/components/venue-popout', null, [
-				'heading'   => __( 'San Diego Wedding Vendors', 'sdweddingdirectory' ),
+			get_template_part( 'template-parts/components/vendor-popout', null, [
+				'heading'   => $popout_headings['photography'],
 				'desc'      => __( 'SDWeddingDirectory connects you with trusted local wedding professionals across San Diego County.', 'sdweddingdirectory' ),
 				'image'     => get_theme_file_uri( 'assets/images/banners/vendors-search.png' ),
-				'image_alt' => __( 'San Diego Wedding Vendors', 'sdweddingdirectory' ),
+				'image_alt' => $popout_headings['photography'],
+				'cta_text'  => __( 'See all', 'sdweddingdirectory' ),
+				'cta_url'   => $photography_term ? sdwdv2_get_vendor_category_url( $photography_term ) : home_url( '/vendors/' ),
 			] );
 			?>
 		</div>
@@ -225,13 +237,26 @@ $seo_columns = [
 		] );
 		?>
 
+		<?php if ( $cat_term->slug !== 'photography' && isset( $popout_headings[ $cat_term->slug ] ) ) : ?>
+			<section class="section vendors-popout-section">
+				<div class="container">
+					<?php
+					get_template_part( 'template-parts/components/vendor-popout', null, [
+						'heading'   => $popout_headings[ $cat_term->slug ],
+						'desc'      => __( 'SDWeddingDirectory connects you with trusted local wedding professionals across San Diego County.', 'sdweddingdirectory' ),
+						'image'     => get_theme_file_uri( 'assets/images/banners/vendors-search.png' ),
+						'image_alt' => $popout_headings[ $cat_term->slug ],
+						'cta_text'  => __( 'See all', 'sdweddingdirectory' ),
+						'cta_url'   => sdwdv2_get_vendor_category_url( $cat_term ),
+					] );
+					?>
+				</div>
+			</section>
+		<?php endif; ?>
+
 		<?php if ( $cat_query->have_posts() ) : ?>
 			<section class="section vendors-category-cards">
 				<div class="container">
-					<h2 class="vendors-category-cards__heading">
-						<?php echo esc_html( $cat_term->name ); ?>
-					</h2>
-
 					<div class="grid grid--4col">
 						<?php
 						while ( $cat_query->have_posts() ) :

@@ -1,6 +1,6 @@
 :root {
   /* Brand palette */
-  --sdwd-accent: #2bcfce;
+  --sdwd-accent: #007f80;
   --sdwd-accent-dark: #007f80;
   --sdwd-cta: #ec4d25;
   --sdwd-black: #000000;
@@ -92,7 +92,7 @@
   --sdwd-row-gap: 32px;
   --sdwd-title-gap: 24px;
 
-  --container-max: 1320px;
+  --container-max: 1370px;
   --gutter: 20px;
   --container-padding: 45px;
   --sdwd-carousel-arrow-size: 40px;

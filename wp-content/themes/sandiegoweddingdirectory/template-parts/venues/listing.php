@@ -180,7 +180,7 @@ get_template_part( 'template-parts/components/page-header', null, [
                 </select>
             </label>
 
-            <button class="btn btn--cta venues-search-form__submit" type="submit">
+            <button class="btn btn--primary venues-search-form__submit" type="submit">
                 <?php esc_html_e( 'Search Venues', 'sdweddingdirectory-v2' ); ?>
             </button>
         </form>

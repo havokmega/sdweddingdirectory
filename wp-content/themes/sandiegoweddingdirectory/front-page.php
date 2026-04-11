@@ -246,7 +246,7 @@ $banner_image  = ! empty( $banner_images )
                                 </div>
                             </div>
 
-                            <button class="btn btn--cta hero__submit" type="submit">
+                            <button class="btn btn--primary hero__submit" type="submit">
                                 <?php esc_html_e( 'Search Now', 'sdweddingdirectory' ); ?>
                             </button>
                         </form>
@@ -566,8 +566,6 @@ $banner_image  = ! empty( $banner_images )
                 [ 'slug' => 'san-marcos',      'name' => 'San Marcos',      'image' => get_template_directory_uri() . '/assets/images/locations/san-marcos.jpg' ],
                 [ 'slug' => 'chula-vista',     'name' => 'Chula Vista',     'image' => get_template_directory_uri() . '/assets/images/locations/chula-vista.jpg' ],
             ];
-            $home_location_groups = array_chunk( $home_location_slides, 6 );
-
             get_template_part( 'template-parts/components/section-title', null, [
                 'heading' => __( 'Find Your Location', 'sdweddingdirectory' ),
                 'desc'    => __( 'Discover wedding venues and vendors across San Diego County', 'sdweddingdirectory' ),
@@ -576,42 +574,26 @@ $banner_image  = ! empty( $banner_images )
             ?>
 
             <div class="home-locations__carousel" data-carousel="cities">
+                <button class="carousel-arrow carousel-arrow--prev home-locations__arrow" type="button" data-carousel-prev aria-label="<?php esc_attr_e( 'Previous locations', 'sdweddingdirectory' ); ?>">
+                    <span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
+                </button>
+
                 <div class="home-locations__viewport">
                     <div class="home-locations__track">
-                        <?php foreach ( $home_location_groups as $group_index => $city_group ) : ?>
-                            <?php
-                            $panel_number = $group_index + 1;
-                            $panel_prev   = 0 === $group_index ? count( $home_location_groups ) : $group_index;
-                            $panel_next   = count( $home_location_groups ) === $panel_number ? 1 : $panel_number + 1;
-                            ?>
-                            <div class="home-locations__panel" id="<?php echo esc_attr( 'home-locations-page-' . $panel_number ); ?>">
-                                <div class="home-locations__panel-grid">
-                                    <?php foreach ( $city_group as $city ) : ?>
-                                        <a class="home-locations__slide" href="<?php echo esc_url( home_url( '/venues/?location=' . $city['slug'] ) ); ?>">
-                                            <span class="home-locations__image">
-                                                <img loading="lazy" decoding="async" src="<?php echo esc_url( $city['image'] ); ?>" alt="<?php echo esc_attr( $city['name'] ); ?>">
-                                            </span>
-                                            <span class="home-locations__name"><?php echo esc_html( $city['name'] ); ?></span>
-                                        </a>
-                                    <?php endforeach; ?>
-                                </div>
-
-                                <?php if ( count( $home_location_groups ) > 1 ) : ?>
-                                    <div class="home-locations__controls">
-                                        <a class="carousel-arrow carousel-arrow--prev home-locations__arrow home-locations__arrow--prev" href="<?php echo esc_url( '#home-locations-page-' . $panel_prev ); ?>">
-                                            <span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-                                            <span class="screen-reader-text"><?php esc_html_e( 'Previous locations', 'sdweddingdirectory' ); ?></span>
-                                        </a>
-                                        <a class="carousel-arrow carousel-arrow--next home-locations__arrow home-locations__arrow--next" href="<?php echo esc_url( '#home-locations-page-' . $panel_next ); ?>">
-                                            <span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-                                            <span class="screen-reader-text"><?php esc_html_e( 'Next locations', 'sdweddingdirectory' ); ?></span>
-                                        </a>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
+                        <?php foreach ( $home_location_slides as $city ) : ?>
+                            <a class="home-locations__slide" href="<?php echo esc_url( home_url( '/venues/?location=' . $city['slug'] ) ); ?>">
+                                <span class="home-locations__image">
+                                    <img loading="lazy" decoding="async" src="<?php echo esc_url( $city['image'] ); ?>" alt="<?php echo esc_attr( $city['name'] ); ?>">
+                                </span>
+                                <span class="home-locations__name"><?php echo esc_html( $city['name'] ); ?></span>
+                            </a>
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+                <button class="carousel-arrow carousel-arrow--next home-locations__arrow" type="button" data-carousel-next aria-label="<?php esc_attr_e( 'Next locations', 'sdweddingdirectory' ); ?>">
+                    <span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
+                </button>
             </div>
 
             <div class="home-locations__cta">

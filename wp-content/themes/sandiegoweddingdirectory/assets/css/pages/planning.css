@@ -258,14 +258,14 @@
   box-shadow: none;
   font-size: 15px;
   font-weight: 700;
-  background: var(--sdwd-cta);
+  background: var(--sdwd-accent);
   color: var(--sdwd-bg);
   cursor: pointer;
 }
 
 .planning-hero__action:hover,
 .planning-hero__action:focus {
-  background: var(--sdwd-btn-cta-hover);
+  background: var(--sdwd-btn-primary-hover);
   color: var(--sdwd-bg);
 }
 

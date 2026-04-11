@@ -65,11 +65,11 @@
                         <?php esc_html_e( 'My Dashboard', 'sdweddingdirectory-v2' ); ?>
                     </a>
                 <?php else : ?>
-                    <a class="btn btn--cta sd-header-btn-full" href="javascript:" data-sdwd-modal-open="couple-register">
+                    <a class="btn btn--primary sd-header-btn-full" href="javascript:" data-sdwd-modal-open="couple-register">
                         <span class="header__btn-icon icon-user-o" aria-hidden="true"></span>
                         <?php esc_html_e( 'Join as a Couple', 'sdweddingdirectory-v2' ); ?>
                     </a>
-                    <a class="btn btn--primary sd-header-btn-full" href="javascript:" data-sdwd-modal-open="vendor-register">
+                    <a class="btn btn--vendor sd-header-btn-full" href="javascript:" data-sdwd-modal-open="vendor-register">
                         <span class="header__btn-icon icon-plus" aria-hidden="true"></span>
                         <?php esc_html_e( 'Join as a Vendor', 'sdweddingdirectory-v2' ); ?>
                     </a>

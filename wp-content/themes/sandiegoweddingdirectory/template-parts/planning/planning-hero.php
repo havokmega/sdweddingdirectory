@@ -124,7 +124,7 @@ if ( $california && ! is_wp_error( $california ) ) {
                                     <input id="planning-date" class="planning-hero__input" type="date" name="sdweddingdirectory_couple_register_wedding_date" required />
                                 </div>
                             </div>
-                            <button class="btn btn--cta planning-hero__action" type="submit" id="sdwd-planning-register-submit"><?php esc_html_e( 'Create account', 'sdweddingdirectory' ); ?></button>
+                            <button class="btn btn--primary planning-hero__action" type="submit" id="sdwd-planning-register-submit"><?php esc_html_e( 'Create account', 'sdweddingdirectory' ); ?></button>
                         </div>
                         <p class="planning-hero__disclaimer"><?php
                             printf(
