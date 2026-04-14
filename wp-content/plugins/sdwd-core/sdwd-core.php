@@ -40,6 +40,7 @@ add_action( 'plugins_loaded', function () {
     require_once SDWD_CORE_PATH . 'includes/auth.php';
     require_once SDWD_CORE_PATH . 'includes/dashboard.php';
     require_once SDWD_CORE_PATH . 'includes/claim.php';
+    require_once SDWD_CORE_PATH . 'includes/quote.php';
 
     // Admin meta boxes + migration.
     if ( is_admin() ) {

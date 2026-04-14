@@ -291,6 +291,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  /* --- Vendor profile: sticky topbar + sidebar state swap --- */
+  const vendorProfile = document.querySelector('.vendor-profile');
+  const collage = document.getElementById('photo-collage');
+  if (vendorProfile && collage && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        vendorProfile.classList.toggle('is-scrolled', !entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '-60px 0px 0px 0px' });
+    io.observe(collage);
+  }
+
+  /* --- Vendor profile: quote form submit --- */
+  const quoteForm = document.getElementById('sdwd-quote-form');
+  if (quoteForm) {
+    const ajaxEndpoint = (typeof SDWEDDINGDIRECTORY_AJAX_OBJ !== 'undefined') ? SDWEDDINGDIRECTORY_AJAX_OBJ.ajaxurl : '/wp-admin/admin-ajax.php';
+    const status = quoteForm.querySelector('[data-quote-status]');
+    quoteForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = quoteForm.querySelector('[type="submit"]');
+      const origText = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      if (status) { status.textContent = ''; status.removeAttribute('data-state'); }
+
+      fetch(ajaxEndpoint, { method: 'POST', body: new FormData(quoteForm), credentials: 'same-origin' })
+        .then(r => r.json())
+        .then(res => {
+          if (btn) { btn.disabled = false; btn.textContent = origText; }
+          if (status) {
+            status.textContent = res.data && res.data.message ? res.data.message : (res.success ? 'Message sent.' : 'Something went wrong.');
+            status.setAttribute('data-state', res.success ? 'success' : 'error');
+          }
+          if (res.success) quoteForm.reset();
+        })
+        .catch(() => {
+          if (btn) { btn.disabled = false; btn.textContent = origText; }
+          if (status) { status.textContent = 'Network error. Try again.'; status.setAttribute('data-state', 'error'); }
+        });
+    });
+  }
+
+  /* --- Vendor profile: short-card CTA scrolls to form --- */
+  document.querySelectorAll('[data-quote-open]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById('quote');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
   /* --- Sticky profile nav highlight --- */
   const profileNav = document.querySelector('.profile-nav');
   if (profileNav) {

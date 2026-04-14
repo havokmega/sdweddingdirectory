@@ -34,6 +34,17 @@ $vendor_query      = new WP_Query( sdwdv2_build_vendor_query_args( $filters ) );
 $selected_category = ! empty( $filters['category_id'] ) ? get_term( absint( $filters['category_id'] ), 'vendor-category' ) : null;
 $has_filters       = sdwdv2_has_active_vendor_filters( $filters );
 
+$location_terms = get_terms( [
+    'taxonomy'   => 'venue-location',
+    'hide_empty' => true,
+    'parent'     => 0,
+    'orderby'    => 'name',
+    'order'      => 'ASC',
+] );
+if ( is_wp_error( $location_terms ) ) {
+    $location_terms = [];
+}
+
 $featured_categories = [];
 $category_link_rows  = [];
 
@@ -78,16 +89,49 @@ $results_summary = sprintf(
     number_format_i18n( $vendor_query->found_posts )
 );
 
-get_template_part(
-    'template-parts/components/page-header',
-    null,
-    [
-        'title'       => $title,
-        'desc'        => $desc,
-        'breadcrumbs' => $breadcrumbs,
-    ]
-);
 ?>
+<div class="vendors-listing-hero">
+    <div class="container">
+        <div class="vendors-listing-hero__layout">
+            <div class="vendors-listing-hero__text">
+                <?php if ( ! empty( $breadcrumbs ) ) : ?>
+                    <?php get_template_part( 'template-parts/components/breadcrumbs', null, [ 'items' => $breadcrumbs ] ); ?>
+                <?php endif; ?>
+                <h1 class="vendors-listing-hero__title"><?php echo esc_html( $title ); ?></h1>
+            </div>
+
+            <form class="vendors-hero-search" method="get" action="<?php echo esc_url( $current_url ); ?>">
+                <div class="vendors-hero-search__field vendors-hero-search__field--category">
+                    <?php if ( $fixed_category_id && $selected_category && ! is_wp_error( $selected_category ) ) : ?>
+                        <span class="vendors-hero-search__text"><?php echo esc_html( sprintf( __( 'Wedding %s', 'sdweddingdirectory-v2' ), $selected_category->name ) ); ?></span>
+                    <?php else : ?>
+                        <select name="vendor_cat" aria-label="<?php esc_attr_e( 'Vendor category', 'sdweddingdirectory-v2' ); ?>">
+                            <option value=""><?php esc_html_e( 'Wedding Vendors', 'sdweddingdirectory-v2' ); ?></option>
+                            <?php foreach ( $options['categories'] as $category ) : ?>
+                                <option value="<?php echo esc_attr( $category->term_id ); ?>" <?php selected( $filters['category_id'], $category->term_id ); ?>>
+                                    <?php echo esc_html( $category->name ); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    <?php endif; ?>
+                </div>
+
+                <div class="vendors-hero-search__field vendors-hero-search__field--location">
+                    <select name="location" aria-label="<?php esc_attr_e( 'Location', 'sdweddingdirectory-v2' ); ?>">
+                        <option value=""><?php esc_html_e( 'Location', 'sdweddingdirectory-v2' ); ?></option>
+                        <?php foreach ( $location_terms as $loc ) : ?>
+                            <option value="<?php echo esc_attr( $loc->slug ); ?>"><?php echo esc_html( $loc->name ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+
+                    <button class="btn btn--primary vendors-hero-search__submit" type="submit" aria-label="<?php esc_attr_e( 'Search', 'sdweddingdirectory-v2' ); ?>">
+                        <span class="icon-search" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?php if ( $show_discovery && ! $has_filters && ( ! empty( $featured_categories ) || ! empty( $category_link_rows ) ) ) : ?>
     <section class="section vendors-discovery">
@@ -148,47 +192,6 @@ get_template_part(
 
 <section class="section vendors-browser">
     <div class="container">
-        <form class="vendors-search-form" method="get" action="<?php echo esc_url( $current_url ); ?>">
-            <label class="vendors-search-form__field">
-                <span class="screen-reader-text"><?php esc_html_e( 'Search vendors', 'sdweddingdirectory-v2' ); ?></span>
-                <input type="search" name="vendor_search" value="<?php echo esc_attr( $filters['search'] ); ?>" placeholder="<?php esc_attr_e( 'Search vendor name or keyword', 'sdweddingdirectory-v2' ); ?>">
-            </label>
-
-            <?php if ( $fixed_category_id && $selected_category && ! is_wp_error( $selected_category ) ) : ?>
-                <div class="vendors-search-form__chip">
-                    <span class="vendors-search-form__chip-label"><?php esc_html_e( 'Category', 'sdweddingdirectory-v2' ); ?></span>
-                    <strong><?php echo esc_html( $selected_category->name ); ?></strong>
-                </div>
-            <?php else : ?>
-                <label class="vendors-search-form__field">
-                    <span class="screen-reader-text"><?php esc_html_e( 'Vendor category', 'sdweddingdirectory-v2' ); ?></span>
-                    <select name="vendor_cat">
-                        <option value=""><?php esc_html_e( 'All categories', 'sdweddingdirectory-v2' ); ?></option>
-                        <?php foreach ( $options['categories'] as $category ) : ?>
-                            <option value="<?php echo esc_attr( $category->term_id ); ?>" <?php selected( $filters['category_id'], $category->term_id ); ?>>
-                                <?php echo esc_html( $category->name ); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </label>
-            <?php endif; ?>
-
-            <label class="vendors-search-form__field">
-                <span class="screen-reader-text"><?php esc_html_e( 'Sort vendors', 'sdweddingdirectory-v2' ); ?></span>
-                <select name="sort">
-                    <?php foreach ( $options['sorts'] as $value => $label ) : ?>
-                        <option value="<?php echo esc_attr( $value ); ?>" <?php selected( $filters['sort_by'], $value ); ?>>
-                            <?php echo esc_html( $label ); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-
-            <button class="btn btn--primary vendors-search-form__submit" type="submit">
-                <?php esc_html_e( 'Search Vendors', 'sdweddingdirectory-v2' ); ?>
-            </button>
-        </form>
-
         <div class="archive-filtered vendors-browser__layout">
             <aside class="archive-filtered__sidebar">
                 <form class="vendors-filter-form" method="get" action="<?php echo esc_url( $current_url ); ?>">

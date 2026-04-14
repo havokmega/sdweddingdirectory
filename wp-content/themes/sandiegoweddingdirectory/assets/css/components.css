@@ -703,15 +703,14 @@
 }
 
 .faq-accordion__question::after {
-  content: '\e94f';
+  content: '\e987';
   font-family: 'icomoon';
   font-size: 0.8rem;
-  transition: transform 0.2s ease;
   flex-shrink: 0;
 }
 
 .faq-accordion__question[aria-expanded="true"]::after {
-  transform: rotate(180deg);
+  content: '\e93a';
 }
 
 .faq-accordion__answer {

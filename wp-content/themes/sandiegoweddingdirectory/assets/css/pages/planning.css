@@ -815,32 +815,18 @@
 }
 
 .planning-faq__toggle {
-  position: relative;
-  width: 20px;
-  height: 20px;
   flex-shrink: 0;
+  font-family: 'icomoon';
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
-.planning-faq__toggle::before,
-.planning-faq__toggle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 2px;
-  border-radius: 999px;
-  background: currentColor;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease;
+.planning-faq__toggle::before {
+  content: '\e987';
 }
 
-.planning-faq__toggle::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.planning-faq__question[aria-expanded="true"] .planning-faq__toggle::after {
-  opacity: 0;
+.planning-faq__question[aria-expanded="true"] .planning-faq__toggle::before {
+  content: '\e93a';
 }
 
 .planning-faq__answer {

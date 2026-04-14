@@ -298,13 +298,102 @@
   color: var(--sdwd-cta);
 }
 
+/* --- Vendor listing hero --- */
+
+.vendors-listing-hero {
+  background: var(--sdwd-bg);
+  height: 165px;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--sdwd-border);
+}
+
+.vendors-listing-hero .container {
+  padding-top: 24px;
+}
+
+.vendors-listing-hero .breadcrumb {
+  margin-bottom: 6px;
+}
+
+.vendors-listing-hero__title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--sdwd-heading);
+  margin: 0;
+}
+
+.vendors-listing-hero__layout {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Unified search bar */
+
+.vendors-hero-search {
+  display: flex;
+  align-items: center;
+  background: var(--sdwd-bg);
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vendors-hero-search__field {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  min-height: 52px;
+}
+
+.vendors-hero-search__field--category {
+  border-right: 1px solid var(--sdwd-border);
+}
+
+.vendors-hero-search__field--location {
+  gap: 8px;
+  padding-right: 6px;
+}
+
+.vendors-hero-search__text {
+  color: var(--sdwd-subtext);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.vendors-hero-search select {
+  border: 0;
+  background: transparent;
+  color: var(--sdwd-subtext);
+  font-size: 1rem;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.vendors-hero-search select:focus {
+  outline: none;
+}
+
+.vendors-hero-search__submit {
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sdwd-radius-lg);
+  flex-shrink: 0;
+}
+
 /* --- Vendor browser (archive/taxonomy pages) --- */
 
 .vendors-search-form {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr auto;
+  grid-template-columns: 1.3fr 1fr auto;
   gap: 16px;
-  margin-bottom: 32px;
   padding: 20px;
   border: 1px solid var(--sdwd-border);
   border-radius: var(--sdwd-radius-lg);
@@ -351,7 +440,8 @@
 }
 
 .vendors-search-form__submit {
-  width: 100%;
+  min-height: 56px;
+  padding: 0 20px;
 }
 
 .vendors-browser__layout {
@@ -447,6 +537,16 @@
 }
 
 @media (max-width: 768px) {
+  .vendors-listing-hero {
+    height: auto;
+    padding: 24px 0 20px;
+  }
+
+  .vendors-listing-hero__layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .vendors-category-card {
     flex-basis: 160px;
   }

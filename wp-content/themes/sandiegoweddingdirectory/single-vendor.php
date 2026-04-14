@@ -18,11 +18,9 @@ if ( ! is_array( $social ) )  { $social  = []; }
 if ( ! is_array( $hours ) )   { $hours   = []; }
 if ( ! is_array( $pricing ) ) { $pricing = []; }
 
-// Taxonomy.
 $categories = wp_get_post_terms( $post_id, 'vendor-category', [ 'fields' => 'names' ] );
 $category   = ( ! is_wp_error( $categories ) && ! empty( $categories ) ) ? $categories[0] : '';
 
-// Gallery images (featured image + any attached images).
 $images    = [];
 $thumb_id  = get_post_thumbnail_id( $post_id );
 if ( $thumb_id ) {
@@ -40,27 +38,52 @@ $attached = get_posts( [
 ] );
 $images = array_merge( $images, $attached );
 
-// Starting price from first pricing tier.
 $starting_price = '';
 if ( ! empty( $pricing[0]['price'] ) ) {
     $starting_price = $pricing[0]['price'];
 }
+
+$quote_nonce = wp_create_nonce( 'sdwd_quote_nonce' );
+$tel_href    = $phone ? 'tel:' . preg_replace( '/[^0-9+]/', '', $phone ) : '';
 ?>
 
-<div id="content" class="site-content">
+<div id="content" class="site-content vendor-profile">
+
+    <?php // --- Sticky Top Bar (hidden until scrolled) --- ?>
+    <div class="profile-topbar" id="profile-topbar" aria-hidden="true">
+        <div class="container profile-topbar__inner">
+            <div class="profile-topbar__title"><?php echo esc_html( $company ); ?></div>
+            <nav class="profile-topbar__nav">
+                <ul class="profile-nav__list">
+                    <li><a class="profile-nav__link" href="#about"><?php esc_html_e( 'About', 'sdweddingdirectory' ); ?></a></li>
+                    <?php if ( ! empty( $pricing ) ) : ?>
+                        <li><a class="profile-nav__link" href="#pricing"><?php esc_html_e( 'Pricing', 'sdweddingdirectory' ); ?></a></li>
+                    <?php endif; ?>
+                    <?php if ( ! empty( $hours ) ) : ?>
+                        <li><a class="profile-nav__link" href="#hours"><?php esc_html_e( 'Hours', 'sdweddingdirectory' ); ?></a></li>
+                    <?php endif; ?>
+                    <li><a class="profile-nav__link" href="#quote"><?php esc_html_e( 'Contact', 'sdweddingdirectory' ); ?></a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary profile-topbar__cta" href="#quote"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></a>
+        </div>
+    </div>
 
     <?php // --- Photo Collage --- ?>
     <?php if ( ! empty( $images ) ) : ?>
-        <div class="photo-collage">
-            <?php foreach ( array_slice( $images, 0, 5 ) as $img_id ) : ?>
+        <div class="photo-collage" id="photo-collage">
+            <?php foreach ( array_slice( $images, 0, 5 ) as $i => $img_id ) : ?>
                 <div class="photo-collage__item">
                     <?php echo wp_get_attachment_image( $img_id, 'large' ); ?>
+                    <?php if ( $i === 4 && count( $images ) > 5 ) : ?>
+                        <span class="photo-collage__more"><?php esc_html_e( 'See all photos', 'sdweddingdirectory' ); ?></span>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
 
-    <?php // --- Profile Header --- ?>
+    <?php // --- Breadcrumbs + Header Band --- ?>
     <div class="vendor-profile-head">
         <div class="container">
             <?php
@@ -91,6 +114,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     <?php endif; ?>
                     <h1 class="vendor-profile-head__title"><?php echo esc_html( $company ); ?></h1>
                     <div class="vendor-profile-head__meta">
+                        <span class="vendor-profile-head__rating"><?php esc_html_e( 'New on SDWD', 'sdweddingdirectory' ); ?></span>
                         <?php if ( $starting_price ) : ?>
                             <span><?php echo esc_html( $starting_price ); ?></span>
                         <?php endif; ?>
@@ -98,19 +122,6 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                             <span><?php echo esc_html( $phone ); ?></span>
                         <?php endif; ?>
                     </div>
-                    <?php if ( has_excerpt() ) : ?>
-                        <p class="vendor-profile-head__summary"><?php echo esc_html( get_the_excerpt() ); ?></p>
-                    <?php endif; ?>
-                </div>
-                <div class="vendor-profile-head__actions">
-                    <?php if ( $email ) : ?>
-                        <a class="btn btn--primary" href="mailto:<?php echo esc_attr( $email ); ?>"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></a>
-                    <?php endif; ?>
-                    <?php if ( $phone ) : ?>
-                        <a class="btn btn--outline" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>">
-                            <span class="icon-phone" aria-hidden="true"></span>
-                        </a>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -139,7 +150,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
         <div class="profile-layout">
             <div class="profile-main">
 
-                <?php // --- About Section --- ?>
+                <?php // --- About --- ?>
                 <section class="profile-section" id="about">
                     <h2 class="profile-section__title"><?php printf( esc_html__( 'About %s', 'sdweddingdirectory' ), esc_html( $company ) ); ?></h2>
                     <div class="vendor-profile-copy">
@@ -158,13 +169,26 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     <?php endif; ?>
                 </section>
 
-                <?php // --- Pricing Section --- ?>
+                <?php // --- Pricing --- ?>
                 <?php if ( ! empty( $pricing ) ) : ?>
                     <section class="profile-section" id="pricing">
-                        <h2 class="profile-section__title"><?php esc_html_e( 'Pricing', 'sdweddingdirectory' ); ?></h2>
-                        <div class="vendor-pricing-grid">
-                            <?php foreach ( $pricing as $tier ) : ?>
-                                <div class="vendor-pricing-card">
+                        <div class="profile-section__head">
+                            <h2 class="profile-section__title"><?php esc_html_e( 'Pricing', 'sdweddingdirectory' ); ?></h2>
+                            <?php if ( $starting_price ) : ?>
+                                <p class="profile-section__sub"><?php printf( esc_html__( 'Starting at %s', 'sdweddingdirectory' ), '<strong>' . esc_html( $starting_price ) . '</strong>' ); ?></p>
+                            <?php endif; ?>
+                        </div>
+                        <?php
+                        $tier_count    = count( $pricing );
+                        $featured_idx  = $tier_count >= 3 ? 1 : -1;
+                        ?>
+                        <div class="vendor-pricing-grid vendor-pricing-grid--<?php echo (int) $tier_count; ?>">
+                            <?php foreach ( $pricing as $idx => $tier ) : ?>
+                                <?php $is_featured = ( $idx === $featured_idx ); ?>
+                                <div class="vendor-pricing-card<?php echo $is_featured ? ' vendor-pricing-card--featured' : ''; ?>">
+                                    <?php if ( $is_featured ) : ?>
+                                        <span class="vendor-pricing-card__badge"><?php esc_html_e( 'Most Popular', 'sdweddingdirectory' ); ?></span>
+                                    <?php endif; ?>
                                     <?php if ( ! empty( $tier['name'] ) ) : ?>
                                         <h3 class="vendor-pricing-card__title"><?php echo esc_html( $tier['name'] ); ?></h3>
                                     <?php endif; ?>
@@ -181,13 +205,14 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                                             <?php endforeach; ?>
                                         </ul>
                                     <?php endif; ?>
+                                    <a class="btn <?php echo $is_featured ? 'btn--primary' : 'btn--outline'; ?> vendor-pricing-card__cta" href="#quote"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></a>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </section>
                 <?php endif; ?>
 
-                <?php // --- Business Hours Section --- ?>
+                <?php // --- Hours --- ?>
                 <?php if ( ! empty( $hours ) ) : ?>
                     <section class="profile-section" id="hours">
                         <h2 class="profile-section__title"><?php esc_html_e( 'Business Hours', 'sdweddingdirectory' ); ?></h2>
@@ -223,7 +248,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     </section>
                 <?php endif; ?>
 
-                <?php // --- Social Media Section --- ?>
+                <?php // --- Social --- ?>
                 <?php
                 $social_filtered = array_filter( $social, function( $row ) {
                     return ! empty( $row['label'] ) || ! empty( $row['url'] );
@@ -246,7 +271,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     </section>
                 <?php endif; ?>
 
-                <?php // --- Gallery Section --- ?>
+                <?php // --- Gallery --- ?>
                 <?php if ( count( $images ) > 1 ) : ?>
                     <section class="profile-section" id="gallery">
                         <h2 class="profile-section__title"><?php esc_html_e( 'Photos', 'sdweddingdirectory' ); ?></h2>
@@ -262,75 +287,78 @@ if ( ! empty( $pricing[0]['price'] ) ) {
 
             </div>
 
-            <?php // --- Sidebar --- ?>
-            <aside class="profile-sidebar">
-                <div class="contact-card">
-                    <?php if ( $starting_price ) : ?>
-                        <div class="contact-card__price"><?php echo esc_html( $starting_price ); ?></div>
-                    <?php endif; ?>
+            <?php // --- Sidebar (two states) --- ?>
+            <aside class="profile-sidebar" id="quote">
 
-                    <?php if ( $email ) : ?>
-                        <a class="btn btn--primary contact-card__cta" href="mailto:<?php echo esc_attr( $email ); ?>"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></a>
-                    <?php endif; ?>
-
-                    <ul class="contact-card__details">
-                        <?php if ( $phone ) : ?>
-                            <li>
-                                <span class="icon-phone" aria-hidden="true"></span>
-                                <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ( $email ) : ?>
-                            <li>
-                                <span class="icon-mail" aria-hidden="true"></span>
-                                <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ( $website ) : ?>
-                            <li>
-                                <span class="icon-link" aria-hidden="true"></span>
-                                <a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Visit Website', 'sdweddingdirectory' ); ?></a>
-                            </li>
-                        <?php endif; ?>
+                <?php // State 1: short card (above-fold) ?>
+                <div class="quote-card quote-card--short">
+                    <div class="quote-card__head">
+                        <div class="quote-card__name"><?php echo esc_html( $company ); ?></div>
                         <?php if ( $category ) : ?>
-                            <li>
-                                <span class="icon-tag" aria-hidden="true"></span>
-                                <span><?php echo esc_html( $category ); ?></span>
-                            </li>
+                            <div class="quote-card__cat"><?php echo esc_html( $category ); ?></div>
                         <?php endif; ?>
-                    </ul>
-
-                    <?php if ( function_exists( 'sdwd_is_unclaimed' ) && sdwd_is_unclaimed( $post_id ) ) : ?>
-                        <hr style="margin: 16px 0;">
-                        <button type="button" class="btn btn--outline contact-card__cta" id="sdwd-claim-btn" data-post-id="<?php echo $post_id; ?>"><?php esc_html_e( 'Claim This Business', 'sdweddingdirectory' ); ?></button>
-                        <div id="sdwd-claim-form" style="display:none; margin-top:12px;">
-                            <textarea id="sdwd-claim-msg" rows="3" placeholder="<?php esc_attr_e( 'Tell us how you are connected to this business...', 'sdweddingdirectory' ); ?>" style="width:100%; margin-bottom:8px;"></textarea>
-                            <button type="button" class="btn btn--primary contact-card__cta" id="sdwd-claim-submit"><?php esc_html_e( 'Submit Claim', 'sdweddingdirectory' ); ?></button>
-                            <p id="sdwd-claim-status" style="font-size:0.9rem; margin-top:8px;"></p>
-                        </div>
-                        <script>
-                        document.getElementById('sdwd-claim-btn').addEventListener('click', function() {
-                            this.style.display = 'none';
-                            document.getElementById('sdwd-claim-form').style.display = 'block';
-                        });
-                        document.getElementById('sdwd-claim-submit').addEventListener('click', function() {
-                            var data = new FormData();
-                            data.append('action', 'sdwd_submit_claim');
-                            data.append('nonce', '<?php echo wp_create_nonce( 'sdwd_claim_nonce' ); ?>');
-                            data.append('post_id', '<?php echo $post_id; ?>');
-                            data.append('message', document.getElementById('sdwd-claim-msg').value);
-                            fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', { method: 'POST', body: data })
-                                .then(function(r) { return r.json(); })
-                                .then(function(res) {
-                                    document.getElementById('sdwd-claim-status').textContent = res.data.message;
-                                    if (res.success) {
-                                        document.getElementById('sdwd-claim-submit').disabled = true;
-                                    }
-                                });
-                        });
-                        </script>
-                    <?php endif; ?>
+                    </div>
+                    <div class="quote-card__body">
+                        <?php if ( $starting_price ) : ?>
+                            <div class="quote-card__price"><?php echo esc_html( $starting_price ); ?><span><?php esc_html_e( ' starting', 'sdweddingdirectory' ); ?></span></div>
+                        <?php endif; ?>
+                        <button type="button" class="btn btn--primary quote-card__cta" data-quote-open><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></button>
+                        <?php if ( $phone ) : ?>
+                            <a class="quote-card__phone" href="<?php echo esc_attr( $tel_href ); ?>"><span class="icon-phone" aria-hidden="true"></span><?php echo esc_html( $phone ); ?></a>
+                        <?php endif; ?>
+                    </div>
                 </div>
+
+                <?php // State 2: full message form ?>
+                <form class="quote-card quote-card--full" id="sdwd-quote-form" novalidate>
+                    <h3 class="quote-card__title"><?php esc_html_e( 'Message Supplier', 'sdweddingdirectory' ); ?></h3>
+                    <p class="quote-card__lead"><?php printf( esc_html__( 'Send a message to %s', 'sdweddingdirectory' ), esc_html( $company ) ); ?></p>
+
+                    <input type="hidden" name="action" value="sdwd_send_quote">
+                    <input type="hidden" name="nonce" value="<?php echo esc_attr( $quote_nonce ); ?>">
+                    <input type="hidden" name="post_id" value="<?php echo (int) $post_id; ?>">
+
+                    <div class="quote-field">
+                        <label for="sdwd-q-name"><?php esc_html_e( 'Your Name', 'sdweddingdirectory' ); ?></label>
+                        <input type="text" id="sdwd-q-name" name="name" required>
+                    </div>
+                    <div class="quote-field">
+                        <label for="sdwd-q-email"><?php esc_html_e( 'Email', 'sdweddingdirectory' ); ?></label>
+                        <input type="email" id="sdwd-q-email" name="email" required>
+                    </div>
+                    <div class="quote-field">
+                        <label for="sdwd-q-phone"><?php esc_html_e( 'Phone', 'sdweddingdirectory' ); ?></label>
+                        <input type="tel" id="sdwd-q-phone" name="phone">
+                    </div>
+                    <div class="quote-row">
+                        <div class="quote-field">
+                            <label for="sdwd-q-date"><?php esc_html_e( 'Wedding Date', 'sdweddingdirectory' ); ?></label>
+                            <input type="date" id="sdwd-q-date" name="wedding_date">
+                        </div>
+                        <div class="quote-field">
+                            <label for="sdwd-q-guests"><?php esc_html_e( 'Guests', 'sdweddingdirectory' ); ?></label>
+                            <input type="number" id="sdwd-q-guests" name="guests" min="1">
+                        </div>
+                    </div>
+                    <div class="quote-field">
+                        <label for="sdwd-q-msg"><?php esc_html_e( 'Message', 'sdweddingdirectory' ); ?></label>
+                        <textarea id="sdwd-q-msg" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary quote-card__cta"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></button>
+                    <p class="quote-card__status" data-quote-status aria-live="polite"></p>
+                </form>
+
+                <?php if ( function_exists( 'sdwd_is_unclaimed' ) && sdwd_is_unclaimed( $post_id ) ) : ?>
+                    <div class="quote-card quote-card--claim">
+                        <button type="button" class="btn btn--outline contact-card__cta" id="sdwd-claim-btn" data-post-id="<?php echo (int) $post_id; ?>"><?php esc_html_e( 'Claim This Business', 'sdweddingdirectory' ); ?></button>
+                        <div id="sdwd-claim-form" hidden>
+                            <textarea id="sdwd-claim-msg" rows="3" placeholder="<?php esc_attr_e( 'Tell us how you are connected to this business...', 'sdweddingdirectory' ); ?>"></textarea>
+                            <button type="button" class="btn btn--primary contact-card__cta" id="sdwd-claim-submit"><?php esc_html_e( 'Submit Claim', 'sdweddingdirectory' ); ?></button>
+                            <p id="sdwd-claim-status"></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </aside>
         </div>
     </div>

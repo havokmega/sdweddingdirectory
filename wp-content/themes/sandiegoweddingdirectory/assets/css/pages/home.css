@@ -121,7 +121,7 @@
 }
 
 .hero__search {
-  max-width: 100%;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -429,7 +429,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: calc(((100vw - var(--container-max)) / 2) + 600px);
+    width: calc(((100vw - var(--container-max)) / 2) + 700px);
     display: block;
     background: var(--sdwd-bg);
     z-index: 1;
@@ -440,7 +440,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: calc(((100vw - var(--container-max)) / 2) + 599px);
+    left: calc(((100vw - var(--container-max)) / 2) + 699px);
     bottom: 0;
     width: 136px;
     display: block;
@@ -476,7 +476,7 @@
   }
 
   .hero__content {
-    max-width: 680px;
+    max-width: 700px;
     margin: 0;
     text-align: left;
   }
