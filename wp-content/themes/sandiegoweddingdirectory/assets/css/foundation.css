@@ -18,6 +18,12 @@
   /* Surfaces */
   --sdwd-bg: #ffffff;
 
+  /* Links & primary buttons (purple) */
+  --sdwd-link: #6600cc;
+  --sdwd-link-hover: #5500aa;
+  --sdwd-link-active: #440088;
+  --sdwd-tab-active-bg: #f2e6ff;
+
   /* Primary button states */
   --sdwd-btn-primary-hover: #24b5b4;
   --sdwd-btn-primary-active: #1d9b9a;

@@ -61,7 +61,7 @@
                     }
                     ?>
                     <a class="btn btn--primary sd-header-btn-full" href="<?php echo esc_url( $dashboard ); ?>">
-                        <span class="header__btn-icon icon-user" aria-hidden="true"></span>
+                        <span class="header__btn-icon icon-dashboard" aria-hidden="true"></span>
                         <?php esc_html_e( 'My Dashboard', 'sdweddingdirectory-v2' ); ?>
                     </a>
                 <?php else : ?>

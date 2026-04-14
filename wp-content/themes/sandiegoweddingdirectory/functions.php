@@ -147,6 +147,10 @@ add_action( 'wp_enqueue_scripts', function () {
             'url'   => admin_url( 'admin-ajax.php' ),
             'nonce' => wp_create_nonce( 'sdwd_dashboard_nonce' ),
         ] );
+
+        if ( get_page_template_slug() === 'user-template/couple-dashboard.php' ) {
+            wp_enqueue_style( 'sdwdv2-couple-dashboard', $theme_uri . '/assets/css/pages/couple-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/couple-dashboard.css' ) );
+        }
     }
 
     // Modals (logged-out users only).

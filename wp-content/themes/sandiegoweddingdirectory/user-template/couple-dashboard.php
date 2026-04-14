@@ -1,6 +1,10 @@
 <?php
 /**
  * Template Name: Couple Dashboard
+ *
+ * Orchestrator. Pulls data from SDWD Core/Couple plugin meta and hands it
+ * to template parts in /template-parts/couple-dashboard/. Rendering only —
+ * no business logic or HTML layout belongs in this file.
  */
 
 if ( ! is_user_logged_in() ) {
@@ -16,93 +20,83 @@ if ( ! $post_id ) {
     exit;
 }
 
+// Couple-post meta (stored against the couple CPT).
 $email        = get_post_meta( $post_id, 'sdwd_email', true );
 $phone        = get_post_meta( $post_id, 'sdwd_phone', true );
 $wedding_date = get_post_meta( $post_id, 'sdwd_wedding_date', true );
-$social       = get_post_meta( $post_id, 'sdwd_social', true );
 
-if ( ! is_array( $social ) || empty( $social ) ) { $social = [ [ 'label' => '', 'url' => '' ] ]; }
+// User meta (planning-tool data lives on the user, per SDWD Couple plugin).
+$wishlist     = get_user_meta( $user->ID, 'sdwd_wishlist', true );
+$checklist    = get_user_meta( $user->ID, 'sdwd_checklist', true );
+$budget_total = get_user_meta( $user->ID, 'sdwd_budget_total', true );
+$budget_items = get_user_meta( $user->ID, 'sdwd_budget_items', true );
+
+// Normalize.
+if ( ! is_array( $wishlist ) )     { $wishlist     = []; }
+if ( ! is_array( $checklist ) )    { $checklist    = []; }
+if ( ! is_array( $budget_items ) ) { $budget_items = []; }
+
+// Derived values for hero.
+$checklist_total     = count( $checklist );
+$checklist_completed = count( array_filter( $checklist, fn( $t ) => ! empty( $t['completed'] ) ) );
 
 get_header();
 ?>
 
-<div class="dashboard-wrapper">
-    <div class="container">
-        <h1 class="dash__title"><?php esc_html_e( 'My Dashboard', 'sdweddingdirectory' ); ?></h1>
-        <div id="sdwd-dashboard-status" class="dash-status"></div>
+<div class="container">
+    <div class="cd-wrap">
 
-        <form id="sdwd-dashboard-form" class="dash-form">
+        <?php
+        get_template_part( 'template-parts/couple-dashboard/couple-dashboard-sidebar-left', null, [
+            'active' => 'dashboard',
+        ] );
 
-            <?php // --- Personal Info --- ?>
-            <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Personal Info', 'sdweddingdirectory' ); ?></legend>
-                <div class="dash-row">
-                    <div class="dash-field">
-                        <label for="first_name"><?php esc_html_e( 'First Name', 'sdweddingdirectory' ); ?></label>
-                        <input type="text" id="first_name" name="first_name" value="<?php echo esc_attr( $user->first_name ); ?>">
-                    </div>
-                    <div class="dash-field">
-                        <label for="last_name"><?php esc_html_e( 'Last Name', 'sdweddingdirectory' ); ?></label>
-                        <input type="text" id="last_name" name="last_name" value="<?php echo esc_attr( $user->last_name ); ?>">
-                    </div>
-                </div>
-            </fieldset>
+        get_template_part( 'template-parts/couple-dashboard/couple-dashboard-hero', null, [
+            'first_name'          => $user->first_name,
+            'partner_name'        => '', // Partner name not yet in data model.
+            'wedding_date'        => $wedding_date,
+            'checklist_total'     => $checklist_total,
+            'checklist_completed' => $checklist_completed,
+        ] );
+        ?>
 
-            <?php // --- Contact Info --- ?>
-            <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Contact Info', 'sdweddingdirectory' ); ?></legend>
-                <div class="dash-row">
-                    <div class="dash-field">
-                        <label for="sdwd_email"><?php esc_html_e( 'Email', 'sdweddingdirectory' ); ?></label>
-                        <input type="email" id="sdwd_email" name="sdwd_email" value="<?php echo esc_attr( $email ); ?>">
-                    </div>
-                    <div class="dash-field">
-                        <label for="sdwd_phone"><?php esc_html_e( 'Phone', 'sdweddingdirectory' ); ?></label>
-                        <input type="tel" id="sdwd_phone" name="sdwd_phone" value="<?php echo esc_attr( $phone ); ?>">
-                    </div>
-                </div>
-            </fieldset>
+        <main class="cd-main">
+            <?php
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-section-1-vendor-team', null, [
+                'wishlist' => $wishlist,
+            ] );
 
-            <?php // --- Wedding Details --- ?>
-            <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Wedding Details', 'sdweddingdirectory' ); ?></legend>
-                <div class="dash-field">
-                    <label for="sdwd_wedding_date"><?php esc_html_e( 'Wedding Date', 'sdweddingdirectory' ); ?></label>
-                    <input type="date" id="sdwd_wedding_date" name="sdwd_wedding_date" value="<?php echo esc_attr( $wedding_date ); ?>">
-                </div>
-            </fieldset>
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-section-2-guest-list' );
 
-            <?php // --- Social Media --- ?>
-            <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Social Media', 'sdweddingdirectory' ); ?></legend>
-                <div class="dash-social__items">
-                    <?php foreach ( $social as $i => $row ) : ?>
-                        <div class="dash-social__row dash-row">
-                            <div class="dash-field">
-                                <input type="text" name="sdwd_social[<?php echo $i; ?>][label]" value="<?php echo esc_attr( $row['label'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. Instagram', 'sdweddingdirectory' ); ?>">
-                            </div>
-                            <div class="dash-field">
-                                <input type="url" name="sdwd_social[<?php echo $i; ?>][url]" value="<?php echo esc_attr( $row['url'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'https://', 'sdweddingdirectory' ); ?>">
-                            </div>
-                            <button type="button" class="btn btn--outline dash-social__remove">&times;</button>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <button type="button" class="btn btn--outline dash-social__add"><?php esc_html_e( '+ Add Social Link', 'sdweddingdirectory' ); ?></button>
-            </fieldset>
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-section-3-wedding-details', null, [
+                'first_name'   => $user->first_name,
+                'last_name'    => $user->last_name,
+                'email'        => $email,
+                'phone'        => $phone,
+                'wedding_date' => $wedding_date,
+            ] );
+            ?>
+        </main>
 
-            <?php // --- Password --- ?>
-            <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Change Password', 'sdweddingdirectory' ); ?></legend>
-                <div class="dash-field">
-                    <label for="sdwd_new_password"><?php esc_html_e( 'New Password', 'sdweddingdirectory' ); ?></label>
-                    <input type="password" id="sdwd_new_password" name="sdwd_new_password" autocomplete="new-password">
-                    <p class="dash-field__hint"><?php esc_html_e( 'Leave blank to keep current password.', 'sdweddingdirectory' ); ?></p>
-                </div>
-            </fieldset>
+        <aside class="cd-side">
+            <?php
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-sidebar-right-1-website-link', null, [
+                'website_url' => '', // Wedding website module not yet rebuilt.
+            ] );
 
-            <button type="submit" class="btn btn--primary dash-submit"><?php esc_html_e( 'Save Changes', 'sdweddingdirectory' ); ?></button>
-        </form>
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-sidebar-right-2-task-list', null, [
+                'checklist' => $checklist,
+            ] );
+
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-sidebar-right-3-budget', null, [
+                'budget_total' => $budget_total,
+                'budget_items' => $budget_items,
+            ] );
+
+            get_template_part( 'template-parts/couple-dashboard/couple-dashboard-sidebar-right-4-rsvp' );
+            ?>
+        </aside>
+
     </div>
 </div>
 
