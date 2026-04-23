@@ -54,6 +54,7 @@ Primary priorities: fast page loads, clean SEO URLs, simple maintainable archite
 ## Project Files
 
 - **Task tracker:** `PROJECT.md` (root)
+- **GSD planning:** `.planning/` (sidecar workflow — see `.planning/CLAUDE-GSD.md` for GSD workflow guide. Root CLAUDE.md always wins on conflict.)
 - **Documentation:** `Documentation/` (root)
   - `architecture.md` — system rules, separation of concerns, CSS architecture, naming, brand palette, icon mapping
   - `codebase-index.md` — every file in the theme with purpose and status
