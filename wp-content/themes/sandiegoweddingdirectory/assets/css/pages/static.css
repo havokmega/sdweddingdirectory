@@ -173,3 +173,48 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =============================================
+   404 Page
+   ============================================= */
+
+.error-404 {
+  display: grid;
+  gap: var(--sdwd-row-gap);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.error-404__graphic {
+  display: flex;
+  justify-content: center;
+}
+
+.error-404__svg {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+}
+
+.error-404__title {
+  margin: 0;
+}
+
+.error-404__desc {
+  margin: 0;
+  color: var(--sdwd-muted);
+}
+
+.error-404__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--gutter);
+}
+
+@media (max-width: 640px) {
+  .error-404__nav {
+    justify-content: center;
+  }
+}
