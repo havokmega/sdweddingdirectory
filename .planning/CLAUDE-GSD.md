@@ -25,7 +25,7 @@ Before any non-trivial work, read:
 4. **`.planning/REQUIREMENTS.md`** — 70 phase-prefixed v1 REQ-IDs (P1-*, P2-*, P3-*, P4-*, P5-*) + v1.1-deferred + out-of-scope + traceability.
 5. **`.planning/ROADMAP.md`** — 5-phase breakdown with goals, success criteria, requirement mappings, launch-gate coverage.
 6. **`.planning/STATE.md`** — current position, next action, progress metrics. Updated at every phase transition.
-7. **`.planning/codebase/`** — read-only codebase map (ARCHITECTURE, CONCERNS, CONVENTIONS, INTEGRATIONS, STACK, STRUCTURE, TESTING). Dated 2026-04-23. CONCERNS.md is the primary source of Phase 1 + Phase 2 task detail.
+7. **`.planning/codebase/`** — read-only codebase map (ARCHITECTURE, CONCERNS, CONVENTIONS, INTEGRATIONS, STACK, STRUCTURE, TESTING). Dated 2026-04-22. CONCERNS.md is the primary source of Phase 1 + Phase 2 task detail.
 
 ---
 
@@ -153,6 +153,36 @@ Do NOT pre-commit to a single port-source folder for Phase 3. P3-DISCO-01 is a f
 SDWD-v1 candidates: `~/Documents/Development/WebDevelopment/{legacy-sdweddingdirectory,SDWeddingDirectory BBEdit,sdweddingdirectory-contaminated,sdweddingdirectory-final-backup,sdweddingdirectory-v2-snapshot}/`, plus `wp-content.zip`.
 
 WeddingDir themeforest candidates: `~/Documents/Development/WebDevelopment/{themeforest-Os2C2dOt-weddingdir-directory-listing-wordpress-theme,WeddingDIr,ThemeFilesModified}/`.
+
+### Dev environment accounts (PRESERVE until Phase 5 LG-03 clears)
+
+Founder runs a **local-only Docker dev environment** with weak throwaway credentials for rapid cross-role QA while dashboards are still in active iteration:
+
+| Username | Password | Role |
+|----------|----------|------|
+| `couple` | `couple` | couple |
+| `vendor` | `vendor` | vendor |
+| `venue`  | `venue`  | venue  |
+
+**These accounts MUST continue to log in** until Phase 5's dashboard E2E QA (LG-03) signs off. Site is not going online soon; dashboard iteration will continue for weeks.
+
+Phase 2 security work (P2-SEC-01 ≥8-char minimum, P2-SEC-02 current-password verification, P2-SEC-04 rate limiting) would lock out these accounts as written. Implementation MUST gate enforcement on a `SDWD_DEV_MODE` constant so dev accounts survive locally while production behavior is unchanged.
+
+**Pattern** (WordPress convention — `WP_DEBUG`, `WP_ENV`, `WP_LOCAL_DEV` are analogous):
+
+```php
+// sdwd-core/includes/auth.php and any other security enforcement site
+if ( ! defined( 'SDWD_DEV_MODE' ) || ! SDWD_DEV_MODE ) {
+    // enforce strength / current-password / rate-limit
+}
+```
+
+- **Local dev** `wp-config.php` declares `define( 'SDWD_DEV_MODE', true );` — bypasses enforcement.
+- **Staging + production** `wp-config.php` does NOT define it — enforcement is active.
+
+**Launch gate interaction (Phase 5 — LG-03 clearance):**
+- `P5-DASH-03` verification MUST confirm `SDWD_DEV_MODE` is NOT defined in the production `wp-config.php` before LG-03 can be marked green.
+- `P5-QA-05` codebase-audit MUST grep for `SDWD_DEV_MODE` to catch any code paths that forgot to gate on it.
 
 ### Locked / banned
 

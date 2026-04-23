@@ -84,6 +84,7 @@ Phase 1 requirements (11): P1-QA-01, P1-BUILD-01, P1-BUILD-02, P1-CLEAN-01, P1-C
 | Text-domain standardizes on `sandiegoweddingdirectory` | Three variants in use today; Phase 1 normalizes |
 | Phase 8 "Permalink Cleanup" deferred to v1.1 | Combo SEO pages cover new URL structure; wholesale permalink reorg risks launch window |
 | No automated test suite in v1-launch | Foundation first; tests post-launch once code stops moving |
+| Dev accounts `couple`/`couple`, `vendor`/`vendor`, `venue`/`venue` preserved via `SDWD_DEV_MODE` constant | Site not going online soon; dashboards still in active iteration. P2-SEC-01/02/04 enforcement gated on constant so throwaway accounts keep working locally. P5-DASH-03 + P5-QA-05 verify constant absent from production `wp-config.php` before LG-03 clears. |
 
 ### Hard Constraints (CLAUDE.md)
 

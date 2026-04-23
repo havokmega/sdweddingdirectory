@@ -48,10 +48,13 @@ REQ-IDs are phase-prefixed (`P{N}-{CATEGORY}-{NN}`) so phase mapping is self-doc
 - [ ] **P2-PARITY-02**: `venue-location` taxonomy re-registered with `hierarchical => false`; existing hierarchical terms migrated to flat (city-only)
 - [ ] **P2-PARITY-03**: `user-template/venue-profile.php` exists as a parallel of `vendor-profile.php` with address + capacity fields added
 - [ ] **P2-PARITY-04**: `venue-dashboard.php` has a description field parallel to `vendor-profile.php:90-96`; venue owners can edit and save their description
-- [ ] **P2-SEC-01**: Password strength check (≥8 chars) enforced on frontend dashboard password change + all 3 admin metabox save callbacks (couple-meta, vendor-meta, venue-meta)
-- [ ] **P2-SEC-02**: `current_password` verification field required on frontend password-change (`dashboard.php:127-131`); new-password input cleared after save
-- [ ] **P2-SEC-03**: `wp_unslash()` applied to admin metabox password inputs in couple-meta.php:137, vendor-meta.php:234, venue-meta.php:291 — prevents silent login breakage on passwords containing `'`, `"`, `\`
-- [ ] **P2-SEC-04**: Transient-counter rate limit (per IP, fail-closed) on password-change and login endpoints
+
+> **Dev-account preservation note for P2-SEC-01 / P2-SEC-02 / P2-SEC-04:** Founder's local dev environment has throwaway accounts `couple`/`couple`, `vendor`/`vendor`, `venue`/`venue` that MUST keep working through ongoing dashboard iteration (site is not going online soon). Gate all enforcement below on a `SDWD_DEV_MODE` constant — when defined & truthy in local `wp-config.php`, strength/re-auth/rate-limit checks are bypassed. Pattern: `if ( ! defined( 'SDWD_DEV_MODE' ) || ! SDWD_DEV_MODE ) { enforce(...); }`. Staging + production `wp-config.php` do NOT define the constant so enforcement is live. `P5-DASH-03` verification and `P5-QA-05` codebase audit MUST confirm the constant is absent from production `wp-config.php` before LG-03 can clear. See `.planning/CLAUDE-GSD.md` → "Dev environment accounts (PRESERVE until Phase 5 LG-03 clears)" for full spec.
+
+- [ ] **P2-SEC-01**: Password strength check (≥8 chars) enforced on frontend dashboard password change + all 3 admin metabox save callbacks (couple-meta, vendor-meta, venue-meta) — **gated by `SDWD_DEV_MODE`** (see note above)
+- [ ] **P2-SEC-02**: `current_password` verification field required on frontend password-change (`dashboard.php:127-131`); new-password input cleared after save — **gated by `SDWD_DEV_MODE`** (see note above)
+- [ ] **P2-SEC-03**: `wp_unslash()` applied to admin metabox password inputs in couple-meta.php:137, vendor-meta.php:234, venue-meta.php:291 — prevents silent login breakage on passwords containing `'`, `"`, `\` (NOT gated — this is a correctness fix, not an enforcement toggle)
+- [ ] **P2-SEC-04**: Transient-counter rate limit (per IP, fail-closed) on password-change and login endpoints — **gated by `SDWD_DEV_MODE`** (see note above)
 - [ ] **P2-SEC-05**: Inline JS extracted from admin claim metabox (`claim.php:128-144`); moved to `sdwd-core/assets/admin.js`; `$post->ID` and `$nonce` escaped via `esc_attr`
 - [ ] **P2-SEC-06**: Repeater-field slash accumulation fixed in `vendor-meta.php:157-205` and `venue-meta.php:206-254`; values read raw, escaped on render via `esc_attr` only
 
