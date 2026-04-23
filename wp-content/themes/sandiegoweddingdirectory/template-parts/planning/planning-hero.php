@@ -59,14 +59,15 @@ if ( $california && ! is_wp_error( $california ) ) {
 
             <div class="planning-hero__form-wrap">
                 <form id="sdwd-planning-register-form" class="planning-hero__form" method="post" autocomplete="off" novalidate>
-                    <input type="hidden" name="action" value="sdweddingdirectory_couple_register_form_action" />
-                    <input type="hidden" name="sdweddingdirectory_couple_registration_security" value="<?php echo esc_attr( wp_create_nonce( 'sdweddingdirectory_couple_registration_security' ) ); ?>" />
+                    <input type="hidden" name="action" value="sdwd_register" />
+                    <input type="hidden" name="nonce" value="<?php echo esc_attr( wp_create_nonce( 'sdwd_auth_nonce' ) ); ?>" />
+                    <input type="hidden" name="account_type" value="couple" />
                     <input type="hidden" name="redirect_link" value="<?php echo esc_url( home_url( '/couple-dashboard/' ) ); ?>" />
-                    <input type="hidden" name="sdweddingdirectory_couple_register_first_name" value="" />
-                    <input type="hidden" name="sdweddingdirectory_couple_register_last_name" value="" />
-                    <input type="hidden" name="sdweddingdirectory_couple_register_username" value="" />
-                    <input type="hidden" name="sdweddingdirectory_couple_register_password" value="" />
-                    <input type="hidden" name="sdweddingdirectory_register_couple_person" value="Planning my wedding" />
+                    <input type="hidden" name="first_name" value="" />
+                    <input type="hidden" name="last_name" value="" />
+                    <input type="hidden" name="username" value="" />
+                    <input type="hidden" name="password" value="" />
+                    <input type="hidden" name="couple_type" value="Planning my wedding" />
 
                     <div class="planning-hero__form-message" aria-live="polite"></div>
 
@@ -76,7 +77,7 @@ if ( $california && ! is_wp_error( $california ) ) {
                         <div class="planning-hero__searchbar">
                             <div class="planning-hero__field-wrap" id="planning-name-wrap">
                                 <div class="planning-hero__field" id="planning-name-field">
-                                    <input id="planning-name" class="planning-hero__input" type="text" name="sdweddingdirectory_couple_register_full_name" placeholder=" " minlength="2" required />
+                                    <input id="planning-name" class="planning-hero__input" type="text" name="full_name" placeholder=" " minlength="2" required />
                                     <label class="planning-hero__float-label" for="planning-name"><?php esc_html_e( 'First and last name', 'sdweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-user" aria-hidden="true"></span>
                                 </div>
@@ -84,13 +85,13 @@ if ( $california && ! is_wp_error( $california ) ) {
                             </div>
                             <div class="planning-hero__field-wrap" id="planning-email-wrap">
                                 <div class="planning-hero__field" id="planning-email-field">
-                                    <input id="planning-email" class="planning-hero__input" type="email" name="sdweddingdirectory_couple_register_email" placeholder=" " pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="<?php esc_attr_e( 'Please enter a valid email', 'sdweddingdirectory' ); ?>" required />
+                                    <input id="planning-email" class="planning-hero__input" type="email" name="email" placeholder=" " pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="<?php esc_attr_e( 'Please enter a valid email', 'sdweddingdirectory' ); ?>" required />
                                     <label class="planning-hero__float-label" for="planning-email"><?php esc_html_e( 'Email', 'sdweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-envelope-o" aria-hidden="true"></span>
                                 </div>
                                 <p class="planning-hero__field-error" id="planning-email-error"><?php esc_html_e( 'Check that the email is correct.', 'sdweddingdirectory' ); ?></p>
                             </div>
-                            <button class="btn btn--cta planning-hero__action" type="button" data-step-next><?php esc_html_e( 'Start planning', 'sdweddingdirectory' ); ?></button>
+                            <button class="btn btn--primary planning-hero__action" type="button" data-step-next><?php esc_html_e( 'Start planning', 'sdweddingdirectory' ); ?></button>
                         </div>
                         <p class="planning-hero__login-hint">
                             <?php esc_html_e( 'Already have an account?', 'sdweddingdirectory' ); ?>
@@ -109,7 +110,7 @@ if ( $california && ! is_wp_error( $california ) ) {
                                 <div class="planning-hero__field planning-hero__field--location">
                                     <label class="screen-reader-text" for="planning-location"><?php esc_html_e( 'Getting married in...', 'sdweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-search" aria-hidden="true"></span>
-                                    <input id="planning-location" class="planning-hero__input" type="text" name="sdweddingdirectory_couple_register_location" placeholder="<?php esc_attr_e( 'Getting married in...', 'sdweddingdirectory' ); ?>" autocomplete="off" readonly />
+                                    <input id="planning-location" class="planning-hero__input" type="text" name="location" placeholder="<?php esc_attr_e( 'Getting married in...', 'sdweddingdirectory' ); ?>" autocomplete="off" readonly />
                                     <?php if ( ! empty( $planning_cities ) ) : ?>
                                         <div class="planning-hero__dropdown" id="sdwd-location-dropdown">
                                             <?php foreach ( $planning_cities as $city ) : ?>
@@ -121,7 +122,7 @@ if ( $california && ! is_wp_error( $california ) ) {
                                 <div class="planning-hero__field">
                                     <label class="screen-reader-text" for="planning-date"><?php esc_html_e( 'Wedding date', 'sdweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-calendar-heart" aria-hidden="true"></span>
-                                    <input id="planning-date" class="planning-hero__input" type="date" name="sdweddingdirectory_couple_register_wedding_date" required />
+                                    <input id="planning-date" class="planning-hero__input" type="date" name="wedding_date" required />
                                 </div>
                             </div>
                             <button class="btn btn--primary planning-hero__action" type="submit" id="sdwd-planning-register-submit"><?php esc_html_e( 'Create account', 'sdweddingdirectory' ); ?></button>
@@ -151,7 +152,7 @@ if ( $california && ! is_wp_error( $california ) ) {
     var currentStep = 0;
 
     /* --- Location dropdown --- */
-    var locationInput = form.querySelector('[name="sdweddingdirectory_couple_register_location"]');
+    var locationInput = form.querySelector('[name="location"]');
     var locationDropdown = document.getElementById('sdwd-location-dropdown');
 
     if (locationInput && locationDropdown) {
@@ -220,24 +221,24 @@ if ( $california && ! is_wp_error( $california ) ) {
 
     /* --- Auto-populate hidden fields before submit --- */
     var populateHiddenFields = function () {
-        var fullName = (form.querySelector('[name="sdweddingdirectory_couple_register_full_name"]').value || '').trim();
-        var email = (form.querySelector('[name="sdweddingdirectory_couple_register_email"]').value || '').trim();
+        var fullName = (form.querySelector('[name="full_name"]').value || '').trim();
+        var email = (form.querySelector('[name="email"]').value || '').trim();
         var parts = fullName.split(' ');
         var firstName = parts[0] || '';
         var lastName = parts.length > 1 ? parts.slice(1).join(' ') : '';
 
-        form.querySelector('[name="sdweddingdirectory_couple_register_first_name"]').value = firstName;
-        form.querySelector('[name="sdweddingdirectory_couple_register_last_name"]').value = lastName || firstName;
+        form.querySelector('[name="first_name"]').value = firstName;
+        form.querySelector('[name="last_name"]').value = lastName || firstName;
 
         var emailPrefix = email.split('@')[0] || 'user';
         var username = emailPrefix.replace(/[^a-zA-Z0-9_]/g, '_').substring(0, 28);
         username += '_' + Math.floor(1000 + Math.random() * 9000);
-        form.querySelector('[name="sdweddingdirectory_couple_register_username"]').value = username;
+        form.querySelector('[name="username"]').value = username;
 
         var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
         var pass = 'Aa1!';
         for (var i = 0; i < 12; i++) pass += chars.charAt(Math.floor(Math.random() * chars.length));
-        form.querySelector('[name="sdweddingdirectory_couple_register_password"]').value = pass;
+        form.querySelector('[name="password"]').value = pass;
     };
 
     /* --- Field validation helpers --- */
@@ -316,8 +317,6 @@ if ( $california && ! is_wp_error( $california ) ) {
         var submitBtn = form.querySelector('#sdwd-planning-register-submit');
         var originalText = submitBtn ? submitBtn.textContent : '';
         var formData = new FormData(form);
-        var nonceValue = formData.get('sdweddingdirectory_couple_registration_security');
-        formData.append('security', nonceValue ? nonceValue : '');
 
         if (submitBtn) {
             submitBtn.disabled = true;
