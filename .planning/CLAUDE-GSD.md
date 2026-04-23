@@ -1,17 +1,23 @@
-# CLAUDE-GSD.md — GSD workflow guide for SDWD v1-launch
+# CLAUDE-GSD.md — GSD workflow guide for SDWD launch
 
 Sidecar to the root `CLAUDE.md`. The root file owns the hard rules and project rules. This file owns the GSD planning/execution workflow.
 
-> **Precedence:** Root `CLAUDE.md` ALWAYS wins on conflict. If GSD workflow asks you to do something that would violate a hard rule in `CLAUDE.md` (e.g., add a Bootstrap class, add a 4th file to `inc/`, modify the home page without approval), STOP and escalate.
+> **Precedence:** Root `CLAUDE.md` ALWAYS wins on conflict. If the GSD workflow asks you to do something that would violate a hard rule in `CLAUDE.md` (e.g., add a Bootstrap class, add a 4th file to `inc/`, modify the home page outside the `P1-FIX-02` scoped unlock), STOP and escalate.
 
 ---
 
 ## What this project is
 
-San Diego Wedding Directory — **v1-launch milestone in progress**. First public cut of the v2 theme (`sandiegoweddingdirectory`) + `sdwd-core` + `sdwd-couple` plugin stack, replacing the v1 directory that's been limping for months.
+San Diego Wedding Directory — **launch milestone in progress**. The working theme (`sandiegoweddingdirectory`) + `sdwd-core` + `sdwd-couple` plugin stack is the first public cut after multiple prior attempts. There is no "v1" or "v2" — this is THE theme, THE project, THE working codebase.
 
-- Core value: ship v1-launch without regressing the foundation; pass all 4 hard launch gates (couple AJAX works, `/{location}/{type}/` SEO pages return 200, dashboards E2E for all 3 roles, transactional email delivers).
+- Core value: ship the launch milestone cleanly; pass all 4 hard launch gates (couple AJAX works, `/{location}/{type}/` SEO pages return 200, dashboards E2E for all 3 roles, transactional email delivers).
 - Work pattern: founder works in bursts across multi-day gaps between other income work. Cold-resumability via GSD is the primary adoption motivation — keep STATE.md current at every transition.
+
+## Core Principles
+
+- **Legacy code is a recovery source, not a scrap heap.** Prior-attempt folders under `~/Documents/Development/WebDevelopment/` contain fully-built pages and CSS that were shipped in earlier attempts. Port + strip + tokenize beats rebuild-from-scratch. `P3-DISCO-01` (template port-source discovery) and `P2-DISCO-01` (seating-chart plugin hunt) fingerprint every candidate so the founder picks per-target with evidence on the table.
+- **weddingwire.com is the canonical UI layout reference.** Every page type copies weddingwire block-for-block until parity, then the founder modifies from there. See `.planning/codebase/DESIGN-REFERENCES.md`.
+- **Banned dependencies are non-negotiable** (root `CLAUDE.md`): Bootstrap, Font Awesome, jQuery, Google Fonts, page builders, shortcake, ACF-layout-for-front-end, Elementor. Legacy ports MUST strip these on import.
 
 ---
 
@@ -19,13 +25,14 @@ San Diego Wedding Directory — **v1-launch milestone in progress**. First publi
 
 Before any non-trivial work, read:
 
-1. **`CLAUDE.md`** (repo root) — hard rules, banned deps, file boundaries, home-page lock, git safety. Violation is session-ending.
-2. **`PROJECT.md`** (repo root) — legacy task tracker. Still authoritative for the v1-era outline.
-3. **`.planning/PROJECT.md`** — GSD project context (milestone scope, launch gates, key decisions, out-of-scope, evolution rules).
-4. **`.planning/REQUIREMENTS.md`** — 70 phase-prefixed v1 REQ-IDs (P1-*, P2-*, P3-*, P4-*, P5-*) + v1.1-deferred + out-of-scope + traceability.
+1. **Root `CLAUDE.md`** — hard rules, banned deps, file boundaries, home-page lock (scoped unlock for `P1-FIX-02`), git safety. Violation is session-ending.
+2. **Root `PROJECT.md`** — task tracker. Authoritative for launch-era outline.
+3. **`.planning/PROJECT.md`** — GSD project context (milestone scope, launch gates, key decisions, out-of-scope, evolution rules, Core Principles).
+4. **`.planning/REQUIREMENTS.md`** — 75 phase-prefixed launch REQ-IDs (P1-*, P2-*, P3-*, P4-*, P5-*) + Post-Launch Backlog (`PL-*`) + out-of-scope + traceability.
 5. **`.planning/ROADMAP.md`** — 5-phase breakdown with goals, success criteria, requirement mappings, launch-gate coverage.
 6. **`.planning/STATE.md`** — current position, next action, progress metrics. Updated at every phase transition.
-7. **`.planning/codebase/`** — read-only codebase map (ARCHITECTURE, CONCERNS, CONVENTIONS, INTEGRATIONS, STACK, STRUCTURE, TESTING). Dated 2026-04-22. CONCERNS.md is the primary source of Phase 1 + Phase 2 task detail.
+7. **`.planning/codebase/DESIGN-REFERENCES.md`** — weddingwire.com canonical UI reference + WeddingDir themeforest port targets + strip-third-party rules.
+8. **`.planning/codebase/`** — read-only codebase map (ARCHITECTURE, CONCERNS, CONVENTIONS, INTEGRATIONS, STACK, STRUCTURE, TESTING). Dated 2026-04-23; scheduled for regeneration after Phase 1 text-domain sweep lands. CONCERNS.md is the primary source of Phase 1 + Phase 2 task detail.
 
 ---
 
@@ -46,10 +53,10 @@ From `.planning/config.json`:
 | # | Phase | Launch Gates | Requirements |
 |---|-------|--------------|--------------|
 | 1 | Close in-progress + cleanup | LG-03 (partial via P1-FIX-01) | 11 (P1-*) |
-| 2 | Plugin closeout + parity + security | LG-01 | 18 (P2-*) |
-| 3 | Missing + ported templates | — | 13 (P3-*) |
+| 2 | Plugin closeout + parity + security | LG-01 | 19 (P2-*) |
+| 3 | Missing + ported templates | — | 19 (P3-*) |
 | 4 | Combo venue SEO pages | LG-02 | 5 (P4-*) |
-| 5 | Launch prep | LG-03, LG-04 | 23 (P5-*) |
+| 5 | Launch prep | LG-03, LG-04 | 21 (P5-*) |
 
 ---
 
@@ -59,7 +66,7 @@ From `.planning/config.json`:
 
 Multi-day gap? New session?
 
-1. Read `CLAUDE.md` + `PROJECT.md` (root) + `.planning/STATE.md`.
+1. Read root `CLAUDE.md` + root `PROJECT.md` + `.planning/STATE.md`.
 2. `/gsd-resume-work` — identifies current phase/plan and presents the next action.
 
 ### Starting a phase
@@ -88,7 +95,7 @@ Updates:
 - `ROADMAP.md` progress table (phase marked complete)
 - `STATE.md` (current phase, progress bar, metrics)
 - `REQUIREMENTS.md` traceability (Pending → Complete for finished REQ-IDs)
-- `PROJECT.md` Validated/Active (completed items move to Validated with phase reference)
+- `.planning/PROJECT.md` Validated/Active (completed items move to Validated with phase reference)
 - Appends any new Key Decisions discovered during execution
 
 **Keeping these current is non-negotiable — it's the reason GSD is here.**
@@ -131,12 +138,18 @@ All agents use Sonnet by default (balanced profile).
 
 ## Project-specific gotchas for downstream agents
 
+### Design parity reference order (when deciding how something should look)
+
+1. **weddingwire.com** — canonical layout reference for every page type. Copy block-for-block until parity, then founder modifies from there.
+2. **Existing tokens in `foundation.css :root`** — colors, typography, spacing. Every design decision resolves to existing tokens before inventing new ones.
+3. **If a decision requires invention** (no weddingwire equivalent, no wireframe in `Documentation/screenshots/`, no existing token covers it), **STOP and escalate** — do not invent.
+
 ### WordPress-specific
 
 - **WP core is NOT in the repo.** Only `wp-content/` is bind-mounted. Agents that try to edit `wp-admin/*` or `wp-includes/*` are trying to modify code inside a Docker volume, not the repo — changes won't persist across container rebuilds.
 - **CPT/taxonomy registration** is plugin-owned (`sdwd-core`). Agents must not add CPT registration to the theme.
-- **Meta keys** follow `sdwd_*` prefix convention (not `sdweddingdirectory_*` — that's the legacy/retired plugin).
-- **Text-domain** standardizes to `sandiegoweddingdirectory` (Phase 1 normalizes). Don't mint new translations under `sdweddingdirectory-v2` or `sdweddingdirectory`.
+- **Meta keys** follow `sdwd_*` prefix convention (not `sdweddingdirectory_*` — that's the retired legacy plugin).
+- **Text-domain** standardizes to `sandiegoweddingdirectory` (Phase 1 `P1-CLEAN-04` normalizes across theme AND plugin files). Don't mint new translations under `sdweddingdirectory-v2` or `sdweddingdirectory`. Until the sweep lands, these legacy literal strings survive in code (and will appear in backticks in planning docs) — the sweep eliminates them.
 - **Nonce pattern** — per-feature scoped (`sdwd_auth_nonce`, `sdwd_quote_nonce`, `sdwd_review_nonce`, etc.). Generated in theme where form renders; verified in plugin handler.
 
 ### CSS / front-end
@@ -146,13 +159,39 @@ All agents use Sonnet by default (balanced profile).
 - Page-specific CSS in `assets/css/pages/` — loaded conditionally via `functions.php`, gated by `is_front_page()`, `is_singular([...])`, etc.
 - Icon font: `sdwd-icons` at `assets/library/sdwd-icons/`. Use `icon-{name}` classes. No Font Awesome.
 
-### Port sources (Phase 3 only)
+### Port sources — Legacy is a RECOVERY SOURCE
 
-Do NOT pre-commit to a single port-source folder for Phase 3. P3-DISCO-01 is a fingerprinting task that produces a comparison table; founder picks per-page at execution time.
+**Principle:** Many pages, CSS files, and plugins have been fully built in prior attempts. Port + strip + tokenize beats rebuild-from-scratch. `P3-DISCO-01` and `P2-DISCO-01` fingerprint every candidate before the founder picks a source per target.
 
-SDWD-v1 candidates: `~/Documents/Development/WebDevelopment/{legacy-sdweddingdirectory,SDWeddingDirectory BBEdit,sdweddingdirectory-contaminated,sdweddingdirectory-final-backup,sdweddingdirectory-v2-snapshot}/`, plus `wp-content.zip`.
+Do NOT pre-commit to a single port-source folder for Phase 3. `P3-DISCO-01` is a fingerprinting task that produces a comparison table; founder picks per-page at execution time.
 
-WeddingDir themeforest candidates: `~/Documents/Development/WebDevelopment/{themeforest-Os2C2dOt-weddingdir-directory-listing-wordpress-theme,WeddingDIr,ThemeFilesModified}/`.
+**SDWD-era candidates (`~/Documents/Development/WebDevelopment/`):**
+- `legacy-sdweddingdirectory/`
+- `SDWeddingDirectory BBEdit/`
+- `sdweddingdirectory-contaminated/`
+- `sdweddingdirectory-final-backup/`
+- `sdweddingdirectory-v2-snapshot/` (folder name is a literal path — the "v2" in the folder name is historical and does not imply the working project is "v2"; it is not)
+- `wp-content.zip`
+
+**WeddingDir themeforest candidates:**
+- `themeforest-Os2C2dOt-weddingdir-directory-listing-wordpress-theme/` (contains `Untouched Original Theme Source WeddingDir/` and `weddingdir-child/`)
+- `WeddingDIr/`
+- `ThemeFilesModified/` (contains `weddingdir/` + `weddingdir-child/`)
+
+**Seating-chart hunt targets (for `P2-DISCO-01`, additive to the above):**
+- `sdwd-ui/`
+- `ww_html_clone/`
+- `backupwp/`
+- `RECOVERY/`
+- Any folder with `seating` / `chart` / `layout` / `table-plan` in filenames
+
+**Strip-on-import rules (every port):**
+- No Bootstrap classes
+- No Font Awesome markup
+- No jQuery
+- No Google Fonts
+- No shortcake / ACF layout / Elementor
+- Tokenize all colors/spacing/typography via `foundation.css :root`
 
 ### Dev environment accounts (PRESERVE until Phase 5 LG-03 clears)
 
@@ -166,7 +205,7 @@ Founder runs a **local-only Docker dev environment** with weak throwaway credent
 
 **These accounts MUST continue to log in** until Phase 5's dashboard E2E QA (LG-03) signs off. Site is not going online soon; dashboard iteration will continue for weeks.
 
-Phase 2 security work (P2-SEC-01 ≥8-char minimum, P2-SEC-02 current-password verification, P2-SEC-04 rate limiting) would lock out these accounts as written. Implementation MUST gate enforcement on a `SDWD_DEV_MODE` constant so dev accounts survive locally while production behavior is unchanged.
+Phase 2 security work (`P2-SEC-01` ≥8-char minimum, `P2-SEC-02` current-password verification, `P2-SEC-04` rate limiting) would lock out these accounts as written. Implementation MUST gate enforcement on an `SDWD_DEV_MODE` constant so dev accounts survive locally while production behavior is unchanged.
 
 **Pattern** (WordPress convention — `WP_DEBUG`, `WP_ENV`, `WP_LOCAL_DEV` are analogous):
 
@@ -186,9 +225,9 @@ if ( ! defined( 'SDWD_DEV_MODE' ) || ! SDWD_DEV_MODE ) {
 
 ### Locked / banned
 
-- `front-page.php` + `assets/css/pages/home.css` — LOCKED. No changes without founder approval.
+- `front-page.php` + `assets/css/pages/home.css` — LOCKED **except for the scope of `P1-FIX-02`** (category-search mega-menu dropdown fix). Re-locks on completion. Mirror of root `CLAUDE.md` §Locked Pages.
 - `inc/` — 3 files total (`sd-mega-navwalker.php`, `vendors.php`, `venues.php`). Do not add a 4th.
-- Bootstrap, Font Awesome, jQuery, Google Fonts, page builders — BANNED. Non-negotiable.
+- Bootstrap, Font Awesome, jQuery, Google Fonts, page builders, shortcake, ACF layout, Elementor — BANNED. Non-negotiable.
 - `!important`, raw hex, inline styles (except dynamic PHP bg images), utility classes — BANNED.
 
 ---
@@ -202,3 +241,4 @@ if ( ! defined( 'SDWD_DEV_MODE' ) || ! SDWD_DEV_MODE ) {
 ---
 
 *Sidecar initialized: 2026-04-22*
+*Sidecar re-synthesized: 2026-04-22 (terminology reset + legacy-recovery principle)*
