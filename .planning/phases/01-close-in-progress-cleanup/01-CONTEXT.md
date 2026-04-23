@@ -2,27 +2,28 @@
 
 **Gathered:** 2026-04-22
 **Status:** Ready for planning
+**Re-synthesized:** 2026-04-22 (terminology reset — milestone renamed to "launch"; P1-FIX-02 added; P1-BUILD-01 struck from requirements; P1-BUILD-02 reworded "build" → "finish")
 
 <domain>
 ## Phase Boundary
 
-Stabilize existing work before launch prep: verify the already-built global footer, build the 404 page, fix the broken couple registration form so it actually creates accounts (supports LG-03), and remove dead legacy code (filter hooks, stylesheet dequeues, inert CSS rules) + standardize the text-domain across the codebase.
+Stabilize existing work before launch prep: finish the 404 page (95% done, touch-ups only), fix the broken couple registration form so it actually creates accounts (supports LG-03), fix the home-page category-search mega-menu dropdown (scoped home-page unlock), and remove dead legacy code (filter hooks, stylesheet dequeues, inert CSS rules) + standardize the text-domain across the theme AND plugin files.
 
 Every cleanup item (P1-CLEAN-01 through 06) has a pre-specified file + line number + "delete/rename" directive in `.planning/codebase/CONCERNS.md` — this phase is HOW not WHAT for those items.
 
-Out of scope for this phase: the Phase 2 security work (password strength / current-password / rate limiting / `SDWD_DEV_MODE` constant), the Phase 2 vendor/venue parity work, any new capability.
+Out of scope for this phase: the Phase 2 security work (password strength / current-password / rate limiting / `SDWD_DEV_MODE` constant), the Phase 2 vendor/venue parity work, any new capability. Home-page edits are out of scope EXCEPT for the `P1-FIX-02` mega-menu dropdown fix (scoped unlock per root `CLAUDE.md` §Locked Pages).
 
 </domain>
 
 <decisions>
 ## Implementation Decisions
 
-### P1-BUILD-01 — Global footer (already landed)
+### Global footer — already landed (P1-BUILD-01 struck from REQUIREMENTS)
 
-- **D-01:** Footer is already built from a prior session. `wp-content/themes/sandiegoweddingdirectory/footer.php` (113 lines) exists and all 4 footer widget areas are registered in `functions.php:65-79` via `for ( $i = 1; $i <= 4; $i++ )`. Widget IDs: `sdwdv2-footer-1` through `sdwdv2-footer-4`. `footer.php` renders 4 `.footer__widget` columns (matches).
-- **D-02:** No from-scratch footer build. Mark P1-BUILD-01 as already-landed work and visually verify during phase verification. If the verifier finds gaps, surface them for a targeted touch-up — do not scope a new build.
+- **D-01:** Footer is already built. `wp-content/themes/sandiegoweddingdirectory/footer.php` (113 lines) exists and all 4 footer widget areas are registered in `functions.php:65-79` via `for ( $i = 1; $i <= 4; $i++ )`. Widget IDs: `sdwdv2-footer-1` through `sdwdv2-footer-4`. `footer.php` renders 4 `.footer__widget` columns (matches). Moved to `.planning/PROJECT.md` §Validated during the 2026-04-22 re-synthesis; `P1-BUILD-01` struck from `REQUIREMENTS.md`.
+- **D-02:** No footer build work in Phase 1 plans. The phase verifier retains a **verification-only checkpoint** — eyeball the footer at phase end to catch any regressions from surrounding Phase 1 work (text-domain sweep, dead-filter deletes). If the verifier finds gaps, surface them for a targeted touch-up via a separate Post-Launch Backlog entry or a decimal-phase insert — do not scope a new build inside Phase 1.
 
-### P1-BUILD-02 — 404 page
+### P1-BUILD-02 — 404 page (finish; 95% done, touch-ups only)
 
 - **D-03:** Replace the current placeholder inline SVG in `404.php` with the real asset at `wp-content/themes/sandiegoweddingdirectory/assets/images/404-error-page/404_error.svg`. Reference via `<?php echo esc_url( get_template_directory_uri() . '/assets/images/404-error-page/404_error.svg' ); ?>`.
 - **D-04:** Keep the existing `<h1>Page Not Found</h1>` and the existing description copy as-is. Text-domain on these strings will be normalized by the P1-CLEAN-04 sweep.
@@ -46,6 +47,15 @@ Out of scope for this phase: the Phase 2 security work (password strength / curr
   - Preserve the client-side auto-generated password (already satisfies the ≥8-char registration minimum at `auth.php:27,51-53`)
 - **D-10:** Cross-phase dependency — P1-FIX-01 is not *truly complete* until LG-04 (Phase 5, transactional email) delivers a welcome email that contains either (a) the auto-generated password in plaintext OR (b) a one-click password-set/reset link. Without this, a couple who logs out before setting their own password is locked out with no recovery path. This constraint is captured here so the Phase 5 email-template work (`P5-EMAIL-02`) includes the auth-material delivery path.
 - **D-11:** Success/error UX stays as currently implemented (AJAX response drives the `.planning-hero__form-message` banner + 350ms delayed redirect on `payload.redirect === true`). No rework — just ensure the `sdwd_register` handler returns a compatible payload shape (`{ message, notice, redirect, redirect_link }`) or adjust the theme-side handler to match whatever `auth.php` currently returns.
+
+### P1-FIX-02 — Home-page category-search mega-menu dropdown
+
+- **D-18:** The bug — the category filter on the home-page search bar is supposed to drop down a mega-menu showing selectable vendor/venue categories. Currently it does nothing when clicked. Root `PROJECT.md` §1 notes: "Search doesn't work. Searching by category is supposed to drop down a mega menu. We had this working in some prior version."
+- **D-19:** **Home-page scoped unlock is ACTIVE for this requirement only.** Root `CLAUDE.md` §Locked Pages and `.planning/CLAUDE-GSD.md` §Locked both reflect the scope: `front-page.php` and `assets/css/pages/home.css` may be edited **only** for the work required to fix the category-search mega-menu dropdown. Every other change to either file is still gated on explicit founder approval. The lock re-engages automatically the moment `P1-FIX-02` is verified complete.
+- **D-20:** Scope of edits is investigation-driven, not pre-committed. Likely files: `front-page.php` (home template markup for the search bar + category filter), `assets/css/pages/home.css` (dropdown visibility + positioning), `assets/js/app.js` (dropdown open/close behavior). **Possibly NOT** `inc/sd-mega-navwalker.php` — that serves the top-nav mega-menu walker, not the home-page search-bar category dropdown; re-check at plan-phase to confirm. If the investigation surfaces a need to edit files outside this set, escalate to the founder before expanding scope.
+- **D-21:** Success criterion (mirrors ROADMAP.md Phase 1 §2): "The home-page category-search mega-menu dropdown fires correctly and displays selectable category options." Verifier confirms via manual browser test — click the category filter on `/`, dropdown opens, shows category options, selection passes through to the downstream search behavior.
+- **D-22:** If fingerprinting the prior working version of this dropdown is useful, check legacy snapshots under `~/Documents/Development/WebDevelopment/` before rebuilding from scratch — this is a small example of the Core Principle "legacy code is a recovery source, not a scrap heap." Dropdown markup + CSS + JS may be recoverable from a prior attempt. Strip banned deps on import (no Bootstrap, FA, jQuery) and tokenize via `foundation.css :root`.
+- **D-23:** No changes to shared tokens (`foundation.css :root`), `components.css`, or `layout.css` under this scope. If the fix appears to require a new token, escalate — do not add one unilaterally; home-page components are downstream of shared tokens and a token change may cascade into other locked pages.
 
 ### P1-CLEAN-04 — Text-domain sweep (full)
 
@@ -85,8 +95,9 @@ Out of scope for this phase: the Phase 2 security work (password strength / curr
 ### Hard rules + project scope
 - `CLAUDE.md` — hard rules, banned dependencies, file boundaries, locked home page, git safety. Violation is session-ending.
 - `.planning/CLAUDE-GSD.md` — GSD workflow guide + project-specific gotchas (WP specifics, text-domain convention, dev-account preservation via `SDWD_DEV_MODE`).
-- `PROJECT.md` (repo root) — legacy task tracker; still authoritative for v1-era outline.
-- `.planning/PROJECT.md` — milestone scope, launch gates, key decisions, out-of-scope.
+- `PROJECT.md` (repo root) — authoritative task tracker (pre-GSD, still canonical for task-status truth). Cross-references Phase 7 + Phase 8 rewrites landed 2026-04-22.
+- `.planning/PROJECT.md` — milestone scope, launch gates, key decisions, out-of-scope, Core Principles.
+- `.planning/codebase/DESIGN-REFERENCES.md` — canonical UI reference (weddingwire.com) + WeddingDir themeforest port targets + strip-third-party rules.
 - `.planning/REQUIREMENTS.md` §"Phase 1" — the 11 `P1-*` REQ-IDs this phase delivers.
 - `.planning/ROADMAP.md` §"Phase 1" — goal and 4 success criteria.
 - `.planning/STATE.md` — current position and next-action handoff.

@@ -3,6 +3,8 @@
 > **Audit trail only.** Do not use as input to planning, research, or execution agents.
 > Decisions are captured in `01-CONTEXT.md` — this log preserves the alternatives considered.
 
+> **⚠ Terminology reset — 2026-04-22.** After this discussion was logged, the founder issued a project-wide terminology reset: eliminate all "v1/v2/v-anything" framing (there is ONE theme — `sandiegoweddingdirectory` — THE working project; "legacy" now means prior-attempt folders under `~/Documents/Development/WebDevelopment/`, not an old version of the current project). The milestone was renamed from "v1-launch" to "launch"; the deferred section was renamed from "v1.1" to "Post-Launch Backlog". `P1-FIX-02` (home-page category-search mega-menu dropdown fix, scoped home-page unlock) was added to Phase 1. `P1-BUILD-01` (global footer) was struck from `REQUIREMENTS.md` because the founder had already built it. See `.planning/PROJECT.md` + `.planning/REQUIREMENTS.md` + this phase's `01-CONTEXT.md` for the current state. **Discussion body below is preserved verbatim from the original 2026-04-22 session; prose framing may use now-deprecated v-language** — it is kept unedited for audit-trail immutability.
+
 **Date:** 2026-04-22
 **Phase:** 01-close-in-progress-cleanup
 **Areas discussed:** Global footer, 404 page, Registration form UX, Cleanup sweep scope
