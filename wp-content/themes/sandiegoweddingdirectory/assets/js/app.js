@@ -217,9 +217,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set hidden input value
         if (hiddenInput) hiddenInput.value = item.dataset.value || '';
 
-        // Update trigger text
+        // Record selected slug on the panel (read by form submit for /vendors/{slug}/ routing)
+        if (item.dataset.slug) panel.dataset.selectedSlug = item.dataset.slug;
+
+        // Update trigger text — prefer the explicit label span if present (icon items), fall back to full textContent
         if (textEl) {
-          textEl.textContent = item.textContent.trim();
+          const labelEl = item.querySelector('.hero__dropdown-item-label');
+          textEl.textContent = (labelEl ? labelEl.textContent : item.textContent).trim();
           textEl.classList.add('hero__dropdown-text--selected');
         }
 
@@ -229,6 +233,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Hero form submit — when vendor mode + category slug selected, route to /vendors/{slug}/
+  if (heroForm) {
+    heroForm.addEventListener('submit', (e) => {
+      const vendorModeActive = heroForm.querySelector('input[name="sd_search_mode"][value="vendors"]:checked');
+      if (!vendorModeActive) return; // venues mode — default submit
+
+      const catPanel = heroForm.querySelector('.hero__dropdown-panel[data-panel="vendor-category"]');
+      const slug = catPanel?.dataset.selectedSlug;
+      if (!slug) return; // no category picked — default submit
+
+      e.preventDefault();
+      const base = heroForm.dataset.vendorAction || '/vendors/';
+      window.location.href = base.replace(/\/+$/, '') + '/' + slug + '/';
+    });
+  }
 
   // Close dropdown panels on outside click
   document.addEventListener('click', (e) => {

@@ -206,19 +206,48 @@ $banner_image  = ! empty( $banner_images )
                                         <span class="hero__dropdown-arrow icon-chevron-down" aria-hidden="true"></span>
                                     </button>
                                     <input type="hidden" name="cat_id" value="">
-                                    <div class="hero__dropdown-panel" data-panel="vendor-category" hidden>
-                                        <div class="hero__dropdown-grid">
+                                    <div class="hero__dropdown-panel hero__dropdown-panel--mega" data-panel="vendor-category" hidden>
+                                        <div class="hero__dropdown-grid hero__dropdown-grid--icons">
                                             <?php
+                                            // Slug → icon-font class. Best-guess for obvious fits; placeholder for the rest (founder will swap).
+                                            $vendor_category_icons = [
+                                                'photography'    => 'icon-camera-alt',
+                                                'videography'    => 'icon-videographer',
+                                                'djs'            => 'icon-music',
+                                                'bands'          => 'icon-music',
+                                                'ceremony-music' => 'icon-music',
+                                                'flowers'        => 'icon-flowers',
+                                                'catering'       => 'icon-wine',
+                                                'cakes'          => 'icon-cake',
+                                                'officiants'     => 'icon-church',
+                                                'hair-makeup'    => 'icon-fashion',
+                                                'dress-attire'   => 'icon-bridal-wear',
+                                                'event-rentals'  => 'icon-four-side-table-1',
+                                                'photo-booths'   => 'icon-camera',
+                                                'invitations'    => 'icon-heart-envelope',
+                                                'transportation' => 'icon-bus',
+                                                'travel-agents'  => 'icon-birde',
+                                                'wedding-planners' => 'icon-checklist',
+                                                // Placeholders — replace post-build:
+                                                'lighting-decor' => 'icon-bell',
+                                                'jewelry'        => 'icon-ballon-heart',
+                                                'favors-gifts'   => 'icon-ballon-heart',
+                                            ];
+
                                             $vendor_cats = get_terms( [
                                                 'taxonomy'   => 'vendor-category',
                                                 'hide_empty' => false,
                                                 'orderby'    => 'name',
                                                 'order'      => 'ASC',
+                                                'exclude'    => [ 140 ], // stray 'Venues' term in vendor-category taxonomy
                                             ] );
                                             if ( ! is_wp_error( $vendor_cats ) ) :
-                                                foreach ( $vendor_cats as $vcat ) : ?>
-                                                    <button class="hero__dropdown-item" type="button" data-value="<?php echo esc_attr( $vcat->term_id ); ?>">
-                                                        <?php echo esc_html( $vcat->name ); ?>
+                                                foreach ( $vendor_cats as $vcat ) :
+                                                    $icon_class = $vendor_category_icons[ $vcat->slug ] ?? 'icon-vendor-manager';
+                                                    ?>
+                                                    <button class="hero__dropdown-item hero__dropdown-item--with-icon" type="button" data-value="<?php echo esc_attr( $vcat->term_id ); ?>" data-slug="<?php echo esc_attr( $vcat->slug ); ?>">
+                                                        <span class="hero__dropdown-item-icon <?php echo esc_attr( $icon_class ); ?>" aria-hidden="true"></span>
+                                                        <span class="hero__dropdown-item-label"><?php echo esc_html( $vcat->name ); ?></span>
                                                     </button>
                                                 <?php endforeach;
                                             endif;
@@ -396,23 +425,23 @@ $banner_image  = ! empty( $banner_images )
 
             $rw_cards = [
                 [
-                    'main'   => 'real-wedding-card-1.png',
-                    'thumbs' => [ 'real-wedding-1.png', 'real-wedding-story-1.jpg', 'real-wedding-1.png', 'real-wedding-story-1.jpg' ],
+                    'main'   => 'rw_sarah-michael-1.png',
+                    'thumbs' => [ 'rw_sarah-michael-2.png', 'rw_sarah-michael-3.png', 'rw_sarah-michael-4.png', 'rw_sarah-michael-1.png' ],
                     'name'   => 'Sarah & Michael',
                 ],
                 [
-                    'main'   => 'real-wedding-card-2.png',
-                    'thumbs' => [ 'real-wedding-2.png', 'real-wedding-story-2.jpg', 'real-wedding-2.png', 'real-wedding-story-2.jpg' ],
+                    'main'   => 'rw_jessica-david-1.png',
+                    'thumbs' => [ 'rw_jessica-david-2.png', 'rw_jessica-david-3.png', 'rw_jessica-david-4.png', 'rw_jessica-david-1.png' ],
                     'name'   => 'Jessica & David',
                 ],
                 [
-                    'main'   => 'real-wedding-card-3.png',
-                    'thumbs' => [ 'real-wedding-3.png', 'real-wedding-story-3.jpg', 'real-wedding-3.png', 'real-wedding-story-3.jpg' ],
+                    'main'   => 'rw_emily-james-1.png',
+                    'thumbs' => [ 'rw_emily-james-2.png', 'rw_emily-james-3.png', 'rw_emily-james-4.png', 'rw_emily-james-1.png' ],
                     'name'   => 'Emily & James',
                 ],
                 [
-                    'main'   => 'real-wedding-card-4.png',
-                    'thumbs' => [ 'real-wedding-4.png', 'real-wedding-story-4.jpg', 'real-wedding-4.png', 'real-wedding-story-4.jpg' ],
+                    'main'   => 'rw_amanda-ryan-1.png',
+                    'thumbs' => [ 'rw_amanda-ryan-2.png', 'rw_amanda-ryan-3.png', 'rw_amanda-ryan-4.png', 'rw_amanda-ryan-1.png' ],
                     'name'   => 'Amanda & Ryan',
                 ],
             ];
