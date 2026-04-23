@@ -1,3 +1,19 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+current_phase: Not started (Phase 1 is next)
+current_plan: None — awaiting `/gsd-plan-phase 1`
+status: planning
+last_updated: "2026-04-23T03:12:59.312Z"
+progress:
+  total_phases: 5
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
+---
+
 # Project State: San Diego Wedding Directory — v1-launch
 
 **Last updated:** 2026-04-22
@@ -10,6 +26,7 @@
 **Core value:** Ship `v1-launch` without regressing the v2 foundation — the first public cut of the v2 stack must replace the v1 site cleanly and pass all four hard launch gates (couple AJAX works, combo SEO pages return 200, all three dashboards are E2E-functional, transactional email delivers).
 
 **Primary files:**
+
 - Task tracker (authoritative): `PROJECT.md` (root)
 - Hard rules: `CLAUDE.md` (root) — read before any action
 - Roadmap: `.planning/ROADMAP.md`
@@ -124,6 +141,7 @@ Phase 1 requirements (11): P1-QA-01, P1-BUILD-01, P1-BUILD-02, P1-CLEAN-01, P1-C
 ### Phase transition protocol
 
 After each phase completes, run `/gsd-transition` to:
+
 1. Mark the phase complete in ROADMAP.md progress table
 2. Update this STATE.md (current phase, progress bar, metrics)
 3. Update REQUIREMENTS.md traceability (Pending → Complete for finished REQ-IDs)
