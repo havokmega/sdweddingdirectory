@@ -68,12 +68,14 @@ The codebase is the source of truth. If documentation conflicts with code, fix t
 
 ## Locked Pages
 
-### Home Page — DO NOT MODIFY without explicit founder approval
+### Home Page — LOCKED except for `P1-FIX-02`
 
-The following files are locked and must not be edited unless the founder specifically requests a home page change:
+The home page files below are locked and must not be edited unless the founder specifically requests a home page change:
 
 - `front-page.php`
 - `assets/css/pages/home.css`
+
+**Scoped exception — active until `P1-FIX-02` completes:** The lock is lifted **only for the work required to fix the category-search mega-menu dropdown** on the home page (the home-page search bar's category filter that is currently not dropping down / returning options). Any edits must be strictly scoped to that bug — nothing else in `front-page.php` or `home.css` may change while the exception is active. The lock re-engages automatically the moment `P1-FIX-02` is verified complete.
 
 The home page uses design tokens from `foundation.css` (e.g. `--sdwd-body`, `--sdwd-h3`, `--sdwd-row-gap`, `--sdwd-title-gap`, `--gutter`, `--sdwd-border`, color tokens). Changing any token in `foundation.css` or shared component styles in `components.css` may visually alter the home page. Before modifying global tokens, verify whether the home page depends on them and confirm the change with the founder if it does.
 
