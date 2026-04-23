@@ -40,7 +40,7 @@ The custom code loosely follows **WordPress Coding Standards (WPCS)** convention
 **Functions (theme):** `sdwdv2_` prefix, snake_case
 - `sdwdv2_is_dashboard_page()`, `sdwdv2_get_vendor_company_name()`, `sdwdv2_build_vendor_query_args()`
 
-**Inconsistency:** The theme uses `sdwdv2_` prefix (legacy "v2" suffix) even though the theme is now named `sandiegoweddingdirectory`. The two naming systems have not been reconciled.
+**Inconsistency:** The theme uses `sdwdv2_` prefix as a relic of an earlier naming scheme even though the theme is now named `sandiegoweddingdirectory`. The two naming systems have not been reconciled. Phase 1 `P1-CLEAN-04` text-domain sweep does not rename these function prefixes; they are a separate future cleanup.
 
 **Constants (plugins):** UPPER_SNAKE with plugin prefix
 - `SDWD_CORE_VERSION`, `SDWD_CORE_PATH`, `SDWD_CORE_URL`

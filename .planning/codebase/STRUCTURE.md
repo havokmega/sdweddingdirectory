@@ -47,7 +47,7 @@ wp-docker/                              # Repo root = Docker project root, NOT W
     │   └── wp-mail-smtp/               # Third-party — transactional mail
     ├── themes/
     │   ├── index.php                   # WP stub
-    │   └── sandiegoweddingdirectory/   # Only theme — custom v2
+    │   └── sandiegoweddingdirectory/   # Only theme — the working theme
     ├── upgrade/                        # WP-managed; empty in repo
     └── uploads/                        # Media library (year-flat structure); see note
 ```
@@ -231,7 +231,7 @@ Activation state lives in the DB — cannot be confirmed from files alone. `PROJ
 
 | Theme Slug | Active | Purpose |
 |---|---|---|
-| `sandiegoweddingdirectory` | Yes (only theme) | Custom v2 theme — owns all front-end rendering |
+| `sandiegoweddingdirectory` | Yes (only theme) | The working theme — owns all front-end rendering |
 
 **Hard rule from `CLAUDE.md`:** This is the ONLY theme directory. Do not create, rename, copy, or restore other theme directories. The legacy `sdweddingdirectory` theme has been removed.
 
@@ -291,7 +291,7 @@ Activation state lives in the DB — cannot be confirmed from files alone. `PROJ
 - `app.js`, `modals.js`, `dashboard.js` — scoped by feature, vanilla only.
 
 **Theme text domains:**
-- Theme: `sandiegoweddingdirectory` (and legacy `sdweddingdirectory-v2` used by `functions.php`).
+- Theme: `sandiegoweddingdirectory` (the literal text-domain string `sdweddingdirectory-v2` is still in `functions.php` pre-`P1-CLEAN-04` sweep; it is a code-identifier artifact, not a project versioning framing).
 - Plugins: `sdwd-core`, `sdwd-couple`.
 
 **Icon classes:**

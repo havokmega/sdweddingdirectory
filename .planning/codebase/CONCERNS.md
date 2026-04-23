@@ -146,10 +146,10 @@
 
 ### Bootstrap-modal hide rule without a corresponding modal system
 
-- Issue: `layout.css:687-690` has `.modal.fade { display: none; }` with the comment `/* Hide plugin-injected Bootstrap modals until v2 modal system is built */`. There is no plugin injecting Bootstrap modals anymore (legacy plugin is gone), and the v2 modal system DOES exist (`assets/js/modals.js`, `template-parts/modals/*.php`).
+- Issue: `layout.css:687-690` has `.modal.fade { display: none; }` with a stale comment from an earlier attempt (`/* Hide plugin-injected Bootstrap modals until v2 modal system is built */`). There is no plugin injecting Bootstrap modals anymore (retired legacy plugin is gone), and the current theme's modal system DOES exist (`assets/js/modals.js`, `template-parts/modals/*.php`).
 - Files: `wp-content/themes/sandiegoweddingdirectory/assets/css/layout.css:687-690`.
 - Impact: the rule will silently hide any future legitimate `.modal.fade` element that ships from a third-party plugin (e.g., a WooCommerce notification, Rank Math survey).
-- Fix approach: delete the rule; the v2 modal system uses its own class names.
+- Fix approach: delete the rule; the current modal system uses its own class names.
 
 ### Vendor/venue architecture parity gap still unaddressed in code
 
