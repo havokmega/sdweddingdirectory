@@ -232,12 +232,25 @@
 }
 
 .header__actions .btn--primary {
+  background: var(--sdwd-accent);
+  border-color: var(--sdwd-accent);
+  color: var(--sdwd-bg);
+}
+
+.header__actions .btn--primary:hover {
+  background: var(--sdwd-btn-primary-hover);
+  border-color: var(--sdwd-btn-primary-hover);
+  color: var(--sdwd-bg);
+}
+
+/* My Dashboard button — scoped purple, only logged-in nav button */
+.header__actions .btn--dashboard {
   background: var(--sdwd-link);
   border-color: var(--sdwd-link);
   color: var(--sdwd-bg);
 }
 
-.header__actions .btn--primary:hover {
+.header__actions .btn--dashboard:hover {
   background: var(--sdwd-link-hover);
   border-color: var(--sdwd-link-hover);
   color: var(--sdwd-bg);
@@ -330,20 +343,20 @@
 }
 
 .btn--primary {
-  background: var(--sdwd-link);
+  background: var(--sdwd-accent);
   color: var(--sdwd-bg);
   border-color: transparent;
 }
 
 .btn--primary:hover,
 .btn--primary.is-hover {
-  background: var(--sdwd-link-hover);
+  background: var(--sdwd-btn-primary-hover);
   color: var(--sdwd-bg);
 }
 
 .btn--primary:active,
 .btn--primary.is-active {
-  background: var(--sdwd-link-active);
+  background: var(--sdwd-btn-primary-active);
 }
 
 .btn--primary:disabled,
@@ -385,7 +398,7 @@
 }
 
 .btn--outline {
-  height: 36px;
+  height: 44px;
   padding: 0 24px;
   border-width: 2px;
   border-color: var(--sdwd-border);
@@ -525,7 +538,7 @@
 }
 
 .site-footer {
-  background: var(--sdwd-footer-bg);
+  background: var(--sdwd-footer-bg-alt);
   color: var(--sdwd-footer-text);
   margin-top: 0;
 }
@@ -534,10 +547,17 @@
   padding: 5rem 0 4.2rem;
 }
 
+.footer__divider {
+  border: 0;
+  height: 1px;
+  background: var(--sdwd-footer-border);
+  margin: 0;
+}
+
 .footer__grid {
   display: grid;
-  gap: 24px;
-  grid-template-columns: 1.45fr 1fr 1fr 1fr 1.35fr;
+  gap: var(--sdwd-row-gap);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: start;
 }
 
@@ -564,7 +584,8 @@
 
 .footer__widget .widget-title {
   color: var(--sdwd-bg);
-  font-size: 20px;
+  font-size: var(--sdwd-h4);
+  font-weight: 700;
   margin-bottom: 14px;
 }
 
@@ -600,16 +621,34 @@
 
 .footer__tiny {
   border-top: none;
-  background: var(--sdwd-footer-bg-alt);
-  padding: 16px 0;
+  background: transparent;
+  padding: 20px 0;
 }
 
 .footer__tiny-row {
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.footer__tiny .footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-left: -30px;
+}
+
+.footer__tiny .footer__logo img {
+  width: auto;
+  height: 40px;
+  display: block;
+}
+
+.footer__tiny .footer__copyright {
+  margin: 0;
+  color: var(--sdwd-footer-text-secondary);
+  font-size: 0.875rem;
 }
 
 .footer__tiny-menu {
@@ -643,11 +682,6 @@
 .footer__copyright {
   color: var(--sdwd-bg);
   font-size: 0.875rem;
-}
-
-/* Hide plugin-injected Bootstrap modals until v2 modal system is built */
-.modal.fade {
-  display: none;
 }
 
 .back-to-top {

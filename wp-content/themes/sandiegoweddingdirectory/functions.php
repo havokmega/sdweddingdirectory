@@ -54,9 +54,6 @@ add_action( 'after_setup_theme', function () {
         ]
     );
 
-    // Match legacy sizes used by plugins/templates.
-    add_image_size( 'sdweddingdirectory_img_600x470', 600, 470, true );
-    add_image_size( 'sdweddingdirectory_img_360x480', 360, 480, true );
 } );
 
 /**
@@ -148,8 +145,12 @@ add_action( 'wp_enqueue_scripts', function () {
             'nonce' => wp_create_nonce( 'sdwd_dashboard_nonce' ),
         ] );
 
-        if ( get_page_template_slug() === 'user-template/couple-dashboard.php' ) {
+        if ( get_page_template_slug( get_queried_object_id() ) ==='user-template/couple-dashboard.php' ) {
             wp_enqueue_style( 'sdwdv2-couple-dashboard', $theme_uri . '/assets/css/pages/couple-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/couple-dashboard.css' ) );
+        }
+
+        if ( get_page_template_slug( get_queried_object_id() ) ==='user-template/vendor-dashboard.php' ) {
+            wp_enqueue_style( 'sdwdv2-vendor-dashboard', $theme_uri . '/assets/css/pages/vendor-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/vendor-dashboard.css' ) );
         }
     }
 
@@ -167,14 +168,6 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_script( 'sdwdv2-app', $theme_uri . '/assets/js/app.js', [], $asset_version( '/assets/js/app.js' ), true );
 
 } );
-
-add_action( 'wp_print_styles', function () {
-    wp_dequeue_style( 'sdweddingdirectory-fontello' );
-    wp_deregister_style( 'sdweddingdirectory-fontello' );
-
-    wp_dequeue_style( 'sdweddingdirectory-flaticon' );
-    wp_deregister_style( 'sdweddingdirectory-flaticon' );
-}, 100 );
 
 // Nav walker for mega menu
 require_once get_template_directory() . '/inc/sd-mega-navwalker.php';
@@ -207,9 +200,11 @@ function sdwdv2_is_planning_category() {
  * Check if current page is a dashboard page.
  */
 function sdwdv2_is_dashboard_page() {
-    $template = get_page_template_slug();
+    $id = get_queried_object_id();
+    $template = $id ? get_page_template_slug( $id ) : get_page_template_slug();
     return in_array( $template, [
         'user-template/vendor-dashboard.php',
+        'user-template/vendor-profile.php',
         'user-template/venue-dashboard.php',
         'user-template/couple-dashboard.php',
     ], true );
@@ -230,19 +225,3 @@ add_action( 'widgets_init', function () {
     ] );
 } );
 
-/**
- * Allow admins to create vendors from wp-admin.
- * Plugin defaults this to true which sets create_posts => do_not_allow.
- */
-add_filter( 'sdweddingdirectory/post-cap/vendor', '__return_false' );
-
-/**
- * Icon library filter for plugins using sdweddingdirectory_icon_library
- */
-add_filter( 'sdweddingdirectory_icon_library', function ( $args = [] ) {
-    $args = is_array( $args ) ? $args : [];
-
-    $args['sdwd-icons'] = get_template_directory_uri() . '/assets/library/sdwd-icons/style.css';
-
-    return $args;
-} );
