@@ -19,7 +19,7 @@ Out of scope for this phase: the Phase 2 security work (password strength / curr
 
 ### P1-BUILD-01 — Global footer (already landed)
 
-- **D-01:** Footer is already built from a prior session. `wp-content/themes/sandiegoweddingdirectory/footer.php` (113 lines) exists and all 5 footer widget areas are registered in `functions.php:63-76`.
+- **D-01:** Footer is already built from a prior session. `wp-content/themes/sandiegoweddingdirectory/footer.php` (113 lines) exists and all 4 footer widget areas are registered in `functions.php:65-79` via `for ( $i = 1; $i <= 4; $i++ )`. Widget IDs: `sdwdv2-footer-1` through `sdwdv2-footer-4`. `footer.php` renders 4 `.footer__widget` columns (matches).
 - **D-02:** No from-scratch footer build. Mark P1-BUILD-01 as already-landed work and visually verify during phase verification. If the verifier finds gaps, surface them for a targeted touch-up — do not scope a new build.
 
 ### P1-BUILD-02 — 404 page
@@ -125,7 +125,7 @@ Out of scope for this phase: the Phase 2 security work (password strength / curr
 ### Reusable Assets
 - `.btn` / `.btn--outline` / `.btn--primary` — existing button component classes used on the 404 button row. Defined in the components layer.
 - `foundation.css :root` — design tokens for spacing/color/typography. The 404 button-row `gap` uses these; no hardcoded values.
-- 5 footer widget areas — already registered in `functions.php:63-76` (footer-column-1 through footer-column-5).
+- 4 footer widget areas — already registered in `functions.php:65-79` as `sdwdv2-footer-1` through `sdwdv2-footer-4` (founder updated from 5 → 4 columns prior to Phase 1 kickoff).
 - `page-style-guide.php` — still uses banned Bootstrap/FA (HIGH concern in CONCERNS.md, fixed in Phase 5 P5-STYLE-01); not relevant to Phase 1 except as an anti-pattern reference.
 
 ### Established Patterns
