@@ -223,6 +223,7 @@ function sdwdv2_is_dashboard_page() {
         'user-template/vendor-dashboard.php',
         'user-template/vendor-profile.php',
         'user-template/venue-dashboard.php',
+        'user-template/venue-profile.php',
         'user-template/couple-dashboard.php',
     ], true );
 }
