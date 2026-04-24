@@ -31,8 +31,10 @@ $website  = get_post_meta( $post_id, 'sdwd_company_website', true );
 $social   = get_post_meta( $post_id, 'sdwd_social', true );
 $hours    = get_post_meta( $post_id, 'sdwd_hours', true );
 $pricing  = get_post_meta( $post_id, 'sdwd_pricing', true );
-$address  = get_post_meta( $post_id, 'sdwd_venue_address', true );
-$capacity = get_post_meta( $post_id, 'sdwd_venue_capacity', true );
+$street   = get_post_meta( $post_id, 'sdwd_street_address', true );
+$city     = get_post_meta( $post_id, 'sdwd_city', true );
+$zip      = get_post_meta( $post_id, 'sdwd_zip_code', true );
+$capacity = get_post_meta( $post_id, 'sdwd_capacity', true );
 $desc     = $post->post_content ?? '';
 
 if ( ! is_array( $social ) || empty( $social ) )  { $social  = [ [ 'label' => '', 'url' => '' ] ]; }
@@ -96,12 +98,22 @@ get_header();
             <fieldset class="dash-section">
                 <legend class="dash-section__heading"><?php esc_html_e( 'Location & Capacity', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-field">
-                    <label for="sdwd_venue_address"><?php esc_html_e( 'Full Address', 'sandiegoweddingdirectory' ); ?></label>
-                    <textarea id="sdwd_venue_address" name="sdwd_venue_address" rows="3" placeholder="<?php esc_attr_e( 'Street, City, State, ZIP', 'sandiegoweddingdirectory' ); ?>"><?php echo esc_textarea( $address ); ?></textarea>
+                    <label for="sdwd_street_address"><?php esc_html_e( 'Street Address', 'sandiegoweddingdirectory' ); ?></label>
+                    <input type="text" id="sdwd_street_address" name="sdwd_street_address" value="<?php echo esc_attr( $street ); ?>">
+                </div>
+                <div class="dash-row">
+                    <div class="dash-field">
+                        <label for="sdwd_city"><?php esc_html_e( 'City', 'sandiegoweddingdirectory' ); ?></label>
+                        <input type="text" id="sdwd_city" name="sdwd_city" value="<?php echo esc_attr( $city ); ?>">
+                    </div>
+                    <div class="dash-field">
+                        <label for="sdwd_zip_code"><?php esc_html_e( 'ZIP Code', 'sandiegoweddingdirectory' ); ?></label>
+                        <input type="text" id="sdwd_zip_code" name="sdwd_zip_code" value="<?php echo esc_attr( $zip ); ?>" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?">
+                    </div>
                 </div>
                 <div class="dash-field">
-                    <label for="sdwd_venue_capacity"><?php esc_html_e( 'Max Capacity (guests)', 'sandiegoweddingdirectory' ); ?></label>
-                    <input type="number" id="sdwd_venue_capacity" name="sdwd_venue_capacity" value="<?php echo esc_attr( $capacity ); ?>" min="0" step="1" placeholder="<?php esc_attr_e( 'e.g. 200', 'sandiegoweddingdirectory' ); ?>">
+                    <label for="sdwd_capacity"><?php esc_html_e( 'Max Capacity (guests)', 'sandiegoweddingdirectory' ); ?></label>
+                    <input type="number" id="sdwd_capacity" name="sdwd_capacity" value="<?php echo esc_attr( $capacity ); ?>" min="0" step="1" placeholder="<?php esc_attr_e( 'e.g. 200', 'sandiegoweddingdirectory' ); ?>">
                 </div>
             </fieldset>
 
