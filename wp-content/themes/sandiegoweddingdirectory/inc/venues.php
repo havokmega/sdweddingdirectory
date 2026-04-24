@@ -357,10 +357,10 @@ function sdwdv2_get_venue_filter_options( $filters ) {
             'pricing_available',
             $category_id,
             [
-                [ 'min' => 1, 'max' => 2500, 'label' => __( '$1 - $2,500', 'sdweddingdirectory-v2' ) ],
-                [ 'min' => 2501, 'max' => 5000, 'label' => __( '$2,501 - $5,000', 'sdweddingdirectory-v2' ) ],
-                [ 'min' => 5001, 'max' => 10000, 'label' => __( '$5,001 - $10,000', 'sdweddingdirectory-v2' ) ],
-                [ 'min' => 10001, 'max' => 1000000, 'label' => __( '$10,001+', 'sdweddingdirectory-v2' ) ],
+                [ 'min' => 1, 'max' => 2500, 'label' => __( '$1 - $2,500', 'sandiegoweddingdirectory' ) ],
+                [ 'min' => 2501, 'max' => 5000, 'label' => __( '$2,501 - $5,000', 'sandiegoweddingdirectory' ) ],
+                [ 'min' => 5001, 'max' => 10000, 'label' => __( '$5,001 - $10,000', 'sandiegoweddingdirectory' ) ],
+                [ 'min' => 10001, 'max' => 1000000, 'label' => __( '$10,001+', 'sandiegoweddingdirectory' ) ],
             ],
             false
         ),
@@ -370,11 +370,11 @@ function sdwdv2_get_venue_filter_options( $filters ) {
         'services'        => sdwdv2_get_venue_term_box_options( $category_id, 'service' ),
         'styles'          => sdwdv2_get_venue_term_box_options( $category_id, 'style' ),
         'sorts'           => [
-            'title-asc'  => __( 'Name: A to Z', 'sdweddingdirectory-v2' ),
-            'title-desc' => __( 'Name: Z to A', 'sdweddingdirectory-v2' ),
-            'newest'     => __( 'Newest', 'sdweddingdirectory-v2' ),
-            'price-low'  => __( 'Price: Low to High', 'sdweddingdirectory-v2' ),
-            'price-high' => __( 'Price: High to Low', 'sdweddingdirectory-v2' ),
+            'title-asc'  => __( 'Name: A to Z', 'sandiegoweddingdirectory' ),
+            'title-desc' => __( 'Name: Z to A', 'sandiegoweddingdirectory' ),
+            'newest'     => __( 'Newest', 'sandiegoweddingdirectory' ),
+            'price-low'  => __( 'Price: Low to High', 'sandiegoweddingdirectory' ),
+            'price-high' => __( 'Price: High to Low', 'sandiegoweddingdirectory' ),
         ],
     ];
 }
@@ -612,14 +612,14 @@ function sdwdv2_get_venue_starting_price( $post_id ) {
     }
 
     if ( empty( $prices ) ) {
-        return __( 'Custom pricing', 'sdweddingdirectory-v2' );
+        return __( 'Custom pricing', 'sandiegoweddingdirectory' );
     }
 
     sort( $prices );
 
     return sprintf(
         /* translators: %s: formatted price */
-        __( 'Starting at $%s', 'sdweddingdirectory-v2' ),
+        __( 'Starting at $%s', 'sandiegoweddingdirectory' ),
         number_format_i18n( $prices[0], 0 )
     );
 }

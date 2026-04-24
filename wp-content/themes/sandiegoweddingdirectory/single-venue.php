@@ -78,8 +78,8 @@ if ( ! empty( $pricing[0]['price'] ) ) {
         <div class="container">
             <?php
             $breadcrumb_items = [
-                [ 'label' => __( 'Home', 'sdweddingdirectory' ), 'url' => home_url( '/' ) ],
-                [ 'label' => __( 'Venues', 'sdweddingdirectory' ), 'url' => get_post_type_archive_link( 'venue' ) ],
+                [ 'label' => __( 'Home', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+                [ 'label' => __( 'Venues', 'sandiegoweddingdirectory' ), 'url' => get_post_type_archive_link( 'venue' ) ],
             ];
             if ( $location ) {
                 $loc_terms = wp_get_post_terms( $post_id, 'venue-location' );
@@ -108,7 +108,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                             <span><?php echo esc_html( $location ); ?></span>
                         <?php endif; ?>
                         <?php if ( $capacity ) : ?>
-                            <span><span class="icon-seating-chart" aria-hidden="true"></span> <?php printf( esc_html__( 'Up to %s guests', 'sdweddingdirectory' ), esc_html( number_format_i18n( $capacity ) ) ); ?></span>
+                            <span><span class="icon-seating-chart" aria-hidden="true"></span> <?php printf( esc_html__( 'Up to %s guests', 'sandiegoweddingdirectory' ), esc_html( number_format_i18n( $capacity ) ) ); ?></span>
                         <?php endif; ?>
                         <?php if ( $starting_price ) : ?>
                             <span><?php echo esc_html( $starting_price ); ?></span>
@@ -120,7 +120,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                 </div>
                 <div class="venue-profile-head__actions">
                     <?php if ( $email ) : ?>
-                        <a class="btn btn--primary" href="mailto:<?php echo esc_attr( $email ); ?>"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></a>
+                        <a class="btn btn--primary" href="mailto:<?php echo esc_attr( $email ); ?>"><?php esc_html_e( 'Request Pricing', 'sandiegoweddingdirectory' ); ?></a>
                     <?php endif; ?>
                     <?php if ( $phone ) : ?>
                         <a class="btn btn--outline" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>">
@@ -136,18 +136,18 @@ if ( ! empty( $pricing[0]['price'] ) ) {
     <nav class="profile-nav" id="profile-nav">
         <div class="container">
             <ul class="profile-nav__list">
-                <li><a class="profile-nav__link" href="#about"><?php esc_html_e( 'About', 'sdweddingdirectory' ); ?></a></li>
+                <li><a class="profile-nav__link" href="#about"><?php esc_html_e( 'About', 'sandiegoweddingdirectory' ); ?></a></li>
                 <?php if ( ! empty( $pricing ) ) : ?>
-                    <li><a class="profile-nav__link" href="#pricing"><?php esc_html_e( 'Pricing', 'sdweddingdirectory' ); ?></a></li>
+                    <li><a class="profile-nav__link" href="#pricing"><?php esc_html_e( 'Pricing', 'sandiegoweddingdirectory' ); ?></a></li>
                 <?php endif; ?>
                 <?php if ( ! empty( $hours ) ) : ?>
-                    <li><a class="profile-nav__link" href="#hours"><?php esc_html_e( 'Hours', 'sdweddingdirectory' ); ?></a></li>
+                    <li><a class="profile-nav__link" href="#hours"><?php esc_html_e( 'Hours', 'sandiegoweddingdirectory' ); ?></a></li>
                 <?php endif; ?>
                 <?php if ( $full_address ) : ?>
-                    <li><a class="profile-nav__link" href="#map"><?php esc_html_e( 'Map', 'sdweddingdirectory' ); ?></a></li>
+                    <li><a class="profile-nav__link" href="#map"><?php esc_html_e( 'Map', 'sandiegoweddingdirectory' ); ?></a></li>
                 <?php endif; ?>
                 <?php if ( ! empty( $social ) ) : ?>
-                    <li><a class="profile-nav__link" href="#social"><?php esc_html_e( 'Social', 'sdweddingdirectory' ); ?></a></li>
+                    <li><a class="profile-nav__link" href="#social"><?php esc_html_e( 'Social', 'sandiegoweddingdirectory' ); ?></a></li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -160,7 +160,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
 
                 <?php // --- About Section --- ?>
                 <section class="profile-section" id="about">
-                    <h2 class="profile-section__title"><?php printf( esc_html__( 'About %s', 'sdweddingdirectory' ), esc_html( $company ) ); ?></h2>
+                    <h2 class="profile-section__title"><?php printf( esc_html__( 'About %s', 'sandiegoweddingdirectory' ), esc_html( $company ) ); ?></h2>
                     <div class="venue-profile-copy">
                         <?php the_content(); ?>
                     </div>
@@ -169,25 +169,25 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     <div class="venue-profile-details">
                         <?php if ( $capacity ) : ?>
                             <div class="venue-profile-details__item">
-                                <span class="venue-profile-details__label"><?php esc_html_e( 'Capacity', 'sdweddingdirectory' ); ?></span>
-                                <?php printf( esc_html__( 'Up to %s guests', 'sdweddingdirectory' ), esc_html( number_format_i18n( $capacity ) ) ); ?>
+                                <span class="venue-profile-details__label"><?php esc_html_e( 'Capacity', 'sandiegoweddingdirectory' ); ?></span>
+                                <?php printf( esc_html__( 'Up to %s guests', 'sandiegoweddingdirectory' ), esc_html( number_format_i18n( $capacity ) ) ); ?>
                             </div>
                         <?php endif; ?>
                         <?php if ( $type ) : ?>
                             <div class="venue-profile-details__item">
-                                <span class="venue-profile-details__label"><?php esc_html_e( 'Venue Type', 'sdweddingdirectory' ); ?></span>
+                                <span class="venue-profile-details__label"><?php esc_html_e( 'Venue Type', 'sandiegoweddingdirectory' ); ?></span>
                                 <?php echo esc_html( $type ); ?>
                             </div>
                         <?php endif; ?>
                         <?php if ( $location ) : ?>
                             <div class="venue-profile-details__item">
-                                <span class="venue-profile-details__label"><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></span>
+                                <span class="venue-profile-details__label"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></span>
                                 <?php echo esc_html( $location ); ?>
                             </div>
                         <?php endif; ?>
                         <?php if ( $full_address ) : ?>
                             <div class="venue-profile-details__item">
-                                <span class="venue-profile-details__label"><?php esc_html_e( 'Address', 'sdweddingdirectory' ); ?></span>
+                                <span class="venue-profile-details__label"><?php esc_html_e( 'Address', 'sandiegoweddingdirectory' ); ?></span>
                                 <?php echo esc_html( $full_address ); ?>
                             </div>
                         <?php endif; ?>
@@ -196,7 +196,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     <?php // --- Venue Tags --- ?>
                     <?php if ( ! is_wp_error( $types ) && ! empty( $types ) ) : ?>
                         <div class="venue-profile-tags">
-                            <h3 class="venue-profile-tags__title"><?php esc_html_e( 'Venue Type', 'sdweddingdirectory' ); ?></h3>
+                            <h3 class="venue-profile-tags__title"><?php esc_html_e( 'Venue Type', 'sandiegoweddingdirectory' ); ?></h3>
                             <div class="venue-profile-tags__items">
                                 <?php foreach ( $types as $type_name ) : ?>
                                     <span class="venue-profile-tags__item"><?php echo esc_html( $type_name ); ?></span>
@@ -209,7 +209,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                 <?php // --- Pricing Section --- ?>
                 <?php if ( ! empty( $pricing ) ) : ?>
                     <section class="profile-section" id="pricing">
-                        <h2 class="profile-section__title"><?php esc_html_e( 'Pricing', 'sdweddingdirectory' ); ?></h2>
+                        <h2 class="profile-section__title"><?php esc_html_e( 'Pricing', 'sandiegoweddingdirectory' ); ?></h2>
                         <div class="vendor-pricing-grid">
                             <?php foreach ( $pricing as $tier ) : ?>
                                 <div class="vendor-pricing-card">
@@ -238,17 +238,17 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                 <?php // --- Business Hours Section --- ?>
                 <?php if ( ! empty( $hours ) ) : ?>
                     <section class="profile-section" id="hours">
-                        <h2 class="profile-section__title"><?php esc_html_e( 'Business Hours', 'sdweddingdirectory' ); ?></h2>
+                        <h2 class="profile-section__title"><?php esc_html_e( 'Business Hours', 'sandiegoweddingdirectory' ); ?></h2>
                         <div class="vendor-profile-facts">
                             <?php
                             $day_labels = [
-                                'monday'    => __( 'Monday', 'sdweddingdirectory' ),
-                                'tuesday'   => __( 'Tuesday', 'sdweddingdirectory' ),
-                                'wednesday' => __( 'Wednesday', 'sdweddingdirectory' ),
-                                'thursday'  => __( 'Thursday', 'sdweddingdirectory' ),
-                                'friday'    => __( 'Friday', 'sdweddingdirectory' ),
-                                'saturday'  => __( 'Saturday', 'sdweddingdirectory' ),
-                                'sunday'    => __( 'Sunday', 'sdweddingdirectory' ),
+                                'monday'    => __( 'Monday', 'sandiegoweddingdirectory' ),
+                                'tuesday'   => __( 'Tuesday', 'sandiegoweddingdirectory' ),
+                                'wednesday' => __( 'Wednesday', 'sandiegoweddingdirectory' ),
+                                'thursday'  => __( 'Thursday', 'sandiegoweddingdirectory' ),
+                                'friday'    => __( 'Friday', 'sandiegoweddingdirectory' ),
+                                'saturday'  => __( 'Saturday', 'sandiegoweddingdirectory' ),
+                                'sunday'    => __( 'Sunday', 'sandiegoweddingdirectory' ),
                             ];
                             foreach ( $day_labels as $day_key => $day_label ) :
                                 $day_data  = $hours[ $day_key ] ?? [];
@@ -259,7 +259,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                                 <div class="vendor-profile-facts__item">
                                     <span class="vendor-profile-facts__label"><?php echo esc_html( $day_label ); ?></span>
                                     <?php if ( $is_closed ) : ?>
-                                        <?php esc_html_e( 'Closed', 'sdweddingdirectory' ); ?>
+                                        <?php esc_html_e( 'Closed', 'sandiegoweddingdirectory' ); ?>
                                     <?php elseif ( $open && $close ) : ?>
                                         <?php echo esc_html( $open . ' – ' . $close ); ?>
                                     <?php else : ?>
@@ -274,7 +274,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                 <?php // --- Map Section --- ?>
                 <?php if ( $full_address ) : ?>
                     <section class="profile-section" id="map">
-                        <h2 class="profile-section__title"><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></h2>
+                        <h2 class="profile-section__title"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></h2>
                         <p class="venue-profile-map-label"><?php echo esc_html( $full_address ); ?></p>
                         <div class="profile-map">
                             <iframe
@@ -296,7 +296,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                 ?>
                 <?php if ( ! empty( $social_filtered ) ) : ?>
                     <section class="profile-section" id="social">
-                        <h2 class="profile-section__title"><?php esc_html_e( 'Social Media', 'sdweddingdirectory' ); ?></h2>
+                        <h2 class="profile-section__title"><?php esc_html_e( 'Social Media', 'sandiegoweddingdirectory' ); ?></h2>
                         <div class="venue-profile-tags__items">
                             <?php foreach ( $social_filtered as $link ) : ?>
                                 <?php if ( ! empty( $link['url'] ) ) : ?>
@@ -314,7 +314,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                 <?php // --- Gallery Section --- ?>
                 <?php if ( count( $images ) > 1 ) : ?>
                     <section class="profile-section" id="gallery">
-                        <h2 class="profile-section__title"><?php esc_html_e( 'Photos', 'sdweddingdirectory' ); ?></h2>
+                        <h2 class="profile-section__title"><?php esc_html_e( 'Photos', 'sandiegoweddingdirectory' ); ?></h2>
                         <div class="gallery-grid">
                             <?php foreach ( $images as $img_id ) : ?>
                                 <div class="gallery-grid__item">
@@ -335,7 +335,7 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     <?php endif; ?>
 
                     <?php if ( $email ) : ?>
-                        <a class="btn btn--primary contact-card__cta" href="mailto:<?php echo esc_attr( $email ); ?>"><?php esc_html_e( 'Request Pricing', 'sdweddingdirectory' ); ?></a>
+                        <a class="btn btn--primary contact-card__cta" href="mailto:<?php echo esc_attr( $email ); ?>"><?php esc_html_e( 'Request Pricing', 'sandiegoweddingdirectory' ); ?></a>
                     <?php endif; ?>
 
                     <ul class="contact-card__details">
@@ -354,13 +354,13 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                         <?php if ( $website ) : ?>
                             <li>
                                 <span class="icon-link" aria-hidden="true"></span>
-                                <a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Visit Website', 'sdweddingdirectory' ); ?></a>
+                                <a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Visit Website', 'sandiegoweddingdirectory' ); ?></a>
                             </li>
                         <?php endif; ?>
                         <?php if ( $capacity ) : ?>
                             <li>
                                 <span class="icon-seating-chart" aria-hidden="true"></span>
-                                <span><?php printf( esc_html__( 'Up to %s guests', 'sdweddingdirectory' ), esc_html( number_format_i18n( $capacity ) ) ); ?></span>
+                                <span><?php printf( esc_html__( 'Up to %s guests', 'sandiegoweddingdirectory' ), esc_html( number_format_i18n( $capacity ) ) ); ?></span>
                             </li>
                         <?php endif; ?>
                         <?php if ( $location ) : ?>
@@ -379,10 +379,10 @@ if ( ! empty( $pricing[0]['price'] ) ) {
 
                     <?php if ( function_exists( 'sdwd_is_unclaimed' ) && sdwd_is_unclaimed( $post_id ) ) : ?>
                         <hr style="margin: 16px 0;">
-                        <button type="button" class="btn btn--outline contact-card__cta" id="sdwd-claim-btn" data-post-id="<?php echo $post_id; ?>"><?php esc_html_e( 'Claim This Business', 'sdweddingdirectory' ); ?></button>
+                        <button type="button" class="btn btn--outline contact-card__cta" id="sdwd-claim-btn" data-post-id="<?php echo $post_id; ?>"><?php esc_html_e( 'Claim This Business', 'sandiegoweddingdirectory' ); ?></button>
                         <div id="sdwd-claim-form" style="display:none; margin-top:12px;">
-                            <textarea id="sdwd-claim-msg" rows="3" placeholder="<?php esc_attr_e( 'Tell us how you are connected to this business...', 'sdweddingdirectory' ); ?>" style="width:100%; margin-bottom:8px;"></textarea>
-                            <button type="button" class="btn btn--primary contact-card__cta" id="sdwd-claim-submit"><?php esc_html_e( 'Submit Claim', 'sdweddingdirectory' ); ?></button>
+                            <textarea id="sdwd-claim-msg" rows="3" placeholder="<?php esc_attr_e( 'Tell us how you are connected to this business...', 'sandiegoweddingdirectory' ); ?>" style="width:100%; margin-bottom:8px;"></textarea>
+                            <button type="button" class="btn btn--primary contact-card__cta" id="sdwd-claim-submit"><?php esc_html_e( 'Submit Claim', 'sandiegoweddingdirectory' ); ?></button>
                             <p id="sdwd-claim-status" style="font-size:0.9rem; margin-top:8px;"></p>
                         </div>
                         <script>

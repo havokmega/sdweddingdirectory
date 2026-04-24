@@ -53,16 +53,16 @@ if ( $partner_name ) {
     <div class="cd-hero__overlay"></div>
 
     <div class="cd-hero__inner">
-        <p class="cd-hero__greeting"><?php esc_html_e( 'Welcome back', 'sdweddingdirectory' ); ?></p>
+        <p class="cd-hero__greeting"><?php esc_html_e( 'Welcome back', 'sandiegoweddingdirectory' ); ?></p>
         <h1 class="cd-hero__names">
-            <?php echo esc_html( $names_display ?: __( 'Your Dashboard', 'sdweddingdirectory' ) ); ?>
+            <?php echo esc_html( $names_display ?: __( 'Your Dashboard', 'sandiegoweddingdirectory' ) ); ?>
         </h1>
 
         <?php if ( $days_remaining !== null ) : ?>
-            <div class="cd-countdown" aria-label="<?php esc_attr_e( 'Days until your wedding', 'sdweddingdirectory' ); ?>">
+            <div class="cd-countdown" aria-label="<?php esc_attr_e( 'Days until your wedding', 'sandiegoweddingdirectory' ); ?>">
                 <div class="cd-countdown__unit">
                     <span class="cd-countdown__num"><?php echo esc_html( $days_remaining ); ?></span>
-                    <span class="cd-countdown__label"><?php esc_html_e( 'Days to go', 'sdweddingdirectory' ); ?></span>
+                    <span class="cd-countdown__label"><?php esc_html_e( 'Days to go', 'sandiegoweddingdirectory' ); ?></span>
                 </div>
                 <?php if ( $wedding_date ) : ?>
                     <div class="cd-countdown__unit">
@@ -73,14 +73,14 @@ if ( $partner_name ) {
             </div>
         <?php else : ?>
             <div class="cd-countdown__empty">
-                <?php esc_html_e( 'Set your wedding date below to start the countdown.', 'sdweddingdirectory' ); ?>
+                <?php esc_html_e( 'Set your wedding date below to start the countdown.', 'sandiegoweddingdirectory' ); ?>
             </div>
         <?php endif; ?>
 
         <div class="cd-tracker">
             <div class="cd-tracker__head">
-                <span><?php esc_html_e( 'Planning progress', 'sdweddingdirectory' ); ?></span>
-                <span><?php echo esc_html( $checklist_completed . ' / ' . $checklist_total ); ?> <?php esc_html_e( 'tasks done', 'sdweddingdirectory' ); ?></span>
+                <span><?php esc_html_e( 'Planning progress', 'sandiegoweddingdirectory' ); ?></span>
+                <span><?php echo esc_html( $checklist_completed . ' / ' . $checklist_total ); ?> <?php esc_html_e( 'tasks done', 'sandiegoweddingdirectory' ); ?></span>
             </div>
             <div class="cd-tracker__bar" role="progressbar" aria-valuenow="<?php echo esc_attr( $percent ); ?>" aria-valuemin="0" aria-valuemax="100">
                 <div class="cd-tracker__fill" style="width: <?php echo (int) $percent; ?>%;"></div>

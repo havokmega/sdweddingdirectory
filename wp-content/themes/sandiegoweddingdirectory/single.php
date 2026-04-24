@@ -13,10 +13,10 @@ $date       = get_the_date();
 <article class="blog-single">
     <div class="blog-single__topbar">
         <div class="container blog-single__topbar-row">
-            <nav class="blog-single__breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'sdweddingdirectory' ); ?>">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Weddings', 'sdweddingdirectory' ); ?></a>
+            <nav class="blog-single__breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'sandiegoweddingdirectory' ); ?>">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Weddings', 'sandiegoweddingdirectory' ); ?></a>
                 <span aria-hidden="true">&rsaquo;</span>
-                <a href="<?php echo esc_url( home_url( '/wedding-inspiration/' ) ); ?>"><?php esc_html_e( 'Inspiration', 'sdweddingdirectory' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/wedding-inspiration/' ) ); ?>"><?php esc_html_e( 'Inspiration', 'sandiegoweddingdirectory' ); ?></a>
                 <?php if ( $category ) : ?>
                     <span aria-hidden="true">&rsaquo;</span>
                     <a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"><?php echo esc_html( $category->name ); ?></a>

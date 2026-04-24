@@ -41,8 +41,8 @@ foreach ( $_GET as $key => $value ) { // phpcs:ignore WordPress.Security.NonceVe
 $links = paginate_links( [
     'total'     => $total,
     'current'   => $current,
-    'prev_text' => '<span class="icon-chevron-left" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'Previous', 'sdweddingdirectory-v2' ) . '</span>',
-    'next_text' => '<span class="icon-chevron-right" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'Next', 'sdweddingdirectory-v2' ) . '</span>',
+    'prev_text' => '<span class="icon-chevron-left" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'Previous', 'sandiegoweddingdirectory' ) . '</span>',
+    'next_text' => '<span class="icon-chevron-right" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'Next', 'sandiegoweddingdirectory' ) . '</span>',
     'type'      => 'array',
     'mid_size'  => 2,
     'add_args'  => $add_args,
@@ -52,7 +52,7 @@ if ( ! $links ) {
     return;
 }
 ?>
-<nav class="pagination" aria-label="<?php esc_attr_e( 'Page navigation', 'sdweddingdirectory-v2' ); ?>">
+<nav class="pagination" aria-label="<?php esc_attr_e( 'Page navigation', 'sandiegoweddingdirectory' ); ?>">
     <?php foreach ( $links as $link ) : ?>
         <?php echo $link; ?>
     <?php endforeach; ?>

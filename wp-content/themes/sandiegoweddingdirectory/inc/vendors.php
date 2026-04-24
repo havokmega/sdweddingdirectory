@@ -392,9 +392,9 @@ function sdwdv2_get_vendor_filter_options( $filters ) {
         'styles'       => sdwdv2_get_vendor_value_options( 'vendor_style_options', 'vendor_style_available', $category_id ),
         'specialties'  => sdwdv2_get_vendor_value_options( 'vendor_specialties_options', 'vendor_specialties_available', $category_id ),
         'sorts'        => [
-            'title-asc'  => __( 'A to Z', 'sdweddingdirectory-v2' ),
-            'title-desc' => __( 'Z to A', 'sdweddingdirectory-v2' ),
-            'newest'     => __( 'Newest', 'sdweddingdirectory-v2' ),
+            'title-asc'  => __( 'A to Z', 'sandiegoweddingdirectory' ),
+            'title-desc' => __( 'Z to A', 'sandiegoweddingdirectory' ),
+            'newest'     => __( 'Newest', 'sandiegoweddingdirectory' ),
         ],
     ];
 }
@@ -406,13 +406,7 @@ function sdwdv2_get_vendor_filter_options( $filters ) {
  * @return array
  */
 function sdwdv2_build_vendor_query_args( $filters ) {
-    $meta_query = [
-        [
-            'key'     => 'profile_banner',
-            'value'   => '',
-            'compare' => '!=',
-        ],
-    ];
+    $meta_query = [];
 
     if ( ! empty( $filters['vendor_pricing'] ) ) {
         $pricing_clause = [ 'relation' => 'OR' ];
@@ -452,8 +446,11 @@ function sdwdv2_build_vendor_query_args( $filters ) {
         'posts_per_page'      => absint( $filters['posts_per_page'] ?? 12 ),
         'paged'               => max( 1, absint( $filters['paged'] ?? 1 ) ),
         'ignore_sticky_posts' => true,
-        'meta_query'          => array_merge( [ 'relation' => 'AND' ], $meta_query ),
     ];
+
+    if ( ! empty( $meta_query ) ) {
+        $query_args['meta_query'] = array_merge( [ 'relation' => 'AND' ], $meta_query );
+    }
 
     if ( ! empty( $filters['search'] ) ) {
         $query_args['s'] = sanitize_text_field( $filters['search'] );
@@ -645,12 +642,12 @@ function sdwdv2_get_vendor_starting_price( $post_id ) {
     if ( ! empty( $prices ) ) {
         return sprintf(
             /* translators: %s: starting price. */
-            __( 'Starting at $%s', 'sdweddingdirectory-v2' ),
+            __( 'Starting at $%s', 'sandiegoweddingdirectory' ),
             number_format_i18n( min( $prices ) )
         );
     }
 
-    return __( 'Pricing available on request', 'sdweddingdirectory-v2' );
+    return __( 'Pricing available on request', 'sandiegoweddingdirectory' );
 }
 
 /**
@@ -699,7 +696,7 @@ function sdwdv2_get_vendor_overview_html( $post_id ) {
             '<p>%s</p>',
             esc_html(
                 sprintf(
-                    __( '%s is part of the SD Wedding Directory vendor collection. Reach out for pricing, services, and availability details.', 'sdweddingdirectory-v2' ),
+                    __( '%s is part of the SD Wedding Directory vendor collection. Reach out for pricing, services, and availability details.', 'sandiegoweddingdirectory' ),
                     sdwdv2_get_vendor_company_name( $post_id )
                 )
             )

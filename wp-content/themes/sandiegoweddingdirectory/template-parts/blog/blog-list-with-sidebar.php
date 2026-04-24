@@ -57,7 +57,7 @@ if ( ! $query ) {
             ] );
             ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'No posts found.', 'sdweddingdirectory-v2' ); ?></p>
+            <p><?php esc_html_e( 'No posts found.', 'sandiegoweddingdirectory' ); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
     </div>

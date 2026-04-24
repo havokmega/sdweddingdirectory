@@ -29,12 +29,12 @@ if ( ! defined( 'SDWEDDINGDIRECTORY_THEME_MEDIA' ) ) {
  * Theme setup
  */
 add_action( 'after_setup_theme', function () {
-    load_theme_textdomain( 'sdweddingdirectory-v2', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'sandiegoweddingdirectory', get_template_directory() . '/languages' );
 
     register_nav_menus(
         [
-            'primary-menu'     => __( 'Primary Menu', 'sdweddingdirectory-v2' ),
-            'tiny-footer-menu' => __( 'Tiny Footer Menu', 'sdweddingdirectory-v2' ),
+            'primary-menu'     => __( 'Primary Menu', 'sandiegoweddingdirectory' ),
+            'tiny-footer-menu' => __( 'Tiny Footer Menu', 'sandiegoweddingdirectory' ),
         ]
     );
 
@@ -63,9 +63,9 @@ add_action( 'widgets_init', function () {
     for ( $i = 1; $i <= 4; $i++ ) {
         register_sidebar(
             [
-                'name'          => sprintf( __( 'Footer Column %d', 'sdweddingdirectory-v2' ), $i ),
+                'name'          => sprintf( __( 'Footer Column %d', 'sandiegoweddingdirectory' ), $i ),
                 'id'            => "sdwdv2-footer-{$i}",
-                'description'   => __( 'Footer widget area', 'sdweddingdirectory-v2' ),
+                'description'   => __( 'Footer widget area', 'sandiegoweddingdirectory' ),
                 'before_widget' => '<section id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</section>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -215,9 +215,9 @@ function sdwdv2_is_dashboard_page() {
  */
 add_action( 'widgets_init', function () {
     register_sidebar( [
-        'name'          => __( 'Blog Sidebar', 'sdweddingdirectory-v2' ),
+        'name'          => __( 'Blog Sidebar', 'sandiegoweddingdirectory' ),
         'id'            => 'sdwdv2-blog-sidebar',
-        'description'   => __( 'Sidebar for blog and category pages', 'sdweddingdirectory-v2' ),
+        'description'   => __( 'Sidebar for blog and category pages', 'sandiegoweddingdirectory' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3 class="widget-title">',

@@ -21,8 +21,8 @@ get_template_part(
         'title'             => $term_name,
         'desc'              => term_description(),
         'breadcrumbs'       => [
-            [ 'label' => __( 'Weddings', 'sdweddingdirectory-v2' ), 'url' => home_url( '/' ) ],
-            [ 'label' => sprintf( __( 'Wedding %s', 'sdweddingdirectory-v2' ), $term_name ) ],
+            [ 'label' => __( 'Weddings', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+            [ 'label' => sprintf( __( 'Wedding %s', 'sandiegoweddingdirectory' ), $term_name ) ],
         ],
         'current_url'       => $term_link,
         'fixed_category_id' => $term instanceof WP_Term ? $term->term_id : 0,

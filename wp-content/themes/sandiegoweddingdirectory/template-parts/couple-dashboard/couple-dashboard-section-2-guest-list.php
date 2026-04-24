@@ -8,13 +8,13 @@
 
 <section class="cd-card cd-guest-list">
     <div class="cd-card__head">
-        <h2 class="cd-card__title"><?php esc_html_e( 'Guest List Overview', 'sdweddingdirectory' ); ?></h2>
+        <h2 class="cd-card__title"><?php esc_html_e( 'Guest List Overview', 'sandiegoweddingdirectory' ); ?></h2>
         <a href="<?php echo esc_url( home_url( '/couple-dashboard/guest-management/' ) ); ?>" class="cd-card__link">
-            <?php esc_html_e( 'Open manager', 'sdweddingdirectory' ); ?> &rarr;
+            <?php esc_html_e( 'Open manager', 'sandiegoweddingdirectory' ); ?> &rarr;
         </a>
     </div>
 
     <div class="cd-section__soon">
-        <?php esc_html_e( 'Guest management is coming soon. You\'ll be able to build your list, track RSVPs, and plan meals here.', 'sdweddingdirectory' ); ?>
+        <?php esc_html_e( 'Guest management is coming soon. You\'ll be able to build your list, track RSVPs, and plan meals here.', 'sandiegoweddingdirectory' ); ?>
     </div>
 </section>

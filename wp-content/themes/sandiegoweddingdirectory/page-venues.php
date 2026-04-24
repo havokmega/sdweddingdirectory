@@ -84,32 +84,32 @@ $city_sections = [
 	[
 		'slug'    => 'san-diego',
 		'name'    => 'San Diego',
-		'heading' => __( 'Wedding Venues in San Diego', 'sdweddingdirectory' ),
-		'desc'    => __( 'Explore the best wedding venues San Diego has to offer — from waterfront estates to urban rooftops.', 'sdweddingdirectory' ),
+		'heading' => __( 'Wedding Venues in San Diego', 'sandiegoweddingdirectory' ),
+		'desc'    => __( 'Explore the best wedding venues San Diego has to offer — from waterfront estates to urban rooftops.', 'sandiegoweddingdirectory' ),
 	],
 	[
 		'slug'    => 'carlsbad',
 		'name'    => 'Carlsbad',
-		'heading' => __( 'Wedding Venues in Carlsbad', 'sdweddingdirectory' ),
-		'desc'    => __( 'Discover stunning coastal wedding venues in Carlsbad, each with scenic ocean views and resort-style elegance.', 'sdweddingdirectory' ),
+		'heading' => __( 'Wedding Venues in Carlsbad', 'sandiegoweddingdirectory' ),
+		'desc'    => __( 'Discover stunning coastal wedding venues in Carlsbad, each with scenic ocean views and resort-style elegance.', 'sandiegoweddingdirectory' ),
 	],
 	[
 		'slug'    => 'la-jolla',
 		'name'    => 'La Jolla',
-		'heading' => __( 'Wedding Venues in La Jolla', 'sdweddingdirectory' ),
-		'desc'    => __( 'Find beautiful wedding venues in La Jolla with breathtaking ocean views, lush gardens, and upscale charm.', 'sdweddingdirectory' ),
+		'heading' => __( 'Wedding Venues in La Jolla', 'sandiegoweddingdirectory' ),
+		'desc'    => __( 'Find beautiful wedding venues in La Jolla with breathtaking ocean views, lush gardens, and upscale charm.', 'sandiegoweddingdirectory' ),
 	],
 	[
 		'slug'    => 'fallbrook',
 		'name'    => 'Fallbrook',
-		'heading' => __( 'Wedding Venues in Fallbrook', 'sdweddingdirectory' ),
-		'desc'    => __( 'Explore rustic wedding venues in Fallbrook surrounded by rolling hills, vineyards, and country charm.', 'sdweddingdirectory' ),
+		'heading' => __( 'Wedding Venues in Fallbrook', 'sandiegoweddingdirectory' ),
+		'desc'    => __( 'Explore rustic wedding venues in Fallbrook surrounded by rolling hills, vineyards, and country charm.', 'sandiegoweddingdirectory' ),
 	],
 	[
 		'slug'    => 'escondido',
 		'name'    => 'Escondido',
-		'heading' => __( 'Wedding Venues in Escondido', 'sdweddingdirectory' ),
-		'desc'    => __( 'Discover unique wedding venues in Escondido — from vineyard estates and gardens to ranch-style properties.', 'sdweddingdirectory' ),
+		'heading' => __( 'Wedding Venues in Escondido', 'sandiegoweddingdirectory' ),
+		'desc'    => __( 'Discover unique wedding venues in Escondido — from vineyard estates and gardens to ranch-style properties.', 'sandiegoweddingdirectory' ),
 	],
 ];
 
@@ -172,16 +172,16 @@ $vendor_rows = [
 // SEO text columns for Section 13
 $seo_columns = [
 	[
-		'title' => __( 'Picking a Wedding Venue', 'sdweddingdirectory' ),
-		'text'  => __( 'Start with your guest count, budget, and overall vision. San Diego offers everything from intimate cliff-top ceremonies to large-scale ballroom receptions. Narrowing down what matters most — location, capacity, or vibe — will help you find the right match faster.', 'sdweddingdirectory' ),
+		'title' => __( 'Picking a Wedding Venue', 'sandiegoweddingdirectory' ),
+		'text'  => __( 'Start with your guest count, budget, and overall vision. San Diego offers everything from intimate cliff-top ceremonies to large-scale ballroom receptions. Narrowing down what matters most — location, capacity, or vibe — will help you find the right match faster.', 'sandiegoweddingdirectory' ),
 	],
 	[
-		'title' => __( 'Outdoor Wedding Venue Spaces', 'sdweddingdirectory' ),
-		'text'  => __( "San Diego's year-round sunshine makes it one of the best cities in the country for outdoor weddings. From ocean-view terraces and vineyard estates to botanical gardens and ranch-style properties, there's no shortage of beautiful open-air settings.", 'sdweddingdirectory' ),
+		'title' => __( 'Outdoor Wedding Venue Spaces', 'sandiegoweddingdirectory' ),
+		'text'  => __( "San Diego's year-round sunshine makes it one of the best cities in the country for outdoor weddings. From ocean-view terraces and vineyard estates to botanical gardens and ranch-style properties, there's no shortage of beautiful open-air settings.", 'sandiegoweddingdirectory' ),
 	],
 	[
-		'title' => __( 'Indoor Wedding Spaces', 'sdweddingdirectory' ),
-		'text'  => __( 'For couples who want a polished, weather-proof setting, San Diego has a wide range of indoor venues. Think historic ballrooms, boutique hotels, modern lofts, and elegant event spaces — many with the flexibility to host both your ceremony and reception under one roof.', 'sdweddingdirectory' ),
+		'title' => __( 'Indoor Wedding Spaces', 'sandiegoweddingdirectory' ),
+		'text'  => __( 'For couples who want a polished, weather-proof setting, San Diego has a wide range of indoor venues. Think historic ballrooms, boutique hotels, modern lofts, and elegant event spaces — many with the flexibility to host both your ceremony and reception under one roof.', 'sandiegoweddingdirectory' ),
 	],
 ];
 
@@ -195,18 +195,18 @@ $seo_columns = [
 			<?php
 			get_template_part( 'template-parts/components/breadcrumbs', null, [
 				'items' => [
-					[ 'label' => __( 'Weddings', 'sdweddingdirectory' ), 'url' => home_url( '/' ) ],
-					[ 'label' => __( 'Wedding Venues', 'sdweddingdirectory' ) ],
+					[ 'label' => __( 'Weddings', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+					[ 'label' => __( 'Wedding Venues', 'sandiegoweddingdirectory' ) ],
 				],
 			] );
 			?>
-			<h1 class="search-hero__title"><?php esc_html_e( 'Wedding Venues', 'sdweddingdirectory' ); ?></h1>
+			<h1 class="search-hero__title"><?php esc_html_e( 'Wedding Venues', 'sandiegoweddingdirectory' ); ?></h1>
 
 			<form class="search-hero__form" action="<?php echo esc_url( home_url( '/venues/' ) ); ?>" method="get">
 				<div class="search-hero__field search-hero__field--type">
 					<span class="search-hero__icon icon-search" aria-hidden="true"></span>
-					<select class="search-hero__select" name="cat_id" aria-label="<?php esc_attr_e( 'Venue type', 'sdweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Wedding Venues', 'sdweddingdirectory' ); ?></option>
+					<select class="search-hero__select" name="cat_id" aria-label="<?php esc_attr_e( 'Venue type', 'sandiegoweddingdirectory' ); ?>">
+						<option value=""><?php esc_html_e( 'Wedding Venues', 'sandiegoweddingdirectory' ); ?></option>
 						<?php foreach ( $venue_types as $vtype ) : ?>
 							<option value="<?php echo esc_attr( $vtype->term_id ); ?>"><?php echo esc_html( $vtype->name ); ?></option>
 						<?php endforeach; ?>
@@ -215,8 +215,8 @@ $seo_columns = [
 
 				<div class="search-hero__field search-hero__field--location">
 					<span class="search-hero__icon icon-map-marker" aria-hidden="true"></span>
-					<select class="search-hero__select" name="location" aria-label="<?php esc_attr_e( 'Venue location', 'sdweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></option>
+					<select class="search-hero__select" name="location" aria-label="<?php esc_attr_e( 'Venue location', 'sandiegoweddingdirectory' ); ?>">
+						<option value=""><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></option>
 						<?php foreach ( $location_terms as $loc ) : ?>
 							<option value="<?php echo esc_attr( $loc->slug ); ?>"><?php echo esc_html( $loc->name ); ?></option>
 						<?php endforeach; ?>
@@ -224,7 +224,7 @@ $seo_columns = [
 				</div>
 
 				<button class="btn btn--primary search-hero__submit" type="submit">
-					<?php esc_html_e( 'Search', 'sdweddingdirectory' ); ?>
+					<?php esc_html_e( 'Search', 'sandiegoweddingdirectory' ); ?>
 				</button>
 			</form>
 		</div>
@@ -235,7 +235,7 @@ $seo_columns = [
 		<div class="container">
 			<?php
 			get_template_part( 'template-parts/components/section-title', null, [
-				'heading' => __( 'Venues by Area', 'sdweddingdirectory' ),
+				'heading' => __( 'Venues by Area', 'sandiegoweddingdirectory' ),
 			] );
 
 			?>
@@ -243,7 +243,7 @@ $seo_columns = [
 			<div class="home-locations__carousel" data-carousel="cities">
 				<button class="carousel-arrow carousel-arrow--prev home-locations__arrow" type="button" data-carousel-prev>
 					<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-					<span class="screen-reader-text"><?php esc_html_e( 'Previous locations', 'sdweddingdirectory' ); ?></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Previous locations', 'sandiegoweddingdirectory' ); ?></span>
 				</button>
 
 				<div class="home-locations__viewport">
@@ -259,7 +259,7 @@ $seo_columns = [
 								</span>
 								<span class="home-locations__name"><?php echo esc_html( $city['name'] ); ?></span>
 								<?php if ( $city_count > 0 ) : ?>
-									<span class="home-locations__count"><?php echo esc_html( sprintf( _n( '%s venue', '%s venues', $city_count, 'sdweddingdirectory' ), number_format_i18n( $city_count ) ) ); ?></span>
+									<span class="home-locations__count"><?php echo esc_html( sprintf( _n( '%s venue', '%s venues', $city_count, 'sandiegoweddingdirectory' ), number_format_i18n( $city_count ) ) ); ?></span>
 								<?php endif; ?>
 							</a>
 						<?php endforeach; ?>
@@ -268,7 +268,7 @@ $seo_columns = [
 
 				<button class="carousel-arrow carousel-arrow--next home-locations__arrow" type="button" data-carousel-next>
 					<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-					<span class="screen-reader-text"><?php esc_html_e( 'Next locations', 'sdweddingdirectory' ); ?></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Next locations', 'sandiegoweddingdirectory' ); ?></span>
 				</button>
 			</div>
 		</div>
@@ -279,10 +279,10 @@ $seo_columns = [
 		<div class="container">
 			<?php
 			get_template_part( 'template-parts/components/venue-popout', null, [
-				'heading'   => __( 'San Diego Wedding Venues', 'sdweddingdirectory' ),
-				'desc'      => __( 'SDWeddingDirectory can help you find the perfect San Diego wedding venue.', 'sdweddingdirectory' ),
+				'heading'   => __( 'San Diego Wedding Venues', 'sandiegoweddingdirectory' ),
+				'desc'      => __( 'SDWeddingDirectory can help you find the perfect San Diego wedding venue.', 'sandiegoweddingdirectory' ),
 				'image'     => get_theme_file_uri( 'assets/images/pages/venues-pop-out.png' ),
-				'image_alt' => __( 'San Diego Wedding Venues', 'sdweddingdirectory' ),
+				'image_alt' => __( 'San Diego Wedding Venues', 'sandiegoweddingdirectory' ),
 			] );
 			?>
 		</div>
@@ -319,7 +319,7 @@ $seo_columns = [
 						echo esc_html(
 							sprintf(
 								/* translators: %s: city name */
-								__( 'Venues in %s', 'sdweddingdirectory' ),
+								__( 'Venues in %s', 'sandiegoweddingdirectory' ),
 								$city_name
 							)
 						);
@@ -345,7 +345,7 @@ $seo_columns = [
 							echo esc_html(
 								sprintf(
 									/* translators: %s: city name */
-									__( 'See all %s venues', 'sdweddingdirectory' ),
+									__( 'See all %s venues', 'sandiegoweddingdirectory' ),
 									$city_name
 								)
 							);
@@ -363,8 +363,8 @@ $seo_columns = [
 		<div class="container">
 			<?php
 			get_template_part( 'template-parts/components/section-title', null, [
-				'heading' => __( 'San Diego Wedding Venues', 'sdweddingdirectory' ),
-				'desc'    => __( 'Beachfront views, garden settings, modern ballrooms, and historic estates. Whatever your style or budget, San Diego has a venue that fits.', 'sdweddingdirectory' ),
+				'heading' => __( 'San Diego Wedding Venues', 'sandiegoweddingdirectory' ),
+				'desc'    => __( 'Beachfront views, garden settings, modern ballrooms, and historic estates. Whatever your style or budget, San Diego has a venue that fits.', 'sandiegoweddingdirectory' ),
 			] );
 			?>
 
@@ -384,7 +384,7 @@ $seo_columns = [
 		<div class="container">
 			<?php
 			get_template_part( 'template-parts/components/section-title', null, [
-				'heading' => __( 'Find Your San Diego Wedding Venue by Type', 'sdweddingdirectory' ),
+				'heading' => __( 'Find Your San Diego Wedding Venue by Type', 'sandiegoweddingdirectory' ),
 			] );
 			?>
 			<div class="venues-button-row">
@@ -401,7 +401,7 @@ $seo_columns = [
 	<?php if ( ! empty( $city_terms ) ) : ?>
 		<section class="section venues-city-browse">
 			<div class="container">
-				<h2 class="venues-city-browse__title"><?php esc_html_e( 'Browse San Diego Wedding Venues', 'sdweddingdirectory' ); ?></h2>
+				<h2 class="venues-city-browse__title"><?php esc_html_e( 'Browse San Diego Wedding Venues', 'sandiegoweddingdirectory' ); ?></h2>
 				<div class="venues-city-browse__grid">
 					<?php foreach ( $city_terms as $city ) : ?>
 						<a class="venues-city-browse__link" href="<?php echo esc_url( home_url( '/venues/' . $city->slug . '/' ) ); ?>">
@@ -418,7 +418,7 @@ $seo_columns = [
 		<div class="container">
 			<?php
 			get_template_part( 'template-parts/components/inline-link-grid', null, [
-				'heading' => __( 'San Diego Wedding Vendors', 'sdweddingdirectory' ),
+				'heading' => __( 'San Diego Wedding Vendors', 'sandiegoweddingdirectory' ),
 				'rows'    => $vendor_rows,
 			] );
 			?>

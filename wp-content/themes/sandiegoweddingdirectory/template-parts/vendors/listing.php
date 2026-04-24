@@ -73,19 +73,19 @@ if ( $show_discovery && ! $has_filters ) {
 
 $results_heading = $selected_category instanceof WP_Term
     ? $selected_category->name
-    : __( 'All Wedding Vendors', 'sdweddingdirectory-v2' );
+    : __( 'All Wedding Vendors', 'sandiegoweddingdirectory' );
 
 if ( ! empty( $filters['search'] ) ) {
     $results_heading = sprintf(
         /* translators: %s: search term. */
-        __( 'Results for "%s"', 'sdweddingdirectory-v2' ),
+        __( 'Results for "%s"', 'sandiegoweddingdirectory' ),
         $filters['search']
     );
 }
 
 $results_summary = sprintf(
     /* translators: %s: number of vendors. */
-    _n( '%s vendor found', '%s vendors found', $vendor_query->found_posts, 'sdweddingdirectory-v2' ),
+    _n( '%s vendor found', '%s vendors found', $vendor_query->found_posts, 'sandiegoweddingdirectory' ),
     number_format_i18n( $vendor_query->found_posts )
 );
 
@@ -103,10 +103,10 @@ $results_summary = sprintf(
             <form class="vendors-hero-search" method="get" action="<?php echo esc_url( $current_url ); ?>">
                 <div class="vendors-hero-search__field vendors-hero-search__field--category">
                     <?php if ( $fixed_category_id && $selected_category && ! is_wp_error( $selected_category ) ) : ?>
-                        <span class="vendors-hero-search__text"><?php echo esc_html( sprintf( __( 'Wedding %s', 'sdweddingdirectory-v2' ), $selected_category->name ) ); ?></span>
+                        <span class="vendors-hero-search__text"><?php echo esc_html( sprintf( __( 'Wedding %s', 'sandiegoweddingdirectory' ), $selected_category->name ) ); ?></span>
                     <?php else : ?>
-                        <select name="vendor_cat" aria-label="<?php esc_attr_e( 'Vendor category', 'sdweddingdirectory-v2' ); ?>">
-                            <option value=""><?php esc_html_e( 'Wedding Vendors', 'sdweddingdirectory-v2' ); ?></option>
+                        <select name="vendor_cat" aria-label="<?php esc_attr_e( 'Vendor category', 'sandiegoweddingdirectory' ); ?>">
+                            <option value=""><?php esc_html_e( 'Wedding Vendors', 'sandiegoweddingdirectory' ); ?></option>
                             <?php foreach ( $options['categories'] as $category ) : ?>
                                 <option value="<?php echo esc_attr( $category->term_id ); ?>" <?php selected( $filters['category_id'], $category->term_id ); ?>>
                                     <?php echo esc_html( $category->name ); ?>
@@ -117,14 +117,14 @@ $results_summary = sprintf(
                 </div>
 
                 <div class="vendors-hero-search__field vendors-hero-search__field--location">
-                    <select name="location" aria-label="<?php esc_attr_e( 'Location', 'sdweddingdirectory-v2' ); ?>">
-                        <option value=""><?php esc_html_e( 'Location', 'sdweddingdirectory-v2' ); ?></option>
+                    <select name="location" aria-label="<?php esc_attr_e( 'Location', 'sandiegoweddingdirectory' ); ?>">
+                        <option value=""><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></option>
                         <?php foreach ( $location_terms as $loc ) : ?>
                             <option value="<?php echo esc_attr( $loc->slug ); ?>"><?php echo esc_html( $loc->name ); ?></option>
                         <?php endforeach; ?>
                     </select>
 
-                    <button class="btn btn--primary vendors-hero-search__submit" type="submit" aria-label="<?php esc_attr_e( 'Search', 'sdweddingdirectory-v2' ); ?>">
+                    <button class="btn btn--primary vendors-hero-search__submit" type="submit" aria-label="<?php esc_attr_e( 'Search', 'sandiegoweddingdirectory' ); ?>">
                         <span class="icon-search" aria-hidden="true"></span>
                     </button>
                 </div>
@@ -142,8 +142,8 @@ $results_summary = sprintf(
                     'template-parts/components/section-title',
                     null,
                     [
-                        'heading' => __( 'Browse Wedding Vendors by Category', 'sdweddingdirectory-v2' ),
-                        'desc'    => __( 'Start with the vendor categories couples shop first, then narrow the directory with filters that match your style and budget.', 'sdweddingdirectory-v2' ),
+                        'heading' => __( 'Browse Wedding Vendors by Category', 'sandiegoweddingdirectory' ),
+                        'desc'    => __( 'Start with the vendor categories couples shop first, then narrow the directory with filters that match your style and budget.', 'sandiegoweddingdirectory' ),
                     ]
                 );
                 ?>
@@ -161,7 +161,7 @@ $results_summary = sprintf(
                                         <?php
                                         echo esc_html(
                                             sprintf(
-                                                _n( '%s vendor', '%s vendors', $category->count, 'sdweddingdirectory-v2' ),
+                                                _n( '%s vendor', '%s vendors', $category->count, 'sandiegoweddingdirectory' ),
                                                 number_format_i18n( $category->count )
                                             )
                                         );
@@ -180,7 +180,7 @@ $results_summary = sprintf(
                     'template-parts/components/inline-link-grid',
                     null,
                     [
-                        'heading' => __( 'All Vendor Categories', 'sdweddingdirectory-v2' ),
+                        'heading' => __( 'All Vendor Categories', 'sandiegoweddingdirectory' ),
                         'rows'    => $category_link_rows,
                     ]
                 );
@@ -209,7 +209,7 @@ $results_summary = sprintf(
 
                     <?php if ( ! empty( $options['pricing'] ) ) : ?>
                         <fieldset class="vendors-filter-form__group">
-                            <legend class="vendors-filter-form__label"><?php esc_html_e( 'Pricing', 'sdweddingdirectory-v2' ); ?></legend>
+                            <legend class="vendors-filter-form__label"><?php esc_html_e( 'Pricing', 'sandiegoweddingdirectory' ); ?></legend>
                             <div class="vendors-filter-form__options">
                                 <?php foreach ( $options['pricing'] as $price_option ) : ?>
                                     <label class="vendors-filter-form__option">
@@ -222,9 +222,9 @@ $results_summary = sprintf(
                     <?php endif; ?>
 
                     <?php foreach ( [
-                        'vendor_services'    => [ 'label' => __( 'Services', 'sdweddingdirectory-v2' ), 'options' => $options['services'] ],
-                        'vendor_style'       => [ 'label' => __( 'Style', 'sdweddingdirectory-v2' ), 'options' => $options['styles'] ],
-                        'vendor_specialties' => [ 'label' => __( 'Specialties', 'sdweddingdirectory-v2' ), 'options' => $options['specialties'] ],
+                        'vendor_services'    => [ 'label' => __( 'Services', 'sandiegoweddingdirectory' ), 'options' => $options['services'] ],
+                        'vendor_style'       => [ 'label' => __( 'Style', 'sandiegoweddingdirectory' ), 'options' => $options['styles'] ],
+                        'vendor_specialties' => [ 'label' => __( 'Specialties', 'sandiegoweddingdirectory' ), 'options' => $options['specialties'] ],
                     ] as $field_name => $field_group ) : ?>
                         <?php if ( empty( $field_group['options'] ) ) : ?>
                             <?php continue; ?>
@@ -244,12 +244,12 @@ $results_summary = sprintf(
                     <?php endforeach; ?>
 
                     <button class="btn btn--primary vendors-filter-form__submit" type="submit">
-                        <?php esc_html_e( 'Apply Filters', 'sdweddingdirectory-v2' ); ?>
+                        <?php esc_html_e( 'Apply Filters', 'sandiegoweddingdirectory' ); ?>
                     </button>
 
                     <?php if ( $has_filters ) : ?>
                         <a class="btn btn--outline vendors-filter-form__reset" href="<?php echo esc_url( $current_url ); ?>">
-                            <?php esc_html_e( 'Clear Filters', 'sdweddingdirectory-v2' ); ?>
+                            <?php esc_html_e( 'Clear Filters', 'sandiegoweddingdirectory' ); ?>
                         </a>
                     <?php endif; ?>
                 </form>
@@ -292,8 +292,8 @@ $results_summary = sprintf(
                     ?>
                 <?php else : ?>
                     <div class="archive-empty">
-                        <h3 class="archive-empty__title"><?php esc_html_e( 'No vendors matched those filters.', 'sdweddingdirectory-v2' ); ?></h3>
-                        <p><?php esc_html_e( 'Try broadening your category or clearing a few filter selections.', 'sdweddingdirectory-v2' ); ?></p>
+                        <h3 class="archive-empty__title"><?php esc_html_e( 'No vendors matched those filters.', 'sandiegoweddingdirectory' ); ?></h3>
+                        <p><?php esc_html_e( 'Try broadening your category or clearing a few filter selections.', 'sandiegoweddingdirectory' ); ?></p>
                     </div>
                 <?php endif; ?>
             </div>

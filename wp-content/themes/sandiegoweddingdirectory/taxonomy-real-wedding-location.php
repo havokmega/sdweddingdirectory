@@ -16,8 +16,8 @@ get_template_part( 'template-parts/components/page-header', null, [
     'title'       => single_term_title( '', false ),
     'desc'        => term_description(),
     'breadcrumbs' => [
-        [ 'label' => __( 'Home', 'sdweddingdirectory-v2' ), 'url' => home_url( '/' ) ],
-        [ 'label' => __( 'Real Weddings', 'sdweddingdirectory-v2' ), 'url' => get_post_type_archive_link( 'real-wedding' ) ],
+        [ 'label' => __( 'Home', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+        [ 'label' => __( 'Real Weddings', 'sandiegoweddingdirectory' ), 'url' => get_post_type_archive_link( 'real-wedding' ) ],
         [ 'label' => single_term_title( '', false ), 'url' => '' ],
     ],
 ] );
@@ -55,7 +55,7 @@ $has_children = ! is_wp_error( $child_terms ) && ! empty( $child_terms );
                             <span class="card__meta">
                                 <?php
                                 /* translators: %d: number of real weddings */
-                                printf( esc_html( _n( '%d Wedding', '%d Weddings', $child->count, 'sdweddingdirectory-v2' ) ), $child->count );
+                                printf( esc_html( _n( '%d Wedding', '%d Weddings', $child->count, 'sandiegoweddingdirectory' ) ), $child->count );
                                 ?>
                             </span>
                         </div>
@@ -104,7 +104,7 @@ $has_children = ! is_wp_error( $child_terms ) && ! empty( $child_terms );
                 ] );
                 ?>
             <?php else : ?>
-                <p><?php esc_html_e( 'No real weddings found for this location.', 'sdweddingdirectory-v2' ); ?></p>
+                <p><?php esc_html_e( 'No real weddings found for this location.', 'sandiegoweddingdirectory' ); ?></p>
             <?php endif; ?>
 
         <?php endif; ?>

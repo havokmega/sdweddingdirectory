@@ -63,39 +63,19 @@ foreach ( $vendor_categories as $cat ) {
 }
 $category_link_rows = array_chunk( $category_link_items, 5 );
 
-// Venue type link rows (cross-reference)
-$venue_types = get_terms( [
-	'taxonomy'   => 'venue-type',
-	'hide_empty' => true,
-	'orderby'    => 'name',
-	'order'      => 'ASC',
-] );
-if ( is_wp_error( $venue_types ) ) {
-	$venue_types = [];
-}
-
-$venue_link_items = [];
-foreach ( $venue_types as $vtype ) {
-	$venue_link_items[] = [
-		'label' => $vtype->name,
-		'url'   => get_term_link( $vtype ),
-	];
-}
-$venue_link_rows = array_chunk( $venue_link_items, 5 );
-
 // SEO text columns
 $seo_columns = [
 	[
-		'title' => __( 'Finding Your Wedding Vendors', 'sdweddingdirectory' ),
-		'text'  => __( 'Start by booking the essentials — photographer, DJ, and caterer — then fill in the rest based on your vision and budget. San Diego has a deep pool of experienced wedding professionals ready to bring your day to life.', 'sdweddingdirectory' ),
+		'title' => __( 'Finding Your Wedding Vendors', 'sandiegoweddingdirectory' ),
+		'text'  => __( 'Start by booking the essentials — photographer, DJ, and caterer — then fill in the rest based on your vision and budget. San Diego has a deep pool of experienced wedding professionals ready to bring your day to life.', 'sandiegoweddingdirectory' ),
 	],
 	[
-		'title' => __( 'How to Choose the Right Vendor', 'sdweddingdirectory' ),
-		'text'  => __( 'Read reviews, compare pricing, and check availability early. The best vendors book up fast, especially during peak wedding season. Reach out to several in each category to find the right fit for your style and budget.', 'sdweddingdirectory' ),
+		'title' => __( 'How to Choose the Right Vendor', 'sandiegoweddingdirectory' ),
+		'text'  => __( 'Read reviews, compare pricing, and check availability early. The best vendors book up fast, especially during peak wedding season. Reach out to several in each category to find the right fit for your style and budget.', 'sandiegoweddingdirectory' ),
 	],
 	[
-		'title' => __( 'Working with Local Pros', 'sdweddingdirectory' ),
-		'text'  => __( 'San Diego wedding vendors know the local venues, the best light for photos, and the logistics that make events run smoothly. Hiring local means faster response times, lower travel costs, and professionals who understand the area.', 'sdweddingdirectory' ),
+		'title' => __( 'Working with Local Pros', 'sandiegoweddingdirectory' ),
+		'text'  => __( 'San Diego wedding vendors know the local venues, the best light for photos, and the logistics that make events run smoothly. Hiring local means faster response times, lower travel costs, and professionals who understand the area.', 'sandiegoweddingdirectory' ),
 	],
 ];
 
@@ -109,18 +89,18 @@ $seo_columns = [
 			<?php
 			get_template_part( 'template-parts/components/breadcrumbs', null, [
 				'items' => [
-					[ 'label' => __( 'Weddings', 'sdweddingdirectory' ), 'url' => home_url( '/' ) ],
-					[ 'label' => __( 'Wedding Vendors', 'sdweddingdirectory' ) ],
+					[ 'label' => __( 'Weddings', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+					[ 'label' => __( 'Wedding Vendors', 'sandiegoweddingdirectory' ) ],
 				],
 			] );
 			?>
-			<h1 class="search-hero__title"><?php esc_html_e( 'Wedding Vendors', 'sdweddingdirectory' ); ?></h1>
+			<h1 class="search-hero__title"><?php esc_html_e( 'Wedding Vendors', 'sandiegoweddingdirectory' ); ?></h1>
 
 			<form class="search-hero__form" action="<?php echo esc_url( home_url( '/vendors/' ) ); ?>" method="get">
 				<div class="search-hero__field search-hero__field--type">
 					<span class="search-hero__icon icon-search" aria-hidden="true"></span>
-					<select class="search-hero__select" name="vendor_cat" aria-label="<?php esc_attr_e( 'Vendor category', 'sdweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Wedding Vendors', 'sdweddingdirectory' ); ?></option>
+					<select class="search-hero__select" name="vendor_cat" aria-label="<?php esc_attr_e( 'Vendor category', 'sandiegoweddingdirectory' ); ?>">
+						<option value=""><?php esc_html_e( 'Wedding Vendors', 'sandiegoweddingdirectory' ); ?></option>
 						<?php foreach ( $vendor_categories as $cat ) : ?>
 							<option value="<?php echo esc_attr( $cat->term_id ); ?>"><?php echo esc_html( $cat->name ); ?></option>
 						<?php endforeach; ?>
@@ -129,8 +109,8 @@ $seo_columns = [
 
 				<div class="search-hero__field search-hero__field--location">
 					<span class="search-hero__icon icon-map-marker" aria-hidden="true"></span>
-					<select class="search-hero__select" name="location" aria-label="<?php esc_attr_e( 'Location', 'sdweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></option>
+					<select class="search-hero__select" name="location" aria-label="<?php esc_attr_e( 'Location', 'sandiegoweddingdirectory' ); ?>">
+						<option value=""><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></option>
 						<?php foreach ( $location_terms as $loc ) : ?>
 							<option value="<?php echo esc_attr( $loc->slug ); ?>"><?php echo esc_html( $loc->name ); ?></option>
 						<?php endforeach; ?>
@@ -138,7 +118,7 @@ $seo_columns = [
 				</div>
 
 				<button class="btn btn--primary search-hero__submit" type="submit">
-					<?php esc_html_e( 'Search', 'sdweddingdirectory' ); ?>
+					<?php esc_html_e( 'Search', 'sandiegoweddingdirectory' ); ?>
 				</button>
 			</form>
 		</div>
@@ -150,14 +130,14 @@ $seo_columns = [
 			<div class="container">
 				<?php
 				get_template_part( 'template-parts/components/section-title', null, [
-					'heading' => __( 'Browse Wedding Vendors by Category', 'sdweddingdirectory' ),
+					'heading' => __( 'Browse Wedding Vendors by Category', 'sandiegoweddingdirectory' ),
 				] );
 				?>
 
 				<div class="vendors-carousel" data-scroll-carousel>
 					<button class="carousel-arrow carousel-arrow--prev vendors-carousel__arrow hidden" data-scroll-prev type="button">
 						<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-						<span class="screen-reader-text"><?php esc_html_e( 'Previous categories', 'sdweddingdirectory' ); ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( 'Previous categories', 'sandiegoweddingdirectory' ); ?></span>
 					</button>
 
 					<div class="vendors-carousel__track" data-scroll-track>
@@ -172,7 +152,7 @@ $seo_columns = [
 										<?php
 										echo esc_html(
 											sprintf(
-												_n( '%s vendor', '%s vendors', $category->count, 'sdweddingdirectory' ),
+												_n( '%s vendor', '%s vendors', $category->count, 'sandiegoweddingdirectory' ),
 												number_format_i18n( $category->count )
 											)
 										);
@@ -185,7 +165,7 @@ $seo_columns = [
 
 					<button class="carousel-arrow carousel-arrow--next vendors-carousel__arrow" data-scroll-next type="button">
 						<span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
-						<span class="screen-reader-text"><?php esc_html_e( 'Next categories', 'sdweddingdirectory' ); ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( 'Next categories', 'sandiegoweddingdirectory' ); ?></span>
 					</button>
 				</div>
 			</div>
@@ -194,11 +174,11 @@ $seo_columns = [
 
 	<?php
 	$popout_headings = [
-		'photography' => __( 'San Diego Photographers', 'sdweddingdirectory' ),
-		'djs'         => __( 'San Diego DJs', 'sdweddingdirectory' ),
-		'catering'    => __( 'San Diego Caterers', 'sdweddingdirectory' ),
-		'flowers'     => __( 'San Diego Florists', 'sdweddingdirectory' ),
-		'videography' => __( 'San Diego Videographers', 'sdweddingdirectory' ),
+		'photography' => __( 'San Diego Photographers', 'sandiegoweddingdirectory' ),
+		'djs'         => __( 'San Diego DJs', 'sandiegoweddingdirectory' ),
+		'catering'    => __( 'San Diego Caterers', 'sandiegoweddingdirectory' ),
+		'flowers'     => __( 'San Diego Florists', 'sandiegoweddingdirectory' ),
+		'videography' => __( 'San Diego Videographers', 'sandiegoweddingdirectory' ),
 	];
 	?>
 
@@ -209,10 +189,10 @@ $seo_columns = [
 			<?php
 			get_template_part( 'template-parts/components/vendor-popout', null, [
 				'heading'   => $popout_headings['photography'],
-				'desc'      => __( 'SDWeddingDirectory connects you with trusted local wedding professionals across San Diego County.', 'sdweddingdirectory' ),
+				'desc'      => __( 'SDWeddingDirectory connects you with trusted local wedding professionals across San Diego County.', 'sandiegoweddingdirectory' ),
 				'image'     => get_theme_file_uri( 'assets/images/banners/vendors-search.png' ),
 				'image_alt' => $popout_headings['photography'],
-				'cta_text'  => __( 'See all', 'sdweddingdirectory' ),
+				'cta_text'  => __( 'See all', 'sandiegoweddingdirectory' ),
 				'cta_url'   => $photography_term ? sdwdv2_get_vendor_category_url( $photography_term ) : home_url( '/vendors/' ),
 			] );
 			?>
@@ -243,10 +223,10 @@ $seo_columns = [
 					<?php
 					get_template_part( 'template-parts/components/vendor-popout', null, [
 						'heading'   => $popout_headings[ $cat_term->slug ],
-						'desc'      => __( 'SDWeddingDirectory connects you with trusted local wedding professionals across San Diego County.', 'sdweddingdirectory' ),
+						'desc'      => __( 'SDWeddingDirectory connects you with trusted local wedding professionals across San Diego County.', 'sandiegoweddingdirectory' ),
 						'image'     => get_theme_file_uri( 'assets/images/banners/vendors-search.png' ),
 						'image_alt' => $popout_headings[ $cat_term->slug ],
-						'cta_text'  => __( 'See all', 'sdweddingdirectory' ),
+						'cta_text'  => __( 'See all', 'sandiegoweddingdirectory' ),
 						'cta_url'   => sdwdv2_get_vendor_category_url( $cat_term ),
 					] );
 					?>
@@ -276,7 +256,7 @@ $seo_columns = [
 							echo esc_html(
 								sprintf(
 									/* translators: %s: category name */
-									__( 'See all %s', 'sdweddingdirectory' ),
+									__( 'See all %s', 'sandiegoweddingdirectory' ),
 									$cat_term->name
 								)
 							);
@@ -294,8 +274,8 @@ $seo_columns = [
 		<div class="container">
 			<?php
 			get_template_part( 'template-parts/components/section-title', null, [
-				'heading' => __( 'San Diego Wedding Vendors', 'sdweddingdirectory' ),
-				'desc'    => __( 'From photographers and DJs to florists and planners — find every wedding professional you need in one place.', 'sdweddingdirectory' ),
+				'heading' => __( 'San Diego Wedding Vendors', 'sandiegoweddingdirectory' ),
+				'desc'    => __( 'From photographers and DJs to florists and planners — find every wedding professional you need in one place.', 'sandiegoweddingdirectory' ),
 			] );
 			?>
 
@@ -313,6 +293,11 @@ $seo_columns = [
 	<!-- SECTION 6: Category button row -->
 	<section class="section vendors-type-buttons">
 		<div class="container">
+			<?php
+			get_template_part( 'template-parts/components/section-title', null, [
+				'heading' => __( 'Every Vendor you need for your Wedding', 'sandiegoweddingdirectory' ),
+			] );
+			?>
 			<div class="vendors-button-row">
 				<?php foreach ( $vendor_categories as $cat ) : ?>
 					<a class="btn btn--outline" href="<?php echo esc_url( sdwdv2_get_vendor_category_url( $cat ) ); ?>">
@@ -329,22 +314,8 @@ $seo_columns = [
 			<div class="container">
 				<?php
 				get_template_part( 'template-parts/components/inline-link-grid', null, [
-					'heading' => __( 'All Vendor Categories', 'sdweddingdirectory' ),
+					'heading' => __( 'All Vendor Categories', 'sandiegoweddingdirectory' ),
 					'rows'    => $category_link_rows,
-				] );
-				?>
-			</div>
-		</section>
-	<?php endif; ?>
-
-	<!-- SECTION 8: San Diego Wedding Venues (cross-link grid) -->
-	<?php if ( ! empty( $venue_link_rows ) ) : ?>
-		<section class="section vendors-venue-links">
-			<div class="container">
-				<?php
-				get_template_part( 'template-parts/components/inline-link-grid', null, [
-					'heading' => __( 'San Diego Wedding Venues', 'sdweddingdirectory' ),
-					'rows'    => $venue_link_rows,
 				] );
 				?>
 			</div>

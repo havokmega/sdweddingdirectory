@@ -9,8 +9,8 @@
     <div class="container">
         <?php
         get_template_part( 'template-parts/components/section-title', null, [
-            'heading' => __( 'Start free and keep every planning detail connected.', 'sdweddingdirectory-v2' ),
-            'desc'    => __( 'Sign up for a free SDWeddingDirectory account to organize your plans in one place. As you build your Wedding Website, it is the perfect time to map out your Guest List.', 'sdweddingdirectory-v2' ),
+            'heading' => __( 'Start free and keep every planning detail connected.', 'sandiegoweddingdirectory' ),
+            'desc'    => __( 'Sign up for a free SDWeddingDirectory account to organize your plans in one place. As you build your Wedding Website, it is the perfect time to map out your Guest List.', 'sandiegoweddingdirectory' ),
             'align'   => 'center',
         ] );
         ?>

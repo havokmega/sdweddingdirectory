@@ -100,7 +100,7 @@ if ( ! $thumbnail ) {
         <?php endif; ?>
 
         <a class="card__request-link" href="<?php echo esc_url( $permalink ); ?>">
-            <?php esc_html_e( 'Request pricing', 'sdweddingdirectory' ); ?>
+            <?php esc_html_e( 'Request pricing', 'sandiegoweddingdirectory' ); ?>
         </a>
     </div>
 </div>

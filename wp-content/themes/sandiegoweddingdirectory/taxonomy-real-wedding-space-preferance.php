@@ -13,8 +13,8 @@ get_template_part( 'template-parts/components/page-header', null, [
     'title'       => single_term_title( '', false ),
     'desc'        => term_description(),
     'breadcrumbs' => [
-        [ 'label' => __( 'Home', 'sdweddingdirectory-v2' ), 'url' => home_url( '/' ) ],
-        [ 'label' => __( 'Real Weddings', 'sdweddingdirectory-v2' ), 'url' => get_post_type_archive_link( 'real-wedding' ) ],
+        [ 'label' => __( 'Home', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+        [ 'label' => __( 'Real Weddings', 'sandiegoweddingdirectory' ), 'url' => get_post_type_archive_link( 'real-wedding' ) ],
         [ 'label' => single_term_title( '', false ), 'url' => '' ],
     ],
 ] );
@@ -59,7 +59,7 @@ $rw_query = new WP_Query( [
             ] );
             ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'No real weddings found.', 'sdweddingdirectory-v2' ); ?></p>
+            <p><?php esc_html_e( 'No real weddings found.', 'sandiegoweddingdirectory' ); ?></p>
         <?php endif; ?>
     </div>
 </section>

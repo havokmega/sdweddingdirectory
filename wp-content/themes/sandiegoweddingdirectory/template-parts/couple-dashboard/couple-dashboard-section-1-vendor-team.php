@@ -15,20 +15,20 @@ $wishlist = is_array( $wishlist ) ? array_filter( array_map( 'intval', $wishlist
 
 <section class="cd-card cd-vendor-team">
     <div class="cd-card__head">
-        <h2 class="cd-card__title"><?php esc_html_e( 'Your Vendor Team', 'sdweddingdirectory' ); ?></h2>
+        <h2 class="cd-card__title"><?php esc_html_e( 'Your Vendor Team', 'sandiegoweddingdirectory' ); ?></h2>
         <a href="<?php echo esc_url( home_url( '/couple-dashboard/vendor-manager/' ) ); ?>" class="cd-card__link">
-            <?php esc_html_e( 'Manage vendors', 'sdweddingdirectory' ); ?> &rarr;
+            <?php esc_html_e( 'Manage vendors', 'sandiegoweddingdirectory' ); ?> &rarr;
         </a>
     </div>
 
     <?php if ( empty( $wishlist ) ) : ?>
         <div class="cd-card__empty">
-            <span class="cd-card__empty-title"><?php esc_html_e( 'No vendors saved yet', 'sdweddingdirectory' ); ?></span>
+            <span class="cd-card__empty-title"><?php esc_html_e( 'No vendors saved yet', 'sandiegoweddingdirectory' ); ?></span>
             <?php
             printf(
                 /* translators: %s: link to vendors page */
-                esc_html__( 'Browse the %s directory and tap the heart on any vendor to start building your team.', 'sdweddingdirectory' ),
-                '<a href="' . esc_url( home_url( '/vendors/' ) ) . '">' . esc_html__( 'San Diego vendor', 'sdweddingdirectory' ) . '</a>'
+                esc_html__( 'Browse the %s directory and tap the heart on any vendor to start building your team.', 'sandiegoweddingdirectory' ),
+                '<a href="' . esc_url( home_url( '/vendors/' ) ) . '">' . esc_html__( 'San Diego vendor', 'sandiegoweddingdirectory' ) . '</a>'
             );
             ?>
         </div>

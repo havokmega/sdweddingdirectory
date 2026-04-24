@@ -8,10 +8,10 @@
 get_header();
 
 get_template_part( 'template-parts/components/page-header', null, [
-    'title'       => __( 'Couples', 'sdweddingdirectory-v2' ),
+    'title'       => __( 'Couples', 'sandiegoweddingdirectory' ),
     'breadcrumbs' => [
-        [ 'label' => __( 'Home', 'sdweddingdirectory-v2' ), 'url' => home_url( '/' ) ],
-        [ 'label' => __( 'Couples', 'sdweddingdirectory-v2' ), 'url' => '' ],
+        [ 'label' => __( 'Home', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+        [ 'label' => __( 'Couples', 'sandiegoweddingdirectory' ), 'url' => '' ],
     ],
 ] );
 ?>
@@ -41,7 +41,7 @@ get_template_part( 'template-parts/components/page-header', null, [
             get_template_part( 'template-parts/components/pagination', null, [] );
             ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'No couples found.', 'sdweddingdirectory-v2' ); ?></p>
+            <p><?php esc_html_e( 'No couples found.', 'sandiegoweddingdirectory' ); ?></p>
         <?php endif; ?>
     </div>
 </section>

@@ -15,7 +15,7 @@ $website_url = $args['website_url'] ?? '';
 <aside class="cd-widget cd-widget--website">
     <h3 class="cd-widget__title">
         <span class="icon-globe" aria-hidden="true"></span>
-        <?php esc_html_e( 'Your Wedding Website', 'sdweddingdirectory' ); ?>
+        <?php esc_html_e( 'Your Wedding Website', 'sandiegoweddingdirectory' ); ?>
     </h3>
 
     <?php if ( $website_url ) : ?>
@@ -23,11 +23,11 @@ $website_url = $args['website_url'] ?? '';
             <?php echo esc_html( $website_url ); ?>
         </a>
         <a href="<?php echo esc_url( home_url( '/couple-dashboard/website/' ) ); ?>" class="cd-widget__link">
-            <?php esc_html_e( 'Edit website', 'sdweddingdirectory' ); ?> &rarr;
+            <?php esc_html_e( 'Edit website', 'sandiegoweddingdirectory' ); ?> &rarr;
         </a>
     <?php else : ?>
         <div class="cd-widget__soon">
-            <?php esc_html_e( 'Wedding website builder is coming soon.', 'sdweddingdirectory' ); ?>
+            <?php esc_html_e( 'Wedding website builder is coming soon.', 'sandiegoweddingdirectory' ); ?>
         </div>
     <?php endif; ?>
 </aside>

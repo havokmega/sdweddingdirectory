@@ -21,12 +21,12 @@ $preview    = array_slice( array_merge( $incomplete, $complete ), 0, 5 );
 <aside class="cd-widget cd-widget--tasks">
     <h3 class="cd-widget__title">
         <span class="icon-check" aria-hidden="true"></span>
-        <?php esc_html_e( 'Task List', 'sdweddingdirectory' ); ?>
+        <?php esc_html_e( 'Task List', 'sandiegoweddingdirectory' ); ?>
     </h3>
 
     <?php if ( empty( $preview ) ) : ?>
         <div class="cd-widget__soon">
-            <?php esc_html_e( 'No tasks yet. Visit the checklist to get started.', 'sdweddingdirectory' ); ?>
+            <?php esc_html_e( 'No tasks yet. Visit the checklist to get started.', 'sandiegoweddingdirectory' ); ?>
         </div>
     <?php else : ?>
         <ul class="cd-tasks">
@@ -44,6 +44,6 @@ $preview    = array_slice( array_merge( $incomplete, $complete ), 0, 5 );
     <?php endif; ?>
 
     <a href="<?php echo esc_url( home_url( '/couple-dashboard/checklist/' ) ); ?>" class="cd-widget__link">
-        <?php esc_html_e( 'View full checklist', 'sdweddingdirectory' ); ?> &rarr;
+        <?php esc_html_e( 'View full checklist', 'sandiegoweddingdirectory' ); ?> &rarr;
     </a>
 </aside>

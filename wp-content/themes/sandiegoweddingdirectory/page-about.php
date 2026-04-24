@@ -11,8 +11,8 @@ get_header();
 <div class="container section">
     <?php
     get_template_part( 'template-parts/components/section-title', null, [
-        'heading' => __( 'About Us', 'sdweddingdirectory-v2' ),
-        'desc'    => __( 'SD Wedding Directory is San Diego\'s dedicated wedding resource, connecting engaged couples with the best local wedding vendors and venues.', 'sdweddingdirectory-v2' ),
+        'heading' => __( 'About Us', 'sandiegoweddingdirectory' ),
+        'desc'    => __( 'SD Wedding Directory is San Diego\'s dedicated wedding resource, connecting engaged couples with the best local wedding vendors and venues.', 'sandiegoweddingdirectory' ),
         'align'   => 'center',
         'tag'     => 'h1',
     ] );
@@ -35,7 +35,7 @@ get_header();
         <div class="about__team">
             <?php
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'Our Team', 'sdweddingdirectory-v2' ),
+                'heading' => __( 'Our Team', 'sandiegoweddingdirectory' ),
                 'align'   => 'center',
             ] );
             ?>

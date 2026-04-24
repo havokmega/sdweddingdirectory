@@ -28,13 +28,10 @@ if ( empty( $items ) || ! $heading ) {
 <section class="planning-faq section" aria-label="<?php echo esc_attr( $heading ); ?>">
     <div class="container">
         <div class="planning-faq__header">
-            <?php
-            get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => $heading,
-                'desc'    => $desc,
-                'align'   => $align,
-            ] );
-            ?>
+            <p class="planning-faq__eyebrow"><?php echo esc_html( $heading ); ?></p>
+            <?php if ( $desc ) : ?>
+                <h2 class="planning-faq__heading"><?php echo wp_kses_post( $desc ); ?></h2>
+            <?php endif; ?>
         </div>
 
         <div class="faq-accordion planning-faq__accordion" data-allow-multiple="false">

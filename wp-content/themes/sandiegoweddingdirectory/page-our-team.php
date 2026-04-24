@@ -11,8 +11,8 @@ get_header();
 <div class="container section">
     <?php
     get_template_part( 'template-parts/components/section-title', null, [
-        'heading' => __( 'Our Team', 'sdweddingdirectory-v2' ),
-        'desc'    => __( 'Meet the people behind SD Wedding Directory.', 'sdweddingdirectory-v2' ),
+        'heading' => __( 'Our Team', 'sandiegoweddingdirectory' ),
+        'desc'    => __( 'Meet the people behind SD Wedding Directory.', 'sandiegoweddingdirectory' ),
         'align'   => 'center',
         'tag'     => 'h1',
     ] );
@@ -51,7 +51,7 @@ get_header();
         wp_reset_postdata();
     else :
     ?>
-        <p><?php esc_html_e( 'No team members found.', 'sdweddingdirectory-v2' ); ?></p>
+        <p><?php esc_html_e( 'No team members found.', 'sandiegoweddingdirectory' ); ?></p>
     <?php endif; ?>
 </div>
 

@@ -8,7 +8,7 @@ get_header();
 get_template_part( 'template-parts/components/page-header', null, [
     'title' => sprintf(
         /* translators: %s: search query */
-        __( 'Search Results for: %s', 'sdweddingdirectory-v2' ),
+        __( 'Search Results for: %s', 'sandiegoweddingdirectory' ),
         get_search_query()
     ),
 ] );
@@ -30,7 +30,7 @@ get_template_part( 'template-parts/components/page-header', null, [
         <?php get_template_part( 'template-parts/components/pagination' ); ?>
     <?php else : ?>
         <div class="search-no-results">
-            <p><?php esc_html_e( 'No results found. Try a different search term.', 'sdweddingdirectory-v2' ); ?></p>
+            <p><?php esc_html_e( 'No results found. Try a different search term.', 'sandiegoweddingdirectory' ); ?></p>
             <?php get_search_form(); ?>
         </div>
     <?php endif; ?>

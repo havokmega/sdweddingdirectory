@@ -15,7 +15,7 @@ if ( empty( $items ) ) {
     return;
 }
 ?>
-<nav class="breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'sdweddingdirectory-v2' ); ?>">
+<nav class="breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'sandiegoweddingdirectory' ); ?>">
     <?php foreach ( $items as $index => $item ) : ?>
         <?php $is_last = ( $index === count( $items ) - 1 ); ?>
 

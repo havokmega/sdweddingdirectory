@@ -17,7 +17,7 @@
  *     @type int    $image_width  Optional. Image width attribute.
  *     @type int    $image_height Optional. Image height attribute.
  *     @type bool   $reversed     Optional. Swap image/content sides. Default false.
- *     @type array  $testimonial  Optional. ['initials'=>'', 'author'=>'', 'quote'=>''].
+ *     @type array  $testimonial  Optional. ['initials'=>'', 'avatar_url'=>'', 'avatar_alt'=>'', 'author'=>'', 'quote'=>''].
  * }
  */
 
@@ -83,7 +83,7 @@ if ( $reversed ) {
         <?php endif; ?>
 
         <?php if ( $cta_text ) : ?>
-            <a class="btn btn--cta feature-block__cta" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta_text ); ?></a>
+            <a class="btn btn--primary feature-block__cta" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta_text ); ?></a>
         <?php endif; ?>
     </div>
 
@@ -102,7 +102,14 @@ if ( $reversed ) {
 
             <?php if ( ! empty( $testimonial['quote'] ) ) : ?>
                 <blockquote class="feature-block__testimonial">
-                    <?php if ( ! empty( $testimonial['initials'] ) ) : ?>
+                    <?php if ( ! empty( $testimonial['avatar_url'] ) ) : ?>
+                        <span class="feature-block__testimonial-avatar feature-block__testimonial-avatar--image">
+                            <img class="feature-block__testimonial-avatar-image"
+                                src="<?php echo esc_url( $testimonial['avatar_url'] ); ?>"
+                                alt="<?php echo esc_attr( $testimonial['avatar_alt'] ?? ( $testimonial['author'] ?? '' ) ); ?>"
+                                loading="lazy">
+                        </span>
+                    <?php elseif ( ! empty( $testimonial['initials'] ) ) : ?>
                         <span class="feature-block__testimonial-avatar"><?php echo esc_html( $testimonial['initials'] ); ?></span>
                     <?php endif; ?>
 

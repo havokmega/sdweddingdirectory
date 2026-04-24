@@ -9,11 +9,11 @@
 
 $page_id   = absint( get_queried_object_id() );
 $tool_name = is_page( 4180 )
-    ? esc_html__( 'Wedding Planning Tools', 'sdweddingdirectory' )
+    ? esc_html__( 'Wedding Planning Tools', 'sandiegoweddingdirectory' )
     : get_the_title( $page_id );
 
 if ( empty( $tool_name ) ) {
-    $tool_name = esc_html__( 'Wedding Planning', 'sdweddingdirectory' );
+    $tool_name = esc_html__( 'Wedding Planning', 'sandiegoweddingdirectory' );
 }
 
 // Random banner image (6 variants in v2 theme)
@@ -41,10 +41,10 @@ if ( $california && ! is_wp_error( $california ) ) {
 <section class="planning-hero">
     <div class="planning-hero__breadcrumb-bar">
         <div class="container">
-            <nav class="planning-hero__breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'sdweddingdirectory' ); ?>">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Weddings', 'sdweddingdirectory' ); ?></a>
+            <nav class="planning-hero__breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'sandiegoweddingdirectory' ); ?>">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Weddings', 'sandiegoweddingdirectory' ); ?></a>
                 <span class="planning-hero__breadcrumb-sep" aria-hidden="true">/</span>
-                <span><?php esc_html_e( 'Wedding Planning', 'sdweddingdirectory' ); ?></span>
+                <span><?php esc_html_e( 'Wedding Planning', 'sandiegoweddingdirectory' ); ?></span>
             </nav>
         </div>
     </div>
@@ -55,7 +55,7 @@ if ( $california && ! is_wp_error( $california ) ) {
         <div class="container planning-hero__inner">
 
             <h1 class="planning-hero__title"><?php echo esc_html( $tool_name ); ?></h1>
-            <p class="planning-hero__subtitle"><?php esc_html_e( 'Your Checklist, Budget, Vendors, and more! Our free wedding planning tools help you stay one step ahead.', 'sdweddingdirectory' ); ?></p>
+            <p class="planning-hero__subtitle"><?php esc_html_e( 'Your Checklist, Budget, Vendors, and more! Our free wedding planning tools help you stay one step ahead.', 'sandiegoweddingdirectory' ); ?></p>
 
             <div class="planning-hero__form-wrap">
                 <form id="sdwd-planning-register-form" class="planning-hero__form" method="post" autocomplete="off" novalidate>
@@ -73,29 +73,29 @@ if ( $california && ! is_wp_error( $california ) ) {
 
                     <!-- STEP 1: Name + Email -->
                     <div class="planning-hero__step is-active" data-step="1">
-                        <p class="planning-hero__step-label"><?php esc_html_e( 'GET STARTED:', 'sdweddingdirectory' ); ?></p>
+                        <p class="planning-hero__step-label"><?php esc_html_e( 'GET STARTED:', 'sandiegoweddingdirectory' ); ?></p>
                         <div class="planning-hero__searchbar">
                             <div class="planning-hero__field-wrap" id="planning-name-wrap">
                                 <div class="planning-hero__field" id="planning-name-field">
                                     <input id="planning-name" class="planning-hero__input" type="text" name="full_name" placeholder=" " minlength="2" required />
-                                    <label class="planning-hero__float-label" for="planning-name"><?php esc_html_e( 'First and last name', 'sdweddingdirectory' ); ?></label>
+                                    <label class="planning-hero__float-label" for="planning-name"><?php esc_html_e( 'First and last name', 'sandiegoweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-user" aria-hidden="true"></span>
                                 </div>
-                                <p class="planning-hero__field-error" id="planning-name-error"><?php esc_html_e( 'Enter your full name.', 'sdweddingdirectory' ); ?></p>
+                                <p class="planning-hero__field-error" id="planning-name-error"><?php esc_html_e( 'Enter your full name.', 'sandiegoweddingdirectory' ); ?></p>
                             </div>
                             <div class="planning-hero__field-wrap" id="planning-email-wrap">
                                 <div class="planning-hero__field" id="planning-email-field">
-                                    <input id="planning-email" class="planning-hero__input" type="email" name="email" placeholder=" " pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="<?php esc_attr_e( 'Please enter a valid email', 'sdweddingdirectory' ); ?>" required />
-                                    <label class="planning-hero__float-label" for="planning-email"><?php esc_html_e( 'Email', 'sdweddingdirectory' ); ?></label>
+                                    <input id="planning-email" class="planning-hero__input" type="email" name="email" placeholder=" " pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="<?php esc_attr_e( 'Please enter a valid email', 'sandiegoweddingdirectory' ); ?>" required />
+                                    <label class="planning-hero__float-label" for="planning-email"><?php esc_html_e( 'Email', 'sandiegoweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-envelope-o" aria-hidden="true"></span>
                                 </div>
-                                <p class="planning-hero__field-error" id="planning-email-error"><?php esc_html_e( 'Check that the email is correct.', 'sdweddingdirectory' ); ?></p>
+                                <p class="planning-hero__field-error" id="planning-email-error"><?php esc_html_e( 'Check that the email is correct.', 'sandiegoweddingdirectory' ); ?></p>
                             </div>
-                            <button class="btn btn--primary planning-hero__action" type="button" data-step-next><?php esc_html_e( 'Start planning', 'sdweddingdirectory' ); ?></button>
+                            <button class="btn btn--primary planning-hero__action" type="button" data-step-next><?php esc_html_e( 'Start planning', 'sandiegoweddingdirectory' ); ?></button>
                         </div>
                         <p class="planning-hero__login-hint">
-                            <?php esc_html_e( 'Already have an account?', 'sdweddingdirectory' ); ?>
-                            <a href="<?php echo esc_url( home_url( '/dashboard/' ) ); ?>"><?php esc_html_e( 'Log in', 'sdweddingdirectory' ); ?></a>
+                            <?php esc_html_e( 'Already have an account?', 'sandiegoweddingdirectory' ); ?>
+                            <a href="<?php echo esc_url( home_url( '/dashboard/' ) ); ?>"><?php esc_html_e( 'Log in', 'sandiegoweddingdirectory' ); ?></a>
                         </p>
                     </div>
 
@@ -103,14 +103,14 @@ if ( $california && ! is_wp_error( $california ) ) {
                     <div class="planning-hero__step" data-step="2">
                         <button class="planning-hero__back" type="button" data-step-back>
                             <span class="icon-chevron-left" aria-hidden="true"></span>
-                            <?php esc_html_e( 'BACK', 'sdweddingdirectory' ); ?>
+                            <?php esc_html_e( 'BACK', 'sandiegoweddingdirectory' ); ?>
                         </button>
                         <div class="planning-hero__searchbar">
                             <div class="planning-hero__fields">
                                 <div class="planning-hero__field planning-hero__field--location">
-                                    <label class="screen-reader-text" for="planning-location"><?php esc_html_e( 'Getting married in...', 'sdweddingdirectory' ); ?></label>
+                                    <label class="screen-reader-text" for="planning-location"><?php esc_html_e( 'Getting married in...', 'sandiegoweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-search" aria-hidden="true"></span>
-                                    <input id="planning-location" class="planning-hero__input" type="text" name="location" placeholder="<?php esc_attr_e( 'Getting married in...', 'sdweddingdirectory' ); ?>" autocomplete="off" readonly />
+                                    <input id="planning-location" class="planning-hero__input" type="text" name="location" placeholder="<?php esc_attr_e( 'Getting married in...', 'sandiegoweddingdirectory' ); ?>" autocomplete="off" readonly />
                                     <?php if ( ! empty( $planning_cities ) ) : ?>
                                         <div class="planning-hero__dropdown" id="sdwd-location-dropdown">
                                             <?php foreach ( $planning_cities as $city ) : ?>
@@ -120,19 +120,19 @@ if ( $california && ! is_wp_error( $california ) ) {
                                     <?php endif; ?>
                                 </div>
                                 <div class="planning-hero__field">
-                                    <label class="screen-reader-text" for="planning-date"><?php esc_html_e( 'Wedding date', 'sdweddingdirectory' ); ?></label>
+                                    <label class="screen-reader-text" for="planning-date"><?php esc_html_e( 'Wedding date', 'sandiegoweddingdirectory' ); ?></label>
                                     <span class="planning-hero__field-icon icon-calendar-heart" aria-hidden="true"></span>
                                     <input id="planning-date" class="planning-hero__input" type="date" name="wedding_date" required />
                                 </div>
                             </div>
-                            <button class="btn btn--primary planning-hero__action" type="submit" id="sdwd-planning-register-submit"><?php esc_html_e( 'Create account', 'sdweddingdirectory' ); ?></button>
+                            <button class="btn btn--primary planning-hero__action" type="submit" id="sdwd-planning-register-submit"><?php esc_html_e( 'Create account', 'sandiegoweddingdirectory' ); ?></button>
                         </div>
                         <p class="planning-hero__disclaimer"><?php
                             printf(
-                                esc_html__( 'By clicking "Create account", I agree to %1$s, %2$s, and %3$s.', 'sdweddingdirectory' ),
-                                '<a href="' . esc_url( home_url( '/privacy-policy/' ) ) . '">' . esc_html__( 'Privacy Policy', 'sdweddingdirectory' ) . '</a>',
-                                '<a href="' . esc_url( home_url( '/terms-of-use/' ) ) . '">' . esc_html__( 'Terms of Use', 'sdweddingdirectory' ) . '</a>',
-                                '<a href="' . esc_url( home_url( '/ca-privacy-policy/' ) ) . '">' . esc_html__( 'CA Privacy Policy', 'sdweddingdirectory' ) . '</a>'
+                                esc_html__( 'By clicking "Create account", I agree to %1$s, %2$s, and %3$s.', 'sandiegoweddingdirectory' ),
+                                '<a href="' . esc_url( home_url( '/privacy-policy/' ) ) . '">' . esc_html__( 'Privacy Policy', 'sandiegoweddingdirectory' ) . '</a>',
+                                '<a href="' . esc_url( home_url( '/terms-of-use/' ) ) . '">' . esc_html__( 'Terms of Use', 'sandiegoweddingdirectory' ) . '</a>',
+                                '<a href="' . esc_url( home_url( '/ca-privacy-policy/' ) ) . '">' . esc_html__( 'CA Privacy Policy', 'sandiegoweddingdirectory' ) . '</a>'
                             );
                         ?></p>
                     </div>
@@ -320,10 +320,10 @@ if ( $california && ! is_wp_error( $california ) ) {
 
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.textContent = '<?php echo esc_js( __( 'Wait a moment...', 'sdweddingdirectory' ) ); ?>';
+            submitBtn.textContent = '<?php echo esc_js( __( 'Wait a moment...', 'sandiegoweddingdirectory' ) ); ?>';
         }
 
-        setMessage('<?php echo esc_js( __( 'Creating your account...', 'sdweddingdirectory' ) ); ?>', 'is-info');
+        setMessage('<?php echo esc_js( __( 'Creating your account...', 'sandiegoweddingdirectory' ) ); ?>', 'is-info');
 
         fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', {
             method: 'POST',
@@ -341,7 +341,7 @@ if ( $california && ! is_wp_error( $california ) ) {
             }
         })
         .catch(function () {
-            setMessage('<?php echo esc_js( __( 'Unable to submit right now. Please try again.', 'sdweddingdirectory' ) ); ?>', 'is-error');
+            setMessage('<?php echo esc_js( __( 'Unable to submit right now. Please try again.', 'sandiegoweddingdirectory' ) ); ?>', 'is-error');
         })
         .then(function () {
             if (submitBtn) {

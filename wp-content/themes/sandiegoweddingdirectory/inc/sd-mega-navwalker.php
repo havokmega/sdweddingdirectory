@@ -472,7 +472,7 @@ class SDSDWeddingDirectoryectory_Navwalker extends Walker_Nav_Menu {
 
 		$output .= '>';
 		$output .= '<li class="nav__item header-nav__item"><a class="nav__link header-nav__link" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">';
-		$output .= esc_html__( 'Add a menu', 'sdweddingdirectory-v2' );
+		$output .= esc_html__( 'Add a menu', 'sandiegoweddingdirectory' );
 		$output .= '</a></li>';
 		$output .= '</ul>';
 

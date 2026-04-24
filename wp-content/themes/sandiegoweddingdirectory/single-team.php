@@ -30,7 +30,7 @@ $role = get_post_meta( get_the_ID(), 'team_role', true );
         </div>
 
         <aside class="team-single__sidebar">
-            <h2 class="team-single__sidebar-title"><?php esc_html_e( 'More Team Members', 'sdweddingdirectory-v2' ); ?></h2>
+            <h2 class="team-single__sidebar-title"><?php esc_html_e( 'More Team Members', 'sandiegoweddingdirectory' ); ?></h2>
             <?php
             $other_members = new WP_Query( [
                 'post_type'      => 'team',

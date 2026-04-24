@@ -16,8 +16,8 @@ get_template_part( 'template-parts/venues/listing', null, [
     'title'               => single_term_title( '', false ),
     'desc'                => term_description(),
     'breadcrumbs'         => [
-        [ 'label' => __( 'Home', 'sdweddingdirectory-v2' ), 'url' => home_url( '/' ) ],
-        [ 'label' => __( 'Venues', 'sdweddingdirectory-v2' ), 'url' => sdwdv2_get_venues_url() ],
+        [ 'label' => __( 'Home', 'sandiegoweddingdirectory' ), 'url' => home_url( '/' ) ],
+        [ 'label' => __( 'Venues', 'sandiegoweddingdirectory' ), 'url' => sdwdv2_get_venues_url() ],
         [ 'label' => single_term_title( '', false ), 'url' => '' ],
     ],
     'current_url'         => $term_link,

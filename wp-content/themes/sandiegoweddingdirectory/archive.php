@@ -29,7 +29,7 @@ get_header();
 
             <?php get_template_part( 'template-parts/components/pagination' ); ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'No posts found.', 'sdweddingdirectory-v2' ); ?></p>
+            <p><?php esc_html_e( 'No posts found.', 'sandiegoweddingdirectory' ); ?></p>
         <?php endif; ?>
     </div>
 </div>

@@ -22,41 +22,41 @@ $wedding_date = $args['wedding_date'] ?? '';
 
 <section class="cd-card cd-wedding-details">
     <div class="cd-card__head">
-        <h2 class="cd-card__title"><?php esc_html_e( 'Wedding Details', 'sdweddingdirectory' ); ?></h2>
+        <h2 class="cd-card__title"><?php esc_html_e( 'Wedding Details', 'sandiegoweddingdirectory' ); ?></h2>
     </div>
 
     <form id="sdwd-dashboard-form" class="cd-form">
         <div class="cd-form__row">
             <div class="cd-form__field">
-                <label for="first_name"><?php esc_html_e( 'First Name', 'sdweddingdirectory' ); ?></label>
+                <label for="first_name"><?php esc_html_e( 'First Name', 'sandiegoweddingdirectory' ); ?></label>
                 <input type="text" id="first_name" name="first_name" value="<?php echo esc_attr( $first_name ); ?>">
             </div>
             <div class="cd-form__field">
-                <label for="last_name"><?php esc_html_e( 'Last Name', 'sdweddingdirectory' ); ?></label>
+                <label for="last_name"><?php esc_html_e( 'Last Name', 'sandiegoweddingdirectory' ); ?></label>
                 <input type="text" id="last_name" name="last_name" value="<?php echo esc_attr( $last_name ); ?>">
             </div>
         </div>
 
         <div class="cd-form__row">
             <div class="cd-form__field">
-                <label for="sdwd_email"><?php esc_html_e( 'Email', 'sdweddingdirectory' ); ?></label>
+                <label for="sdwd_email"><?php esc_html_e( 'Email', 'sandiegoweddingdirectory' ); ?></label>
                 <input type="email" id="sdwd_email" name="sdwd_email" value="<?php echo esc_attr( $email ); ?>">
             </div>
             <div class="cd-form__field">
-                <label for="sdwd_phone"><?php esc_html_e( 'Phone', 'sdweddingdirectory' ); ?></label>
+                <label for="sdwd_phone"><?php esc_html_e( 'Phone', 'sandiegoweddingdirectory' ); ?></label>
                 <input type="tel" id="sdwd_phone" name="sdwd_phone" value="<?php echo esc_attr( $phone ); ?>">
             </div>
         </div>
 
         <div class="cd-form__row">
             <div class="cd-form__field">
-                <label for="sdwd_wedding_date"><?php esc_html_e( 'Wedding Date', 'sdweddingdirectory' ); ?></label>
+                <label for="sdwd_wedding_date"><?php esc_html_e( 'Wedding Date', 'sandiegoweddingdirectory' ); ?></label>
                 <input type="date" id="sdwd_wedding_date" name="sdwd_wedding_date" value="<?php echo esc_attr( $wedding_date ); ?>">
             </div>
         </div>
 
         <div class="cd-form__actions">
-            <button type="submit" class="btn btn--primary"><?php esc_html_e( 'Save Changes', 'sdweddingdirectory' ); ?></button>
+            <button type="submit" class="btn btn--primary"><?php esc_html_e( 'Save Changes', 'sandiegoweddingdirectory' ); ?></button>
         </div>
 
         <div id="sdwd-dashboard-status" class="dash-status cd-form__status" aria-live="polite"></div>

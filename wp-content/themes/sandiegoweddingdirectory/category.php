@@ -47,13 +47,13 @@ get_template_part( 'template-parts/components/page-header', null, [
                     </div>
                     <?php get_template_part( 'template-parts/components/pagination' ); ?>
                 <?php else : ?>
-                    <p><?php esc_html_e( 'No posts found in this category.', 'sdweddingdirectory-v2' ); ?></p>
+                    <p><?php esc_html_e( 'No posts found in this category.', 'sandiegoweddingdirectory' ); ?></p>
                 <?php endif; ?>
             </div>
 
             <aside class="category-archive__sidebar">
                 <div class="category-archive__widget">
-                    <h3 class="category-archive__widget-title"><?php esc_html_e( 'Browse Categories', 'sdweddingdirectory-v2' ); ?></h3>
+                    <h3 class="category-archive__widget-title"><?php esc_html_e( 'Browse Categories', 'sandiegoweddingdirectory' ); ?></h3>
                     <?php
                     $planning_parent = get_category_by_slug( 'wedding-planning-how-to' );
                     if ( $planning_parent ) :
@@ -84,12 +84,12 @@ get_template_part( 'template-parts/components/page-header', null, [
                 </div>
 
                 <div class="category-archive__widget">
-                    <h3 class="category-archive__widget-title"><?php esc_html_e( 'Planning Tools', 'sdweddingdirectory-v2' ); ?></h3>
+                    <h3 class="category-archive__widget-title"><?php esc_html_e( 'Planning Tools', 'sandiegoweddingdirectory' ); ?></h3>
                     <ul class="category-archive__link-list">
-                        <li><a href="<?php echo esc_url( home_url( '/wedding-planning/' ) ); ?>"><?php esc_html_e( 'Wedding Planning', 'sdweddingdirectory-v2' ); ?></a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/dashboard/checklist/' ) ); ?>"><?php esc_html_e( 'Wedding Checklist', 'sdweddingdirectory-v2' ); ?></a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/dashboard/budget/' ) ); ?>"><?php esc_html_e( 'Budget Calculator', 'sdweddingdirectory-v2' ); ?></a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/dashboard/guest-list/' ) ); ?>"><?php esc_html_e( 'Guest List Manager', 'sdweddingdirectory-v2' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/wedding-planning/' ) ); ?>"><?php esc_html_e( 'Wedding Planning', 'sandiegoweddingdirectory' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/dashboard/checklist/' ) ); ?>"><?php esc_html_e( 'Wedding Checklist', 'sandiegoweddingdirectory' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/dashboard/budget/' ) ); ?>"><?php esc_html_e( 'Budget Calculator', 'sandiegoweddingdirectory' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/dashboard/guest-list/' ) ); ?>"><?php esc_html_e( 'Guest List Manager', 'sandiegoweddingdirectory' ); ?></a></li>
                     </ul>
                 </div>
             </aside>
@@ -108,7 +108,7 @@ get_template_part( 'template-parts/components/page-header', null, [
             </div>
             <?php get_template_part( 'template-parts/components/pagination' ); ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'No posts found in this category.', 'sdweddingdirectory-v2' ); ?></p>
+            <p><?php esc_html_e( 'No posts found in this category.', 'sandiegoweddingdirectory' ); ?></p>
         <?php endif; ?>
     <?php endif; ?>
 </div>

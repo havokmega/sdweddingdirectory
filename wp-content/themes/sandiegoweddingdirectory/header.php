@@ -14,7 +14,7 @@
 
 <div id="page" class="site">
 
-<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sdweddingdirectory-v2' ); ?></a>
+<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sandiegoweddingdirectory' ); ?></a>
 
 <header id="masthead" class="site-header header-version-two">
     <div class="header-version-two__bar">
@@ -26,13 +26,13 @@
             </div>
 
             <button class="header__toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-nav-toggle>
-                <span class="screen-reader-text"><?php esc_html_e( 'Toggle navigation', 'sdweddingdirectory-v2' ); ?></span>
+                <span class="screen-reader-text"><?php esc_html_e( 'Toggle navigation', 'sandiegoweddingdirectory' ); ?></span>
                 <span class="header__toggle-bar"></span>
                 <span class="header__toggle-bar"></span>
                 <span class="header__toggle-bar"></span>
             </button>
 
-            <nav id="site-navigation" class="header__nav header-nav" aria-label="<?php esc_attr_e( 'Primary Menu', 'sdweddingdirectory-v2' ); ?>" data-nav-panel>
+            <nav id="site-navigation" class="header__nav header-nav" aria-label="<?php esc_attr_e( 'Primary Menu', 'sandiegoweddingdirectory' ); ?>" data-nav-panel>
                 <?php
                 wp_nav_menu(
                     [
@@ -60,20 +60,20 @@
                         $dashboard = home_url( '/couple-dashboard/' );
                     }
                     ?>
-                    <a class="btn btn--primary sd-header-btn-full" href="<?php echo esc_url( $dashboard ); ?>">
+                    <a class="btn btn--dashboard sd-header-btn-full" href="<?php echo esc_url( $dashboard ); ?>">
                         <span class="header__btn-icon icon-dashboard" aria-hidden="true"></span>
-                        <?php esc_html_e( 'My Dashboard', 'sdweddingdirectory-v2' ); ?>
+                        <?php esc_html_e( 'My Dashboard', 'sandiegoweddingdirectory' ); ?>
                     </a>
                 <?php else : ?>
                     <a class="btn btn--primary sd-header-btn-full" href="javascript:" data-sdwd-modal-open="couple-register">
                         <span class="header__btn-icon icon-user-o" aria-hidden="true"></span>
-                        <?php esc_html_e( 'Join as a Couple', 'sdweddingdirectory-v2' ); ?>
+                        <?php esc_html_e( 'Join as a Couple', 'sandiegoweddingdirectory' ); ?>
                     </a>
                     <a class="btn btn--vendor sd-header-btn-full" href="javascript:" data-sdwd-modal-open="vendor-register">
                         <span class="header__btn-icon icon-plus" aria-hidden="true"></span>
-                        <?php esc_html_e( 'Join as a Vendor', 'sdweddingdirectory-v2' ); ?>
+                        <?php esc_html_e( 'Join as a Vendor', 'sandiegoweddingdirectory' ); ?>
                     </a>
-                    <a class="sd-header-btn-icon" href="javascript:" data-sdwd-modal-open="couple-login" aria-label="<?php esc_attr_e( 'Log in', 'sdweddingdirectory-v2' ); ?>">
+                    <a class="sd-header-btn-icon" href="javascript:" data-sdwd-modal-open="couple-login" aria-label="<?php esc_attr_e( 'Log in', 'sandiegoweddingdirectory' ); ?>">
                         <span class="icon-user-o" aria-hidden="true"></span>
                     </a>
                 <?php endif; ?>

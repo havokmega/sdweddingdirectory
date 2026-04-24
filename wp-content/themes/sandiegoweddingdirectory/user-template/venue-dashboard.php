@@ -44,21 +44,21 @@ get_header();
 
 <div class="dashboard-wrapper">
     <div class="container">
-        <h1 class="dash__title"><?php esc_html_e( 'Edit Your Venue Profile', 'sdweddingdirectory' ); ?></h1>
+        <h1 class="dash__title"><?php esc_html_e( 'Edit Your Venue Profile', 'sandiegoweddingdirectory' ); ?></h1>
         <div id="sdwd-dashboard-status" class="dash-status"></div>
 
         <form id="sdwd-dashboard-form" class="dash-form">
 
             <?php // --- Personal Info --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Personal Info', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Personal Info', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-row">
                     <div class="dash-field">
-                        <label for="first_name"><?php esc_html_e( 'First Name', 'sdweddingdirectory' ); ?></label>
+                        <label for="first_name"><?php esc_html_e( 'First Name', 'sandiegoweddingdirectory' ); ?></label>
                         <input type="text" id="first_name" name="first_name" value="<?php echo esc_attr( $user->first_name ); ?>">
                     </div>
                     <div class="dash-field">
-                        <label for="last_name"><?php esc_html_e( 'Last Name', 'sdweddingdirectory' ); ?></label>
+                        <label for="last_name"><?php esc_html_e( 'Last Name', 'sandiegoweddingdirectory' ); ?></label>
                         <input type="text" id="last_name" name="last_name" value="<?php echo esc_attr( $user->last_name ); ?>">
                     </div>
                 </div>
@@ -66,53 +66,53 @@ get_header();
 
             <?php // --- Business Info --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Business Info', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Business Info', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-field">
-                    <label for="sdwd_company_name"><?php esc_html_e( 'Venue Name', 'sdweddingdirectory' ); ?></label>
+                    <label for="sdwd_company_name"><?php esc_html_e( 'Venue Name', 'sandiegoweddingdirectory' ); ?></label>
                     <input type="text" id="sdwd_company_name" name="sdwd_company_name" value="<?php echo esc_attr( $company ); ?>">
                 </div>
                 <div class="dash-row">
                     <div class="dash-field">
-                        <label for="sdwd_email"><?php esc_html_e( 'Email', 'sdweddingdirectory' ); ?></label>
+                        <label for="sdwd_email"><?php esc_html_e( 'Email', 'sandiegoweddingdirectory' ); ?></label>
                         <input type="email" id="sdwd_email" name="sdwd_email" value="<?php echo esc_attr( $email ); ?>">
                     </div>
                     <div class="dash-field">
-                        <label for="sdwd_phone"><?php esc_html_e( 'Phone', 'sdweddingdirectory' ); ?></label>
+                        <label for="sdwd_phone"><?php esc_html_e( 'Phone', 'sandiegoweddingdirectory' ); ?></label>
                         <input type="tel" id="sdwd_phone" name="sdwd_phone" value="<?php echo esc_attr( $phone ); ?>">
                     </div>
                 </div>
                 <div class="dash-field">
-                    <label for="sdwd_company_website"><?php esc_html_e( 'Website', 'sdweddingdirectory' ); ?></label>
+                    <label for="sdwd_company_website"><?php esc_html_e( 'Website', 'sandiegoweddingdirectory' ); ?></label>
                     <input type="url" id="sdwd_company_website" name="sdwd_company_website" value="<?php echo esc_attr( $website ); ?>">
                 </div>
             </fieldset>
 
             <?php // --- Location --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-field">
-                    <label for="sdwd_street_address"><?php esc_html_e( 'Street Address', 'sdweddingdirectory' ); ?></label>
+                    <label for="sdwd_street_address"><?php esc_html_e( 'Street Address', 'sandiegoweddingdirectory' ); ?></label>
                     <input type="text" id="sdwd_street_address" name="sdwd_street_address" value="<?php echo esc_attr( $street ); ?>">
                 </div>
                 <div class="dash-row">
                     <div class="dash-field">
-                        <label for="sdwd_city"><?php esc_html_e( 'City', 'sdweddingdirectory' ); ?></label>
+                        <label for="sdwd_city"><?php esc_html_e( 'City', 'sandiegoweddingdirectory' ); ?></label>
                         <input type="text" id="sdwd_city" name="sdwd_city" value="<?php echo esc_attr( $city ); ?>">
                     </div>
                     <div class="dash-field">
-                        <label for="sdwd_zip_code"><?php esc_html_e( 'Zip Code', 'sdweddingdirectory' ); ?></label>
+                        <label for="sdwd_zip_code"><?php esc_html_e( 'Zip Code', 'sandiegoweddingdirectory' ); ?></label>
                         <input type="text" id="sdwd_zip_code" name="sdwd_zip_code" value="<?php echo esc_attr( $zip ); ?>">
                     </div>
                 </div>
                 <div class="dash-field">
-                    <label for="sdwd_capacity"><?php esc_html_e( 'Max Guest Capacity', 'sdweddingdirectory' ); ?></label>
+                    <label for="sdwd_capacity"><?php esc_html_e( 'Max Guest Capacity', 'sandiegoweddingdirectory' ); ?></label>
                     <input type="number" id="sdwd_capacity" name="sdwd_capacity" value="<?php echo esc_attr( $capacity ); ?>" min="0">
                 </div>
             </fieldset>
 
             <?php // --- Description --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Description', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Description', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-field">
                     <textarea id="sdwd_description" name="sdwd_description" rows="8"><?php echo esc_textarea( $desc ); ?></textarea>
                 </div>
@@ -120,26 +120,26 @@ get_header();
 
             <?php // --- Social Media --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Social Media', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Social Media', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-social__items">
                     <?php foreach ( $social as $i => $row ) : ?>
                         <div class="dash-social__row dash-row">
                             <div class="dash-field">
-                                <input type="text" name="sdwd_social[<?php echo $i; ?>][label]" value="<?php echo esc_attr( $row['label'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. Instagram', 'sdweddingdirectory' ); ?>">
+                                <input type="text" name="sdwd_social[<?php echo $i; ?>][label]" value="<?php echo esc_attr( $row['label'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. Instagram', 'sandiegoweddingdirectory' ); ?>">
                             </div>
                             <div class="dash-field">
-                                <input type="url" name="sdwd_social[<?php echo $i; ?>][url]" value="<?php echo esc_attr( $row['url'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'https://', 'sdweddingdirectory' ); ?>">
+                                <input type="url" name="sdwd_social[<?php echo $i; ?>][url]" value="<?php echo esc_attr( $row['url'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'https://', 'sandiegoweddingdirectory' ); ?>">
                             </div>
                             <button type="button" class="btn btn--outline dash-social__remove">&times;</button>
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button type="button" class="btn btn--outline dash-social__add"><?php esc_html_e( '+ Add Social Link', 'sdweddingdirectory' ); ?></button>
+                <button type="button" class="btn btn--outline dash-social__add"><?php esc_html_e( '+ Add Social Link', 'sandiegoweddingdirectory' ); ?></button>
             </fieldset>
 
             <?php // --- Business Hours --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Business Hours', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Business Hours', 'sandiegoweddingdirectory' ); ?></legend>
                 <?php foreach ( $days as $key => $label ) :
                     $d = $hours[ $key ] ?? [];
                 ?>
@@ -150,7 +150,7 @@ get_header();
                         <input type="time" name="sdwd_hours[<?php echo esc_attr( $key ); ?>][close]" value="<?php echo esc_attr( $d['close'] ?? '' ); ?>">
                         <label class="dash-hours-row__closed">
                             <input type="checkbox" name="sdwd_hours[<?php echo esc_attr( $key ); ?>][closed]" value="1" <?php checked( ! empty( $d['closed'] ) ); ?>>
-                            <?php esc_html_e( 'Closed', 'sdweddingdirectory' ); ?>
+                            <?php esc_html_e( 'Closed', 'sandiegoweddingdirectory' ); ?>
                         </label>
                     </div>
                 <?php endforeach; ?>
@@ -158,27 +158,27 @@ get_header();
 
             <?php // --- Pricing --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Pricing Tiers', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Pricing Tiers', 'sandiegoweddingdirectory' ); ?></legend>
                 <?php foreach ( $pricing as $t => $tier ) : ?>
                     <div class="dash-tier">
-                        <h4><?php printf( esc_html__( 'Tier %d', 'sdweddingdirectory' ), $t + 1 ); ?></h4>
+                        <h4><?php printf( esc_html__( 'Tier %d', 'sandiegoweddingdirectory' ), $t + 1 ); ?></h4>
                         <div class="dash-row">
                             <div class="dash-field">
-                                <label><?php esc_html_e( 'Package Name', 'sdweddingdirectory' ); ?></label>
+                                <label><?php esc_html_e( 'Package Name', 'sandiegoweddingdirectory' ); ?></label>
                                 <input type="text" name="sdwd_pricing[<?php echo $t; ?>][name]" value="<?php echo esc_attr( $tier['name'] ?? '' ); ?>">
                             </div>
                             <div class="dash-field">
-                                <label><?php esc_html_e( 'Price', 'sdweddingdirectory' ); ?></label>
-                                <input type="text" name="sdwd_pricing[<?php echo $t; ?>][price]" value="<?php echo esc_attr( $tier['price'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. $500', 'sdweddingdirectory' ); ?>">
+                                <label><?php esc_html_e( 'Price', 'sandiegoweddingdirectory' ); ?></label>
+                                <input type="text" name="sdwd_pricing[<?php echo $t; ?>][price]" value="<?php echo esc_attr( $tier['price'] ?? '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. $500', 'sandiegoweddingdirectory' ); ?>">
                             </div>
                         </div>
                         <div class="dash-field">
-                            <label><?php esc_html_e( 'Features', 'sdweddingdirectory' ); ?></label>
+                            <label><?php esc_html_e( 'Features', 'sandiegoweddingdirectory' ); ?></label>
                             <?php
                             $features = $tier['features'] ?? [];
                             if ( empty( $features ) ) { $features = [ '' ]; }
                             foreach ( $features as $f ) : ?>
-                                <input type="text" name="sdwd_pricing[<?php echo $t; ?>][features][]" value="<?php echo esc_attr( $f ); ?>" placeholder="<?php esc_attr_e( 'Feature included', 'sdweddingdirectory' ); ?>" class="dash-tier__feature">
+                                <input type="text" name="sdwd_pricing[<?php echo $t; ?>][features][]" value="<?php echo esc_attr( $f ); ?>" placeholder="<?php esc_attr_e( 'Feature included', 'sandiegoweddingdirectory' ); ?>" class="dash-tier__feature">
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -187,15 +187,15 @@ get_header();
 
             <?php // --- Password --- ?>
             <fieldset class="dash-section">
-                <legend class="dash-section__heading"><?php esc_html_e( 'Change Password', 'sdweddingdirectory' ); ?></legend>
+                <legend class="dash-section__heading"><?php esc_html_e( 'Change Password', 'sandiegoweddingdirectory' ); ?></legend>
                 <div class="dash-field">
-                    <label for="sdwd_new_password"><?php esc_html_e( 'New Password', 'sdweddingdirectory' ); ?></label>
+                    <label for="sdwd_new_password"><?php esc_html_e( 'New Password', 'sandiegoweddingdirectory' ); ?></label>
                     <input type="password" id="sdwd_new_password" name="sdwd_new_password" autocomplete="new-password">
-                    <p class="dash-field__hint"><?php esc_html_e( 'Leave blank to keep current password.', 'sdweddingdirectory' ); ?></p>
+                    <p class="dash-field__hint"><?php esc_html_e( 'Leave blank to keep current password.', 'sandiegoweddingdirectory' ); ?></p>
                 </div>
             </fieldset>
 
-            <button type="submit" class="btn btn--primary dash-submit"><?php esc_html_e( 'Save Changes', 'sdweddingdirectory' ); ?></button>
+            <button type="submit" class="btn btn--primary dash-submit"><?php esc_html_e( 'Save Changes', 'sandiegoweddingdirectory' ); ?></button>
         </form>
     </div>
 </div>

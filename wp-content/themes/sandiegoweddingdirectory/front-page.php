@@ -136,23 +136,23 @@ $banner_image  = ! empty( $banner_images )
         <div class="hero__panel">
             <div class="container hero__inner">
                 <div class="hero__content">
-                    <h1 class="hero__title"><?php esc_html_e( 'Find the Perfect Wedding Vendor', 'sdweddingdirectory' ); ?></h1>
-                    <p class="hero__subtitle"><?php esc_html_e( 'Find San Diego wedding vendors with reviews, pricing, and availability.', 'sdweddingdirectory' ); ?></p>
+                    <h1 class="hero__title"><?php esc_html_e( 'Find the Perfect Wedding Vendor', 'sandiegoweddingdirectory' ); ?></h1>
+                    <p class="hero__subtitle"><?php esc_html_e( 'Find San Diego wedding vendors with reviews, pricing, and availability.', 'sandiegoweddingdirectory' ); ?></p>
 
                     <div class="hero__search">
                         <div class="hero__toggle">
-                            <span class="hero__toggle-label"><?php esc_html_e( 'Choose what you want to search for:', 'sdweddingdirectory' ); ?></span>
+                            <span class="hero__toggle-label"><?php esc_html_e( 'Choose what you want to search for:', 'sandiegoweddingdirectory' ); ?></span>
 
                             <label class="hero__toggle-option hero__toggle-option--active">
                                 <input type="radio" name="sd_search_mode" value="venues" checked>
                                 <span class="hero__toggle-radio" aria-hidden="true"></span>
-                                <span class="hero__toggle-text"><?php esc_html_e( 'Venues', 'sdweddingdirectory' ); ?></span>
+                                <span class="hero__toggle-text"><?php esc_html_e( 'Venues', 'sandiegoweddingdirectory' ); ?></span>
                             </label>
 
                             <label class="hero__toggle-option">
                                 <input type="radio" name="sd_search_mode" value="vendors">
                                 <span class="hero__toggle-radio" aria-hidden="true"></span>
-                                <span class="hero__toggle-text"><?php esc_html_e( 'Vendors', 'sdweddingdirectory' ); ?></span>
+                                <span class="hero__toggle-text"><?php esc_html_e( 'Vendors', 'sandiegoweddingdirectory' ); ?></span>
                             </label>
                         </div>
 
@@ -164,7 +164,7 @@ $banner_image  = ! empty( $banner_images )
                                 <div class="hero__field hero__field--type hero__field--dropdown">
                                     <span class="hero__field-icon icon-search" aria-hidden="true"></span>
                                     <button class="hero__dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-dropdown="venue-type">
-                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Search by type', 'sdweddingdirectory' ); ?></span>
+                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Search by type', 'sandiegoweddingdirectory' ); ?></span>
                                         <span class="hero__dropdown-arrow icon-chevron-down" aria-hidden="true"></span>
                                     </button>
                                     <input type="hidden" name="cat_id" value="">
@@ -180,9 +180,9 @@ $banner_image  = ! empty( $banner_images )
                                 </div>
 
                                 <div class="hero__field hero__field--location hero__field--dropdown">
-                                    <span class="hero__field-prefix" aria-hidden="true"><?php esc_html_e( 'in', 'sdweddingdirectory' ); ?></span>
+                                    <span class="hero__field-prefix" aria-hidden="true"><?php esc_html_e( 'in', 'sandiegoweddingdirectory' ); ?></span>
                                     <button class="hero__dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-dropdown="venue-location">
-                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></span>
+                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></span>
                                         <span class="hero__dropdown-arrow icon-chevron-down" aria-hidden="true"></span>
                                     </button>
                                     <input type="hidden" name="location" value="">
@@ -202,7 +202,7 @@ $banner_image  = ! empty( $banner_images )
                                 <div class="hero__field hero__field--type hero__field--dropdown">
                                     <span class="hero__field-icon icon-search" aria-hidden="true"></span>
                                     <button class="hero__dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-dropdown="vendor-category">
-                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Search by category', 'sdweddingdirectory' ); ?></span>
+                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Search by category', 'sandiegoweddingdirectory' ); ?></span>
                                         <span class="hero__dropdown-arrow icon-chevron-down" aria-hidden="true"></span>
                                     </button>
                                     <input type="hidden" name="cat_id" value="">
@@ -257,9 +257,9 @@ $banner_image  = ! empty( $banner_images )
                                 </div>
 
                                 <div class="hero__field hero__field--location hero__field--dropdown">
-                                    <span class="hero__field-prefix" aria-hidden="true"><?php esc_html_e( 'in', 'sdweddingdirectory' ); ?></span>
+                                    <span class="hero__field-prefix" aria-hidden="true"><?php esc_html_e( 'in', 'sandiegoweddingdirectory' ); ?></span>
                                     <button class="hero__dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-dropdown="vendor-location">
-                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Location', 'sdweddingdirectory' ); ?></span>
+                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></span>
                                         <span class="hero__dropdown-arrow icon-chevron-down" aria-hidden="true"></span>
                                     </button>
                                     <input type="hidden" name="location" value="">
@@ -276,7 +276,7 @@ $banner_image  = ! empty( $banner_images )
                             </div>
 
                             <button class="btn btn--primary hero__submit" type="submit">
-                                <?php esc_html_e( 'Search Now', 'sdweddingdirectory' ); ?>
+                                <?php esc_html_e( 'Search Now', 'sandiegoweddingdirectory' ); ?>
                             </button>
                         </form>
                     </div>
@@ -290,8 +290,8 @@ $banner_image  = ! empty( $banner_images )
         <div class="container">
             <?php
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'San Diego Wedding Vendors', 'sdweddingdirectory' ),
-                'desc'    => __( 'Quickly connect with the industry\'s top wedding professionals', 'sdweddingdirectory' ),
+                'heading' => __( 'San Diego Wedding Vendors', 'sandiegoweddingdirectory' ),
+                'desc'    => __( 'Quickly connect with the industry\'s top wedding professionals', 'sandiegoweddingdirectory' ),
             ] );
             ?>
 
@@ -302,32 +302,32 @@ $banner_image  = ! empty( $banner_images )
                         'card_class' => 'home-vendors__card--venues',
                         'image'      => 'categories/venues.png',
                         'icon'       => 'icons/categories/venues.png',
-                        'title'      => __( 'Wedding Venues', 'sdweddingdirectory' ),
-                        'desc'       => __( 'Tour standout local reception spaces and lock in the perfect place to celebrate.', 'sdweddingdirectory' ),
+                        'title'      => __( 'Wedding Venues', 'sandiegoweddingdirectory' ),
+                        'desc'       => __( 'Tour standout local reception spaces and lock in the perfect place to celebrate.', 'sandiegoweddingdirectory' ),
                         'url'        => home_url( '/venues/' ),
                     ],
                     [
                         'card_class' => 'home-vendors__card--photography',
                         'image'      => 'categories/photographers.png',
                         'icon'       => 'icons/categories/photographers.png',
-                        'title'      => __( 'Wedding Photographers', 'sdweddingdirectory' ),
-                        'desc'       => __( 'Compare local photographers and portfolios to find the right fit for your day.', 'sdweddingdirectory' ),
+                        'title'      => __( 'Wedding Photographers', 'sandiegoweddingdirectory' ),
+                        'desc'       => __( 'Compare local photographers and portfolios to find the right fit for your day.', 'sandiegoweddingdirectory' ),
                         'url'        => home_url( '/vendors/photography/' ),
                     ],
                     [
                         'card_class' => 'home-vendors__card--catering',
                         'image'      => 'categories/caterers.png',
                         'icon'       => 'icons/categories/caterers.png',
-                        'title'      => __( 'Wedding Caterers', 'sdweddingdirectory' ),
-                        'desc'       => __( 'Discover caterers, bartenders, and chefs who can build a menu your guests will remember.', 'sdweddingdirectory' ),
+                        'title'      => __( 'Wedding Caterers', 'sandiegoweddingdirectory' ),
+                        'desc'       => __( 'Discover caterers, bartenders, and chefs who can build a menu your guests will remember.', 'sandiegoweddingdirectory' ),
                         'url'        => home_url( '/vendors/catering/' ),
                     ],
                     [
                         'card_class' => 'home-vendors__card--attire',
                         'image'      => 'categories/attire.png',
                         'icon'       => 'icons/categories/attire.png',
-                        'title'      => __( 'Wedding Attire', 'sdweddingdirectory' ),
-                        'desc'       => __( 'Browse nearby bridal boutiques and shops to find a wedding look that feels like you.', 'sdweddingdirectory' ),
+                        'title'      => __( 'Wedding Attire', 'sandiegoweddingdirectory' ),
+                        'desc'       => __( 'Browse nearby bridal boutiques and shops to find a wedding look that feels like you.', 'sandiegoweddingdirectory' ),
                         'url'        => home_url( '/vendors/dress-attire/' ),
                     ],
                 ];
@@ -366,7 +366,7 @@ $banner_image  = ! empty( $banner_images )
                     ?>
                     <a class="btn btn--outline home-vendors__button" href="<?php echo esc_url( home_url( $vb['path'] ) ); ?>"><?php echo esc_html( $vb['label'] ); ?></a>
                 <?php endforeach; ?>
-                <a class="btn btn--outline home-vendors__button" href="<?php echo esc_url( home_url( '/vendors/' ) ); ?>"><?php esc_html_e( 'Show All', 'sdweddingdirectory' ); ?></a>
+                <a class="btn btn--outline home-vendors__button" href="<?php echo esc_url( home_url( '/vendors/' ) ); ?>"><?php esc_html_e( 'Show All', 'sandiegoweddingdirectory' ); ?></a>
             </div>
         </div>
     </section>
@@ -376,36 +376,36 @@ $banner_image  = ! empty( $banner_images )
         <div class="container">
             <?php
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'Plan Your San Diego Wedding', 'sdweddingdirectory' ),
-                'desc'    => __( 'Free, easy-to-use wedding planning tools', 'sdweddingdirectory' ),
+                'heading' => __( 'Plan Your San Diego Wedding', 'sandiegoweddingdirectory' ),
+                'desc'    => __( 'Free, easy-to-use wedding planning tools', 'sandiegoweddingdirectory' ),
             ] );
             ?>
 
             <div class="home-planning__cards grid grid--2col">
                 <article class="home-planning__card">
                     <div class="home-planning__card-content">
-                        <h3 class="home-planning__card-title"><?php esc_html_e( 'Free Wedding Website', 'sdweddingdirectory' ); ?></h3>
-                        <p class="home-planning__card-desc"><?php esc_html_e( 'Share your story, collect RSVPs, and keep guests informed in one place.', 'sdweddingdirectory' ); ?></p>
-                        <a class="home-planning__card-link" href="<?php echo esc_url( home_url( '/dashboard/wedding-website/' ) ); ?>"><?php esc_html_e( 'Start your website', 'sdweddingdirectory' ); ?></a>
+                        <h3 class="home-planning__card-title"><?php esc_html_e( 'Free Wedding Website', 'sandiegoweddingdirectory' ); ?></h3>
+                        <p class="home-planning__card-desc"><?php esc_html_e( 'Share your story, collect RSVPs, and keep guests informed in one place.', 'sandiegoweddingdirectory' ); ?></p>
+                        <a class="home-planning__card-link" href="<?php echo esc_url( home_url( '/dashboard/wedding-website/' ) ); ?>"><?php esc_html_e( 'Start your website', 'sandiegoweddingdirectory' ); ?></a>
                     </div>
                     <div class="home-planning__card-icon">
-                        <img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/planning/wedding-website.png' ); ?>" alt="<?php esc_attr_e( 'Wedding Website icon', 'sdweddingdirectory' ); ?>" width="48" height="48">
+                        <img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/planning/wedding-website.png' ); ?>" alt="<?php esc_attr_e( 'Wedding Website icon', 'sandiegoweddingdirectory' ); ?>" width="48" height="48">
                     </div>
                 </article>
                 <article class="home-planning__card">
                     <div class="home-planning__card-content">
-                        <h3 class="home-planning__card-title"><?php esc_html_e( 'Planning Tools', 'sdweddingdirectory' ); ?></h3>
-                        <p class="home-planning__card-desc"><?php esc_html_e( 'Stay organized with checklists, budgets, and guest management tools.', 'sdweddingdirectory' ); ?></p>
-                        <a class="home-planning__card-link" href="<?php echo esc_url( home_url( '/dashboard/' ) ); ?>"><?php esc_html_e( 'Explore planning tools', 'sdweddingdirectory' ); ?></a>
+                        <h3 class="home-planning__card-title"><?php esc_html_e( 'Planning Tools', 'sandiegoweddingdirectory' ); ?></h3>
+                        <p class="home-planning__card-desc"><?php esc_html_e( 'Stay organized with checklists, budgets, and guest management tools.', 'sandiegoweddingdirectory' ); ?></p>
+                        <a class="home-planning__card-link" href="<?php echo esc_url( home_url( '/dashboard/' ) ); ?>"><?php esc_html_e( 'Explore planning tools', 'sandiegoweddingdirectory' ); ?></a>
                     </div>
                     <div class="home-planning__card-icon">
-                        <img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/planning/checklist.png' ); ?>" alt="<?php esc_attr_e( 'Planning Tools icon', 'sdweddingdirectory' ); ?>" width="48" height="48">
+                        <img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/planning/checklist.png' ); ?>" alt="<?php esc_attr_e( 'Planning Tools icon', 'sandiegoweddingdirectory' ); ?>" width="48" height="48">
                     </div>
                 </article>
             </div>
 
             <div class="home-planning__extra">
-                <span class="home-planning__registry-text"><?php esc_html_e( 'Search for a couples registry or website', 'sdweddingdirectory' ); ?></span>
+                <span class="home-planning__registry-text"><?php esc_html_e( 'Search for a couples registry or website', 'sandiegoweddingdirectory' ); ?></span>
             </div>
         </div>
     </section>
@@ -415,8 +415,8 @@ $banner_image  = ! empty( $banner_images )
         <div class="container">
             <?php
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'Real Weddings', 'sdweddingdirectory' ),
-                'desc'    => __( 'Find inspiration from real San Diego couples', 'sdweddingdirectory' ),
+                'heading' => __( 'Real Weddings', 'sandiegoweddingdirectory' ),
+                'desc'    => __( 'Find inspiration from real San Diego couples', 'sandiegoweddingdirectory' ),
                 'align'   => 'left',
             ] );
 
@@ -464,8 +464,8 @@ $banner_image  = ! empty( $banner_images )
                                                 <img class="home-realweddings__thumb-image" src="<?php echo esc_url( $rw_base_url . '/' . $rw_thumb_file ); ?>" alt="" loading="lazy">
                                                 <?php if ( 3 === $rw_thumb_index ) : ?>
                                                     <span class="home-realweddings__thumb-overlay">
-                                                        <span><?php esc_html_e( 'Load', 'sdweddingdirectory' ); ?></span>
-                                                        <span><?php esc_html_e( 'More', 'sdweddingdirectory' ); ?></span>
+                                                        <span><?php esc_html_e( 'Load', 'sandiegoweddingdirectory' ); ?></span>
+                                                        <span><?php esc_html_e( 'More', 'sandiegoweddingdirectory' ); ?></span>
                                                     </span>
                                                 <?php endif; ?>
                                             </span>
@@ -479,7 +479,7 @@ $banner_image  = ! empty( $banner_images )
                 </div>
                 <div class="home-realweddings__cta">
                     <a class="btn btn--outline home-realweddings__cta-button" href="<?php echo esc_url( $rw_link ); ?>">
-                        <span><?php esc_html_e( 'See All Real Weddings', 'sdweddingdirectory' ); ?></span>
+                        <span><?php esc_html_e( 'See All Real Weddings', 'sandiegoweddingdirectory' ); ?></span>
                         <span class="home-cta__icon" aria-hidden="true">&rarr;</span>
                     </a>
                 </div>
@@ -491,8 +491,8 @@ $banner_image  = ! empty( $banner_images )
         <div class="container">
             <?php
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'Inspiration', 'sdweddingdirectory' ),
-                'desc'    => __( 'Tips, advice, and ideas for your perfect wedding', 'sdweddingdirectory' ),
+                'heading' => __( 'Inspiration', 'sandiegoweddingdirectory' ),
+                'desc'    => __( 'Tips, advice, and ideas for your perfect wedding', 'sandiegoweddingdirectory' ),
                 'align'   => 'left',
             ] );
 
@@ -570,7 +570,7 @@ $banner_image  = ! empty( $banner_images )
             </div>
             <div class="home-inspiration__cta">
                 <a class="btn btn--outline home-inspiration__button" href="<?php echo esc_url( home_url( '/wedding-inspiration/' ) ); ?>">
-                    <span><?php esc_html_e( 'Browse all articles', 'sdweddingdirectory' ); ?></span>
+                    <span><?php esc_html_e( 'Browse all articles', 'sandiegoweddingdirectory' ); ?></span>
                     <span class="home-cta__icon" aria-hidden="true">&rarr;</span>
                 </a>
             </div>
@@ -596,14 +596,14 @@ $banner_image  = ! empty( $banner_images )
                 [ 'slug' => 'chula-vista',     'name' => 'Chula Vista',     'image' => get_template_directory_uri() . '/assets/images/locations/chula-vista.jpg' ],
             ];
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'Find Your Location', 'sdweddingdirectory' ),
-                'desc'    => __( 'Discover wedding venues and vendors across San Diego County', 'sdweddingdirectory' ),
+                'heading' => __( 'Find Your Location', 'sandiegoweddingdirectory' ),
+                'desc'    => __( 'Discover wedding venues and vendors across San Diego County', 'sandiegoweddingdirectory' ),
                 'align'   => 'left',
             ] );
             ?>
 
             <div class="home-locations__carousel" data-carousel="cities">
-                <button class="carousel-arrow carousel-arrow--prev home-locations__arrow" type="button" data-carousel-prev aria-label="<?php esc_attr_e( 'Previous locations', 'sdweddingdirectory' ); ?>">
+                <button class="carousel-arrow carousel-arrow--prev home-locations__arrow" type="button" data-carousel-prev aria-label="<?php esc_attr_e( 'Previous locations', 'sandiegoweddingdirectory' ); ?>">
                     <span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
                 </button>
 
@@ -620,14 +620,14 @@ $banner_image  = ! empty( $banner_images )
                     </div>
                 </div>
 
-                <button class="carousel-arrow carousel-arrow--next home-locations__arrow" type="button" data-carousel-next aria-label="<?php esc_attr_e( 'Next locations', 'sdweddingdirectory' ); ?>">
+                <button class="carousel-arrow carousel-arrow--next home-locations__arrow" type="button" data-carousel-next aria-label="<?php esc_attr_e( 'Next locations', 'sandiegoweddingdirectory' ); ?>">
                     <span class="icon-chevron-left carousel-arrow__icon" aria-hidden="true"></span>
                 </button>
             </div>
 
             <div class="home-locations__cta">
                 <a class="btn btn--outline home-locations__cta-button" href="<?php echo esc_url( home_url( '/venues/' ) ); ?>">
-                    <span><?php esc_html_e( 'See All Cities', 'sdweddingdirectory' ); ?></span>
+                    <span><?php esc_html_e( 'See All Cities', 'sandiegoweddingdirectory' ); ?></span>
                     <span class="home-cta__icon" aria-hidden="true">&rarr;</span>
                 </a>
             </div>
@@ -639,16 +639,16 @@ $banner_image  = ! empty( $banner_images )
         <div class="container">
             <?php
             get_template_part( 'template-parts/components/section-title', null, [
-                'heading' => __( 'Search by category to find the perfect wedding team', 'sdweddingdirectory' ),
+                'heading' => __( 'Search by category to find the perfect wedding team', 'sandiegoweddingdirectory' ),
             ] );
 
             get_template_part( 'template-parts/components/inline-link-grid', null, [
-                'heading' => __( 'San Diego Wedding Venues', 'sdweddingdirectory' ),
+                'heading' => __( 'San Diego Wedding Venues', 'sandiegoweddingdirectory' ),
                 'rows'    => $venue_rows,
             ] );
 
             get_template_part( 'template-parts/components/inline-link-grid', null, [
-                'heading' => __( 'San Diego Wedding Vendors', 'sdweddingdirectory' ),
+                'heading' => __( 'San Diego Wedding Vendors', 'sandiegoweddingdirectory' ),
                 'rows'    => $vendor_rows,
             ] );
             ?>
@@ -661,42 +661,42 @@ $banner_image  = ! empty( $banner_images )
             <?php
             $value_items = [
                 [
-                    'title' => __( 'San Diego Wedding Vendors, All in One Place', 'sdweddingdirectory' ),
-                    'text'  => __( 'SDWeddingDirectory is built only for San Diego couples. That means every vendor you find here actually serves San Diego weddings, so you are not wasting time sorting through out-of-area venues.', 'sdweddingdirectory' ),
+                    'title' => __( 'San Diego Wedding Vendors, All in One Place', 'sandiegoweddingdirectory' ),
+                    'text'  => __( 'SDWeddingDirectory is built only for San Diego couples. That means every vendor you find here actually serves San Diego weddings, so you are not wasting time sorting through out-of-area venues.', 'sandiegoweddingdirectory' ),
                     'links' => [
-                        [ 'label' => __( 'Wedding Venues', 'sdweddingdirectory' ),        'url' => '/venues/' ],
-                        [ 'label' => __( 'Wedding Photographers', 'sdweddingdirectory' ), 'url' => '/vendors/photography/' ],
-                        [ 'label' => __( 'Wedding DJs', 'sdweddingdirectory' ),           'url' => '/vendors/djs/' ],
-                        [ 'label' => __( 'Wedding Planners', 'sdweddingdirectory' ),      'url' => '/vendors/wedding-planners/' ],
+                        [ 'label' => __( 'Wedding Venues', 'sandiegoweddingdirectory' ),        'url' => '/venues/' ],
+                        [ 'label' => __( 'Wedding Photographers', 'sandiegoweddingdirectory' ), 'url' => '/vendors/photography/' ],
+                        [ 'label' => __( 'Wedding DJs', 'sandiegoweddingdirectory' ),           'url' => '/vendors/djs/' ],
+                        [ 'label' => __( 'Wedding Planners', 'sandiegoweddingdirectory' ),      'url' => '/vendors/wedding-planners/' ],
                     ],
                 ],
                 [
-                    'title' => __( 'Simple Planning Tools That Keep You On Track', 'sdweddingdirectory' ),
-                    'text'  => __( 'Use our planning tools to stay organized from the first idea to the final send-off. Build your checklist, save favorites, and keep your wedding decisions in one place.', 'sdweddingdirectory' ),
+                    'title' => __( 'Simple Planning Tools That Keep You On Track', 'sandiegoweddingdirectory' ),
+                    'text'  => __( 'Use our planning tools to stay organized from the first idea to the final send-off. Build your checklist, save favorites, and keep your wedding decisions in one place.', 'sandiegoweddingdirectory' ),
                     'links' => [
-                        [ 'label' => __( 'Wedding Websites', 'sdweddingdirectory' ),  'url' => '/dashboard/wedding-website/' ],
-                        [ 'label' => __( 'Wedding Checklist', 'sdweddingdirectory' ), 'url' => '/dashboard/' ],
-                        [ 'label' => __( 'Wedding Budget', 'sdweddingdirectory' ),    'url' => '/dashboard/' ],
-                        [ 'label' => __( 'Wedding Guest List', 'sdweddingdirectory' ),'url' => '/dashboard/' ],
+                        [ 'label' => __( 'Wedding Websites', 'sandiegoweddingdirectory' ),  'url' => '/dashboard/wedding-website/' ],
+                        [ 'label' => __( 'Wedding Checklist', 'sandiegoweddingdirectory' ), 'url' => '/dashboard/' ],
+                        [ 'label' => __( 'Wedding Budget', 'sandiegoweddingdirectory' ),    'url' => '/dashboard/' ],
+                        [ 'label' => __( 'Wedding Guest List', 'sandiegoweddingdirectory' ),'url' => '/dashboard/' ],
                     ],
                 ],
                 [
-                    'title' => __( 'Ideas and Inspiration You Can Actually Use', 'sdweddingdirectory' ),
-                    'text'  => __( 'Explore local-friendly wedding ideas, guides, and tips to help you make choices faster. From timelines and etiquette to music and design, we cover the stuff couples really need.', 'sdweddingdirectory' ),
+                    'title' => __( 'Ideas and Inspiration You Can Actually Use', 'sandiegoweddingdirectory' ),
+                    'text'  => __( 'Explore local-friendly wedding ideas, guides, and tips to help you make choices faster. From timelines and etiquette to music and design, we cover the stuff couples really need.', 'sandiegoweddingdirectory' ),
                     'links' => [
-                        [ 'label' => __( 'Wedding Ideas', 'sdweddingdirectory' ),      'url' => '/wedding-inspiration/' ],
-                        [ 'label' => __( 'Real Weddings', 'sdweddingdirectory' ),      'url' => '/real-weddings/' ],
-                        [ 'label' => __( 'Wedding Dresses', 'sdweddingdirectory' ),    'url' => '/vendors/dress-attire/' ],
-                        [ 'label' => __( 'Wedding Hairstyles', 'sdweddingdirectory' ), 'url' => '/vendors/hair-makeup/' ],
+                        [ 'label' => __( 'Wedding Ideas', 'sandiegoweddingdirectory' ),      'url' => '/wedding-inspiration/' ],
+                        [ 'label' => __( 'Real Weddings', 'sandiegoweddingdirectory' ),      'url' => '/real-weddings/' ],
+                        [ 'label' => __( 'Wedding Dresses', 'sandiegoweddingdirectory' ),    'url' => '/vendors/dress-attire/' ],
+                        [ 'label' => __( 'Wedding Hairstyles', 'sandiegoweddingdirectory' ), 'url' => '/vendors/hair-makeup/' ],
                     ],
                 ],
                 [
-                    'title' => __( 'Help and Answers When You Need Them', 'sdweddingdirectory' ),
-                    'text'  => __( 'Find quick answers in our FAQ, learn what SDWeddingDirectory is about, and reach out anytime if you need help using the site or connecting with vendors and venues.', 'sdweddingdirectory' ),
+                    'title' => __( 'Help and Answers When You Need Them', 'sandiegoweddingdirectory' ),
+                    'text'  => __( 'Find quick answers in our FAQ, learn what SDWeddingDirectory is about, and reach out anytime if you need help using the site or connecting with vendors and venues.', 'sandiegoweddingdirectory' ),
                     'links' => [
-                        [ 'label' => __( 'About Us', 'sdweddingdirectory' ), 'url' => '/about/' ],
-                        [ 'label' => __( 'Contact', 'sdweddingdirectory' ),  'url' => '/contact/' ],
-                        [ 'label' => __( 'FAQs', 'sdweddingdirectory' ),     'url' => '/faqs/' ],
+                        [ 'label' => __( 'About Us', 'sandiegoweddingdirectory' ), 'url' => '/about/' ],
+                        [ 'label' => __( 'Contact', 'sandiegoweddingdirectory' ),  'url' => '/contact/' ],
+                        [ 'label' => __( 'FAQs', 'sandiegoweddingdirectory' ),     'url' => '/faqs/' ],
                     ],
                 ],
             ];
@@ -741,11 +741,11 @@ $banner_image  = ! empty( $banner_images )
     <!-- SECTION 9: Why SDWeddingDirectory -->
     <section class="home-why section">
         <div class="container">
-            <h2 class="home-why__title"><?php esc_html_e( 'Why SDWeddingDirectory?', 'sdweddingdirectory' ); ?></h2>
+            <h2 class="home-why__title"><?php esc_html_e( 'Why SDWeddingDirectory?', 'sandiegoweddingdirectory' ); ?></h2>
             <div class="home-why__content">
-                <p><?php esc_html_e( 'SDWeddingDirectory brings San Diego couples and local pros together in one place, so you can compare vendors, check availability, and request pricing without bouncing between a dozen sites. Find options that fit your style and your budget, whether you are booking a venue or lining up every detail across the county.', 'sdweddingdirectory' ); ?></p>
-                <p><?php esc_html_e( 'You also get free planning tools that keep everything organized from day one, including customizable wedding checklists and a personalized wedding site you can share with guests. Track tasks, manage all the moving pieces, and keep your plans clear as your date gets closer.', 'sdweddingdirectory' ); ?></p>
-                <p><?php esc_html_e( 'Need ideas while you plan? Our editorial content and real-wedding inspiration help you narrow your options and make confident decisions on everything from florals and desserts to photography and wedding venues. SDWeddingDirectory is built to help you go from "we are engaged" to "we did it" with less stress and better options.', 'sdweddingdirectory' ); ?></p>
+                <p><?php esc_html_e( 'SDWeddingDirectory brings San Diego couples and local pros together in one place, so you can compare vendors, check availability, and request pricing without bouncing between a dozen sites. Find options that fit your style and your budget, whether you are booking a venue or lining up every detail across the county.', 'sandiegoweddingdirectory' ); ?></p>
+                <p><?php esc_html_e( 'You also get free planning tools that keep everything organized from day one, including customizable wedding checklists and a personalized wedding site you can share with guests. Track tasks, manage all the moving pieces, and keep your plans clear as your date gets closer.', 'sandiegoweddingdirectory' ); ?></p>
+                <p><?php esc_html_e( 'Need ideas while you plan? Our editorial content and real-wedding inspiration help you narrow your options and make confident decisions on everything from florals and desserts to photography and wedding venues. SDWeddingDirectory is built to help you go from "we are engaged" to "we did it" with less stress and better options.', 'sandiegoweddingdirectory' ); ?></p>
             </div>
         </div>
     </section>
@@ -753,7 +753,7 @@ $banner_image  = ! empty( $banner_images )
     <!-- SECTION 10: Browse Wedding Venues by City -->
     <section class="home-venues-city section">
         <div class="container">
-            <h2 class="home-venues-city__title"><?php esc_html_e( 'Browse Wedding Venues by City', 'sdweddingdirectory' ); ?></h2>
+            <h2 class="home-venues-city__title"><?php esc_html_e( 'Browse Wedding Venues by City', 'sandiegoweddingdirectory' ); ?></h2>
 
             <?php if ( ! empty( $city_terms ) ) : ?>
                 <div class="home-venues-city__grid">

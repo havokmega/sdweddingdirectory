@@ -90,8 +90,8 @@ get_template_part( 'template-parts/components/page-header', null, [
             <?php if ( ! empty( $city_terms ) ) : ?>
                 <?php
                 get_template_part( 'template-parts/components/section-title', null, [
-                    'heading' => __( 'Browse Wedding Venues by City', 'sdweddingdirectory-v2' ),
-                    'desc'    => __( 'Start with the areas couples search most often across San Diego County.', 'sdweddingdirectory-v2' ),
+                    'heading' => __( 'Browse Wedding Venues by City', 'sandiegoweddingdirectory' ),
+                    'desc'    => __( 'Start with the areas couples search most often across San Diego County.', 'sandiegoweddingdirectory' ),
                 ] );
                 ?>
 
@@ -101,7 +101,7 @@ get_template_part( 'template-parts/components/page-header', null, [
                             <a class="venues-carousel__slide" href="<?php echo esc_url( sdwdv2_get_venue_directory_url( [ 'location' => $city_term->slug ] ) ); ?>">
                                 <img src="<?php echo esc_url( sdwdv2_get_venue_location_image_url( $city_term->slug ) ); ?>" alt="<?php echo esc_attr( $city_term->name ); ?>">
                                 <span class="venues-carousel__label"><?php echo esc_html( $city_term->name ); ?></span>
-                                <span class="venues-carousel__count"><?php echo esc_html( sprintf( _n( '%s venue', '%s venues', $city_term->count, 'sdweddingdirectory-v2' ), number_format_i18n( $city_term->count ) ) ); ?></span>
+                                <span class="venues-carousel__count"><?php echo esc_html( sprintf( _n( '%s venue', '%s venues', $city_term->count, 'sandiegoweddingdirectory' ), number_format_i18n( $city_term->count ) ) ); ?></span>
                             </a>
                         <?php endforeach; ?>
                     </div>
@@ -111,8 +111,8 @@ get_template_part( 'template-parts/components/page-header', null, [
             <?php if ( ! empty( $type_terms ) ) : ?>
                 <?php
                 get_template_part( 'template-parts/components/section-title', null, [
-                    'heading' => __( 'Explore Venue Types', 'sdweddingdirectory-v2' ),
-                    'desc'    => __( 'Use the venue directory as a starting point, then narrow by type, setting, and guest count.', 'sdweddingdirectory-v2' ),
+                    'heading' => __( 'Explore Venue Types', 'sandiegoweddingdirectory' ),
+                    'desc'    => __( 'Use the venue directory as a starting point, then narrow by type, setting, and guest count.', 'sandiegoweddingdirectory' ),
                 ] );
                 ?>
 
@@ -133,14 +133,14 @@ get_template_part( 'template-parts/components/page-header', null, [
         <form class="venues-search-form" method="get" action="<?php echo esc_url( $current_url ); ?>">
             <?php if ( $fixed_category_id && $selected_category && ! is_wp_error( $selected_category ) ) : ?>
                 <div class="venues-search-form__chip">
-                    <span class="venues-search-form__chip-label"><?php esc_html_e( 'Venue type', 'sdweddingdirectory-v2' ); ?></span>
+                    <span class="venues-search-form__chip-label"><?php esc_html_e( 'Venue type', 'sandiegoweddingdirectory' ); ?></span>
                     <strong><?php echo esc_html( $selected_category->name ); ?></strong>
                 </div>
             <?php else : ?>
                 <label class="venues-search-form__field">
-                    <span class="screen-reader-text"><?php esc_html_e( 'Venue type', 'sdweddingdirectory-v2' ); ?></span>
+                    <span class="screen-reader-text"><?php esc_html_e( 'Venue type', 'sandiegoweddingdirectory' ); ?></span>
                     <select name="cat_id">
-                        <option value=""><?php esc_html_e( 'All venue types', 'sdweddingdirectory-v2' ); ?></option>
+                        <option value=""><?php esc_html_e( 'All venue types', 'sandiegoweddingdirectory' ); ?></option>
                         <?php foreach ( $options['categories'] as $category ) : ?>
                             <option value="<?php echo esc_attr( $category->term_id ); ?>" <?php selected( $filters['category_id'], $category->term_id ); ?>>
                                 <?php echo esc_html( $category->name ); ?>
@@ -152,14 +152,14 @@ get_template_part( 'template-parts/components/page-header', null, [
 
             <?php if ( $fixed_location_slug && $selected_location && ! is_wp_error( $selected_location ) ) : ?>
                 <div class="venues-search-form__chip">
-                    <span class="venues-search-form__chip-label"><?php esc_html_e( 'Location', 'sdweddingdirectory-v2' ); ?></span>
+                    <span class="venues-search-form__chip-label"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></span>
                     <strong><?php echo esc_html( $selected_location->name ); ?></strong>
                 </div>
             <?php else : ?>
                 <label class="venues-search-form__field">
-                    <span class="screen-reader-text"><?php esc_html_e( 'Location', 'sdweddingdirectory-v2' ); ?></span>
+                    <span class="screen-reader-text"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></span>
                     <select name="location">
-                        <option value=""><?php esc_html_e( 'All locations', 'sdweddingdirectory-v2' ); ?></option>
+                        <option value=""><?php esc_html_e( 'All locations', 'sandiegoweddingdirectory' ); ?></option>
                         <?php foreach ( $options['locations'] as $location ) : ?>
                             <option value="<?php echo esc_attr( $location->slug ); ?>" <?php selected( $filters['location_slug'], $location->slug ); ?>>
                                 <?php echo esc_html( $location->name ); ?>
@@ -170,7 +170,7 @@ get_template_part( 'template-parts/components/page-header', null, [
             <?php endif; ?>
 
             <label class="venues-search-form__field">
-                <span class="screen-reader-text"><?php esc_html_e( 'Sort venues', 'sdweddingdirectory-v2' ); ?></span>
+                <span class="screen-reader-text"><?php esc_html_e( 'Sort venues', 'sandiegoweddingdirectory' ); ?></span>
                 <select name="sort">
                     <?php foreach ( $options['sorts'] as $value => $label ) : ?>
                         <option value="<?php echo esc_attr( $value ); ?>" <?php selected( $filters['sort_by'], $value ); ?>>
@@ -181,7 +181,7 @@ get_template_part( 'template-parts/components/page-header', null, [
             </label>
 
             <button class="btn btn--primary venues-search-form__submit" type="submit">
-                <?php esc_html_e( 'Search Venues', 'sdweddingdirectory-v2' ); ?>
+                <?php esc_html_e( 'Search Venues', 'sandiegoweddingdirectory' ); ?>
             </button>
         </form>
 
@@ -203,10 +203,10 @@ get_template_part( 'template-parts/components/page-header', null, [
                     <?php if ( ! empty( $options['price_ranges'] ) ) : ?>
                         <div class="venues-filter-form__group">
                             <label class="venues-filter-form__label" for="venues-price-filter">
-                                <?php esc_html_e( 'Price range', 'sdweddingdirectory-v2' ); ?>
+                                <?php esc_html_e( 'Price range', 'sandiegoweddingdirectory' ); ?>
                             </label>
                             <select id="venues-price-filter" name="price-filter">
-                                <option value=""><?php esc_html_e( 'Any price', 'sdweddingdirectory-v2' ); ?></option>
+                                <option value=""><?php esc_html_e( 'Any price', 'sandiegoweddingdirectory' ); ?></option>
                                 <?php foreach ( $options['price_ranges'] as $range ) : ?>
                                     <?php $range_value = sprintf( '[%1$d-%2$d]', $range['min'], $range['max'] ); ?>
                                     <option value="<?php echo esc_attr( $range_value ); ?>" <?php selected( ! empty( $price_filter ) && $price_filter['min'] === $range['min'] && $price_filter['max'] === $range['max'] ); ?>>
@@ -220,10 +220,10 @@ get_template_part( 'template-parts/components/page-header', null, [
                     <?php if ( ! empty( $options['capacity_ranges'] ) ) : ?>
                         <div class="venues-filter-form__group">
                             <label class="venues-filter-form__label" for="venues-capacity-filter">
-                                <?php esc_html_e( 'Guest count', 'sdweddingdirectory-v2' ); ?>
+                                <?php esc_html_e( 'Guest count', 'sandiegoweddingdirectory' ); ?>
                             </label>
                             <select id="venues-capacity-filter" name="capacity">
-                                <option value=""><?php esc_html_e( 'Any guest count', 'sdweddingdirectory-v2' ); ?></option>
+                                <option value=""><?php esc_html_e( 'Any guest count', 'sandiegoweddingdirectory' ); ?></option>
                                 <?php foreach ( $options['capacity_ranges'] as $range ) : ?>
                                     <?php $range_value = sprintf( '[%1$d-%2$d]', $range['min'], $range['max'] ); ?>
                                     <option value="<?php echo esc_attr( $range_value ); ?>" <?php selected( ! empty( $capacity_filter ) && $capacity_filter['min'] === $range['min'] && $capacity_filter['max'] === $range['max'] ); ?>>
@@ -249,10 +249,10 @@ get_template_part( 'template-parts/components/page-header', null, [
                                 <?php
                                 echo esc_html(
                                     [
-                                        'venue_setting'   => __( 'Setting', 'sdweddingdirectory-v2' ),
-                                        'venue_amenities' => __( 'Amenities', 'sdweddingdirectory-v2' ),
-                                        'service'         => __( 'Services', 'sdweddingdirectory-v2' ),
-                                        'style'           => __( 'Style', 'sdweddingdirectory-v2' ),
+                                        'venue_setting'   => __( 'Setting', 'sandiegoweddingdirectory' ),
+                                        'venue_amenities' => __( 'Amenities', 'sandiegoweddingdirectory' ),
+                                        'service'         => __( 'Services', 'sandiegoweddingdirectory' ),
+                                        'style'           => __( 'Style', 'sandiegoweddingdirectory' ),
                                     ][ $field_name ]
                                 );
                                 ?>
@@ -270,12 +270,12 @@ get_template_part( 'template-parts/components/page-header', null, [
                     <?php endforeach; ?>
 
                     <button class="btn btn--primary venues-filter-form__submit" type="submit">
-                        <?php esc_html_e( 'Apply Filters', 'sdweddingdirectory-v2' ); ?>
+                        <?php esc_html_e( 'Apply Filters', 'sandiegoweddingdirectory' ); ?>
                     </button>
 
                     <?php if ( $has_filters ) : ?>
                         <a class="btn btn--outline venues-filter-form__reset" href="<?php echo esc_url( $current_url ); ?>">
-                            <?php esc_html_e( 'Clear Filters', 'sdweddingdirectory-v2' ); ?>
+                            <?php esc_html_e( 'Clear Filters', 'sandiegoweddingdirectory' ); ?>
                         </a>
                     <?php endif; ?>
                 </form>
@@ -284,12 +284,12 @@ get_template_part( 'template-parts/components/page-header', null, [
             <div class="archive-filtered__content">
                 <div class="venues-browser__results-head">
                     <div>
-                        <h2 class="venues-browser__results-title"><?php esc_html_e( 'Wedding Venue Results', 'sdweddingdirectory-v2' ); ?></h2>
+                        <h2 class="venues-browser__results-title"><?php esc_html_e( 'Wedding Venue Results', 'sandiegoweddingdirectory' ); ?></h2>
                         <p class="venues-browser__results-summary">
                             <?php
                             echo esc_html(
                                 sprintf(
-                                    _n( '%s venue matched your criteria.', '%s venues matched your criteria.', $venue_query->found_posts, 'sdweddingdirectory-v2' ),
+                                    _n( '%s venue matched your criteria.', '%s venues matched your criteria.', $venue_query->found_posts, 'sandiegoweddingdirectory' ),
                                     number_format_i18n( $venue_query->found_posts )
                                 )
                             );
@@ -319,8 +319,8 @@ get_template_part( 'template-parts/components/page-header', null, [
                     ?>
                 <?php else : ?>
                     <div class="archive-empty">
-                        <h3 class="archive-empty__title"><?php esc_html_e( 'No venues matched these filters.', 'sdweddingdirectory-v2' ); ?></h3>
-                        <p><?php esc_html_e( 'Try broadening the location, price range, or amenities to see more results.', 'sdweddingdirectory-v2' ); ?></p>
+                        <h3 class="archive-empty__title"><?php esc_html_e( 'No venues matched these filters.', 'sandiegoweddingdirectory' ); ?></h3>
+                        <p><?php esc_html_e( 'Try broadening the location, price range, or amenities to see more results.', 'sandiegoweddingdirectory' ); ?></p>
                     </div>
                 <?php endif; ?>
             </div>

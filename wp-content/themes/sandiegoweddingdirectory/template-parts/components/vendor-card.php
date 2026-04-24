@@ -57,7 +57,7 @@ if ( ! $thumbnail ) {
         $primary_cat = function_exists( 'sdwdv2_get_vendor_primary_category' ) ? sdwdv2_get_vendor_primary_category( $post_id ) : null;
         $placeholder = $primary_cat && function_exists( 'sdwdv2_get_vendor_category_image_url' )
             ? sdwdv2_get_vendor_category_image_url( $primary_cat )
-            : get_template_directory_uri() . '/assets/images/placeholders/vendor-post/vendor-post.jpg';
+            : get_template_directory_uri() . '/assets/images/placeholders/vendor-dashboard/vendor-brand-banner.png';
         $thumbnail   = '<img class="card__image" src="' . esc_url( $placeholder ) . '" alt="' . esc_attr( $title ) . '">';
     }
 }
@@ -94,7 +94,7 @@ if ( ! $thumbnail ) {
         <?php endif; ?>
 
         <a class="card__request-link" href="<?php echo esc_url( $permalink ); ?>">
-            <?php esc_html_e( 'Request pricing', 'sdweddingdirectory' ); ?>
+            <?php esc_html_e( 'Request pricing', 'sandiegoweddingdirectory' ); ?>
         </a>
     </div>
 </div>
