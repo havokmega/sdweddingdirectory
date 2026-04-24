@@ -120,6 +120,15 @@ add_action( 'wp_enqueue_scripts', function () {
         wp_enqueue_style( 'sdwdv2-profile', $theme_uri . '/assets/css/pages/profile.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/profile.css' ) );
     }
 
+    // Claim-business button on single vendor/venue pages (P2-CLAIM-01).
+    if ( is_singular( [ 'vendor', 'venue' ] ) ) {
+        wp_enqueue_script( 'sdwd-claim', $theme_uri . '/assets/js/claim.js', [], $asset_version( '/assets/js/claim.js' ), true );
+        wp_localize_script( 'sdwd-claim', 'sdwd_claim', [
+            'url'   => admin_url( 'admin-ajax.php' ),
+            'nonce' => wp_create_nonce( 'sdwd_claim_nonce' ),
+        ] );
+    }
+
     $is_planning = is_page_template( 'page-wedding-planning.php' )
         || ( is_category() && sdwdv2_is_planning_category() )
         || ( is_page() && absint( wp_get_post_parent_id( get_the_ID() ) ) === 4180 );

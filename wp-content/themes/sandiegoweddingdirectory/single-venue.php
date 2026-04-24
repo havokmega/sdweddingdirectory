@@ -378,34 +378,14 @@ if ( ! empty( $pricing[0]['price'] ) ) {
                     </ul>
 
                     <?php if ( function_exists( 'sdwd_is_unclaimed' ) && sdwd_is_unclaimed( $post_id ) ) : ?>
-                        <hr style="margin: 16px 0;">
-                        <button type="button" class="btn btn--outline contact-card__cta" id="sdwd-claim-btn" data-post-id="<?php echo $post_id; ?>"><?php esc_html_e( 'Claim This Business', 'sandiegoweddingdirectory' ); ?></button>
-                        <div id="sdwd-claim-form" style="display:none; margin-top:12px;">
-                            <textarea id="sdwd-claim-msg" rows="3" placeholder="<?php esc_attr_e( 'Tell us how you are connected to this business...', 'sandiegoweddingdirectory' ); ?>" style="width:100%; margin-bottom:8px;"></textarea>
-                            <button type="button" class="btn btn--primary contact-card__cta" id="sdwd-claim-submit"><?php esc_html_e( 'Submit Claim', 'sandiegoweddingdirectory' ); ?></button>
-                            <p id="sdwd-claim-status" style="font-size:0.9rem; margin-top:8px;"></p>
+                        <div class="quote-card quote-card--claim">
+                            <button type="button" class="btn btn--outline contact-card__cta" id="sdwd-claim-btn" data-post-id="<?php echo (int) $post_id; ?>"><?php esc_html_e( 'Claim This Business', 'sandiegoweddingdirectory' ); ?></button>
+                            <div id="sdwd-claim-form" hidden>
+                                <textarea id="sdwd-claim-msg" rows="3" placeholder="<?php esc_attr_e( 'Tell us how you are connected to this business...', 'sandiegoweddingdirectory' ); ?>"></textarea>
+                                <button type="button" class="btn btn--primary contact-card__cta" id="sdwd-claim-submit"><?php esc_html_e( 'Submit Claim', 'sandiegoweddingdirectory' ); ?></button>
+                                <p id="sdwd-claim-status"></p>
+                            </div>
                         </div>
-                        <script>
-                        document.getElementById('sdwd-claim-btn').addEventListener('click', function() {
-                            this.style.display = 'none';
-                            document.getElementById('sdwd-claim-form').style.display = 'block';
-                        });
-                        document.getElementById('sdwd-claim-submit').addEventListener('click', function() {
-                            var data = new FormData();
-                            data.append('action', 'sdwd_submit_claim');
-                            data.append('nonce', '<?php echo wp_create_nonce( 'sdwd_claim_nonce' ); ?>');
-                            data.append('post_id', '<?php echo $post_id; ?>');
-                            data.append('message', document.getElementById('sdwd-claim-msg').value);
-                            fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', { method: 'POST', body: data })
-                                .then(function(r) { return r.json(); })
-                                .then(function(res) {
-                                    document.getElementById('sdwd-claim-status').textContent = res.data.message;
-                                    if (res.success) {
-                                        document.getElementById('sdwd-claim-submit').disabled = true;
-                                    }
-                                });
-                        });
-                        </script>
                     <?php endif; ?>
                 </div>
             </aside>
