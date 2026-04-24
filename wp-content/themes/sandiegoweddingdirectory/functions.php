@@ -141,8 +141,16 @@ add_action( 'wp_enqueue_scripts', function () {
         wp_enqueue_style( 'sdwdv2-dashboard', $theme_uri . '/assets/css/pages/dashboard.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/dashboard.css' ) );
         wp_enqueue_script( 'sdwd-dashboard', $theme_uri . '/assets/js/dashboard.js', [], $asset_version( '/assets/js/dashboard.js' ), true );
         wp_localize_script( 'sdwd-dashboard', 'sdwd_dash', [
-            'url'   => admin_url( 'admin-ajax.php' ),
-            'nonce' => wp_create_nonce( 'sdwd_dashboard_nonce' ),
+            'url'             => admin_url( 'admin-ajax.php' ),
+            'nonce'           => wp_create_nonce( 'sdwd_dashboard_nonce' ),
+            // Module-specific nonces — sdwd-couple/modules/{module}.php each
+            // verifies its own nonce via check_ajax_referer. Consumer JS reads
+            // e.g. sdwd_dash.budget_nonce and posts as 'nonce'. (LG-01)
+            'budget_nonce'    => wp_create_nonce( 'sdwd_budget_nonce' ),
+            'checklist_nonce' => wp_create_nonce( 'sdwd_checklist_nonce' ),
+            'quote_nonce'     => wp_create_nonce( 'sdwd_quote_nonce' ),
+            'review_nonce'    => wp_create_nonce( 'sdwd_review_nonce' ),
+            'wishlist_nonce'  => wp_create_nonce( 'sdwd_wishlist_nonce' ),
         ] );
 
         if ( get_page_template_slug( get_queried_object_id() ) ==='user-template/couple-dashboard.php' ) {
