@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Page: Wedding Inspiration — Category Parent (category.php → wedding-inspiration-parent.php)
+   ========================================================================== */
+
+/* ---------- s1: category page header ---------- */
+.blog-parent-s1-category-page-header {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0;
+    background: var(--sdwd-soft-accent);
+}
+
+.blog-parent-s1-category-page-header__bg {
+    position: absolute;
+    inset: 0;
+    background-image: var(--blog-parent-bg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.blog-parent-s1-category-page-header__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.blog-parent-s1-category-page-header__crumbs {
+    font-size: var(--sdwd-h6);
+    color: var(--sdwd-muted);
+    margin-bottom: 16px;
+}
+
+.blog-parent-s1-category-page-header__crumbs a {
+    color: var(--sdwd-muted);
+    text-decoration: none;
+}
+
+.blog-parent-s1-category-page-header__crumbs a:hover { color: var(--sdwd-accent); }
+
+.blog-parent-s1-category-page-header__sep {
+    margin: 0 8px;
+    color: var(--sdwd-border);
+}
+
+.blog-parent-s1-category-page-header__title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h1);
+    color: var(--sdwd-dark);
+    margin: 0 0 12px;
+}
+
+.blog-parent-s1-category-page-header__desc {
+    color: var(--sdwd-body-text);
+    max-width: 720px;
+    margin: 0 0 var(--sdwd-row-gap);
+}
+
+.blog-parent-s1-category-page-header__chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.blog-parent-s1-category-page-header__chip-link {
+    display: inline-block;
+    background: var(--sdwd-bg);
+    border: 1px solid var(--sdwd-border);
+    border-radius: 999px;
+    padding: 8px 16px;
+    color: var(--sdwd-dark);
+    text-decoration: none;
+    font-size: var(--sdwd-h6);
+    transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.blog-parent-s1-category-page-header__chip-link:hover {
+    border-color: var(--sdwd-accent);
+    background: var(--sdwd-accent-bg-soft);
+}
+
+/* ---------- s2: article grid + sticky sidebar ---------- */
+.blog-parent-s2-article-grid-sidebar__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sdwd-row-gap);
+}
+
+.blog-parent-s2-article-grid-sidebar__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gutter);
+}
+
+.blog-parent-s2-article-grid-sidebar__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sdwd-row-gap);
+}
+
+.blog-parent-s2-article-grid-sidebar__widget {
+    background: var(--sdwd-soft);
+    border-radius: var(--sdwd-radius-lg);
+    padding: 24px;
+}
+
+.blog-parent-s2-article-grid-sidebar__widget--cta {
+    background: var(--sdwd-accent-bg-soft);
+}
+
+.blog-parent-s2-article-grid-sidebar__widget-title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h4);
+    color: var(--sdwd-dark);
+    margin: 0 0 12px;
+}
+
+.blog-parent-s2-article-grid-sidebar__sib-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-parent-s2-article-grid-sidebar__sib-list li + li {
+    margin-top: 8px;
+}
+
+.blog-parent-s2-article-grid-sidebar__sib-list a {
+    color: var(--sdwd-link);
+    text-decoration: none;
+}
+
+.blog-parent-s2-article-grid-sidebar__sib-list a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+    .blog-parent-s2-article-grid-sidebar__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+    .blog-parent-s2-article-grid-sidebar__inner {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 48px;
+    }
+
+    .blog-parent-s2-article-grid-sidebar__sidebar {
+        position: sticky;
+        top: 96px;
+        align-self: start;
+    }
+}

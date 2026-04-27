@@ -41,17 +41,17 @@ Every URL pattern, the template WordPress selects, who renders the markup, and w
 
 ## Venues
 
-`/venues/` is a WordPress **page** (not a CPT archive). The plugin renders the landing page content. Venue singles use `/venues/{slug}/`. Location-based filtering is the primary taxonomy URL.
+`/venues/` is a WordPress **page** (not a CPT archive). The plugin renders the landing page content. Venue singles use `/venue/{slug}/` (singular). Location and type both share the `/venues/{slug}/` URL shape (plural) — slugs across the two taxonomies must be unique.
 
 | URL | Template | Rendering | Components |
 |-----|----------|-----------|------------|
 | `/venues/` (landing page) | `page-venues.php` | **Plugin** via `do_action('sdweddingdirectory/find-venue')` | `venue-card`, `inline-link-grid` |
 | `/venues/?search=...` (search results) | `page-venues.php` | **Plugin** | `venue-card`, `pagination` |
-| `/venues/{city}/` | `taxonomy-venue-location.php` | **Theme** | `page-header`, `venue-card`, `pagination` |
-| `/venues/{type-slug}/` | `taxonomy-venue-type.php` | **Theme** | `page-header`, `venue-card`, `pagination` |
+| `/venues/{location}/` | `taxonomy-venue-location.php` | **Theme** | `page-header`, `venue-card`, `pagination` |
+| `/venues/{type}/` | `taxonomy-venue-type.php` | **Theme** | `page-header`, `venue-card`, `pagination` |
 | `/venue/{venue-name}/` | `single-venue.php` | **Theme** — reads `sdwd-core` meta directly | `breadcrumbs`, photo collage, sticky nav, pricing cards, map, contact sidebar |
 
-**Note:** Venues follows the same singular/plural split as vendors: `/venues/` (plural) for the landing page and taxonomy archives, `/venue/` (singular) for single profiles. Location (`/venues/{city}/`) is the primary taxonomy URL. Venue type (`/venues/{type-slug}/`) is secondary. If both can't share the `/venues/` prefix without conflict, location takes priority. The current live site uses `/venue-types/{slug}/` and `/locations/{city}/` — plugin rewrite rules will need updating.
+**Note:** Venues follows the same singular/plural split as vendors: `/venues/` (plural) for the landing page and taxonomy archives, `/venue/` (singular) for single profiles. Location and type both resolve under `/venues/{slug}/`. Implementation: only `venue-location` owns the `venues` rewrite; a `request` filter in `sdwd-core/includes/taxonomies.php` (`sdwd_dispatch_venue_taxonomy_slug`) swaps the query to `venue-type` when the slug is actually a type term. Slugs must therefore be unique across both taxonomies — if a location and a type share a slug, location wins.
 
 ### Venues landing sections (plugin-rendered)
 

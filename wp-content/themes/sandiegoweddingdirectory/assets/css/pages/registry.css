@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Page: Wedding Registry (page-registry.php)
+   ========================================================================== */
+
+/* ---------- s1: hero ---------- */
+.registry-s1-registry-hero {
+    background: var(--sdwd-soft-accent);
+    height: 290px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.registry-s1-registry-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sdwd-row-gap);
+    align-items: center;
+    width: 100%;
+}
+
+.registry-s1-registry-hero__eyebrow {
+    color: var(--sdwd-accent);
+    font-size: var(--sdwd-h6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+}
+
+.registry-s1-registry-hero__title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h1);
+    color: var(--sdwd-dark);
+    margin: 0 0 16px;
+}
+
+.registry-s1-registry-hero__desc {
+    font-size: var(--sdwd-body);
+    color: var(--sdwd-body-text);
+    margin: 0 0 var(--sdwd-title-gap);
+}
+
+.registry-s1-registry-hero__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.registry-s1-registry-hero__art {
+    background: var(--sdwd-accent-bg);
+    border-radius: var(--sdwd-radius-lg);
+    width: 100%;
+    height: 242px;
+}
+
+@media (min-width: 900px) {
+    .registry-s1-registry-hero__inner {
+        grid-template-columns: 1.1fr 1fr;
+        gap: 48px;
+    }
+}
+
+/* ---------- s2: logo grid (4 cards) ---------- */
+.registry-s2-logo-grid__header {
+    text-align: center;
+    margin-bottom: var(--sdwd-row-gap);
+}
+
+.registry-s2-logo-grid__heading {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h2);
+    color: var(--sdwd-dark);
+    margin: 0 0 8px;
+}
+
+.registry-s2-logo-grid__desc {
+    color: var(--sdwd-body-text);
+    margin: 0;
+}
+
+.registry-s2-logo-grid__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gutter);
+}
+
+.registry-s2-logo-grid__item {
+    flex: 0 0 300px;
+}
+
+.registry-s2-logo-grid__card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 250px;
+    border-radius: var(--sdwd-radius-lg);
+    overflow: hidden;
+    background: var(--sdwd-bg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    color: var(--sdwd-dark);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.registry-s2-logo-grid__card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    transform: translateY(-2px);
+}
+
+.registry-s2-logo-grid__media {
+    flex: 0 0 150px;
+    height: 150px;
+    overflow: hidden;
+    background: var(--sdwd-soft);
+}
+
+.registry-s2-logo-grid__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.registry-s2-logo-grid__logo-zone {
+    flex: 0 0 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sdwd-bg);
+    padding: 16px 20px;
+}
+
+.registry-s2-logo-grid__logo {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.registry-s2-logo-grid__logo--crateandbarrel {
+    max-width: 66.6667%;
+    max-height: 66.6667%;
+}
+
+.registry-s2-logo-grid__cta {
+    margin-top: var(--sdwd-row-gap);
+    text-align: center;
+}
+
+/* ---------- s3 / s4 / s5: feature blocks ---------- */
+.registry-s3-registry-feature__inner,
+.registry-s4-registry-feature-reversed__inner,
+.registry-s5-registry-feature__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sdwd-row-gap);
+    align-items: center;
+}
+
+.registry-s3-registry-feature__eyebrow,
+.registry-s4-registry-feature-reversed__eyebrow,
+.registry-s5-registry-feature__eyebrow {
+    color: var(--sdwd-accent);
+    font-size: var(--sdwd-h6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+}
+
+.registry-s3-registry-feature__heading,
+.registry-s4-registry-feature-reversed__heading,
+.registry-s5-registry-feature__heading {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h2);
+    color: var(--sdwd-dark);
+    margin: 0 0 16px;
+}
+
+.registry-s3-registry-feature__desc,
+.registry-s4-registry-feature-reversed__desc,
+.registry-s5-registry-feature__desc {
+    color: var(--sdwd-body-text);
+    margin: 0 0 var(--sdwd-title-gap);
+}
+
+.registry-s3-registry-feature__image,
+.registry-s4-registry-feature-reversed__image,
+.registry-s5-registry-feature__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--sdwd-radius-lg);
+    display: block;
+}
+
+@media (min-width: 900px) {
+    .registry-s3-registry-feature__inner,
+    .registry-s4-registry-feature-reversed__inner,
+    .registry-s5-registry-feature__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+    }
+
+    .registry-s4-registry-feature-reversed__inner {
+        direction: ltr;
+    }
+
+    .registry-s4-registry-feature-reversed__media {
+        order: 1;
+    }
+
+    .registry-s4-registry-feature-reversed__copy {
+        order: 2;
+    }
+}
+
+/* ---------- s6: faq (delegated to faq-section component) ---------- */
+.registry-s6-faq { /* hook for future overrides */ }
+
+/* ---------- s7: tool card grid 3+3 ----------
+ * Visual reuses .planning-secondary-intro + .planning-tool-cards from
+ * planning.css. planning.css is conditionally enqueued for registry pages
+ * in functions.php so the wrapper styles apply identically. */

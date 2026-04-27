@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Page: Registry Child (page-registry-child.php)
+
+   The cards reuse .registry-s2-logo-grid__* (styled in registry.css) and the
+   icon row reuses .planning-child-icons + .planning-child-tool-card (styled
+   in planning.css). This file owns only what's child-page-specific:
+   header copy + view-more toggle.
+   ========================================================================== */
+
+/* ---------- s1: extended retailer grid ---------- */
+.registry-child .registry-s2-logo-grid__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    justify-content: center;
+}
+
+.registry-s2-logo-grid__item.is-hidden {
+    display: none;
+}
+
+.registry-child-s1-logo-grid-extended__card--logo-only {
+    height: 100px;
+}
+
+.registry-child-s1-logo-grid-extended__more {
+    margin-top: var(--sdwd-row-gap);
+    text-align: center;
+}
+
+.registry-child-s1-logo-grid-extended__toggle {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: var(--sdwd-body-font);
+    font-size: var(--sdwd-body);
+    font-weight: 600;
+    color: var(--sdwd-link);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.registry-child-s1-logo-grid-extended__toggle:hover {
+    color: var(--sdwd-link-hover);
+}
+
+.registry-child-s1-logo-grid-extended__toggle-label-hide {
+    display: none;
+}
+
+.registry-child-s1-logo-grid-extended__toggle[data-expanded="true"] .registry-child-s1-logo-grid-extended__toggle-label-show {
+    display: none;
+}
+
+.registry-child-s1-logo-grid-extended__toggle[data-expanded="true"] .registry-child-s1-logo-grid-extended__toggle-label-hide {
+    display: inline;
+}
+
+@media (max-width: 639px) {
+    .registry-child .registry-s2-logo-grid__list {
+        grid-template-columns: 300px;
+    }
+}

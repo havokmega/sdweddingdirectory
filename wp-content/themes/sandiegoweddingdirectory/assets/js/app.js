@@ -182,6 +182,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --- Hero search dropdown panels --- */
+  // P1-FIX-02: panels use position:fixed (set inline by positionPanel below) so
+  // they escape `.hero { overflow: hidden }` instead of being clipped at the
+  // hero boundary. Position is recomputed from the trigger on open + scroll/resize.
+  const positionPanel = (trigger, panel) => {
+    // Anchor the panel to the bottom-left of the search form so it appears
+    // attached to the search bar (not to the inner trigger button). Width is
+    // controlled by CSS min-width/max-width, not JS, so the 3-col grid has
+    // room to breathe.
+    const form = trigger.closest('.hero__form');
+    const anchor = form || trigger;
+    const rect = anchor.getBoundingClientRect();
+    panel.style.position = 'fixed';
+    panel.style.top = rect.bottom + 'px';
+    panel.style.left = rect.left + 'px';
+  };
+
+  const closePanel = (trigger, panel) => {
+    trigger.setAttribute('aria-expanded', 'false');
+    panel.hidden = true;
+    panel.style.position = '';
+    panel.style.top = '';
+    panel.style.left = '';
+  };
+
   document.querySelectorAll('.hero__dropdown-trigger').forEach(trigger => {
     const field = trigger.closest('.hero__field');
     if (!field) return;
@@ -198,15 +222,31 @@ document.addEventListener('DOMContentLoaded', () => {
       // Close all other open panels first
       document.querySelectorAll('.hero__dropdown-trigger[aria-expanded="true"]').forEach(other => {
         if (other !== trigger) {
-          other.setAttribute('aria-expanded', 'false');
           const otherPanel = other.closest('.hero__field').querySelector('.hero__dropdown-panel');
-          if (otherPanel) otherPanel.hidden = true;
+          if (otherPanel) closePanel(other, otherPanel);
         }
       });
 
-      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-      panel.hidden = isOpen;
+      if (isOpen) {
+        closePanel(trigger, panel);
+      } else {
+        // Position FIRST (while panel is still hidden), then reveal. If we
+        // reveal first, the panel's default static positioning expands the
+        // form's layout and form.getBoundingClientRect().bottom is wrong.
+        positionPanel(trigger, panel);
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+      }
     });
+
+    // Reposition the panel when scrolling or resizing while it's open.
+    const reposition = () => {
+      if (trigger.getAttribute('aria-expanded') === 'true') {
+        positionPanel(trigger, panel);
+      }
+    };
+    window.addEventListener('scroll', reposition, { passive: true });
+    window.addEventListener('resize', reposition);
 
     panel.querySelectorAll('.hero__dropdown-item').forEach(item => {
       item.addEventListener('click', () => {
@@ -228,37 +268,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Close panel
-        trigger.setAttribute('aria-expanded', 'false');
-        panel.hidden = true;
+        closePanel(trigger, panel);
       });
     });
   });
 
-  // Hero form submit — when vendor mode + category slug selected, route to /vendors/{slug}/
+  // Hero form submit — route to clean path-style URLs based on selected slugs.
+  //   vendors + category → /vendors/{category}/
+  //   venues  + location → /venues/{location}/
+  //   venues  + type     → /venues/{type}/
+  //   venues  + both     → /venues/{location}/  (location wins; combo URLs are not a thing)
+  // Falls through to the default form action (/venues/ or /vendors/) when nothing is selected.
   if (heroForm) {
+    // The mode radios live in .hero__toggle, which is a sibling of the form,
+    // not a descendant — so query from the .hero__search wrapper.
+    const heroSearch = heroForm.closest('.hero__search') || document;
     heroForm.addEventListener('submit', (e) => {
-      const vendorModeActive = heroForm.querySelector('input[name="sd_search_mode"][value="vendors"]:checked');
-      if (!vendorModeActive) return; // venues mode — default submit
+      const vendorMode = !!heroSearch.querySelector('input[name="sd_search_mode"][value="vendors"]:checked');
 
-      const catPanel = heroForm.querySelector('.hero__dropdown-panel[data-panel="vendor-category"]');
-      const slug = catPanel?.dataset.selectedSlug;
-      if (!slug) return; // no category picked — default submit
+      if (vendorMode) {
+        const catPanel = heroForm.querySelector('.hero__dropdown-panel[data-panel="vendor-category"]');
+        const slug = catPanel?.dataset.selectedSlug;
+        if (!slug) return;
+        e.preventDefault();
+        const base = (heroForm.dataset.vendorAction || '/vendors/').replace(/\/+$/, '');
+        window.location.href = base + '/' + slug + '/';
+        return;
+      }
+
+      const typePanel = heroForm.querySelector('.hero__dropdown-panel[data-panel="venue-type"]');
+      const locPanel = heroForm.querySelector('.hero__dropdown-panel[data-panel="venue-location"]');
+      const typeSlug = typePanel?.dataset.selectedSlug;
+      const locSlug = locPanel?.dataset.selectedSlug;
+      const slug = locSlug || typeSlug;
+      if (!slug) return;
 
       e.preventDefault();
-      const base = heroForm.dataset.vendorAction || '/vendors/';
-      window.location.href = base.replace(/\/+$/, '') + '/' + slug + '/';
+      const base = (heroForm.dataset.venueAction || '/venues/').replace(/\/+$/, '');
+      window.location.href = base + '/' + slug + '/';
     });
   }
 
-  // Close dropdown panels on outside click
+  // Close dropdown panels on outside click. Panels are position:fixed and live
+  // outside the field's flow, so check both the field AND the panel itself.
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.hero__field--dropdown')) {
-      document.querySelectorAll('.hero__dropdown-trigger[aria-expanded="true"]').forEach(trigger => {
-        trigger.setAttribute('aria-expanded', 'false');
-        const panel = trigger.closest('.hero__field').querySelector('.hero__dropdown-panel');
-        if (panel) panel.hidden = true;
-      });
-    }
+    if (e.target.closest('.hero__field--dropdown') || e.target.closest('.hero__dropdown-panel')) return;
+    document.querySelectorAll('.hero__dropdown-trigger[aria-expanded="true"]').forEach(trigger => {
+      const panel = trigger.closest('.hero__field').querySelector('.hero__dropdown-panel');
+      if (panel) closePanel(trigger, panel);
+    });
   });
 
   /* --- FAQ Accordion --- */

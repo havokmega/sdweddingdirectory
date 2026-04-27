@@ -24,14 +24,16 @@ if (
     $is_planning = true;
 }
 
-get_template_part( 'template-parts/components/page-header', null, [
-    'title' => single_cat_title( '', false ),
-    'desc'  => category_description(),
-] );
+if ( $is_planning ) {
+    get_template_part( 'template-parts/components/page-header', null, [
+        'title' => single_cat_title( '', false ),
+        'desc'  => category_description(),
+    ] );
+}
 ?>
 
-<div class="container section">
-    <?php if ( $is_planning ) : ?>
+<?php if ( $is_planning ) : ?>
+    <div class="container section">
         <div class="category-archive category-archive--with-sidebar grid grid--2col">
             <div class="category-archive__main">
                 <?php if ( have_posts() ) : ?>
@@ -94,24 +96,16 @@ get_template_part( 'template-parts/components/page-header', null, [
                 </div>
             </aside>
         </div>
-    <?php else : ?>
-        <?php if ( have_posts() ) : ?>
-            <div class="grid grid--4col">
-                <?php
-                while ( have_posts() ) :
-                    the_post();
-                    get_template_part( 'template-parts/components/post-card', null, [
-                        'post_id' => get_the_ID(),
-                    ] );
-                endwhile;
-                ?>
-            </div>
-            <?php get_template_part( 'template-parts/components/pagination' ); ?>
-        <?php else : ?>
-            <p><?php esc_html_e( 'No posts found in this category.', 'sandiegoweddingdirectory' ); ?></p>
-        <?php endif; ?>
-    <?php endif; ?>
-</div>
+    </div>
+<?php else : ?>
+    <?php
+    /**
+     * Wedding Inspiration (Option B) — every non-planning category archive
+     * renders through wedding-inspiration-parent.php (header + grid + sidebar).
+     */
+    require get_template_directory() . '/wedding-inspiration-parent.php';
+    ?>
+<?php endif; ?>
 
 <?php
 get_footer();

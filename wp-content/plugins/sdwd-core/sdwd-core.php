@@ -42,11 +42,12 @@ add_action( 'plugins_loaded', function () {
     require_once SDWD_CORE_PATH . 'includes/claim.php';
     require_once SDWD_CORE_PATH . 'includes/quote.php';
 
-    // Admin meta boxes + migration.
+    // Admin meta boxes + migration + custom dashboard.
     if ( is_admin() ) {
         require_once SDWD_CORE_PATH . 'includes/admin/couple-meta.php';
         require_once SDWD_CORE_PATH . 'includes/admin/vendor-meta.php';
         require_once SDWD_CORE_PATH . 'includes/admin/venue-meta.php';
+        require_once SDWD_CORE_PATH . 'includes/admin/dashboard.php';
         require_once SDWD_CORE_PATH . 'includes/migrate.php';
     }
 }, 5 );

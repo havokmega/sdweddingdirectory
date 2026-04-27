@@ -113,61 +113,34 @@ $city_sections = [
 	],
 ];
 
-// Venue type link rows (same as homepage)
-$venue_rows = [
-	[
-		[ 'label' => 'Banquet Halls',         'path' => '/venue-types/banquet-halls/' ],
-		[ 'label' => 'Barns & Farms',         'path' => '/venue-types/barns-farms/' ],
-		[ 'label' => 'Beaches',               'path' => '/venue-types/beaches/' ],
-		[ 'label' => 'Boats',                 'path' => '/venue-types/boats/' ],
-		[ 'label' => 'Churches & Temples',    'path' => '/venue-types/churches-temples/' ],
-		[ 'label' => 'Country Clubs',         'path' => '/venue-types/country-clubs/' ],
-		[ 'label' => 'Gardens',               'path' => '/venue-types/gardens/' ],
-	],
-	[
-		[ 'label' => 'Historic Venues',       'path' => '/venue-types/historic-venues/' ],
-		[ 'label' => 'Hotels',                'path' => '/venue-types/hotels/' ],
-		[ 'label' => 'Mansions',              'path' => '/venue-types/mansions/' ],
-		[ 'label' => 'Museums',               'path' => '/venue-types/museums/' ],
-		[ 'label' => 'Outdoor',               'path' => '/venue-types/outdoor/' ],
-		[ 'label' => 'Parks',                 'path' => '/venue-types/parks/' ],
-		[ 'label' => 'Restaurants',           'path' => '/venue-types/restaurants/' ],
-	],
-	[
-		[ 'label' => 'Rooftops & Lofts',      'path' => '/venue-types/rooftops-lofts/' ],
-		[ 'label' => 'Waterfronts',           'path' => '/venue-types/waterfronts/' ],
-		[ 'label' => 'Wineries & Breweries',  'path' => '/venue-types/wineries-breweries/' ],
-	],
-];
+// Venue type + vendor category link rows — built from the taxonomy via
+// get_term_link() so URLs and slugs always match the registered rewrite.
+// Term ID 140 is the stray 'Venues' term in vendor-category, excluded to match
+// the hero-search dropdown.
+$sdwd_term_rows = static function ( $taxonomy, $per_row, $exclude = [] ) {
+	$terms = get_terms( [
+		'taxonomy'   => $taxonomy,
+		'hide_empty' => false,
+		'orderby'    => 'name',
+		'order'      => 'ASC',
+		'exclude'    => $exclude,
+	] );
+	if ( is_wp_error( $terms ) || empty( $terms ) ) {
+		return [];
+	}
+	$items = [];
+	foreach ( $terms as $term ) {
+		$url = get_term_link( $term );
+		if ( is_wp_error( $url ) ) {
+			continue;
+		}
+		$items[] = [ 'label' => $term->name, 'url' => $url ];
+	}
+	return $items ? array_chunk( $items, max( 1, (int) $per_row ) ) : [];
+};
 
-// Vendor category link rows (same as homepage)
-$vendor_rows = [
-	[
-		[ 'label' => 'Bands',             'path' => '/vendors/bands/' ],
-		[ 'label' => 'Cakes',             'path' => '/vendors/cakes/' ],
-		[ 'label' => 'Catering',          'path' => '/vendors/catering/' ],
-		[ 'label' => 'DJs',               'path' => '/vendors/djs/' ],
-		[ 'label' => 'Florists',          'path' => '/vendors/flowers/' ],
-		[ 'label' => 'Officiants',        'path' => '/vendors/officiants/' ],
-		[ 'label' => 'Photo Booths',      'path' => '/vendors/photo-booths/' ],
-	],
-	[
-		[ 'label' => 'Photographers',     'path' => '/vendors/photography/' ],
-		[ 'label' => 'Planners',          'path' => '/vendors/wedding-planners/' ],
-		[ 'label' => 'Rentals',           'path' => '/vendors/event-rentals/' ],
-		[ 'label' => 'Stationers',        'path' => '/vendors/invitations/' ],
-		[ 'label' => 'Transportation',    'path' => '/vendors/transportation/' ],
-		[ 'label' => 'Videographers',     'path' => '/vendors/videography/' ],
-		[ 'label' => 'Wedding Cakes',     'path' => '/vendors/cakes/' ],
-	],
-	[
-		[ 'label' => 'Wedding Decor',     'path' => '/vendors/lighting-decor/' ],
-		[ 'label' => 'Wedding Favors',    'path' => '/vendors/favors-gifts/' ],
-		[ 'label' => 'Wedding Invitations', 'path' => '/vendors/invitations/' ],
-		[ 'label' => 'Wedding Jewelers',  'path' => '/vendors/jewelry/' ],
-		[ 'label' => 'Wedding Planners',  'path' => '/vendors/wedding-planners/' ],
-	],
-];
+$venue_rows  = $sdwd_term_rows( 'venue-type', 7 );
+$vendor_rows = $sdwd_term_rows( 'vendor-category', 7, [ 140 ] );
 
 // SEO text columns for Section 13
 $seo_columns = [
@@ -202,31 +175,11 @@ $seo_columns = [
 			?>
 			<h1 class="search-hero__title"><?php esc_html_e( 'Wedding Venues', 'sandiegoweddingdirectory' ); ?></h1>
 
-			<form class="search-hero__form" action="<?php echo esc_url( home_url( '/venues/' ) ); ?>" method="get">
-				<div class="search-hero__field search-hero__field--type">
-					<span class="search-hero__icon icon-search" aria-hidden="true"></span>
-					<select class="search-hero__select" name="cat_id" aria-label="<?php esc_attr_e( 'Venue type', 'sandiegoweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Wedding Venues', 'sandiegoweddingdirectory' ); ?></option>
-						<?php foreach ( $venue_types as $vtype ) : ?>
-							<option value="<?php echo esc_attr( $vtype->term_id ); ?>"><?php echo esc_html( $vtype->name ); ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
-
-				<div class="search-hero__field search-hero__field--location">
-					<span class="search-hero__icon icon-map-marker" aria-hidden="true"></span>
-					<select class="search-hero__select" name="location" aria-label="<?php esc_attr_e( 'Venue location', 'sandiegoweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></option>
-						<?php foreach ( $location_terms as $loc ) : ?>
-							<option value="<?php echo esc_attr( $loc->slug ); ?>"><?php echo esc_html( $loc->name ); ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
-
-				<button class="btn btn--primary search-hero__submit" type="submit">
-					<?php esc_html_e( 'Search', 'sandiegoweddingdirectory' ); ?>
-				</button>
-			</form>
+			<?php
+			get_template_part( 'template-parts/components/hero-search', null, [
+				'default_mode' => 'venues',
+			] );
+			?>
 		</div>
 	</section>
 

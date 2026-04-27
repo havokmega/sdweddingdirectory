@@ -29,7 +29,15 @@
   3. The 404 page renders the real SVG asset with a right-aligned button row of all-`.btn--outline` buttons — no `btn--primary` outlier
   4. `functions.php` contains no references to dead legacy filter hooks or dequeue handles for handles that were never enqueued
   5. Every `__()` / `esc_html__()` call in the theme AND in `sdwd-core` / `sdwd-couple` plugin files uses the correct text-domain (phpcs text-domain-sniff error count 1,039+ → 0); `style.css` header matches
-**Plans**: TBD
+**Plans**: 7 plans
+Plans:
+- [ ] 01-01-PLAN.md — P1-BUILD-02 — Finish the 404 page (real SVG, all-outline buttons right-aligned, .error-page__* BEM rename) [Wave 1]
+- [ ] 01-02-PLAN.md — P1-FIX-01 — Retarget planning-hero registration form to sdwd_register; align field names + nonce; JS reads WP envelope (cross-phase tail: P5-EMAIL-02 carries password material per D-10) [Wave 1]
+- [ ] 01-03-PLAN.md — P1-FIX-02 — Investigate + fix home-page category-search dropdown (scoped home-page unlock for this REQ only; lock re-engages on completion) [Wave 1]
+- [ ] 01-04-PLAN.md — P1-CLEAN-01 + -02 + -03 + -05 + -06 — Delete dead filters, dequeue, image sizes, layout.css .modal.fade rule [Wave 1]
+- [ ] 01-05-PLAN.md — P1-CLEAN-04 — Standardize text-domain to sandiegoweddingdirectory across theme; verify plugin no-op + style.css header; bump theme Version to 2.1.1 (D-16 partial) [Wave 2 — depends_on: 01-04]
+- [ ] 01-06-PLAN.md — P1-CLEAN-07 — Delete root-level macOS Icon\r artifact (Version-bump portion of D-16 lives in 01-05 Task 2 for atomicity) [Wave 1]
+- [ ] 01-07-PLAN.md — P1-QA-01 — Phase 1 verification gate: 5 ROADMAP success criteria + 11 REQ-IDs + footer eyeball (D-02) + planning-child-pages QA + home-page lock re-engagement check [Wave 2 — depends_on: 01-01..01-06]
 **UI hint**: yes
 
 ---
@@ -131,7 +139,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Close in-progress + cleanup | 0/? | Not started | - |
+| 1. Close in-progress + cleanup | 0/7 | Planned (7 plans, 2 waves) | - |
 | 2. Plugin closeout + parity + security | 0/? | Not started | - |
 | 3. Missing + ported templates | 0/? | Not started | - |
 | 4. Combo venue SEO pages | 0/? | Not started | - |
@@ -149,7 +157,11 @@ Phases run strictly sequentially — each phase's validated state is a precondit
 
 Within each phase, `parallelization = true` — independent plans can run simultaneously. Inside Phase 2, `P2-DISCO-01` (seating-chart hunt) runs first; `P2-PORT-01` is gated on its outcome. Inside Phase 3, `P3-DISCO-01` runs first; all other Phase 3 ports are gated on its fingerprint table.
 
+**Phase 1 wave structure:**
+- Wave 1 (parallel): 01-01, 01-02, 01-03, 01-04, 01-06 — five independent plans, no shared file conflicts
+- Wave 2 (sequential after Wave 1): 01-05 (text-domain sweep — `depends_on: 01-04` because both touch functions.php) → 01-07 (verification gate — `depends_on: 01-01..01-06`)
+
 ---
 
 *Roadmap created: 2026-04-22*
-*Last updated: 2026-04-22 after terminology reset + legacy-recovery re-synthesis*
+*Last updated: 2026-04-23 after Phase 1 plan-phase decomposition (7 plans, 2 waves)*

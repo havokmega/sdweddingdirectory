@@ -48,10 +48,10 @@
             </nav>
 
             <div class="header__actions">
-                <?php if ( is_user_logged_in() ) : ?>
-                    <?php
-                    $user      = wp_get_current_user();
-                    $dashboard = home_url();
+                <?php
+                $user      = is_user_logged_in() ? wp_get_current_user() : null;
+                $dashboard = '';
+                if ( $user ) {
                     if ( in_array( 'vendor', $user->roles, true ) ) {
                         $dashboard = home_url( '/vendor-dashboard/' );
                     } elseif ( in_array( 'venue', $user->roles, true ) ) {
@@ -59,7 +59,9 @@
                     } elseif ( in_array( 'couple', $user->roles, true ) ) {
                         $dashboard = home_url( '/couple-dashboard/' );
                     }
-                    ?>
+                }
+                ?>
+                <?php if ( $dashboard ) : ?>
                     <a class="btn btn--dashboard sd-header-btn-full" href="<?php echo esc_url( $dashboard ); ?>">
                         <span class="header__btn-icon icon-dashboard" aria-hidden="true"></span>
                         <?php esc_html_e( 'My Dashboard', 'sandiegoweddingdirectory' ); ?>

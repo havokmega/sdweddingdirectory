@@ -30,60 +30,34 @@ $featured_city_slides = [
     [ 'slug' => 'ramona',          'name' => 'Ramona',          'image' => get_theme_file_uri( 'assets/images/locations/ramona.jpg' ) ],
 ];
 
-$venue_rows = [
-    [
-        [ 'label' => 'Banquet Halls',         'path' => '/venue-types/banquet-halls/' ],
-        [ 'label' => 'Barns & Farms',         'path' => '/venue-types/barns-farms/' ],
-        [ 'label' => 'Beaches',               'path' => '/venue-types/beaches/' ],
-        [ 'label' => 'Boats',                 'path' => '/venue-types/boats/' ],
-        [ 'label' => 'Churches & Temples',    'path' => '/venue-types/churches-temples/' ],
-        [ 'label' => 'Country Clubs',         'path' => '/venue-types/country-clubs/' ],
-    ],
-    [
-        [ 'label' => 'Gardens',               'path' => '/venue-types/gardens/' ],
-        [ 'label' => 'Historic Venues',       'path' => '/venue-types/historic-venues/' ],
-        [ 'label' => 'Hotels',                'path' => '/venue-types/hotels/' ],
-        [ 'label' => 'Mansions',              'path' => '/venue-types/mansions/' ],
-        [ 'label' => 'Museums',               'path' => '/venue-types/museums/' ],
-        [ 'label' => 'Outdoor',               'path' => '/venue-types/outdoor/' ],
-    ],
-    [
-        [ 'label' => 'Parks',                 'path' => '/venue-types/parks/' ],
-        [ 'label' => 'Restaurants',           'path' => '/venue-types/restaurants/' ],
-        [ 'label' => 'Rooftops & Lofts',      'path' => '/venue-types/rooftops-lofts/' ],
-        [ 'label' => 'Waterfronts',           'path' => '/venue-types/waterfronts/' ],
-        [ 'label' => 'Wineries & Breweries',  'path' => '/venue-types/wineries-breweries/' ],
-    ],
-];
+// Build link-grid rows from a taxonomy. Uses get_term_link() so URLs always
+// reflect the registered rewrite (no hardcoded base paths or stale slugs).
+// Term ID 140 is the stray 'Venues' term in vendor-category, excluded to match
+// the hero-search dropdown.
+$sdwd_term_rows = static function ( $taxonomy, $per_row, $exclude = [] ) {
+    $terms = get_terms( [
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false,
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+        'exclude'    => $exclude,
+    ] );
+    if ( is_wp_error( $terms ) || empty( $terms ) ) {
+        return [];
+    }
+    $items = [];
+    foreach ( $terms as $term ) {
+        $url = get_term_link( $term );
+        if ( is_wp_error( $url ) ) {
+            continue;
+        }
+        $items[] = [ 'label' => $term->name, 'url' => $url ];
+    }
+    return $items ? array_chunk( $items, max( 1, (int) $per_row ) ) : [];
+};
 
-$vendor_rows = [
-    [
-        [ 'label' => 'Bands',             'path' => '/vendors/bands/' ],
-        [ 'label' => 'Cakes',             'path' => '/vendors/cakes/' ],
-        [ 'label' => 'Catering',          'path' => '/vendors/catering/' ],
-        [ 'label' => 'Ceremony Music',    'path' => '/vendors/ceremony-music/' ],
-        [ 'label' => 'DJs',               'path' => '/vendors/djs/' ],
-        [ 'label' => 'Dress & Attire',    'path' => '/vendors/dress-attire/' ],
-        [ 'label' => 'Event Rentals',     'path' => '/vendors/event-rentals/' ],
-    ],
-    [
-        [ 'label' => 'Favors & Gifts',    'path' => '/vendors/favors-gifts/' ],
-        [ 'label' => 'Flowers',           'path' => '/vendors/flowers/' ],
-        [ 'label' => 'Hair & Makeup',     'path' => '/vendors/hair-makeup/' ],
-        [ 'label' => 'Invitations',       'path' => '/vendors/invitations/' ],
-        [ 'label' => 'Jewelry',           'path' => '/vendors/jewelry/' ],
-        [ 'label' => 'Lighting & Decor',  'path' => '/vendors/lighting-decor/' ],
-        [ 'label' => 'Officiants',        'path' => '/vendors/officiants/' ],
-    ],
-    [
-        [ 'label' => 'Photo Booths',      'path' => '/vendors/photo-booths/' ],
-        [ 'label' => 'Photography',       'path' => '/vendors/photography/' ],
-        [ 'label' => 'Transportation',    'path' => '/vendors/transportation/' ],
-        [ 'label' => 'Travel Agents',     'path' => '/vendors/travel-agents/' ],
-        [ 'label' => 'Videography',       'path' => '/vendors/videography/' ],
-        [ 'label' => 'Wedding Planners',  'path' => '/vendors/wedding-planners/' ],
-    ],
-];
+$venue_rows  = $sdwd_term_rows( 'venue-type', 6 );
+$vendor_rows = $sdwd_term_rows( 'vendor-category', 7, [ 140 ] );
 
 $city_terms = get_terms( [
     'taxonomy'   => 'venue-location',
@@ -256,23 +230,6 @@ $banner_image  = ! empty( $banner_images )
                                     </div>
                                 </div>
 
-                                <div class="hero__field hero__field--location hero__field--dropdown">
-                                    <span class="hero__field-prefix" aria-hidden="true"><?php esc_html_e( 'in', 'sandiegoweddingdirectory' ); ?></span>
-                                    <button class="hero__dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-dropdown="vendor-location">
-                                        <span class="hero__dropdown-text"><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></span>
-                                        <span class="hero__dropdown-arrow icon-chevron-down" aria-hidden="true"></span>
-                                    </button>
-                                    <input type="hidden" name="location" value="">
-                                    <div class="hero__dropdown-panel" data-panel="vendor-location" hidden>
-                                        <div class="hero__dropdown-grid">
-                                            <?php foreach ( $location_terms as $loc ) : ?>
-                                                <button class="hero__dropdown-item" type="button" data-value="<?php echo esc_attr( $loc->slug ); ?>">
-                                                    <?php echo esc_html( $loc->name ); ?>
-                                                </button>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <button class="btn btn--primary hero__submit" type="submit">
@@ -743,9 +700,9 @@ $banner_image  = ! empty( $banner_images )
         <div class="container">
             <h2 class="home-why__title"><?php esc_html_e( 'Why SDWeddingDirectory?', 'sandiegoweddingdirectory' ); ?></h2>
             <div class="home-why__content">
-                <p><?php esc_html_e( 'SDWeddingDirectory brings San Diego couples and local pros together in one place, so you can compare vendors, check availability, and request pricing without bouncing between a dozen sites. Find options that fit your style and your budget, whether you are booking a venue or lining up every detail across the county.', 'sandiegoweddingdirectory' ); ?></p>
-                <p><?php esc_html_e( 'You also get free planning tools that keep everything organized from day one, including customizable wedding checklists and a personalized wedding site you can share with guests. Track tasks, manage all the moving pieces, and keep your plans clear as your date gets closer.', 'sandiegoweddingdirectory' ); ?></p>
-                <p><?php esc_html_e( 'Need ideas while you plan? Our editorial content and real-wedding inspiration help you narrow your options and make confident decisions on everything from florals and desserts to photography and wedding venues. SDWeddingDirectory is built to help you go from "we are engaged" to "we did it" with less stress and better options.', 'sandiegoweddingdirectory' ); ?></p>
+                <p><?php esc_html_e( 'SDWeddingDirectory connects San Diego couples with local vendors in one place, so you can compare options, check availability, and request pricing without jumping between a dozen sites. Unlike directories that limit visibility to paid listings, we don’t hide vendors behind a paywall—so you get a wider, more accurate selection across every budget and style.', 'sandiegoweddingdirectory' ); ?></p>
+                <p><?php esc_html_e( 'You also get free planning tools to stay organized from day one, including customizable checklists and a personalized wedding website you can share with guests. Track tasks, manage details, and keep everything on schedule as your date approaches.', 'sandiegoweddingdirectory' ); ?></p>
+                <p><?php esc_html_e( 'Looking for ideas? Our editorial content and real-wedding inspiration help you make confident decisions on everything from venues to florals, photography, and more. SDWeddingDirectory is built to take you from “we’re engaged” to “we did it” with less stress and better options.', 'sandiegoweddingdirectory' ); ?></p>
             </div>
         </div>
     </section>

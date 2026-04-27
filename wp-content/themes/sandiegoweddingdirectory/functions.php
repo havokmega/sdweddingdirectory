@@ -96,9 +96,12 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'sdwdv2-layout', $theme_uri . '/assets/css/layout.css', [ 'sdwdv2-components' ], $asset_version( '/assets/css/layout.css' ) );
 
     // Page-level styles — conditionally loaded
-    $is_venues_landing = is_page( 'venues' ) || is_page_template( 'page-venues.php' );
+    $is_venues_landing  = is_page( 'venues' )  || is_page_template( 'page-venues.php' );
+    $is_vendors_landing = is_page( 'vendors' ) || is_page_template( 'page-vendors.php' );
 
-    if ( is_front_page() || $is_venues_landing ) {
+    if ( is_front_page() || $is_venues_landing || $is_vendors_landing ) {
+        // home.css owns the .hero__* search styles used by the shared
+        // hero-search component on the home, venues, and vendors landings.
         wp_enqueue_style( 'sdwdv2-home', $theme_uri . '/assets/css/pages/home.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/home.css' ) );
     }
 
@@ -109,8 +112,6 @@ add_action( 'wp_enqueue_scripts', function () {
     if ( $is_venues_landing || is_post_type_archive( 'venue' ) || is_tax( 'venue-type' ) || is_tax( 'venue-location' ) ) {
         wp_enqueue_style( 'sdwdv2-venues', $theme_uri . '/assets/css/pages/venues.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/venues.css' ) );
     }
-
-    $is_vendors_landing = is_page( 'vendors' ) || is_page_template( 'page-vendors.php' );
 
     if ( $is_vendors_landing || is_post_type_archive( 'vendor' ) || is_tax( 'vendor-category' ) ) {
         wp_enqueue_style( 'sdwdv2-vendors', $theme_uri . '/assets/css/pages/vendors.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/vendors.css' ) );
@@ -139,6 +140,35 @@ add_action( 'wp_enqueue_scripts', function () {
 
     if ( is_singular( 'post' ) || is_category() || is_page_template( 'page-inspiration.php' ) ) {
         wp_enqueue_style( 'sdwdv2-blog', $theme_uri . '/assets/css/pages/blog.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/blog.css' ) );
+    }
+
+    // Wedding Inspiration (blog index) — new template.
+    if ( is_page_template( 'wedding-inspiration.php' ) ) {
+        wp_enqueue_style( 'sdwdv2-wedding-inspiration', $theme_uri . '/assets/css/pages/wedding-inspiration.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/wedding-inspiration.css' ) );
+    }
+
+    // Wedding Inspiration (category parent view) — fires on every category
+    // archive except the planning carve-out, which uses planning.css above.
+    if ( is_category() && ! ( $is_planning ) ) {
+        wp_enqueue_style( 'sdwdv2-wedding-inspiration-parent', $theme_uri . '/assets/css/pages/wedding-inspiration-parent.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/wedding-inspiration-parent.css' ) );
+    }
+
+    // Wedding Registry landing + child.
+    if ( is_page_template( 'page-registry.php' ) || is_page_template( 'page-registry-child.php' ) ) {
+        // Registry's bottom block reuses planning's tool-card-row styles.
+        wp_enqueue_style( 'sdwdv2-planning', $theme_uri . '/assets/css/pages/planning.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/planning.css' ) );
+        wp_enqueue_style( 'sdwdv2-registry', $theme_uri . '/assets/css/pages/registry.css', [ 'sdwdv2-planning' ], $asset_version( '/assets/css/pages/registry.css' ) );
+    }
+    if ( is_page_template( 'page-registry-child.php' ) ) {
+        wp_enqueue_style( 'sdwdv2-registry-child', $theme_uri . '/assets/css/pages/registry-child.css', [ 'sdwdv2-registry' ], $asset_version( '/assets/css/pages/registry-child.css' ) );
+    }
+
+    // Cost landing + child.
+    if ( is_page_template( 'cost.php' ) ) {
+        wp_enqueue_style( 'sdwdv2-cost', $theme_uri . '/assets/css/pages/cost.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/cost.css' ) );
+    }
+    if ( is_page_template( 'cost-child.php' ) ) {
+        wp_enqueue_style( 'sdwdv2-cost-child', $theme_uri . '/assets/css/pages/cost-child.css', [ 'sdwdv2-layout' ], $asset_version( '/assets/css/pages/cost-child.css' ) );
     }
 
     if ( is_page_template( [ 'page-about.php', 'page-contact.php', 'page-faqs.php', 'page-policy.php', 'page-our-team.php' ] )
@@ -185,6 +215,17 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_script( 'sdwdv2-app', $theme_uri . '/assets/js/app.js', [], $asset_version( '/assets/js/app.js' ), true );
 
 } );
+
+remove_action( 'wp_head', 'wp_site_icon', 99 );
+remove_action( 'admin_head', 'wp_site_icon' );
+remove_action( 'login_head', 'wp_site_icon' );
+
+function sdwd_favicon() {
+    echo '<link rel="icon" href="' . get_stylesheet_directory_uri() . '/favicon.ico" sizes="32x32">';
+    echo '<link rel="icon" type="image/svg+xml" href="' . get_stylesheet_directory_uri() . '/assets/icons/favicon.svg">';
+    echo '<link rel="icon" type="image/png" sizes="32x32" href="' . get_stylesheet_directory_uri() . '/assets/icons/favicon-32x32.png">';
+}
+add_action( 'wp_head', 'sdwd_favicon' );
 
 // Nav walker for mega menu
 require_once get_template_directory() . '/inc/sd-mega-navwalker.php';
@@ -242,4 +283,3 @@ add_action( 'widgets_init', function () {
         'after_title'   => '</h3>',
     ] );
 } );
-

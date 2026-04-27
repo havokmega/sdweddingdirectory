@@ -1,5 +1,7 @@
 # AGENTS.md — San Diego Wedding Directory
 
+# Rules for Codex
+
 ## MANDATORY — Read Before ANY Action
 
 ### First steps for every session

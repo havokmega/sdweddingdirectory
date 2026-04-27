@@ -68,14 +68,13 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 24px;
   align-items: center;
-  padding: 2.5px 0;
+  padding-block: 2.5px;
   min-height: 92px;
 }
 
 .header__brand img {
   height: 44px;
   width: auto;
-  margin-left: 25px;
 }
 
 .header__nav {
@@ -195,7 +194,6 @@
   gap: 8px;
   flex: 0 0 auto;
   align-items: center;
-  margin-right: 70px;
   position: relative;
   z-index: 35;
 }
@@ -636,7 +634,6 @@
 .footer__tiny .footer__logo {
   display: inline-flex;
   align-items: center;
-  margin-left: -30px;
 }
 
 .footer__tiny .footer__logo img {

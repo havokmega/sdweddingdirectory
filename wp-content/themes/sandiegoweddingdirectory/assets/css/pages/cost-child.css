@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Page: Cost Child (cost-child.php)
+   ========================================================================== */
+
+/* ---------- s1: breadcrumb + H1 + cost chart with 5 price overlays ---------- */
+.cost-child-s1-breadcrumb-page-header {
+    padding: 32px 0 24px;
+    background: var(--sdwd-bg);
+}
+
+.cost-child-s1-breadcrumb-page-header__crumbs {
+    font-size: var(--sdwd-h6);
+    color: var(--sdwd-muted);
+    margin-bottom: 12px;
+}
+
+.cost-child-s1-breadcrumb-page-header__crumbs a {
+    color: var(--sdwd-muted);
+    text-decoration: none;
+}
+
+.cost-child-s1-breadcrumb-page-header__crumbs a:hover {
+    color: var(--sdwd-accent);
+}
+
+.cost-child-s1-breadcrumb-page-header__sep {
+    margin: 0 8px;
+    color: var(--sdwd-border);
+}
+
+.cost-child-s1-breadcrumb-page-header__title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h1);
+    color: var(--sdwd-dark);
+    margin: 0 0 24px;
+}
+
+/* 2-column row: chart on the left, sidebar on the right.
+   Stacks to a single column on smaller screens. */
+.cost-child-s1-breadcrumb-page-header__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sdwd-row-gap);
+    align-items: start;
+}
+
+@media (min-width: 1000px) {
+    .cost-child-s1-breadcrumb-page-header__layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 48px;
+    }
+}
+
+/* Chart figure: holds the cost-image-blank.png plus 5 absolutely-positioned
+   price labels. Spans the full left column so its edges line up with the
+   3-vendor-card row below. Percentage-based overlays stay aligned because
+   the image keeps its intrinsic aspect ratio at any size. */
+.cost-child-s1-breadcrumb-page-header__chart {
+    position: relative;
+    margin: 0;
+    width: 100%;
+}
+
+/* Sidebar card to the right of the chart. */
+.cost-child-s1-breadcrumb-page-header__sidebar {
+    width: 100%;
+}
+
+.cost-child-s1-breadcrumb-page-header__sidebar-card {
+    background: var(--sdwd-accent-bg-soft);
+    border-radius: var(--sdwd-radius-lg);
+    padding: 24px;
+}
+
+.cost-child-s1-breadcrumb-page-header__sidebar-title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h4);
+    color: var(--sdwd-dark);
+    margin: 0 0 12px;
+}
+
+.cost-child-s1-breadcrumb-page-header__sidebar-text {
+    color: var(--sdwd-body-text);
+    margin: 0 0 16px;
+}
+
+.cost-child-s1-breadcrumb-page-header__sidebar-cta {
+    width: 100%;
+}
+
+.cost-child-s1-breadcrumb-page-header__chart-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.cost-child-s1-breadcrumb-page-header__price {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-family: var(--sdwd-heading-font);
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* 1) Dark teal pill in the bell curve — white text on dark background. */
+.cost-child-s1-breadcrumb-page-header__price--pill {
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 5px));
+    color: var(--sdwd-bg);
+    font-size: 18px;
+}
+
+/* 2-5) Bottom row grey value boxes (in same horizontal positions as the
+   icon-circles + labels above them). Slightly darker text on light bg. */
+.cost-child-s1-breadcrumb-page-header__price--lower,
+.cost-child-s1-breadcrumb-page-header__price--upper,
+.cost-child-s1-breadcrumb-page-header__price--typical,
+.cost-child-s1-breadcrumb-page-header__price--average {
+    top: 92%;
+    transform: translate(-50%, calc(-50% - 18px));
+    color: var(--sdwd-dark);
+    font-size: 16px;
+}
+
+.cost-child-s1-breadcrumb-page-header__price--lower   { left: 14%; }
+.cost-child-s1-breadcrumb-page-header__price--upper   { left: 36.5%; }
+.cost-child-s1-breadcrumb-page-header__price--typical { left: 61.5%; }
+.cost-child-s1-breadcrumb-page-header__price--average { left: 86%; }
+
+@media (max-width: 600px) {
+    .cost-child-s1-breadcrumb-page-header__price--pill { font-size: 14px; }
+    .cost-child-s1-breadcrumb-page-header__price--lower,
+    .cost-child-s1-breadcrumb-page-header__price--upper,
+    .cost-child-s1-breadcrumb-page-header__price--typical,
+    .cost-child-s1-breadcrumb-page-header__price--average { font-size: 12px; }
+}
+
+/* Vendor-card row that sits below the chart in the same left column. */
+.cost-child-s1-breadcrumb-page-header__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sdwd-row-gap);
+}
+
+.cost-child-s1-breadcrumb-page-header__vendors-heading {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h3);
+    color: var(--sdwd-dark);
+    margin: 0 0 16px;
+}
+
+.cost-child-s1-breadcrumb-page-header__vendor-grid {
+    margin-bottom: var(--sdwd-row-gap);
+}
+
+.cost-child-s1-breadcrumb-page-header__vendors-cta {
+    text-align: center;
+}
+
+/* ---------- s2: content + sidebar ---------- */
+.cost-child-s2-content-sidebar__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sdwd-row-gap);
+}
+
+.cost-child-s2-content-sidebar__main {
+    font-size: var(--sdwd-body);
+    color: var(--sdwd-body-text);
+}
+
+.cost-child-s2-content-sidebar__main h2 {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h2);
+    color: var(--sdwd-dark);
+    margin-top: var(--sdwd-row-gap);
+    margin-bottom: 12px;
+}
+
+.cost-child-s2-content-sidebar__main p {
+    margin-bottom: 16px;
+}
+
+.cost-child-s2-content-sidebar__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sdwd-row-gap);
+}
+
+.cost-child-s2-content-sidebar__widget {
+    background: var(--sdwd-soft);
+    border-radius: var(--sdwd-radius-lg);
+    padding: 24px;
+}
+
+.cost-child-s2-content-sidebar__widget--cta {
+    background: var(--sdwd-accent-bg-soft);
+}
+
+.cost-child-s2-content-sidebar__widget-title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h4);
+    color: var(--sdwd-dark);
+    margin: 0 0 12px;
+}
+
+.cost-child-s2-content-sidebar__jump {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cost-child-s2-content-sidebar__jump li + li {
+    margin-top: 8px;
+}
+
+.cost-child-s2-content-sidebar__jump a {
+    color: var(--sdwd-link);
+    text-decoration: none;
+}
+
+.cost-child-s2-content-sidebar__jump a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1000px) {
+    .cost-child-s2-content-sidebar__inner {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 48px;
+    }
+
+    .cost-child-s2-content-sidebar__sidebar {
+        position: sticky;
+        top: 96px;
+        align-self: start;
+    }
+}
+
+/* ---------- s3: 3-up image cards borderless ---------- */
+.cost-child-s3-image-cards-3up-borderless__header {
+    text-align: center;
+    margin-bottom: var(--sdwd-row-gap);
+}
+
+.cost-child-s3-image-cards-3up-borderless__heading {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h2);
+    color: var(--sdwd-dark);
+    margin: 0;
+}
+
+.cost-child-s3-image-cards-3up-borderless__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sdwd-row-gap);
+    text-align: center;
+}
+
+.cost-child-s3-image-cards-3up-borderless__media {
+    margin-bottom: 16px;
+    border-radius: var(--sdwd-radius-lg);
+    overflow: hidden;
+}
+
+.cost-child-s3-image-cards-3up-borderless__image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.cost-child-s3-image-cards-3up-borderless__title {
+    font-family: var(--sdwd-heading-font);
+    font-size: var(--sdwd-h4);
+    color: var(--sdwd-dark);
+    margin: 0 0 6px;
+}
+
+.cost-child-s3-image-cards-3up-borderless__desc {
+    color: var(--sdwd-body-text);
+    margin: 0;
+}
+
+@media (min-width: 800px) {
+    .cost-child-s3-image-cards-3up-borderless__list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- s4: 3-col inline links ---------- */
+.cost-child-s4-3col-links__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    border-top: 1px solid var(--sdwd-border);
+    padding-top: var(--sdwd-row-gap);
+}
+
+.cost-child-s4-3col-links__link {
+    color: var(--sdwd-link);
+    text-decoration: none;
+}
+
+.cost-child-s4-3col-links__link:hover {
+    color: var(--sdwd-link-hover);
+    text-decoration: underline;
+}
+
+.cost-child-s4-3col-links__item.is-current .cost-child-s4-3col-links__link {
+    color: var(--sdwd-dark);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+@media (min-width: 700px) {
+    .cost-child-s4-3col-links__list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+    .cost-child-s4-3col-links__list { grid-template-columns: repeat(3, 1fr); }
+}

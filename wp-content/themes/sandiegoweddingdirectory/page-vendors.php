@@ -96,31 +96,11 @@ $seo_columns = [
 			?>
 			<h1 class="search-hero__title"><?php esc_html_e( 'Wedding Vendors', 'sandiegoweddingdirectory' ); ?></h1>
 
-			<form class="search-hero__form" action="<?php echo esc_url( home_url( '/vendors/' ) ); ?>" method="get">
-				<div class="search-hero__field search-hero__field--type">
-					<span class="search-hero__icon icon-search" aria-hidden="true"></span>
-					<select class="search-hero__select" name="vendor_cat" aria-label="<?php esc_attr_e( 'Vendor category', 'sandiegoweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Wedding Vendors', 'sandiegoweddingdirectory' ); ?></option>
-						<?php foreach ( $vendor_categories as $cat ) : ?>
-							<option value="<?php echo esc_attr( $cat->term_id ); ?>"><?php echo esc_html( $cat->name ); ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
-
-				<div class="search-hero__field search-hero__field--location">
-					<span class="search-hero__icon icon-map-marker" aria-hidden="true"></span>
-					<select class="search-hero__select" name="location" aria-label="<?php esc_attr_e( 'Location', 'sandiegoweddingdirectory' ); ?>">
-						<option value=""><?php esc_html_e( 'Location', 'sandiegoweddingdirectory' ); ?></option>
-						<?php foreach ( $location_terms as $loc ) : ?>
-							<option value="<?php echo esc_attr( $loc->slug ); ?>"><?php echo esc_html( $loc->name ); ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
-
-				<button class="btn btn--primary search-hero__submit" type="submit">
-					<?php esc_html_e( 'Search', 'sandiegoweddingdirectory' ); ?>
-				</button>
-			</form>
+			<?php
+			get_template_part( 'template-parts/components/hero-search', null, [
+				'default_mode' => 'vendors',
+			] );
+			?>
 		</div>
 	</section>
 

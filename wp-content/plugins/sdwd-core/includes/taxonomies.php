@@ -58,7 +58,10 @@ function sdwd_register_taxonomies() {
         'show_admin_column' => true,
         'show_in_nav_menus' => true,
         'show_in_rest'      => false,
-        'rewrite'           => [ 'slug' => 'venues/type', 'with_front' => false ],
+        // Both venue-type and venue-location share the `/venues/{slug}/` URL
+        // shape. Location owns the rewrite; type slugs are dispatched via the
+        // `request` filter below when the slug doesn't match any location term.
+        'rewrite'           => false,
     ] );
 
     // ── Venue Location ──────────────────────────────────────
@@ -83,4 +86,34 @@ function sdwd_register_taxonomies() {
         'show_in_rest'      => false,
         'rewrite'           => [ 'slug' => 'venues', 'with_front' => false ],
     ] );
+}
+
+/**
+ * Dispatch `/venues/{slug}/` between venue-location and venue-type.
+ *
+ * Only venue-location owns the `venues` rewrite (see above), so WordPress
+ * always parses `/venues/{slug}/` into a `venue-location` query. If that slug
+ * is actually a `venue-type` term, swap the query vars before WP_Query runs.
+ */
+add_filter( 'request', 'sdwd_dispatch_venue_taxonomy_slug' );
+
+function sdwd_dispatch_venue_taxonomy_slug( $qv ) {
+    if ( empty( $qv['venue-location'] ) ) {
+        return $qv;
+    }
+
+    $slug = $qv['venue-location'];
+
+    if ( get_term_by( 'slug', $slug, 'venue-location' ) ) {
+        return $qv;
+    }
+
+    if ( get_term_by( 'slug', $slug, 'venue-type' ) ) {
+        unset( $qv['venue-location'] );
+        $qv['venue-type'] = $slug;
+        $qv['taxonomy']   = 'venue-type';
+        $qv['term']       = $slug;
+    }
+
+    return $qv;
 }

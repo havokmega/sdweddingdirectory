@@ -197,7 +197,21 @@
   border-radius: var(--sdwd-hero-search-radius);
   background: var(--sdwd-bg);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  /* P1-FIX-02: was overflow:hidden, which clipped the dropdown panel. */
+  overflow: visible;
+}
+
+/* Mask corner artifacts now that overflow is visible (mobile = stacked,
+   so the first field needs the top corners; submit already rounds bottom). */
+.hero__form-fields > .hero__field:first-child {
+  border-top-left-radius: var(--sdwd-hero-search-radius);
+  border-top-right-radius: var(--sdwd-hero-search-radius);
+}
+
+/* Vendor mode shows a single field — span the full width so the search
+   bar stays the same length and the submit button stays in place. */
+.hero__form-fields.hero__vendor-fields {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .hero__form-fields {
@@ -306,18 +320,17 @@
 }
 
 .hero__dropdown-panel {
-  position: absolute;
-  top: 100%;
-  left: -16px;
-  right: -16px;
+  /* P1-FIX-02: JS sets position:fixed inline so the panel escapes the
+     `.hero { overflow: hidden }` clip. CSS owns the width — JS only
+     anchors top/left to the form's bottom-left corner. */
   z-index: 100;
+  min-width: 460px;
+  max-width: calc(100vw - 32px);
   background: var(--sdwd-bg);
   border: 1px solid var(--sdwd-border);
-  border-radius: 0 0 var(--sdwd-radius-lg) var(--sdwd-radius-lg);
+  border-radius: var(--sdwd-radius-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 16px;
-  max-height: 320px;
-  overflow-y: auto;
 }
 
 .hero__dropdown-panel[hidden] {
@@ -328,6 +341,14 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 4px;
+}
+
+.hero__dropdown-panel[data-panel="venue-location"] {
+  min-width: 600px;
+}
+
+.hero__dropdown-panel[data-panel="venue-location"] .hero__dropdown-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .hero__dropdown-item {
@@ -358,7 +379,7 @@
 
 /* Mega-menu variant: vendor-category dropdown (P1-FIX-02) */
 .hero__dropdown-panel--mega {
-  max-height: 480px;
+  min-width: 720px;
   padding: 20px;
 }
 
@@ -428,6 +449,16 @@
     grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.9fr);
   }
 
+  .hero__form-fields.hero__vendor-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Desktop: first field is on the LEFT of the form (not the top). */
+  .hero__form-fields > .hero__field:first-child {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--sdwd-hero-search-radius);
+  }
+
   .hero__field + .hero__field {
     border-top: 0;
     border-left: 1px solid var(--sdwd-mega-card-border);
@@ -439,11 +470,6 @@
     border-radius: 0 var(--sdwd-hero-search-radius) var(--sdwd-hero-search-radius) 0;
   }
 
-  .hero__dropdown-panel {
-    left: -16px;
-    right: auto;
-    min-width: 420px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -802,7 +828,7 @@
 }
 
 .home-realweddings__image-wrap {
-  aspect-ratio: 1 / 1.08;
+  aspect-ratio: 3 / 2;
   background: var(--sdwd-soft);
 }
 
