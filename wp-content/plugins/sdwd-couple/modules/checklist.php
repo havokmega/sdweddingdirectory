@@ -24,13 +24,15 @@ function sdwd_handle_save_checklist() {
     }
 
     $clean = [];
-    foreach ( array_slice( $items, 0, 100 ) as $item ) {
+    foreach ( array_slice( $items, 0, 200 ) as $item ) {
         $text = sanitize_text_field( wp_unslash( $item['text'] ?? '' ) );
         if ( ! empty( $text ) ) {
             $clean[] = [
+                'id'        => sanitize_key( $item['id'] ?? '' ) ?: ( 't' . wp_rand( 1000, 999999 ) ),
                 'text'      => $text,
                 'completed' => ! empty( $item['completed'] ),
                 'due_date'  => sanitize_text_field( $item['due_date'] ?? '' ),
+                'group'     => sanitize_key( $item['group'] ?? '' ),
             ];
         }
     }

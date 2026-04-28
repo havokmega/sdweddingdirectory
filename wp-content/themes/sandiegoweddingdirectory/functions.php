@@ -185,19 +185,55 @@ add_action( 'wp_enqueue_scripts', function () {
             // Module-specific nonces — sdwd-couple/modules/{module}.php each
             // verifies its own nonce via check_ajax_referer. Consumer JS reads
             // e.g. sdwd_dash.budget_nonce and posts as 'nonce'. (LG-01)
-            'budget_nonce'    => wp_create_nonce( 'sdwd_budget_nonce' ),
-            'checklist_nonce' => wp_create_nonce( 'sdwd_checklist_nonce' ),
-            'quote_nonce'     => wp_create_nonce( 'sdwd_quote_nonce' ),
-            'review_nonce'    => wp_create_nonce( 'sdwd_review_nonce' ),
-            'wishlist_nonce'  => wp_create_nonce( 'sdwd_wishlist_nonce' ),
+            'budget_nonce'       => wp_create_nonce( 'sdwd_budget_nonce' ),
+            'checklist_nonce'    => wp_create_nonce( 'sdwd_checklist_nonce' ),
+            'quote_nonce'        => wp_create_nonce( 'sdwd_quote_nonce' ),
+            'review_nonce'       => wp_create_nonce( 'sdwd_review_nonce' ),
+            'wishlist_nonce'     => wp_create_nonce( 'sdwd_wishlist_nonce' ),
+            'guests_nonce'       => wp_create_nonce( 'sdwd_guests_nonce' ),
+            'password_nonce'     => wp_create_nonce( 'sdwd_password_nonce' ),
+            'seating_nonce'      => wp_create_nonce( 'sdwd_seating_nonce' ),
+            'website_nonce'      => wp_create_nonce( 'sdwd_website_nonce' ),
+            'real_wedding_nonce' => wp_create_nonce( 'sdwd_real_wedding_nonce' ),
+            'packages_nonce'     => wp_create_nonce( 'sdwd_packages_nonce' ),
+            'hours_nonce'        => wp_create_nonce( 'sdwd_hours_nonce' ),
+            'filters_nonce'      => wp_create_nonce( 'sdwd_filters_nonce' ),
+            'quote_reply_nonce'  => wp_create_nonce( 'sdwd_quote_reply_nonce' ),
         ] );
 
-        if ( get_page_template_slug( get_queried_object_id() ) ==='user-template/couple-dashboard.php' ) {
-            wp_enqueue_style( 'sdwdv2-couple-dashboard', $theme_uri . '/assets/css/pages/couple-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/couple-dashboard.css' ) );
+        $current_tpl = get_page_template_slug( get_queried_object_id() );
+        $couple_dashboard_tpls = [
+            'user-template/couple-dashboard.php',
+            'user-template/couple-profile.php',
+            'user-template/couple-vendor-manager.php',
+            'user-template/couple-checklist.php',
+            'user-template/couple-budget.php',
+            'user-template/couple-seating-chart.php',
+            'user-template/couple-guest-management.php',
+            'user-template/couple-real-wedding.php',
+            'user-template/couple-reviews.php',
+            'user-template/couple-website.php',
+        ];
+        if ( in_array( $current_tpl, $couple_dashboard_tpls, true ) ) {
+            wp_enqueue_style(  'sdwdv2-couple-dashboard', $theme_uri . '/assets/css/pages/couple-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/couple-dashboard.css' ) );
+            wp_enqueue_script( 'sdwdv2-couple-dashboard', $theme_uri . '/assets/js/couple-dashboard.js', [ 'sdwd-dashboard' ], $asset_version( '/assets/js/couple-dashboard.js' ), true );
         }
 
-        if ( get_page_template_slug( get_queried_object_id() ) ==='user-template/vendor-dashboard.php' ) {
-            wp_enqueue_style( 'sdwdv2-vendor-dashboard', $theme_uri . '/assets/css/pages/vendor-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/vendor-dashboard.css' ) );
+        $vendor_dashboard_tpls = [
+            'user-template/vendor-dashboard.php',
+            'user-template/vendor-profile-tabs.php',
+            'user-template/vendor-packages.php',
+            'user-template/vendor-hours.php',
+            'user-template/vendor-quote-requests.php',
+            'user-template/vendor-reviews.php',
+            'user-template/venue-dashboard.php',
+        ];
+        if ( in_array( $current_tpl, $vendor_dashboard_tpls, true ) ) {
+            wp_enqueue_style(  'sdwdv2-vendor-dashboard', $theme_uri . '/assets/css/pages/vendor-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/vendor-dashboard.css' ) );
+            // Reuse the couple dashboard CSS+JS — it owns the shared .cd-* tokens
+            // (forms, tabs, modal, toast) that vendor pages also use.
+            wp_enqueue_style(  'sdwdv2-couple-dashboard', $theme_uri . '/assets/css/pages/couple-dashboard.css', [ 'sdwdv2-dashboard' ], $asset_version( '/assets/css/pages/couple-dashboard.css' ) );
+            wp_enqueue_script( 'sdwdv2-couple-dashboard', $theme_uri . '/assets/js/couple-dashboard.js', [ 'sdwd-dashboard' ], $asset_version( '/assets/js/couple-dashboard.js' ), true );
         }
     }
 
@@ -263,9 +299,23 @@ function sdwdv2_is_dashboard_page() {
     return in_array( $template, [
         'user-template/vendor-dashboard.php',
         'user-template/vendor-profile.php',
+        'user-template/vendor-profile-tabs.php',
+        'user-template/vendor-packages.php',
+        'user-template/vendor-hours.php',
+        'user-template/vendor-quote-requests.php',
+        'user-template/vendor-reviews.php',
         'user-template/venue-dashboard.php',
         'user-template/venue-profile.php',
         'user-template/couple-dashboard.php',
+        'user-template/couple-profile.php',
+        'user-template/couple-vendor-manager.php',
+        'user-template/couple-checklist.php',
+        'user-template/couple-budget.php',
+        'user-template/couple-seating-chart.php',
+        'user-template/couple-guest-management.php',
+        'user-template/couple-real-wedding.php',
+        'user-template/couple-reviews.php',
+        'user-template/couple-website.php',
     ], true );
 }
 

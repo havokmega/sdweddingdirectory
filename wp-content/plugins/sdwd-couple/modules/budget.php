@@ -25,15 +25,15 @@ function sdwd_handle_save_budget() {
     }
 
     $clean = [];
-    foreach ( array_slice( $items, 0, 50 ) as $item ) {
+    foreach ( array_slice( $items, 0, 100 ) as $item ) {
         $category = sanitize_text_field( wp_unslash( $item['category'] ?? '' ) );
         if ( ! empty( $category ) ) {
             $clean[] = [
-                'category'  => $category,
-                'estimated' => floatval( $item['estimated'] ?? 0 ),
-                'actual'    => floatval( $item['actual'] ?? 0 ),
-                'paid'      => floatval( $item['paid'] ?? 0 ),
-                'notes'     => sanitize_text_field( wp_unslash( $item['notes'] ?? '' ) ),
+                'category' => $category,
+                'vendor'   => sanitize_text_field( wp_unslash( $item['vendor'] ?? '' ) ),
+                'amount'   => floatval( $item['amount'] ?? 0 ),
+                'paid'     => ! empty( $item['paid'] ),
+                'notes'    => sanitize_text_field( wp_unslash( $item['notes'] ?? '' ) ),
             ];
         }
     }

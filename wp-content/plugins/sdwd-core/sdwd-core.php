@@ -39,6 +39,7 @@ add_action( 'plugins_loaded', function () {
     require_once SDWD_CORE_PATH . 'includes/user-post-link.php';
     require_once SDWD_CORE_PATH . 'includes/auth.php';
     require_once SDWD_CORE_PATH . 'includes/dashboard.php';
+    require_once SDWD_CORE_PATH . 'includes/vendor-frontend.php';
     require_once SDWD_CORE_PATH . 'includes/claim.php';
     require_once SDWD_CORE_PATH . 'includes/quote.php';
 

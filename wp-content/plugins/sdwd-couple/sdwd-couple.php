@@ -24,4 +24,9 @@ add_action( 'plugins_loaded', function () {
     require_once SDWD_COUPLE_PATH . 'modules/wishlist.php';
     require_once SDWD_COUPLE_PATH . 'modules/checklist.php';
     require_once SDWD_COUPLE_PATH . 'modules/budget.php';
+    require_once SDWD_COUPLE_PATH . 'modules/guests.php';
+    require_once SDWD_COUPLE_PATH . 'modules/password.php';
+    require_once SDWD_COUPLE_PATH . 'modules/seating.php';
+    require_once SDWD_COUPLE_PATH . 'modules/website.php';
+    require_once SDWD_COUPLE_PATH . 'modules/real-wedding.php';
 }, 10 );

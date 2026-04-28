@@ -132,8 +132,33 @@ function sdwd_save_dashboard() {
 
     // Couple-specific fields.
     if ( $role === 'couple' ) {
-        if ( isset( $_POST['sdwd_wedding_date'] ) ) {
-            update_post_meta( $post_id, 'sdwd_wedding_date', sanitize_text_field( wp_unslash( $_POST['sdwd_wedding_date'] ) ) );
+        $couple_text_fields = [
+            'sdwd_wedding_date',
+            'sdwd_partner_first_name',
+            'sdwd_partner_last_name',
+            'sdwd_wedding_color',
+            'sdwd_wedding_season',
+            'sdwd_wedding_style',
+            'sdwd_wedding_attire',
+            'sdwd_wedding_honeymoon',
+        ];
+        foreach ( $couple_text_fields as $key ) {
+            if ( isset( $_POST[ $key ] ) ) {
+                update_post_meta( $post_id, $key, sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) );
+            }
+        }
+
+        // Social links (couple) — array of [ platform, url ].
+        if ( isset( $_POST['social'] ) && is_array( $_POST['social'] ) ) {
+            $links = [];
+            foreach ( $_POST['social'] as $row ) {
+                $platform = sanitize_key( wp_unslash( $row['platform'] ?? '' ) );
+                $url      = esc_url_raw( wp_unslash( $row['url'] ?? '' ) );
+                if ( $platform && $url ) {
+                    $links[] = [ 'platform' => $platform, 'url' => $url ];
+                }
+            }
+            update_user_meta( $user->ID, 'sdwd_social_links', $links );
         }
     }
 

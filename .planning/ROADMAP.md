@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-04-27 — SCOPE LOCK BANNER
+
+Founder pivot: Search, Cost (parent + child), Registry pages are DONE. Remaining active scope is collapsed to one body of work: **the dashboard plugin rebuild + the public pages those dashboards feed** (couple dashboard, vendor/venue dashboard, vendor single, venue single, wedding website template, real wedding single). After that ships, an AI-driven security sweep closes Phase 2 security REQs.
+
+Detailed architecture spec lives in chat / `Documentation/dashboard-spec.md` (TBD). Three tracks share one foundation: Track 0 (`.c-` component library + dashboard shell + sticky transparent header), Track A (couple dashboard, 9 sub-phases), Track B (vendor/venue dashboard, 8 sub-phases), Track C (public frontend pages, 4 sub-phases).
+
+**How this maps to the existing 5-phase roadmap:** the new tracks largely fold into Phase 2 (plugin closeout/parity) + Phase 3 (template ports for single-vendor / single-venue / real-wedding / wedding-website) + Phase 5 (dashboard E2E wiring + LG-03). Phase 1 cleanup items remain. Phase 4 combo SEO pages remain. The 04-27 pivot did NOT add net-new requirements — it confirmed which requirements are the founder's only active interest going forward.
+
+Items now considered TABLED (founder will pick them up one at a time post-plugins): the standalone page ports in Phase 3 that aren't dashboard-feeding (About, Contact, FAQs, Our Team, policy pages, blog/inspiration archive+single+category). They stay in the roadmap but are de-prioritized vs. the dashboard rebuild.
+
+---
+
 ## Phases
 
 - [ ] **Phase 1: Close in-progress + cleanup** — Finish already-in-flight work: polish the 404 page, fix the broken couple registration form, fix the home-page category-search mega-menu dropdown (scoped home-page unlock), and remove dead legacy hooks / standardize the text-domain across the codebase

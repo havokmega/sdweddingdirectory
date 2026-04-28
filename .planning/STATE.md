@@ -5,7 +5,7 @@ milestone_name: milestone
 current_phase: Phase 1 context gathered; plan-phase next
 current_plan: None — awaiting `/gsd-plan-phase 1`
 status: planning
-last_updated: "2026-04-23T08:34:15.530Z"
+last_updated: "2026-04-27T00:00:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 0
@@ -165,6 +165,7 @@ After each phase completes, run `/gsd-transition` to:
 - 2026-04-22 — Initial roadmap + requirements created (70 launch REQs)
 - 2026-04-22 — Phase 1 context gathered (`01-CONTEXT.md` committed)
 - 2026-04-22 — Terminology reset + legacy-recovery re-synthesis: v-language purged; milestone renamed to launch; `P1-FIX-02` home mega-menu added; `P2-DISCO-01` seating-chart hunt added; `P3-PORT-09..14` static pages + profile ports added; `P5-DASH-02` reclassified as port-from-commercial-theme; Wedding Website expand-to-6 deferred to `PL-THEME-01..05`; `DESIGN-REFERENCES.md` created; root `CLAUDE.md` home-lock + root `PROJECT.md` Phase 7/8/9 rewrites applied. Launch requirement count 70 → 75.
+- 2026-04-27 — Scope-lock pivot. Founder confirms Search, Cost (parent + child), Registry pages are DONE. Remaining active scope collapsed to: dashboard plugin rebuild + the public pages dashboards feed (vendor/venue single, wedding website template, real wedding single). Three-track architecture spec'd (Track 0 foundation, A couple dashboard, B vendor/venue dashboard, C public frontend). After plugins ship → AI-driven security sweep closes Phase 2 security REQs. Other tabled work remains in roadmap, founder picks up one at a time post-plugins. Banner added to `.planning/ROADMAP.md`; root `PROJECT.md` updated with §Update 2026-04-27 + table marks for completed pages.
 
 ---
 

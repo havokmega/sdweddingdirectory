@@ -1,6 +1,6 @@
 # PROJECT.md — San Diego Wedding Directory
 
-Last updated: 2026-04-06
+Last updated: 2026-04-27
 
 Single source of truth for tasks. Nothing else tracks tasks — not README.md, not architecture.md, not CLAUDE.md. If it's not in this file, it's not on the list.
 
@@ -15,6 +15,25 @@ The CSS used in the vendor dashboard and couples dashboards looked good. I under
 Below is an updated list. Make notes, we don't even need to know where we've been. You are just picking this up now, so delete the task from everywhere if I say it's done here because otherwise it is just adding noise. 
 
 Also, it should be noted that every element here is 100% copied block for block in the same style used by weddingwire.com/ We could easily look at any page UI, grab the CSS and apply it here. Once I have achieved the same look, I will be modifying from there to make it my own. I just want to use their UI as my starting point so I know I'm got a decent flow through the site.
+
+---
+
+## Update: 2026-04-27 — SCOPE LOCK
+
+Search, Cost (parent + child), and Registry pages are done. With those landed, every remaining item below that isn't tied to the dashboard plugin rebuild is **TABLED** — I'll pick them up one at a time after the plugins ship. Nothing else is active scope.
+
+**Active scope (the only thing being built next):**
+
+The full couple + vendor/venue dashboard rebuild — moving the dashboards from theme templates / shortcake-laden plugins into clean `sdwd-couple` and `sdwd-core` plugin code, plus the public-facing pages they feed (vendor single, venue single, wedding website template, real wedding single). Architecture spec'd in detail (see `Documentation/dashboard-spec.md` once written, or chat history). Three tracks share one foundation:
+
+- **Foundation (Track 0):** `.c-` component library + `.c-dashboard` shell + `.c-site-header` (transparent ↔ sticky). Naming reconciles with CLAUDE.md BEM-lite rule — `.c-` prefix is the block name, modifiers stay BEM-lite (`.c-site-header--sticky`). To confirm at Phase 0 kickoff.
+- **Track A — Couple Dashboard:** 9 sub-phases (landing → profile → vendor mgr → checklist → budget → real-wedding editor → guest+seating → reviews → website editor)
+- **Track B — Vendor/Venue Dashboard:** 8 sub-phases (shell → profile sub-tabs → filters → packages → hours → quote requests → reviews → venue variant). Filters tab is dynamic per category, taxonomy + meta-driven. Vendors NEVER show address/map; venues require both.
+- **Track C — Public Frontend:** 4 sub-phases (vendor single → venue single → wedding website template → real wedding single)
+
+**After plugins ship → security sweep.** AI-driven audit of all the backend stuff (nonces, capability checks, escaping, password handling, rate limiting, etc.) — fix everything I don't see and don't want to think about.
+
+Everything in §1–§7 below that is NOT one of the three tracks above is tabled. Don't pull it forward unless I explicitly say so.
 
 ---
 
@@ -34,12 +53,12 @@ Complete the visual design for every public-facing page before moving to backend
 
 | Page | Status | Notes |
 |------|--------|-------|
-| Home (`/`) | Search doesn't work. Searching by category is supposed to drop down a mega menu. We had this working in some prior version. | unlocked, we need to fix that and we are done. |
+| Home (`/`) | DONE | Search + category mega-menu working as of 2026-04 |
 | Wedding Planning (`/wedding-planning`) | Not an AI task. Content smokehouse got mixed up with child page content. Founder needs to add new copy to the page that makes sense. | Sign-up form, feature blocks, FAQ, breadcrumbs all styled |
 | Planning Child Pages (`/wedding-planning/*`) | PENDING | NEEDS IMAGES THAT WILL COME FROM SCREENSHOTS FROM COUPLES DASHBOARD |
 | Venues Landing (`/venues`) | DONE | Hero responsive, grey outline fix, city links, lorem removal still needed |
-| Venue Search/Results | Was complete in previous version | Search button needs to return results |
-| Vendor Search/Results | Was complete in previous version, location should not be in this hero search. The home page has a radio option for venues and vendors. This element needs to exist above the search bar on both /vendors and /venues. On /venues, venues is the default radio selection. On /vendors, vendors is the default selection. Otherwise it's the exact same search and hero etc. Just with a different H1 | Search button needs to return results |
+| Venue Search/Results | DONE | |
+| Vendor Search/Results | DONE | |
 | Venue Location Archive | DONE | |
 | Venue Type Archive | DONE | Registered and routing; architectural `has_archive => false` note handled by Phase 2 P2-PARITY-01 |
 | Venue Business Profile | Started...very long way to go | was 100% complete in a legacy version somewhere in /WebDevelopment |
@@ -53,9 +72,9 @@ Complete the visual design for every public-facing page before moving to backend
 | Blog Posts (import) | I'm seeing the posts exist in the wp-admin section | just need the wedding-inspiration page to be set up |
 | Real Weddings | Not started | Again , great example of exactly what it should look like here https://weddingdir.net/real-wedding/ratna-jacob/ and it came with the WeddingDir theme. No work to do except for eliminating 3rd party tools |
 | Wedding Website | Not started | here is the themes single template it comes with https://weddingdir.net/website/hitesh-and-priyanka/ so thats done too. Let's focus on getting that one thing wired correctly with no third party tools THEN we can expand to. Include a total of 6 theme options. But lets get what we already have working first. (see Section 5) |
-| Cost Parent Page | Not started | I have this wireframe, we will get to it when we get to |
-| Cost Child Pages | Not started | I have this wireframe, we will get to it when we get to, I ve also collected pricing for each category, and in assets/images/pages I have a image titled cost-image-blank.png that we can use for a background for each of the child pages |
-| Registry Page | Not started | wireframes, again, this is a 1 to 1 with wedding wire |
+| Cost Parent Page | DONE | |
+| Cost Child Pages | DONE | All 17 vendor categories live |
+| Registry Page | DONE | |
 | FAQs Page | Not started |  this was done in a legacy version |
 | About | Not started |  this was done in a legacy version |
 | Contact | Not started |  this was done in a legacy version |

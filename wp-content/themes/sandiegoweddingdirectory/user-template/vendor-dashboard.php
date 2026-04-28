@@ -51,11 +51,11 @@ get_header();
     <div class="vd-wrap">
 
         <?php
-        get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-sidebar-left', null, [
+        get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s1-sidebar', null, [
             'active' => 'dashboard',
         ] );
 
-        get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-hero', null, [
+        get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s2-overview-hero', null, [
             'company_name'     => $company,
             'profile_complete' => $profile_complete,
             'profile_url'      => $profile_url,
@@ -64,11 +64,11 @@ get_header();
 
         <main class="vd-main">
             <?php
-            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-section-1-quote-requests', null, [
+            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s2b-quote-preview', null, [
                 'quotes' => $quotes,
             ] );
 
-            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-section-2-url-slug', null, [
+            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s2c-url-slug', null, [
                 'current_slug' => $current_slug,
                 'profile_url'  => $profile_url,
                 'base_url'     => $base_url,
@@ -78,14 +78,14 @@ get_header();
 
         <aside class="vd-side">
             <?php
-            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-sidebar-right-1-profile-link', null, [
+            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s2d-profile-link', null, [
                 'profile_url'      => $profile_url,
                 'profile_complete' => $profile_complete,
             ] );
 
-            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-sidebar-right-2-tips' );
+            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s2e-tips' );
 
-            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-sidebar-right-3-support' );
+            get_template_part( 'template-parts/vendor-dashboard/vendor-dashboard-s2f-support' );
             ?>
         </aside>
 
