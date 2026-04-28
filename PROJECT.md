@@ -65,7 +65,7 @@ Complete the visual design for every public-facing page before moving to backend
 | Vendors Landing (`/vendors`) | Done | okay to delete this task |
 | Vendor Category Page | Done | okay to delete this task |
 | Vendor Profile Page | same situation as venue profile page | perfect code (from a UI standpoint) exists in som legacy version  |
-| Inspiration (`/wedding-inspiration`) | not started | complete and perfect on some older version |
+| Inspiration (`/wedding-inspiration`) | DONE | Built 2026-04-28 in parallel terminal |
 | Inspiration Archives | mot started | done on an older version |
 | Inspiration Single Posts | Not started | I bought the commercial theme, here is a page that shows the single post layout https://weddingdir.net/what-does-a-wedding-planner-actually-do/ we can literally use that php which we have in a weddingdir folder and just switch out the current themes font |
 | Inspiration Category Archive | not started | was previously done |
@@ -86,9 +86,9 @@ Complete the visual design for every public-facing page before moving to backend
 
 | Dashboard | Status | Notes |
 |-----------|--------|-------|
-| Vendor Dashboard | 80% on v1 | Plugin-driven UI; needs v2 theme wrapper + CSS + QA |
-| Venue Dashboard | 80% on v1 | Plugin-driven UI; needs v2 theme wrapper + CSS + QA |
-| Couple Dashboard | 80% on v1 | Plugin-driven UI; needs v2 theme wrapper + CSS + QA |
+| Vendor Dashboard | DONE | Built 2026-04-27. 6 sub-pages incl. dynamic Filters tab. Self-signup blocks DJs. |
+| Venue Dashboard | DONE | Built 2026-04-27. Reuses vendor templates with role-aware split (address+map+capacity venue-only). |
+| Couple Dashboard | DONE | Built 2026-04-27. Landing + 9 sub-pages, AJAX wired (profile + checklist verified end-to-end). Stubbed: seating drag/drop, website inline editors, real-wedding cover upload, review form save. |
 
 - Again, let's remove anything in notes that refers to this working directory as v2. This is the only theme. 
 
