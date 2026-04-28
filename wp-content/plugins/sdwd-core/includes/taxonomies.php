@@ -117,3 +117,25 @@ function sdwd_dispatch_venue_taxonomy_slug( $qv ) {
 
     return $qv;
 }
+
+/**
+ * Vendor categories that are NOT available via public self-signup.
+ *
+ * The founder is in the DJ space and curates which DJs get profiles —
+ * competitors should not be able to sign up themselves. These slugs are
+ * filtered out of:
+ *   - the public registration modal (template-parts/modals/vendor-registration.php)
+ *   - any frontend dashboard category-change UI
+ *
+ * Public search and category browse pages still SHOW these categories
+ * (couples need to find vendors), and wp-admin still lets the founder
+ * assign them when creating curated profiles directly.
+ *
+ * Filterable via `sdwd_invitation_only_vendor_categories` if more
+ * categories need this treatment later.
+ *
+ * @return string[] Array of taxonomy slugs.
+ */
+function sdwd_invitation_only_vendor_categories() {
+    return apply_filters( 'sdwd_invitation_only_vendor_categories', [ 'djs' ] );
+}

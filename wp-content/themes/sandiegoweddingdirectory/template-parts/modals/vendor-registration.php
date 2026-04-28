@@ -13,6 +13,16 @@ if ( is_wp_error( $vendor_categories ) ) {
     $vendor_categories = [];
 }
 
+// Drop invitation-only categories (e.g. DJs — founder curates that list manually).
+if ( function_exists( 'sdwd_invitation_only_vendor_categories' ) ) {
+    $excluded = sdwd_invitation_only_vendor_categories();
+    if ( ! empty( $excluded ) ) {
+        $vendor_categories = array_values( array_filter( $vendor_categories, function ( $term ) use ( $excluded ) {
+            return ! in_array( $term->slug, $excluded, true );
+        } ) );
+    }
+}
+
 $venue_types = get_terms( [
     'taxonomy'   => 'venue-type',
     'hide_empty' => false,

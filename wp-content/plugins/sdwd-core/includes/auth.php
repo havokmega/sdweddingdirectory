@@ -52,6 +52,21 @@ function sdwd_handle_register() {
         wp_send_json_error( [ 'message' => __( 'Password must be at least 8 characters.', 'sdwd-core' ) ] );
     }
 
+    // Block self-signup into invitation-only vendor categories (e.g. DJs).
+    // Even though the registration modal omits these from its dropdown,
+    // a determined user could POST a forged term_id directly. Reject it here.
+    if ( 'vendor' === $account_type
+        && ! empty( $_POST['vendor_category'] )
+        && function_exists( 'sdwd_invitation_only_vendor_categories' )
+    ) {
+        $submitted_term_id = absint( $_POST['vendor_category'] );
+        $submitted_term    = $submitted_term_id ? get_term( $submitted_term_id, 'vendor-category' ) : null;
+        $excluded_slugs    = sdwd_invitation_only_vendor_categories();
+        if ( $submitted_term && ! is_wp_error( $submitted_term ) && in_array( $submitted_term->slug, $excluded_slugs, true ) ) {
+            wp_send_json_error( [ 'message' => __( 'That category is by invitation only. Please choose another, or contact us directly.', 'sdwd-core' ) ] );
+        }
+    }
+
     // Create user — email is used as the username.
     $user_id = wp_create_user( $email, $password, $email );
     if ( is_wp_error( $user_id ) ) {
