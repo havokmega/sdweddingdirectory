@@ -32,9 +32,7 @@ if ( empty( $items ) ) {
                 <span class="faq-accordion__icon" aria-hidden="true"></span>
             </button>
             <div class="faq-accordion__answer" id="<?php echo esc_attr( $id ); ?>" data-visible="false">
-                <div class="faq-accordion__answer-inner">
-                    <?php echo wp_kses_post( $answer ); ?>
-                </div>
+                <?php echo wp_kses_post( $answer ); ?>
             </div>
         </div>
     <?php endforeach; ?>
