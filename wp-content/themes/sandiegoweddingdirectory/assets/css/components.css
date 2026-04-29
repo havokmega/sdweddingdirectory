@@ -707,32 +707,41 @@
   font-family: 'icomoon';
   font-size: 0.8rem;
   flex-shrink: 0;
+  transition: transform 240ms ease;
 }
 
 .faq-accordion__question[aria-expanded="true"]::after {
   content: '\e93a';
+  transform: rotate(180deg);
 }
 
-/* Slide animation: max-height transition. Works regardless of inner-wrapper
-   markup so it applies cleanly to all three accordion templates (FAQs page,
-   planning-faq section, home value-cols). 600px ceiling is generous for any
-   reasonable FAQ answer; longer ones simply clip during the close animation. */
+/* Smooth slide using grid-template-rows 0fr → 1fr — animates to the content's
+   actual height, no JS height-measuring required. The inner wrapper provides
+   the overflow:hidden surface so the content clips during the transition. */
 .faq-accordion__answer {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   color: var(--sdwd-body-text);
   line-height: 1.6;
-  transition: max-height 320ms cubic-bezier(0.4, 0, 0.2, 1), padding 200ms ease;
+  transition: grid-template-rows 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-accordion__answer-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 
 .faq-accordion__answer[data-visible="true"] {
-  max-height: 600px;
+  grid-template-rows: 1fr;
+}
+
+.faq-accordion__answer[data-visible="true"] .faq-accordion__answer-inner {
   padding: 0 0 18px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .faq-accordion__answer {
+  .faq-accordion__answer,
+  .faq-accordion__question::after {
     transition: none;
   }
 }
